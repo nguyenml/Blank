@@ -1,0 +1,6 @@
+framework module Pods_BlanketUITests {
+  umbrella header "Pods-BlanketUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

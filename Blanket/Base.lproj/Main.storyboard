@@ -1,26 +1,237 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="XEI-vp-7jW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Calender View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CalenderViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLj-g3-dVo" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                                <rect key="frame" x="16" y="20" width="343" height="260"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LLj-g3-dVo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5gl-fD-Tpy"/>
+                            <constraint firstItem="LLj-g3-dVo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pEn-gy-ifN"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LLj-g3-dVo" secondAttribute="bottom" constant="20" id="rvy-Gt-WGY"/>
+                            <constraint firstItem="LLj-g3-dVo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yU6-WQ-ryz"/>
+                        </constraints>
                     </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="300"/>
+                    <connections>
+                        <outlet property="calenderView" destination="LLj-g3-dVo" id="Lgf-CP-mAu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1206" y="514"/>
+        </scene>
+        <!--Logs View Controller-->
+        <scene sceneID="69G-Gg-C6m">
+            <objects>
+                <viewController id="Zgl-xs-80V" customClass="LogsViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bdg-JX-oBg"/>
+                        <viewControllerLayoutGuide type="bottom" id="iez-Oo-P1P"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PGa-b2-8RY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6dq-jf-K6K">
+                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zVr-Tq-Vbl">
+                                <rect key="frame" x="164" y="20" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="goBack:" destination="Zgl-xs-80V" eventType="touchUpInside" id="0w7-Xw-wRj"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="iez-Oo-P1P" firstAttribute="top" secondItem="6dq-jf-K6K" secondAttribute="bottom" id="4bK-7e-51F"/>
+                            <constraint firstItem="6dq-jf-K6K" firstAttribute="top" secondItem="PGa-b2-8RY" secondAttribute="top" id="6R3-Dv-DQ1"/>
+                            <constraint firstItem="6dq-jf-K6K" firstAttribute="leading" secondItem="PGa-b2-8RY" secondAttribute="leading" id="MmG-DM-WZ5"/>
+                            <constraint firstAttribute="trailing" secondItem="6dq-jf-K6K" secondAttribute="trailing" id="aeY-B9-l4L"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="6dq-jf-K6K" id="GQi-Za-0mP"/>
+                        <segue destination="Wst-Mh-5Sr" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="9tA-if-LUS"/>
+                        <segue destination="ar5-Qb-mgG" kind="show" identifier="segueToEntry" id="UI5-Fg-ANK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uCD-FA-Nd8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Wst-Mh-5Sr" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1840.8" y="618.44077961019491"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NfR-QF-rOT">
+            <objects>
+                <viewController id="XEI-vp-7jW" customClass="ViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="b40-ju-NuZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="qXX-ac-Elg"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bip-fl-XEZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kjG-kx-oyC">
+                                <rect key="frame" x="233" y="44" width="126" height="93"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <state key="normal" title="My Log"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="OfP-dw-NFg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-Cg-vjs">
+                                <rect key="frame" x="128" y="279" width="118" height="108"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="hcl-Eu-jyo" kind="show" id="XrF-YZ-xL9"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDC-HF-LgA">
+                                <rect key="frame" x="273" y="128" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="test log"/>
+                                <connections>
+                                    <segue destination="Zgl-xs-80V" kind="show" id="dzS-pj-xwh"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wnV-n5-r0R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1144.8" y="-52.623688155922046"/>
+        </scene>
+        <!--Input View Controller-->
+        <scene sceneID="AQj-sc-BE3">
+            <objects>
+                <viewController id="hcl-Eu-jyo" customClass="InputViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cBe-Bn-hIl"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ogd-wR-eSN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OUN-lb-ehG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ubs-t9-RHh">
+                                <rect key="frame" x="164" y="44" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="GXj-7v-BAU"/>
+                                </constraints>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="goBack:" destination="hcl-Eu-jyo" eventType="touchUpInside" id="MXW-xg-mOB"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mss-Aw-dZa">
+                                <rect key="frame" x="34" y="109" width="307" height="510"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Abd-DI-i9S">
+                                <rect key="frame" x="187" y="36" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Abd-DI-i9S" firstAttribute="centerX" secondItem="Ubs-t9-RHh" secondAttribute="centerX" id="APj-BD-MTM"/>
+                            <constraint firstItem="Ogd-wR-eSN" firstAttribute="top" secondItem="Mss-Aw-dZa" secondAttribute="bottom" constant="48" id="SBT-wl-ewj"/>
+                            <constraint firstItem="Ubs-t9-RHh" firstAttribute="top" secondItem="Abd-DI-i9S" secondAttribute="bottom" constant="8" symbolic="YES" id="VAN-kq-M8h"/>
+                            <constraint firstItem="Mss-Aw-dZa" firstAttribute="top" secondItem="Ubs-t9-RHh" secondAttribute="bottom" constant="35" id="VpI-Vu-zQ4"/>
+                            <constraint firstItem="Mss-Aw-dZa" firstAttribute="leading" secondItem="OUN-lb-ehG" secondAttribute="leadingMargin" constant="18" id="aXX-Vv-SPI"/>
+                            <constraint firstItem="Ubs-t9-RHh" firstAttribute="centerX" secondItem="Mss-Aw-dZa" secondAttribute="centerX" id="ddU-48-oUm"/>
+                            <constraint firstItem="Abd-DI-i9S" firstAttribute="centerX" secondItem="OUN-lb-ehG" secondAttribute="centerX" id="oeG-em-FP1"/>
+                            <constraint firstItem="Abd-DI-i9S" firstAttribute="top" secondItem="cBe-Bn-hIl" secondAttribute="bottom" constant="16" id="r8A-HL-ECB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="Ubs-t9-RHh" id="E0L-pd-d5V"/>
+                        <outlet property="textField" destination="Mss-Aw-dZa" id="gBy-Al-bA8"/>
+                        <outlet property="timer" destination="Abd-DI-i9S" id="bDd-qJ-mEh"/>
+                        <segue destination="hEy-N8-vjM" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="IOX-sY-YjZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wac-TP-zU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hEy-N8-vjM" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="1840.8" y="-45.42728635682159"/>
+        </scene>
+        <!--Individual Entry View Controller-->
+        <scene sceneID="aOJ-gQ-D6R">
+            <objects>
+                <viewController storyboardIdentifier="IndividualEntryViewController" id="ar5-Qb-mgG" customClass="IndividualEntryViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="afM-cy-TBc"/>
+                        <viewControllerLayoutGuide type="bottom" id="OLx-Km-P90"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="78r-eV-CTg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="UIv-XR-PLZ">
+                                <rect key="frame" x="16" y="110" width="343" height="519"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ObC-ha-f0c">
+                                <rect key="frame" x="145" y="51" width="88" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="goBack:" destination="ar5-Qb-mgG" eventType="touchUpInside" id="van-Db-dxX"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="textView" destination="UIv-XR-PLZ" id="9rn-os-r3B"/>
+                        <segue destination="ItU-Cb-QEK" kind="unwind" identifier="unwindToLogs" unwindAction="unwindToLogsWithSegue:" id="3hy-v8-WQ2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ycp-hX-Cit" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="ItU-Cb-QEK" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2647.1999999999998" y="262.21889055472263"/>
         </scene>
     </scenes>
 </document>
