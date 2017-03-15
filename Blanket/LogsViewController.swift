@@ -9,9 +9,7 @@
 import UIKit
 
 class LogsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    @IBAction func goBack(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToMenu", sender: self)
-    }
+
     @IBOutlet weak var tableView: UITableView!
     
     var entries : [Entry] = []
@@ -82,6 +80,10 @@ class LogsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             let dvc = segue.destination as! IndividualEntryViewController
             dvc.entry = object
         }
+    }
+    
+    @IBAction func goBack(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
     @IBAction func unwindToLogs(segue: UIStoryboardSegue) {}

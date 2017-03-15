@@ -17,12 +17,17 @@
 		581DA3BA1E70D66B0051C64B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 581DA3B81E70D66B0051C64B /* LaunchScreen.storyboard */; };
 		581DA3C51E70D66C0051C64B /* BlanketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3C41E70D66C0051C64B /* BlanketTests.swift */; };
 		581DA3D01E70D66C0051C64B /* BlanketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */; };
-		581DA3DE1E70DE6B0051C64B /* CalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3DD1E70DE6B0051C64B /* CalenderViewController.swift */; };
-		581DA3E01E70DF600051C64B /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 581DA3DF1E70DF600051C64B /* CellView.xib */; };
-		581DA3E21E70DF690051C64B /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3E11E70DF680051C64B /* CellView.swift */; };
 		581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3E51E70EB7F0051C64B /* InputViewController.swift */; };
 		585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F71E74604B0011B2E3 /* LogsViewController.swift */; };
 		585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */; };
+		585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FB1E7613D00011B2E3 /* PopUpContainer.swift */; };
+		585297FE1E76D4410011B2E3 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FD1E76D4410011B2E3 /* PopUpViewController.swift */; };
+		585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FF1E76D48B0011B2E3 /* AnimationClass.swift */; };
+		585298021E76D4930011B2E3 /* CalendarPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298011E76D4930011B2E3 /* CalendarPopUp.swift */; };
+		585298041E76D4990011B2E3 /* CalendarPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 585298031E76D4990011B2E3 /* CalendarPopUp.xib */; };
+		585298061E76D4A40011B2E3 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298051E76D4A40011B2E3 /* CellView.swift */; };
+		585298081E76D4AA0011B2E3 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 585298071E76D4AA0011B2E3 /* CellView.xib */; };
+		5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298091E76D4B10011B2E3 /* Extensions.swift */; };
 		8ADD5C9478BB01739E9EF289 /* Pods_Blanket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F210F8755DF50D7DF7D7A4C0 /* Pods_Blanket.framework */; };
 /* End PBXBuildFile section */
 
@@ -63,12 +68,17 @@
 		581DA3CB1E70D66C0051C64B /* BlanketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlanketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlanketUITests.swift; sourceTree = "<group>"; };
 		581DA3D11E70D66C0051C64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		581DA3DD1E70DE6B0051C64B /* CalenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderViewController.swift; sourceTree = "<group>"; };
-		581DA3DF1E70DF600051C64B /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
-		581DA3E11E70DF680051C64B /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		581DA3E51E70EB7F0051C64B /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
 		585297F71E74604B0011B2E3 /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndividualEntryViewController.swift; path = ../IndividualEntryViewController.swift; sourceTree = "<group>"; };
+		585297FB1E7613D00011B2E3 /* PopUpContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpContainer.swift; sourceTree = "<group>"; };
+		585297FD1E76D4410011B2E3 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopUpViewController.swift; path = ../PopUpViewController.swift; sourceTree = "<group>"; };
+		585297FF1E76D48B0011B2E3 /* AnimationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
+		585298011E76D4930011B2E3 /* CalendarPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopUp.swift; sourceTree = "<group>"; };
+		585298031E76D4990011B2E3 /* CalendarPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarPopUp.xib; sourceTree = "<group>"; };
+		585298051E76D4A40011B2E3 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		585298071E76D4AA0011B2E3 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
+		585298091E76D4B10011B2E3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		75B92434C61436E1FCCB85A6 /* Pods-BlanketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C4F866F5A230DFD16B11187E /* Pods-Blanket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blanket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blanket/Pods-Blanket.debug.xcconfig"; sourceTree = "<group>"; };
 		D553F578BB8EE71E6443B6DC /* Pods-BlanketUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -128,13 +138,18 @@
 		581DA3AB1E70D66B0051C64B /* Blanket */ = {
 			isa = PBXGroup;
 			children = (
+				585297FD1E76D4410011B2E3 /* PopUpViewController.swift */,
+				585298071E76D4AA0011B2E3 /* CellView.xib */,
+				585298051E76D4A40011B2E3 /* CellView.swift */,
+				585298031E76D4990011B2E3 /* CalendarPopUp.xib */,
+				585298091E76D4B10011B2E3 /* Extensions.swift */,
+				585298011E76D4930011B2E3 /* CalendarPopUp.swift */,
+				585297FF1E76D48B0011B2E3 /* AnimationClass.swift */,
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
-				581DA3DF1E70DF600051C64B /* CellView.xib */,
-				581DA3E11E70DF680051C64B /* CellView.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3AE1E70D66B0051C64B /* ViewController.swift */,
-				581DA3DD1E70DE6B0051C64B /* CalenderViewController.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				585297FB1E7613D00011B2E3 /* PopUpContainer.swift */,
 				585297F71E74604B0011B2E3 /* LogsViewController.swift */,
 				581DA3E51E70EB7F0051C64B /* InputViewController.swift */,
 				581DA3B61E70D66B0051C64B /* Assets.xcassets */,
@@ -302,7 +317,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				581DA3E01E70DF600051C64B /* CellView.xib in Resources */,
+				585298081E76D4AA0011B2E3 /* CellView.xib in Resources */,
+				585298041E76D4990011B2E3 /* CalendarPopUp.xib in Resources */,
 				581DA3BA1E70D66B0051C64B /* LaunchScreen.storyboard in Resources */,
 				581DA3B71E70D66B0051C64B /* Assets.xcassets in Resources */,
 				581DA3B21E70D66B0051C64B /* Main.storyboard in Resources */,
@@ -468,14 +484,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				585298061E76D4A40011B2E3 /* CellView.swift in Sources */,
+				585298021E76D4930011B2E3 /* CalendarPopUp.swift in Sources */,
+				585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */,
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
-				581DA3DE1E70DE6B0051C64B /* CalenderViewController.swift in Sources */,
-				581DA3E21E70DF690051C64B /* CellView.swift in Sources */,
 				581DA3AF1E70D66B0051C64B /* ViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
 				585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */,
+				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
+				585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
+				585297FE1E76D4410011B2E3 /* PopUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,40 +10,52 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calender View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Pop Up View Controller-->
+        <scene sceneID="1mg-xu-JIe">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CalenderViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yJY-I3-yFK" customClass="PopUpViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="sQb-n7-Sxv"/>
+                        <viewControllerLayoutGuide type="bottom" id="FFH-cX-csT"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                    <view key="view" contentMode="scaleToFill" id="5h8-UP-GMg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLj-g3-dVo" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="16" y="20" width="343" height="260"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 13, 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5a-Os-hUb">
+                                <rect key="frame" x="102" y="225" width="171" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="JYb-7I-Ifg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cs6-gm-vnr">
+                                <rect key="frame" x="151" y="254" width="73" height="30"/>
+                                <state key="normal" title="Calender"/>
+                                <connections>
+                                    <action selector="showCalendar:" destination="yJY-I3-yFK" eventType="touchUpInside" id="UWK-N6-sCT"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="LLj-g3-dVo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5gl-fD-Tpy"/>
-                            <constraint firstItem="LLj-g3-dVo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="pEn-gy-ifN"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="LLj-g3-dVo" secondAttribute="bottom" constant="20" id="rvy-Gt-WGY"/>
-                            <constraint firstItem="LLj-g3-dVo" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="yU6-WQ-ryz"/>
+                            <constraint firstItem="V5a-Os-hUb" firstAttribute="top" secondItem="sQb-n7-Sxv" secondAttribute="bottom" constant="205" id="3j2-ce-iFK"/>
+                            <constraint firstItem="V5a-Os-hUb" firstAttribute="centerX" secondItem="cs6-gm-vnr" secondAttribute="centerX" id="FPn-pd-6ew"/>
+                            <constraint firstItem="cs6-gm-vnr" firstAttribute="top" secondItem="V5a-Os-hUb" secondAttribute="bottom" constant="8" symbolic="YES" id="fjm-b4-QBB"/>
+                            <constraint firstItem="V5a-Os-hUb" firstAttribute="leading" secondItem="5h8-UP-GMg" secondAttribute="leadingMargin" constant="86" id="l3f-Ku-TWk"/>
+                            <constraint firstItem="V5a-Os-hUb" firstAttribute="centerX" secondItem="5h8-UP-GMg" secondAttribute="centerX" id="p9A-wA-dFt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="V5a-Os-hUb" secondAttribute="trailing" constant="86" id="t12-De-YF5"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="300"/>
                     <connections>
-                        <outlet property="calenderView" destination="LLj-g3-dVo" id="Lgf-CP-mAu"/>
+                        <outlet property="dateLabel" destination="V5a-Os-hUb" id="Icl-KE-zcC"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AAd-Fi-k8Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1206" y="514"/>
+            <point key="canvasLocation" x="1068" y="761"/>
         </scene>
         <!--Logs View Controller-->
         <scene sceneID="69G-Gg-C6m">
@@ -107,7 +119,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="My Log"/>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="OfP-dw-NFg"/>
+                                    <segue destination="yJY-I3-yFK" kind="show" id="zBR-pk-K6P"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-Cg-vjs">
