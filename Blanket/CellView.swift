@@ -53,6 +53,14 @@ class CellView: JTAppleDayCellView {
         }
     }
     
+    func didCompleteEntry(_ cellState: CellState,date: Date){
+        let dateFormatter = DateFormatter()
+        let cellStateDateString = dateFormatter.string(from: cellState.date)
+        var isComplete = false
+        
+        
+    }
+    
     func cellSelectionChanged(_ cellState: CellState, date: Date) {
         if cellState.isSelected == true {
             if self.selectedView.isHidden == true {

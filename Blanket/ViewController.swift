@@ -10,8 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var textLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        textLabel.text = "Using Custom Fonts"
+        textLabel.font = UIFont(name: "Dosis-Regular", size: 35)
         // Do any additional setup after loading the view, typically from a nib.
     }
 

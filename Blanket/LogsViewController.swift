@@ -13,9 +13,19 @@ class LogsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     
     var entries : [Entry] = []
+    @IBOutlet weak var dateLabel: UILabel!
+    
+    var aPopupContainer: PopupContainer?
+    var testCalendar = Calendar(identifier: .gregorian)
+    var currentDate: Date! = Date() {
+        didSet {
+            setDate()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentDate = Date()
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -60,6 +70,26 @@ class LogsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
+    @IBAction func showCalendar(_ sender: UIButton) {
+        let xibView = Bundle.main.loadNibNamed("CalendarPopUp", owner: nil, options: nil)?[0] as! CalendarPopUp
+        xibView.calendarDelegate = self
+        xibView.selected = currentDate
+        PopupContainer.generatePopupWithView(xibView).show()
+    }
+    
+    func setDate() {
+        let month = testCalendar.dateComponents([.month], from: currentDate).month!
+        let weekday = testCalendar.component(.weekday, from: currentDate)
+        
+        _ = DateFormatter().monthSymbols[(month-1) % 12] //GetHumanDate(month: month)//
+        _ = DateFormatter().shortWeekdaySymbols[weekday-1]
+        
+        _ = testCalendar.component(.day, from: currentDate)
+        
+    }
+
+    
+    
     func getData(){
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
@@ -87,4 +117,12 @@ class LogsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     @IBAction func unwindToLogs(segue: UIStoryboardSegue) {}
+    
+    
+}
+
+extension LogsViewController: CalendarPopUpDelegate {
+    func dateChaged(date: Date) {
+        currentDate = date
+    }
 }

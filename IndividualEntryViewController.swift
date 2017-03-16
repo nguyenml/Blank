@@ -12,11 +12,13 @@ class IndividualEntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     var entry : Entry!
 
+    @IBOutlet weak var wordCount: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.isEditable = false;
-        textView.isUserInteractionEnabled = false;
         textView.text = entry.text!
+       wordCount.text = String(entry.word_count)
         
         
 
@@ -29,10 +31,9 @@ class IndividualEntryViewController: UIViewController {
     }
     
     
-    @IBAction func goBack(_ sender: Any) {
+    @IBAction func back(_ sender: Any) {
         performSegue(withIdentifier: "unwindToLogs", sender: self)
     }
-    
 
     /*
     // MARK: - Navigation

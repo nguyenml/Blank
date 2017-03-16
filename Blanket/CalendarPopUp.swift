@@ -66,7 +66,6 @@ class CalendarPopUp: UIView {
         calendarView.delegate = self
         calendarView.registerCellViewXib(file: "CellView")
         calendarView.cellInset = CGPoint(x: 0, y: 0)
-        self.calendarView.selectDates(dates as [Date], triggerSelectionDelegate: false)
     }
     
     func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
