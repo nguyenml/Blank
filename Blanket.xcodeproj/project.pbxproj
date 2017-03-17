@@ -21,7 +21,6 @@
 		585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F71E74604B0011B2E3 /* LogsViewController.swift */; };
 		585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */; };
 		585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FB1E7613D00011B2E3 /* PopUpContainer.swift */; };
-		585297FE1E76D4410011B2E3 /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FD1E76D4410011B2E3 /* PopUpViewController.swift */; };
 		585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FF1E76D48B0011B2E3 /* AnimationClass.swift */; };
 		585298021E76D4930011B2E3 /* CalendarPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298011E76D4930011B2E3 /* CalendarPopUp.swift */; };
 		585298041E76D4990011B2E3 /* CalendarPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 585298031E76D4990011B2E3 /* CalendarPopUp.xib */; };
@@ -82,7 +81,6 @@
 		585297F71E74604B0011B2E3 /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndividualEntryViewController.swift; path = ../IndividualEntryViewController.swift; sourceTree = "<group>"; };
 		585297FB1E7613D00011B2E3 /* PopUpContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpContainer.swift; sourceTree = "<group>"; };
-		585297FD1E76D4410011B2E3 /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopUpViewController.swift; path = ../PopUpViewController.swift; sourceTree = "<group>"; };
 		585297FF1E76D48B0011B2E3 /* AnimationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
 		585298011E76D4930011B2E3 /* CalendarPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopUp.swift; sourceTree = "<group>"; };
 		585298031E76D4990011B2E3 /* CalendarPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarPopUp.xib; sourceTree = "<group>"; };
@@ -159,7 +157,6 @@
 		581DA3AB1E70D66B0051C64B /* Blanket */ = {
 			isa = PBXGroup;
 			children = (
-				585297FD1E76D4410011B2E3 /* PopUpViewController.swift */,
 				585298071E76D4AA0011B2E3 /* CellView.xib */,
 				585298051E76D4A40011B2E3 /* CellView.swift */,
 				585298031E76D4990011B2E3 /* CalendarPopUp.xib */,
@@ -543,7 +540,6 @@
 				585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
-				585297FE1E76D4410011B2E3 /* PopUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

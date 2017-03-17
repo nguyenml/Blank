@@ -11,13 +11,22 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var textLabel: UILabel!
+    @IBOutlet weak var entryButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        textLabel.text = "Using Custom Fonts"
-        textLabel.font = UIFont(name: "Dosis-Regular", size: 35)
+        textLabel.text = "Let's get Started"
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print(UserDefaults.lastAccessDate as Any)
+        if Calendar.current.isDateInToday(UserDefaults.lastAccessDate as Any as! Date) {
+            entryButton.isHidden = true
+        }
+    }
+    
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -55,6 +55,7 @@ class InputViewController: UIViewController {
             timer.isHidden = false
             textField.isEditable = false
             textField.isUserInteractionEnabled = false
+            UserDefaults.lastAccessDate = Date()
         }
     }
     
