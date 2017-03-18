@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Dosis-Light.ttf">
+            <string>Dosis-Light</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Logs View Controller-->
         <scene sceneID="69G-Gg-C6m">
@@ -69,34 +74,73 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-Cg-vjs">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rsa-Cg-vjs">
                                 <rect key="frame" x="128" y="344" width="118" height="108"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="108" id="0Iu-Bv-wpr"/>
+                                    <constraint firstAttribute="width" constant="118" id="ndO-CE-ANQ"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <segue destination="hcl-Eu-jyo" kind="show" id="XrF-YZ-xL9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDC-HF-LgA">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sDC-HF-LgA">
                                 <rect key="frame" x="236" y="53" width="139" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="h0T-Is-mqg"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <state key="normal" title="+"/>
                                 <connections>
                                     <segue destination="Zgl-xs-80V" kind="show" id="dzS-pj-xwh"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpp-NF-R8h">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpp-NF-R8h">
                                 <rect key="frame" x="75" y="126" width="225" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="79" id="1xr-iK-0je"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Dosis-Light" family="Dosis" pointSize="43"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fca-tA-0fT">
+                                <rect key="frame" x="75" y="344" width="225" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8c-dV-xfb">
+                                <rect key="frame" x="128" y="195" width="118" height="21"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xpp-NF-R8h" firstAttribute="centerX" secondItem="bip-fl-XEZ" secondAttribute="centerX" id="01T-4t-ggh"/>
+                            <constraint firstItem="i8c-dV-xfb" firstAttribute="top" secondItem="bip-fl-XEZ" secondAttribute="top" constant="195" id="16l-vF-qTq"/>
+                            <constraint firstItem="Xpp-NF-R8h" firstAttribute="leading" secondItem="bip-fl-XEZ" secondAttribute="leadingMargin" constant="59" id="6a7-p6-vJz"/>
+                            <constraint firstAttribute="trailing" secondItem="sDC-HF-LgA" secondAttribute="trailing" id="Jwm-ih-5Qa"/>
+                            <constraint firstItem="i8c-dV-xfb" firstAttribute="trailing" secondItem="Rsa-Cg-vjs" secondAttribute="trailing" id="MWL-Bx-vzZ"/>
+                            <constraint firstItem="Xpp-NF-R8h" firstAttribute="top" secondItem="bip-fl-XEZ" secondAttribute="top" constant="126" id="NXM-AJ-fj7"/>
+                            <constraint firstItem="qXX-ac-Elg" firstAttribute="top" secondItem="Rsa-Cg-vjs" secondAttribute="bottom" constant="215" id="PG0-7q-dmv"/>
+                            <constraint firstItem="i8c-dV-xfb" firstAttribute="leading" secondItem="Rsa-Cg-vjs" secondAttribute="leading" id="QFl-xu-WOY"/>
+                            <constraint firstItem="fca-tA-0fT" firstAttribute="top" secondItem="Rsa-Cg-vjs" secondAttribute="top" id="W4Y-0Y-0sk"/>
+                            <constraint firstItem="Rsa-Cg-vjs" firstAttribute="centerX" secondItem="Xpp-NF-R8h" secondAttribute="centerX" id="cUg-fL-Qto"/>
+                            <constraint firstItem="Xpp-NF-R8h" firstAttribute="top" secondItem="sDC-HF-LgA" secondAttribute="bottom" constant="43" id="gSo-2h-ZCu"/>
+                            <constraint firstItem="fca-tA-0fT" firstAttribute="trailing" secondItem="Xpp-NF-R8h" secondAttribute="trailing" id="jYD-yb-zZL"/>
+                            <constraint firstItem="qXX-ac-Elg" firstAttribute="top" secondItem="fca-tA-0fT" secondAttribute="bottom" constant="302" id="lOj-bx-jZ7"/>
+                            <constraint firstItem="sDC-HF-LgA" firstAttribute="top" secondItem="b40-ju-NuZ" secondAttribute="bottom" constant="33" id="plw-qJ-3Cd"/>
+                            <constraint firstItem="fca-tA-0fT" firstAttribute="leading" secondItem="Xpp-NF-R8h" secondAttribute="leading" id="y8W-1z-vtG"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="completedText" destination="fca-tA-0fT" id="bMK-Vj-5xn"/>
+                        <outlet property="dateLabel" destination="i8c-dV-xfb" id="wdZ-xc-uN7"/>
                         <outlet property="entryButton" destination="Rsa-Cg-vjs" id="jfx-kw-oC4"/>
                         <outlet property="textLabel" destination="Xpp-NF-R8h" id="Ktx-ch-hxZ"/>
                     </connections>

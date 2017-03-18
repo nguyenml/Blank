@@ -29,18 +29,6 @@ class InputViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func goBack(_ sender: UIButton) {
-        
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
-        let entry = Entry(context: context)
-        
-        entry.text = textField.text!
-        entry.date = NSDate()
-        entry.word_count = wordCount(str: textField.text!)
-        
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        
-        
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
@@ -51,12 +39,41 @@ class InputViewController: UIViewController {
         }
         timer.text = String(counter)
         if counter >= 180{
-            backButton.isHidden = false
-            timer.isHidden = false
-            textField.isEditable = false
-            textField.isUserInteractionEnabled = false
-            UserDefaults.lastAccessDate = Date()
+            reset()
         }
+    }
+    
+    func updateStats(){
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let myDefaults = UserDefaults.standard
+        
+        var streak = myDefaults.integer(forKey: "streak")
+        var total = myDefaults.integer(forKey: "total")
+        streak += 1
+        total += 1
+        
+        let entry = Entry(context:context);
+        
+        entry.text = textField.text!
+        entry.date = NSDate()
+        entry.word_count = wordCount(str: textField.text!)
+        
+        myDefaults.set(streak, forKey: "streak")
+        myDefaults.set(total, forKey: "total")
+        
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        
+    }
+    
+    func reset(){
+        backButton.isHidden = false
+        timer.isHidden = false
+        textField.isEditable = false
+        textField.isUserInteractionEnabled = false
+        updateStats()
+        UserDefaults.lastAccessDate = Date()
+        
+        
     }
     
     func wordCount(str:String) -> Int16{

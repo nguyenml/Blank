@@ -5,7 +5,12 @@
         <attribute name="text" attributeType="String" syncable="YES"/>
         <attribute name="word_count" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
+    <entity name="Track" representedClassName="Track" syncable="YES" codeGenerationType="class">
+        <attribute name="currentStreak" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="daysCompleted" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Entry" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="Track" positionX="-63" positionY="9" width="128" height="75"/>
     </elements>
 </model>
