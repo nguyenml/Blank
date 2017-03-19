@@ -37,6 +37,7 @@
 		585298261E7A1E040011B2E3 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */; };
 		585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */; };
 		585298281E7A1E040011B2E3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 585298201E7A1E040011B2E3 /* OFL.txt */; };
+		58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */; };
 		8ADD5C9478BB01739E9EF289 /* Pods_Blanket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F210F8755DF50D7DF7D7A4C0 /* Pods_Blanket.framework */; };
 /* End PBXBuildFile section */
 
@@ -97,6 +98,7 @@
 		5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.ttf"; path = "Resources/Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.ttf"; path = "Resources/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		585298201E7A1E040011B2E3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Resources/OFL.txt; sourceTree = "<group>"; };
+		58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		75B92434C61436E1FCCB85A6 /* Pods-BlanketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C4F866F5A230DFD16B11187E /* Pods-Blanket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blanket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blanket/Pods-Blanket.debug.xcconfig"; sourceTree = "<group>"; };
 		D553F578BB8EE71E6443B6DC /* Pods-BlanketUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3AE1E70D66B0051C64B /* ViewController.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */,
 				5852980B1E7A119D0011B2E3 /* EntryView.xib */,
 				5852980D1E7A11D50011B2E3 /* EntryView.swift */,
 				585297FB1E7613D00011B2E3 /* PopUpContainer.swift */,
@@ -536,6 +539,7 @@
 				581DA3AF1E70D66B0051C64B /* ViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
 				585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */,
+				58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */,
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
 				585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,

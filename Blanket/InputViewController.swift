@@ -12,13 +12,14 @@ class InputViewController: UIViewController {
 
     @IBOutlet var backButton: UIButton!
     @IBOutlet var textField: UITextView!
+    var iTimer = Timer();
     
     @IBOutlet var timer: UILabel!
     var counter = 0;
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        iTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         backButton.isHidden = true
 
         // Do any additional setup after loading the view.
@@ -39,6 +40,7 @@ class InputViewController: UIViewController {
         }
         timer.text = String(counter)
         if counter >= 180{
+            iTimer.invalidate()
             reset()
         }
     }
@@ -49,8 +51,12 @@ class InputViewController: UIViewController {
         
         var streak = myDefaults.integer(forKey: "streak")
         var total = myDefaults.integer(forKey: "total")
+        var high = myDefaults.integer(forKey: "high")
         streak += 1
         total += 1
+        if streak > high{
+            high = streak
+        }
         
         let entry = Entry(context:context);
         
@@ -60,6 +66,7 @@ class InputViewController: UIViewController {
         
         myDefaults.set(streak, forKey: "streak")
         myDefaults.set(total, forKey: "total")
+        myDefaults.set(high, forKey: "high")
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         

@@ -28,16 +28,17 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentDate = Date()
-        setLabels()
+        let isFirstLaunch = UserDefaults.isFirstLaunch()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        print(UserDefaults.lastAccessDate as Any)
+        setLabels()
         if Calendar.current.isDateInToday(UserDefaults.lastAccessDate as Any as! Date) {
             entryButton.isHidden = true
             completedText.isHidden = false
         }
+
     }
     
     func setLabels(){
