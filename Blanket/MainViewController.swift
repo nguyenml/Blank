@@ -8,12 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var entryButton: UIButton!
+class MainViewController: UIViewController {
     
+    @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var completedText: UILabel!
+    @IBOutlet weak var entryBtn: UIButton!
     
     var currentDate: Date! = Date() {
         didSet {
@@ -22,7 +21,7 @@ class ViewController: UIViewController {
     }
     
     @IBOutlet weak var dateLabel: UILabel!
-
+    
     let myDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
@@ -37,11 +36,11 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         setLabels()
         if Calendar.current.isDateInToday(UserDefaults.lastAccessDate as Any as! Date) {
-            entryButton.isHidden = true
+            entryBtn.isHidden = true
             completedText.isHidden = false
         }
         resetStreak()
-
+        
     }
     
     func setLabels(){
@@ -64,12 +63,18 @@ class ViewController: UIViewController {
         let daysSinceWriting = end! - start!
         print(daysSinceWriting)
     }
-
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+    
     
 }
 
