@@ -13,6 +13,9 @@
         <array key="Dosis-Light.ttf">
             <string>Dosis-Light</string>
         </array>
+        <array key="Dosis-Medium.ttf">
+            <string>Dosis-Medium</string>
+        </array>
     </customFonts>
     <scenes>
         <!--Item 2-->
@@ -51,9 +54,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wz5-79-r7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.80000000000001" y="723.68815592203907"/>
+            <point key="canvasLocation" x="367" y="681"/>
         </scene>
-        <!--Item 1-->
+        <!--Main View Controller-->
         <scene sceneID="uNH-9j-wuA">
             <objects>
                 <viewController storyboardIdentifier="MainViewController" id="rlw-PC-1tq" customClass="MainViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
@@ -74,16 +77,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jp6-I3-Xzb">
-                                <rect key="frame" x="31" y="28" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="e0P-GY-whm"/>
-                                </constraints>
-                                <state key="normal" title="Stats"/>
-                                <connections>
-                                    <segue destination="pd1-I5-96h" kind="show" id="FmO-Gz-HFN"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22X-UX-L33">
                                 <rect key="frame" x="129" y="381" width="118" height="108"/>
                                 <constraints>
@@ -102,12 +95,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i8c-dV-xfb">
-                                <rect key="frame" x="149.5" y="170" width="76" height="38"/>
+                                <rect key="frame" x="153" y="170" width="69" height="38"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="hJu-5Z-P0E"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
@@ -115,8 +108,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="22X-UX-L33" firstAttribute="centerX" secondItem="Tqs-2J-H4N" secondAttribute="centerX" id="46L-h5-UB8"/>
-                            <constraint firstItem="Jp6-I3-Xzb" firstAttribute="top" secondItem="XaK-z5-lM2" secondAttribute="bottom" constant="8" symbolic="YES" id="Jlb-2N-bRf"/>
-                            <constraint firstItem="Jp6-I3-Xzb" firstAttribute="leading" secondItem="wcA-ep-nZy" secondAttribute="leadingMargin" constant="15" id="UUc-IM-fCy"/>
                             <constraint firstItem="QCR-GD-I1u" firstAttribute="top" secondItem="XaK-z5-lM2" secondAttribute="bottom" constant="63" id="YiI-vp-e13"/>
                             <constraint firstItem="O0M-Vd-H3J" firstAttribute="top" secondItem="22X-UX-L33" secondAttribute="bottom" constant="129" id="c65-jm-1xE"/>
                             <constraint firstItem="i8c-dV-xfb" firstAttribute="top" secondItem="QCR-GD-I1u" secondAttribute="bottom" constant="8" symbolic="YES" id="ewB-5V-XIh"/>
@@ -126,7 +117,7 @@
                             <constraint firstItem="22X-UX-L33" firstAttribute="centerX" secondItem="i8c-dV-xfb" secondAttribute="centerX" id="qCF-Ff-KJk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="qu5-fU-R6N"/>
+                    <tabBarItem key="tabBarItem" title="" image="Plus" id="qu5-fU-R6N"/>
                     <connections>
                         <outlet property="completedText" destination="Tqs-2J-H4N" id="7ud-8A-4gj"/>
                         <outlet property="dateLabel" destination="i8c-dV-xfb" id="Upg-xH-uc9"/>
@@ -136,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbA-gM-uJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="144.80000000000001" y="-157.87106446776613"/>
+            <point key="canvasLocation" x="366" y="-153"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mj1-nM-Bi9">
@@ -148,15 +139,16 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="rlw-PC-1tq" kind="relationship" relationship="viewControllers" id="3ZB-9t-wth"/>
                         <segue destination="FNa-85-kMU" kind="relationship" relationship="viewControllers" id="htC-5o-YV6"/>
+                        <segue destination="rlw-PC-1tq" kind="relationship" relationship="viewControllers" id="3ZB-9t-wth"/>
+                        <segue destination="pd1-I5-96h" kind="relationship" relationship="viewControllers" id="Mnu-St-r76"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V9y-58-rRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-674" y="682"/>
+            <point key="canvasLocation" x="-751" y="-195"/>
         </scene>
-        <!--Stats View Controller-->
+        <!--You-->
         <scene sceneID="Xp5-H9-dgp">
             <objects>
                 <viewController id="pd1-I5-96h" customClass="StatsViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
@@ -253,9 +245,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ho-ut-fkJ">
+                                <rect key="frame" x="275" y="72" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="uYX-fi-eo8" kind="show" id="AfF-Fl-zdC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="You" image="Plus.png" selectedImage="stat" id="o9Y-Wn-Vny">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <connections>
                         <outlet property="AverageWordCount" destination="2SJ-e6-OZ0" id="Hw1-pX-FG0"/>
                         <outlet property="CurrentStreak" destination="WqP-YR-R3R" id="Vrv-6x-YBW"/>
@@ -268,7 +271,74 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qHQ-t7-cXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7Xd-Cs-V1v" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="369"/>
+            <point key="canvasLocation" x="366" y="-967"/>
+        </scene>
+        <!--Badges View Controller-->
+        <scene sceneID="Hai-cd-r4t">
+            <objects>
+                <viewController id="uYX-fi-eo8" customClass="BadgesViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="I94-d0-n1b"/>
+                        <viewControllerLayoutGuide type="bottom" id="XOr-c1-STh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ypy-ZI-1P3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Badges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHn-G1-3GJ">
+                                <rect key="frame" x="106" y="28" width="163" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="31"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kmp-2t-cYF">
+                                <rect key="frame" x="67" y="129" width="240" height="468"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nGG-Qq-mdo">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="zla-cY-t59" customClass="CollectionCellView" customModule="Blanket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9m-Nj-xzU">
+                                                    <rect key="frame" x="4" y="15" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="h9m-Nj-xzU" firstAttribute="centerX" secondItem="zla-cY-t59" secondAttribute="centerX" id="N5c-PR-BkZ"/>
+                                            <constraint firstItem="h9m-Nj-xzU" firstAttribute="centerY" secondItem="zla-cY-t59" secondAttribute="centerY" id="fB4-vj-UoY"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="BadgeLabel" destination="h9m-Nj-xzU" id="w6e-yi-E8L"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="uYX-fi-eo8" id="xNi-u6-iIM"/>
+                                    <outlet property="delegate" destination="uYX-fi-eo8" id="f4I-GJ-waY"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rPv-yk-rXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1406" y="-967"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="AQj-sc-BE3">
@@ -327,7 +397,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wac-TP-zU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hEy-N8-vjM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1193" y="-299"/>
+            <point key="canvasLocation" x="1406" y="-153"/>
         </scene>
         <!--Individual Entry View Controller-->
         <scene sceneID="aOJ-gQ-D6R">
@@ -375,7 +445,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycp-hX-Cit" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ItU-Cb-QEK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1054" y="1106"/>
+            <point key="canvasLocation" x="1406" y="681"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Plus" width="16" height="16"/>
+        <image name="Plus.png" width="16" height="16"/>
+        <image name="stat" width="16" height="16"/>
+    </resources>
 </document>

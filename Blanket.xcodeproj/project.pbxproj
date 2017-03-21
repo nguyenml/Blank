@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		17D21BBDB4F5BD123260170C /* Pods_BlanketUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3549D8732BBE76514189A3 /* Pods_BlanketUITests.framework */; };
 		2B7A1CD99C12D2B02EFF1DEC /* Pods_BlanketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBF83373C439FFAB0DE777D /* Pods_BlanketTests.framework */; };
+		5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580159091E81C82D008D934E /* BadgesViewController.swift */; };
+		5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801590D1E81C997008D934E /* CollectionCellView.swift */; };
+		580159101E81CC93008D934E /* Calendar in Resources */ = {isa = PBXBuildFile; fileRef = 5801590F1E81CC93008D934E /* Calendar */; };
+		580159121E81D543008D934E /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 580159111E81D543008D934E /* Resources */; };
 		581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3AC1E70D66B0051C64B /* AppDelegate.swift */; };
 		581DA3AF1E70D66B0051C64B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3AE1E70D66B0051C64B /* ViewController.swift */; };
 		581DA3B21E70D66B0051C64B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 581DA3B01E70D66B0051C64B /* Main.storyboard */; };
@@ -38,7 +42,6 @@
 		585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */; };
 		585298281E7A1E040011B2E3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 585298201E7A1E040011B2E3 /* OFL.txt */; };
 		58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */; };
-		58FFEBCB1E80AEC6003523C5 /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBCA1E80AEC6003523C5 /* BadgesViewController.swift */; };
 		58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBD41E817C08003523C5 /* MainViewController.swift */; };
 		8ADD5C9478BB01739E9EF289 /* Pods_Blanket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F210F8755DF50D7DF7D7A4C0 /* Pods_Blanket.framework */; };
 /* End PBXBuildFile section */
@@ -66,6 +69,10 @@
 		22C221EC26499480EC12A8C7 /* Pods-BlanketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketTests/Pods-BlanketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2F3549D8732BBE76514189A3 /* Pods_BlanketUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlanketUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBF83373C439FFAB0DE777D /* Pods_BlanketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlanketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		580159091E81C82D008D934E /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
+		5801590D1E81C997008D934E /* CollectionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
+		5801590F1E81CC93008D934E /* Calendar */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Calendar; sourceTree = "<group>"; };
+		580159111E81D543008D934E /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		581DA3A91E70D66B0051C64B /* Blanket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		581DA3AC1E70D66B0051C64B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		581DA3AE1E70D66B0051C64B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,7 +108,6 @@
 		5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.ttf"; path = "Resources/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		585298201E7A1E040011B2E3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Resources/OFL.txt; sourceTree = "<group>"; };
 		58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
-		58FFEBCA1E80AEC6003523C5 /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		58FFEBD41E817C08003523C5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		75B92434C61436E1FCCB85A6 /* Pods-BlanketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests.release.xcconfig"; sourceTree = "<group>"; };
 		C4F866F5A230DFD16B11187E /* Pods-Blanket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Blanket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Blanket/Pods-Blanket.debug.xcconfig"; sourceTree = "<group>"; };
@@ -140,8 +146,8 @@
 		581DA3A01E70D66B0051C64B = {
 			isa = PBXGroup;
 			children = (
-				585298181E7A1DDE0011B2E3 /* Fonts */,
 				581DA3AB1E70D66B0051C64B /* Blanket */,
+				585298181E7A1DDE0011B2E3 /* Fonts */,
 				581DA3C31E70D66C0051C64B /* BlanketTests */,
 				581DA3CE1E70D66C0051C64B /* BlanketUITests */,
 				581DA3AA1E70D66B0051C64B /* Products */,
@@ -163,6 +169,8 @@
 		581DA3AB1E70D66B0051C64B /* Blanket */ = {
 			isa = PBXGroup;
 			children = (
+				5801590F1E81CC93008D934E /* Calendar */,
+				5801590D1E81C997008D934E /* CollectionCellView.swift */,
 				585298071E76D4AA0011B2E3 /* CellView.xib */,
 				585298051E76D4A40011B2E3 /* CellView.swift */,
 				585298031E76D4990011B2E3 /* CalendarPopUp.xib */,
@@ -173,13 +181,13 @@
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3AE1E70D66B0051C64B /* ViewController.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				580159091E81C82D008D934E /* BadgesViewController.swift */,
 				58FFEBD41E817C08003523C5 /* MainViewController.swift */,
 				58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */,
 				5852980B1E7A119D0011B2E3 /* EntryView.xib */,
 				5852980D1E7A11D50011B2E3 /* EntryView.swift */,
 				585297FB1E7613D00011B2E3 /* PopUpContainer.swift */,
 				585297F71E74604B0011B2E3 /* LogsViewController.swift */,
-				58FFEBCA1E80AEC6003523C5 /* BadgesViewController.swift */,
 				581DA3E51E70EB7F0051C64B /* InputViewController.swift */,
 				581DA3B61E70D66B0051C64B /* Assets.xcassets */,
 				581DA3B81E70D66B0051C64B /* LaunchScreen.storyboard */,
@@ -235,6 +243,7 @@
 		F378CF48E9F283A512B08EE1 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				580159111E81D543008D934E /* Resources */,
 				C4F866F5A230DFD16B11187E /* Pods-Blanket.debug.xcconfig */,
 				01F62AD5976AA08C5764A39F /* Pods-Blanket.release.xcconfig */,
 				22C221EC26499480EC12A8C7 /* Pods-BlanketTests.debug.xcconfig */,
@@ -365,12 +374,14 @@
 				585298261E7A1E040011B2E3 /* Dosis-Regular.ttf in Resources */,
 				585298081E76D4AA0011B2E3 /* CellView.xib in Resources */,
 				585298221E7A1E040011B2E3 /* Dosis-ExtraBold.ttf in Resources */,
+				580159121E81D543008D934E /* Resources in Resources */,
 				585298041E76D4990011B2E3 /* CalendarPopUp.xib in Resources */,
 				585298211E7A1E040011B2E3 /* Dosis-Bold.ttf in Resources */,
 				581DA3BA1E70D66B0051C64B /* LaunchScreen.storyboard in Resources */,
 				585298231E7A1E040011B2E3 /* Dosis-ExtraLight.ttf in Resources */,
 				585298241E7A1E040011B2E3 /* Dosis-Light.ttf in Resources */,
 				5852980C1E7A119D0011B2E3 /* EntryView.xib in Resources */,
+				580159101E81CC93008D934E /* Calendar in Resources */,
 				585298251E7A1E040011B2E3 /* Dosis-Medium.ttf in Resources */,
 				581DA3B71E70D66B0051C64B /* Assets.xcassets in Resources */,
 				585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */,
@@ -541,12 +552,13 @@
 				5852980E1E7A11D50011B2E3 /* EntryView.swift in Sources */,
 				585298021E76D4930011B2E3 /* CalendarPopUp.swift in Sources */,
 				585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */,
+				5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */,
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
 				581DA3AF1E70D66B0051C64B /* ViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
 				585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */,
-				58FFEBCB1E80AEC6003523C5 /* BadgesViewController.swift in Sources */,
 				58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */,
+				5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */,
 				58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */,
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
 				585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */,
