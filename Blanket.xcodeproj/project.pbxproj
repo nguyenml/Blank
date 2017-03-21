@@ -12,7 +12,6 @@
 		5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580159091E81C82D008D934E /* BadgesViewController.swift */; };
 		5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801590D1E81C997008D934E /* CollectionCellView.swift */; };
 		580159101E81CC93008D934E /* Calendar in Resources */ = {isa = PBXBuildFile; fileRef = 5801590F1E81CC93008D934E /* Calendar */; };
-		580159121E81D543008D934E /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = 580159111E81D543008D934E /* Resources */; };
 		581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3AC1E70D66B0051C64B /* AppDelegate.swift */; };
 		581DA3AF1E70D66B0051C64B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3AE1E70D66B0051C64B /* ViewController.swift */; };
 		581DA3B21E70D66B0051C64B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 581DA3B01E70D66B0051C64B /* Main.storyboard */; };
@@ -374,7 +373,6 @@
 				585298261E7A1E040011B2E3 /* Dosis-Regular.ttf in Resources */,
 				585298081E76D4AA0011B2E3 /* CellView.xib in Resources */,
 				585298221E7A1E040011B2E3 /* Dosis-ExtraBold.ttf in Resources */,
-				580159121E81D543008D934E /* Resources in Resources */,
 				585298041E76D4990011B2E3 /* CalendarPopUp.xib in Resources */,
 				585298211E7A1E040011B2E3 /* Dosis-Bold.ttf in Resources */,
 				581DA3BA1E70D66B0051C64B /* LaunchScreen.storyboard in Resources */,
