@@ -29,6 +29,7 @@ class InputViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     @IBAction func goBack(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }

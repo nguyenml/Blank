@@ -62,7 +62,6 @@ class LogsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print("test")
         let entry = entries[indexPath.row]
 
         self.performSegue(withIdentifier: "segueToEntry", sender: entry);

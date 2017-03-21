@@ -33,22 +33,19 @@ class StatsViewController: UIViewController{
         LongestStreak.text = String(myDefaults.integer(forKey: "high"))
         AverageWordCount.text = String(averageWordCount())
         TotalWordCount.text = String(total)
-        //DaysActive.text = findActiveDates()
+        DaysActive.text = String(myDefaults.integer(forKey: "total"))
     }
     
-    func findActiveDates(){
-        let calendar = NSCalendar.current
-        let today = calendar.startOfDay(for: NSDate() as Date)
-        let startDate = myDefaults.object(forKey: "lastAccessDate") as! Date
-        //let components = calendar.dateComponents([.day], fromDate: startDate, toDate: today)
-        
-       // return components.day
+    func findActiveDates()-> Int{
+        let currentCalendar     = NSCalendar.current
+        guard let start = currentCalendar.ordinality(of: .day, in: .era, for: myDefaults.object(forKey: "lastAccessDate") as! Date) else { return 0 }
+        guard let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date) else { return 0 }
+        return end - start
     }
     
     func averageWordCount() -> Int{
 
         for entry in entries{
-            print(entry.word_count)
             total += Int(entry.word_count)
         }
         return total/entries.count

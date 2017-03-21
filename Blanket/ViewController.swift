@@ -28,7 +28,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         currentDate = Date()
-        let isFirstLaunch = UserDefaults.isFirstLaunch()
+        _ = UserDefaults.isFirstLaunch()
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -38,6 +40,7 @@ class ViewController: UIViewController {
             entryButton.isHidden = true
             completedText.isHidden = false
         }
+        resetStreak()
 
     }
     
@@ -53,12 +56,23 @@ class ViewController: UIViewController {
         dateFormatter.dateFormat = "EEE, dd MMM"
         dateLabel.text = (dateFormatter.string(from: NSDate() as Date))
     }
+    
+    func resetStreak(){
+        let currentCalendar     = NSCalendar.current
+        let start = currentCalendar.ordinality(of: .day, in: .era, for: UserDefaults.lastAccessDate as Any as! Date)
+        let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
+        let daysSinceWriting = end! - start!
+        print(daysSinceWriting)
+    }
 
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
     
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
 
