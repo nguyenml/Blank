@@ -13,7 +13,6 @@
 		5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801590D1E81C997008D934E /* CollectionCellView.swift */; };
 		580159101E81CC93008D934E /* Calendar in Resources */ = {isa = PBXBuildFile; fileRef = 5801590F1E81CC93008D934E /* Calendar */; };
 		581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3AC1E70D66B0051C64B /* AppDelegate.swift */; };
-		581DA3AF1E70D66B0051C64B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3AE1E70D66B0051C64B /* ViewController.swift */; };
 		581DA3B21E70D66B0051C64B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 581DA3B01E70D66B0051C64B /* Main.storyboard */; };
 		581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3B31E70D66B0051C64B /* Blanket.xcdatamodeld */; };
 		581DA3B71E70D66B0051C64B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 581DA3B61E70D66B0051C64B /* Assets.xcassets */; };
@@ -74,7 +73,6 @@
 		580159111E81D543008D934E /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		581DA3A91E70D66B0051C64B /* Blanket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		581DA3AC1E70D66B0051C64B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		581DA3AE1E70D66B0051C64B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		581DA3B11E70D66B0051C64B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		581DA3B41E70D66B0051C64B /* Blanket.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Blanket.xcdatamodel; sourceTree = "<group>"; };
 		581DA3B61E70D66B0051C64B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -178,7 +176,6 @@
 				585297FF1E76D48B0011B2E3 /* AnimationClass.swift */,
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
-				581DA3AE1E70D66B0051C64B /* ViewController.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
 				580159091E81C82D008D934E /* BadgesViewController.swift */,
 				58FFEBD41E817C08003523C5 /* MainViewController.swift */,
@@ -552,7 +549,6 @@
 				585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */,
 				5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */,
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
-				581DA3AF1E70D66B0051C64B /* ViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
 				585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */,
 				58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */,

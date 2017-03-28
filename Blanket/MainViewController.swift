@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         currentDate = Date()
         _ = UserDefaults.isFirstLaunch()
+        resetStreak()
         
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -39,7 +40,7 @@ class MainViewController: UIViewController {
             entryBtn.isHidden = true
             completedText.isHidden = false
         }
-        resetStreak()
+        
         
     }
     
@@ -62,6 +63,10 @@ class MainViewController: UIViewController {
         let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
         let daysSinceWriting = end! - start!
         print(daysSinceWriting)
+        if daysSinceWriting > 1{
+            myDefaults.set(0, forKey: "streak")
+            print(myDefaults.integer(forKey: "streak"))
+        }
     }
     
     

@@ -29,18 +29,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         currentDate = Date()
         _ = UserDefaults.isFirstLaunch()
+        resetStreak()
         
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        
         setLabels()
         if Calendar.current.isDateInToday(UserDefaults.lastAccessDate as Any as! Date) {
             entryButton.isHidden = true
             completedText.isHidden = false
         }
-        resetStreak()
+        
 
     }
     
@@ -63,6 +65,11 @@ class ViewController: UIViewController {
         let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
         let daysSinceWriting = end! - start!
         print(daysSinceWriting)
+        print(daysSinceWriting > 1)
+        if daysSinceWriting > 1{
+            myDefaults.set(0, forKey: "streak")
+            print(myDefaults.integer(forKey: "streak"))
+        }
     }
 
 

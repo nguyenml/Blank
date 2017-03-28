@@ -88,8 +88,11 @@
                                     <segue destination="hcl-Eu-jyo" kind="show" id="o4C-Kc-Zea"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqs-2J-H4N">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqs-2J-H4N">
                                 <rect key="frame" x="75" y="366" width="225" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="h8C-LA-J0S"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -108,7 +111,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="22X-UX-L33" firstAttribute="centerX" secondItem="Tqs-2J-H4N" secondAttribute="centerX" id="46L-h5-UB8"/>
+                            <constraint firstItem="O0M-Vd-H3J" firstAttribute="top" secondItem="Tqs-2J-H4N" secondAttribute="bottom" constant="231" id="W9e-k9-P6t"/>
                             <constraint firstItem="QCR-GD-I1u" firstAttribute="top" secondItem="XaK-z5-lM2" secondAttribute="bottom" constant="63" id="YiI-vp-e13"/>
+                            <constraint firstItem="Tqs-2J-H4N" firstAttribute="leading" secondItem="wcA-ep-nZy" secondAttribute="leadingMargin" constant="59" id="b2D-S1-Ap4"/>
                             <constraint firstItem="O0M-Vd-H3J" firstAttribute="top" secondItem="22X-UX-L33" secondAttribute="bottom" constant="129" id="c65-jm-1xE"/>
                             <constraint firstItem="i8c-dV-xfb" firstAttribute="top" secondItem="QCR-GD-I1u" secondAttribute="bottom" constant="8" symbolic="YES" id="ewB-5V-XIh"/>
                             <constraint firstItem="QCR-GD-I1u" firstAttribute="leading" secondItem="wcA-ep-nZy" secondAttribute="leadingMargin" id="fai-WP-3La"/>
@@ -117,7 +122,7 @@
                             <constraint firstItem="22X-UX-L33" firstAttribute="centerX" secondItem="i8c-dV-xfb" secondAttribute="centerX" id="qCF-Ff-KJk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="Plus" id="qu5-fU-R6N"/>
+                    <tabBarItem key="tabBarItem" title="" systemItem="featured" id="qu5-fU-R6N"/>
                     <connections>
                         <outlet property="completedText" destination="Tqs-2J-H4N" id="7ud-8A-4gj"/>
                         <outlet property="dateLabel" destination="i8c-dV-xfb" id="Upg-xH-uc9"/>
@@ -148,7 +153,7 @@
             </objects>
             <point key="canvasLocation" x="-751" y="-195"/>
         </scene>
-        <!--You-->
+        <!--Stats View Controller-->
         <scene sceneID="Xp5-H9-dgp">
             <objects>
                 <viewController id="pd1-I5-96h" customClass="StatsViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
@@ -181,14 +186,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQ7-qs-aPs">
-                                <rect key="frame" x="164" y="549" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back"/>
-                                <connections>
-                                    <action selector="back:" destination="pd1-I5-96h" eventType="touchUpInside" id="5wi-Of-oh7"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current Streak: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2r-SN-5Bh">
                                 <rect key="frame" x="48" y="81" width="162" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -256,7 +253,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="You" image="Plus.png" selectedImage="stat" id="o9Y-Wn-Vny">
+                    <tabBarItem key="tabBarItem" selectedImage="stat" systemItem="topRated" id="o9Y-Wn-Vny">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <connections>
@@ -285,17 +282,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Badges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHn-G1-3GJ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Badges" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHn-G1-3GJ">
                                 <rect key="frame" x="106" y="28" width="163" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Dosis-Medium" family="Dosis" pointSize="31"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kmp-2t-cYF">
-                                <rect key="frame" x="67" y="129" width="240" height="468"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Kmp-2t-cYF">
+                                <rect key="frame" x="67" y="102" width="240" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="468" id="LVA-0Q-abk"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="nGG-Qq-mdo">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -334,6 +332,13 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Kmp-2t-cYF" firstAttribute="centerX" secondItem="XHn-G1-3GJ" secondAttribute="centerX" id="4aC-k2-eth"/>
+                            <constraint firstItem="Kmp-2t-cYF" firstAttribute="centerX" secondItem="ypy-ZI-1P3" secondAttribute="centerX" id="LS3-mm-wZY"/>
+                            <constraint firstItem="Kmp-2t-cYF" firstAttribute="leading" secondItem="ypy-ZI-1P3" secondAttribute="leadingMargin" constant="51" id="T5m-9G-mM2"/>
+                            <constraint firstItem="Kmp-2t-cYF" firstAttribute="top" secondItem="XHn-G1-3GJ" secondAttribute="bottom" constant="8" id="fpq-uJ-Hdm"/>
+                            <constraint firstItem="XOr-c1-STh" firstAttribute="top" secondItem="Kmp-2t-cYF" secondAttribute="bottom" constant="48" id="pub-bR-i12"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPv-yk-rXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -449,8 +454,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Plus" width="16" height="16"/>
-        <image name="Plus.png" width="64" height="64"/>
         <image name="stat" width="16" height="16"/>
     </resources>
 </document>

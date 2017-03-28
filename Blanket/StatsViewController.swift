@@ -63,9 +63,4 @@ class StatsViewController: UIViewController{
         }
     }
     
-    @IBAction func back(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToMenu", sender: self)
-    }
-
-    
 }
