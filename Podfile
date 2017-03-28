@@ -7,6 +7,9 @@ target 'Blanket' do
 
   # Pods for Blanket
     pod 'JTAppleCalendar', '~> 6.1'
+    pod 'Firebase/Core’
+    pod 'Firebase/Auth'
+    pod 'Google/SignIn'
 
   target 'BlanketTests' do
     inherit! :search_paths

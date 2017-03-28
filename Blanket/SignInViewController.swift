@@ -7,13 +7,26 @@
 //
 
 import UIKit
+import Firebase
+import GoogleSignIn
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, GIDSignInUIDelegate  {
+    
+    @IBOutlet weak var signInButton: GIDSignInButton!
+    
+    var handle: FIRAuthStateDidChangeListenerHandle?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        GIDSignIn.sharedInstance().signInSilently()
+        handle = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
+            if user != nil {
+                MeasurementHelper.sendLoginEvent()
+                self.performSegue(withIdentifier: Constants.Segues.SignInToFp, sender: nil)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +34,11 @@ class SignInViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    deinit {
+        if let handle = handle {
+            FIRAuth.auth()?.removeStateDidChangeListener(handle)
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -134,6 +134,49 @@
             </objects>
             <point key="canvasLocation" x="366" y="-153"/>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="ZHb-SA-6c7">
+            <objects>
+                <viewController id="kS4-YY-TrL" customClass="SignInViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Oh-rr-G54"/>
+                        <viewControllerLayoutGuide type="bottom" id="sGU-6W-qto"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NXV-xc-oNd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Blanket" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eds-hP-XBf">
+                                <rect key="frame" x="67" y="143" width="241" height="62"/>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="49"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njZ-Mu-On5">
+                                <rect key="frame" x="119" y="371" width="137" height="49"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="137" id="9m1-b4-agN"/>
+                                    <constraint firstAttribute="height" constant="49" id="zjU-5L-Xa7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="njZ-Mu-On5" firstAttribute="centerX" secondItem="eds-hP-XBf" secondAttribute="centerX" id="2x0-7R-Y3y"/>
+                            <constraint firstItem="eds-hP-XBf" firstAttribute="top" secondItem="5Oh-rr-G54" secondAttribute="bottom" constant="123" id="7zF-Ag-8gG"/>
+                            <constraint firstItem="sGU-6W-qto" firstAttribute="top" secondItem="eds-hP-XBf" secondAttribute="bottom" constant="462" id="Nsb-Nr-X8W"/>
+                            <constraint firstItem="eds-hP-XBf" firstAttribute="centerX" secondItem="NXV-xc-oNd" secondAttribute="centerX" id="RgX-tb-1Cd"/>
+                            <constraint firstItem="sGU-6W-qto" firstAttribute="top" secondItem="njZ-Mu-On5" secondAttribute="bottom" constant="247" id="fdt-zd-Ste"/>
+                            <constraint firstItem="eds-hP-XBf" firstAttribute="leading" secondItem="NXV-xc-oNd" secondAttribute="leadingMargin" constant="51" id="lvv-LR-IHv"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nnq-QY-pxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1621.5999999999999" y="-199.25037481259372"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mj1-nM-Bi9">
             <objects>

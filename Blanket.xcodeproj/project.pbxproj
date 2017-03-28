@@ -20,6 +20,8 @@
 		581DA3C51E70D66C0051C64B /* BlanketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3C41E70D66C0051C64B /* BlanketTests.swift */; };
 		581DA3D01E70D66C0051C64B /* BlanketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */; };
 		581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3E51E70EB7F0051C64B /* InputViewController.swift */; };
+		582E11B71E8AB8EC0074ADE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */; };
+		582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */; };
 		585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F71E74604B0011B2E3 /* LogsViewController.swift */; };
 		585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */; };
 		585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FB1E7613D00011B2E3 /* PopUpContainer.swift */; };
@@ -85,6 +87,8 @@
 		581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlanketUITests.swift; sourceTree = "<group>"; };
 		581DA3D11E70D66C0051C64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		581DA3E51E70EB7F0051C64B /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		585297F71E74604B0011B2E3 /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndividualEntryViewController.swift; path = ../IndividualEntryViewController.swift; sourceTree = "<group>"; };
 		585297FB1E7613D00011B2E3 /* PopUpContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpContainer.swift; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		581DA3A01E70D66B0051C64B = {
 			isa = PBXGroup;
 			children = (
+				582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */,
 				581DA3AB1E70D66B0051C64B /* Blanket */,
 				585298181E7A1DDE0011B2E3 /* Fonts */,
 				581DA3C31E70D66C0051C64B /* BlanketTests */,
@@ -177,6 +182,7 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */,
 				580159091E81C82D008D934E /* BadgesViewController.swift */,
 				58FFEBD41E817C08003523C5 /* MainViewController.swift */,
 				58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */,
@@ -375,6 +381,7 @@
 				581DA3BA1E70D66B0051C64B /* LaunchScreen.storyboard in Resources */,
 				585298231E7A1E040011B2E3 /* Dosis-ExtraLight.ttf in Resources */,
 				585298241E7A1E040011B2E3 /* Dosis-Light.ttf in Resources */,
+				582E11B71E8AB8EC0074ADE1 /* GoogleService-Info.plist in Resources */,
 				5852980C1E7A119D0011B2E3 /* EntryView.xib in Resources */,
 				580159101E81CC93008D934E /* Calendar in Resources */,
 				585298251E7A1E040011B2E3 /* Dosis-Medium.ttf in Resources */,
@@ -555,6 +562,7 @@
 				5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */,
 				58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */,
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
+				582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */,
 				585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
