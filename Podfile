@@ -10,6 +10,8 @@ target 'Blanket' do
     pod 'Firebase/Core’
     pod 'Firebase/Auth'
     pod 'Google/SignIn'
+    pod 'Firebase/Database'
+
 
   target 'BlanketTests' do
     inherit! :search_paths

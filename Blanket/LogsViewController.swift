@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LogsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 

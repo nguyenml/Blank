@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="NuX-fT-wvn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kS4-YY-TrL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -137,7 +137,7 @@
         <!--Sign In View Controller-->
         <scene sceneID="ZHb-SA-6c7">
             <objects>
-                <viewController id="kS4-YY-TrL" customClass="SignInViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SIgnInViewController" id="kS4-YY-TrL" customClass="SignInViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Oh-rr-G54"/>
                         <viewControllerLayoutGuide type="bottom" id="sGU-6W-qto"/>
@@ -152,7 +152,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njZ-Mu-On5">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="njZ-Mu-On5" customClass="GIDSignInButton">
                                 <rect key="frame" x="119" y="371" width="137" height="49"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -172,6 +172,10 @@
                             <constraint firstItem="eds-hP-XBf" firstAttribute="leading" secondItem="NXV-xc-oNd" secondAttribute="leadingMargin" constant="51" id="lvv-LR-IHv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="signInButton" destination="njZ-Mu-On5" id="7p2-qx-PeS"/>
+                        <segue destination="NuX-fT-wvn" kind="show" identifier="signedIn" id="HgK-3W-B1x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nnq-QY-pxE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
