@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class InputViewController: UIViewController {
+    
+    var ref:FIRDatabaseReference?
 
     @IBOutlet var backButton: UIButton!
     @IBOutlet var textField: UITextView!
@@ -19,7 +22,9 @@ class InputViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        iTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        
+        ref  = FIRDatabase.database().reference()
+        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         backButton.isHidden = true
 
         // Do any additional setup after loading the view.
@@ -69,8 +74,14 @@ class InputViewController: UIViewController {
         myDefaults.set(total, forKey: "total")
         myDefaults.set(high, forKey: "high")
         
+        addToFB()
+        
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
+    }
+    
+    func addToFB(){
+        ref?.child("Entry").childByAutoId().setValue("HelloFirebase")
     }
     
     func reset(){

@@ -23,6 +23,8 @@
 		582E11B71E8AB8EC0074ADE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */; };
 		582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */; };
 		582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */; };
+		582E11BD1E8B1D2D0074ADE1 /* ELViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */; };
+		582E11C11E8B38E30074ADE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11C01E8B38E30074ADE1 /* Constants.swift */; };
 		585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F71E74604B0011B2E3 /* LogsViewController.swift */; };
 		585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */; };
 		585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FB1E7613D00011B2E3 /* PopUpContainer.swift */; };
@@ -91,6 +93,8 @@
 		582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementHelper.swift; sourceTree = "<group>"; };
+		582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ELViewController.swift; sourceTree = "<group>"; };
+		582E11C01E8B38E30074ADE1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		585297F71E74604B0011B2E3 /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndividualEntryViewController.swift; path = ../IndividualEntryViewController.swift; sourceTree = "<group>"; };
 		585297FB1E7613D00011B2E3 /* PopUpContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpContainer.swift; sourceTree = "<group>"; };
@@ -184,6 +188,7 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				582E11C01E8B38E30074ADE1 /* Constants.swift */,
 				582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */,
 				582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */,
 				580159091E81C82D008D934E /* BadgesViewController.swift */,
@@ -193,6 +198,7 @@
 				5852980D1E7A11D50011B2E3 /* EntryView.swift */,
 				585297FB1E7613D00011B2E3 /* PopUpContainer.swift */,
 				585297F71E74604B0011B2E3 /* LogsViewController.swift */,
+				582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */,
 				581DA3E51E70EB7F0051C64B /* InputViewController.swift */,
 				581DA3B61E70D66B0051C64B /* Assets.xcassets */,
 				581DA3B81E70D66B0051C64B /* LaunchScreen.storyboard */,
@@ -554,10 +560,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				585298061E76D4A40011B2E3 /* CellView.swift in Sources */,
+				582E11C11E8B38E30074ADE1 /* Constants.swift in Sources */,
 				5852980E1E7A11D50011B2E3 /* EntryView.swift in Sources */,
 				585298021E76D4930011B2E3 /* CalendarPopUp.swift in Sources */,
 				585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */,
 				5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */,
+				582E11BD1E8B1D2D0074ADE1 /* ELViewController.swift in Sources */,
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
 				582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */,

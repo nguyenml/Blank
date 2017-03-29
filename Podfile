@@ -11,7 +11,8 @@ target 'Blanket' do
     pod 'Firebase/Auth'
     pod 'Google/SignIn'
     pod 'Firebase/Database'
-
+    pod 'Firebase/Storage'
+    pod 'Firebase/RemoteConfig'
 
   target 'BlanketTests' do
     inherit! :search_paths
