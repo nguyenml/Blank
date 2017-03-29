@@ -52,7 +52,7 @@ class InputViewController: UIViewController {
     }
     
     func updateStats(){
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let myDefaults = UserDefaults.standard
         
         var streak = myDefaults.integer(forKey: "streak")
@@ -64,11 +64,11 @@ class InputViewController: UIViewController {
             high = streak
         }
         
-        let entry = Entry(context:context);
+        //let entry = Entry(context:context);
         
-        entry.text = textField.text!
-        entry.date = NSDate()
-        entry.word_count = wordCount(str: textField.text!)
+        //entry.text = textField.text!
+        //entry.date = NSDate()
+        //entry.word_count = wordCount(str: textField.text!)
         
         myDefaults.set(streak, forKey: "streak")
         myDefaults.set(total, forKey: "total")
@@ -76,7 +76,7 @@ class InputViewController: UIViewController {
         
         post()
         
-        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+       // (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
     }
     
