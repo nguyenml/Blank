@@ -21,14 +21,9 @@ struct Constants {
         static let SignedIn = "onSignInCompleted"
     }
     
-    struct Segues {
-        static let SignInToFp = "SignedIn"
-        static let FpToSignIn = "FPToSignIn"
-    }
-    
     struct Entry {
-        let date = NSDate()
-        let text = String()
-        let wordCount = Int()
+        static let date = "date"
+        static let text = "text"
+        static let wordCount = "wordcount"
     }
 }

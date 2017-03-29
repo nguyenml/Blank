@@ -27,7 +27,7 @@ class InputViewController: UIViewController {
         iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         backButton.isHidden = true
 
-        // Do any additional setup after loading the view.
+        // Do any advarional setup after loadingvare view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -74,14 +74,32 @@ class InputViewController: UIViewController {
         myDefaults.set(total, forKey: "total")
         myDefaults.set(high, forKey: "high")
         
-        addToFB()
+        post()
         
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
     }
     
-    func addToFB(){
-        ref?.child("Entry").childByAutoId().setValue("HelloFirebase")
+    func addToFB(withData data: [String: String]){
+        var mdata = data
+        mdata[Constants.Entry.wordCount] = String(wordCount(str: textField.text!))
+        mdata[Constants.Entry.date] = dateToString()
+        ref?.child("Entry").childByAutoId().setValue(mdata)
+        
+    }
+    
+    func dateToString() -> String{
+        let dateform = DateFormatter()
+        dateform.dateFormat = "MMM dd, yyyy"
+        
+        return dateform.string(from: NSDate() as Date)
+    }
+    
+    func post(){
+        let text = textField.text
+        let data = [Constants.Entry.text: text]
+        addToFB(withData: data as! [String : String])
+        
     }
     
     func reset(){

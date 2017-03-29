@@ -36,10 +36,6 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setLabels()
-        if Calendar.current.isDateInToday(UserDefaults.lastAccessDate as Any as! Date) {
-            entryBtn.isHidden = true
-            completedText.isHidden = false
-        }
         
         
     }
