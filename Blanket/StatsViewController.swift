@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class StatsViewController: UIViewController{
 
@@ -16,10 +17,14 @@ class StatsViewController: UIViewController{
     @IBOutlet weak var AverageWordCount: UILabel!
     @IBOutlet weak var TotalWordCount: UILabel!
     
+    @IBOutlet weak var userLabel: UILabel!
+    
     var entries : [Entry] = []
     
     let myDefaults = UserDefaults.standard
     var total : Int = 0
+    
+    var ref:FIRDatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +39,14 @@ class StatsViewController: UIViewController{
         AverageWordCount.text = String(averageWordCount())
         TotalWordCount.text = String(total)
         DaysActive.text = String(myDefaults.integer(forKey: "total"))
+        fetchUser()
     }
+    
+    func fetchUser(){
+        let user = FIRAuth.auth()?.currentUser?.uid
+        userLabel.text = user
+    }
+    
     
     func findActiveDates()-> Int{
         let currentCalendar     = NSCalendar.current
@@ -49,6 +61,16 @@ class StatsViewController: UIViewController{
             total += Int(entry.word_count)
         }
         return total/entries.count
+    }
+    
+    @IBAction func signOut(_ sender: UIButton) {
+        let firebaseAuth = FIRAuth.auth()
+        do {
+            try firebaseAuth?.signOut()
+            dismiss(animated: true, completion: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: \(signOutError.localizedDescription)")
+        }
     }
     
     func getData(){

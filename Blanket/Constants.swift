@@ -25,5 +25,6 @@ struct Constants {
         static let date = "date"
         static let text = "text"
         static let wordCount = "wordcount"
+        static let uid = "uid"
     }
 }

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FirebaseDatabase
+import Firebase
 
 class InputViewController: UIViewController {
     
@@ -19,6 +19,8 @@ class InputViewController: UIViewController {
     
     @IBOutlet var timer: UILabel!
     var counter = 0;
+    
+    let uid = FIRAuth.auth()!.currentUser!.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +86,7 @@ class InputViewController: UIViewController {
         var mdata = data
         mdata[Constants.Entry.wordCount] = String(wordCount(str: textField.text!))
         mdata[Constants.Entry.date] = dateToString()
+        mdata[Constants.Entry.uid] = uid
         ref?.child("Entry").childByAutoId().setValue(mdata)
         
     }

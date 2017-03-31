@@ -38,6 +38,7 @@ class LogsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         getData()
         tableView.reloadData()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

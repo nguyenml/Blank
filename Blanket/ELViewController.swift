@@ -14,8 +14,10 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     @IBOutlet weak var tableView: UITableView!
     var ref:FIRDatabaseReference?
     
+    let uid = String(describing: FIRAuth.auth()?.currentUser?.uid)
+    
     var entries: [FIRDataSnapshot]! = []
-    fileprivate var _refHandle: FIRDatabaseHandle!
+    var handle: FIRAuthStateDidChangeListenerHandle?
     
     var aPopupContainer: PopupContainer?
     var testCalendar = Calendar(identifier: .gregorian)
@@ -34,18 +36,15 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         tableView.delegate = self
     }
     
-    deinit {
-        if let refHandle = _refHandle {
-            self.ref?.child("Entry").removeObserver(withHandle: _refHandle)
-        }
-    }
-    
     func configureDatabase() {
         ref = FIRDatabase.database().reference()
+        let key = self.ref?.child("Entry").queryEqual(toValue: uid, childKey: "uid")
+        print("/n")
+        print(String(describing: key))
+        print("/n")
         // Listen for new messages in the Firebase database
-        _refHandle = self.ref?.child("Entry").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+        self.ref?.child("Entry").queryOrdered(byChild: "").queryEqual(toValue: uid).observe(.value, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
-            print(snapshot.value as Any)
             strongSelf.entries.append(snapshot)
             strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
         })

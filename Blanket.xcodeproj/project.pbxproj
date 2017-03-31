@@ -34,8 +34,6 @@
 		585298061E76D4A40011B2E3 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298051E76D4A40011B2E3 /* CellView.swift */; };
 		585298081E76D4AA0011B2E3 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 585298071E76D4AA0011B2E3 /* CellView.xib */; };
 		5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298091E76D4B10011B2E3 /* Extensions.swift */; };
-		5852980C1E7A119D0011B2E3 /* EntryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5852980B1E7A119D0011B2E3 /* EntryView.xib */; };
-		5852980E1E7A11D50011B2E3 /* EntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5852980D1E7A11D50011B2E3 /* EntryView.swift */; };
 		585298211E7A1E040011B2E3 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585298191E7A1E040011B2E3 /* Dosis-Bold.ttf */; };
 		585298221E7A1E040011B2E3 /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981A1E7A1E040011B2E3 /* Dosis-ExtraBold.ttf */; };
 		585298231E7A1E040011B2E3 /* Dosis-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981B1E7A1E040011B2E3 /* Dosis-ExtraLight.ttf */; };
@@ -104,8 +102,6 @@
 		585298051E76D4A40011B2E3 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
 		585298071E76D4AA0011B2E3 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
 		585298091E76D4B10011B2E3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		5852980B1E7A119D0011B2E3 /* EntryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EntryView.xib; sourceTree = "<group>"; };
-		5852980D1E7A11D50011B2E3 /* EntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryView.swift; sourceTree = "<group>"; };
 		585298191E7A1E040011B2E3 /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Bold.ttf"; path = "Resources/Dosis-Bold.ttf"; sourceTree = "<group>"; };
 		5852981A1E7A1E040011B2E3 /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-ExtraBold.ttf"; path = "Resources/Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
 		5852981B1E7A1E040011B2E3 /* Dosis-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-ExtraLight.ttf"; path = "Resources/Dosis-ExtraLight.ttf"; sourceTree = "<group>"; };
@@ -194,8 +190,6 @@
 				580159091E81C82D008D934E /* BadgesViewController.swift */,
 				58FFEBD41E817C08003523C5 /* MainViewController.swift */,
 				58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */,
-				5852980B1E7A119D0011B2E3 /* EntryView.xib */,
-				5852980D1E7A11D50011B2E3 /* EntryView.swift */,
 				585297FB1E7613D00011B2E3 /* PopUpContainer.swift */,
 				585297F71E74604B0011B2E3 /* LogsViewController.swift */,
 				582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */,
@@ -391,7 +385,6 @@
 				585298231E7A1E040011B2E3 /* Dosis-ExtraLight.ttf in Resources */,
 				585298241E7A1E040011B2E3 /* Dosis-Light.ttf in Resources */,
 				582E11B71E8AB8EC0074ADE1 /* GoogleService-Info.plist in Resources */,
-				5852980C1E7A119D0011B2E3 /* EntryView.xib in Resources */,
 				580159101E81CC93008D934E /* Calendar in Resources */,
 				585298251E7A1E040011B2E3 /* Dosis-Medium.ttf in Resources */,
 				581DA3B71E70D66B0051C64B /* Assets.xcassets in Resources */,
@@ -561,7 +554,6 @@
 			files = (
 				585298061E76D4A40011B2E3 /* CellView.swift in Sources */,
 				582E11C11E8B38E30074ADE1 /* Constants.swift in Sources */,
-				5852980E1E7A11D50011B2E3 /* EntryView.swift in Sources */,
 				585298021E76D4930011B2E3 /* CalendarPopUp.swift in Sources */,
 				585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */,
 				5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */,

@@ -20,22 +20,92 @@ import Firebase
 import GoogleSignIn
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate {
-    @IBOutlet weak var signInButton: GIDSignInButton!
-    @IBOutlet weak var but: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signLabel: UILabel!
+    @IBOutlet weak var selector: UISegmentedControl!
+    @IBOutlet weak var passwordTextView: UITextField!
+    @IBOutlet weak var emailTextField: UITextField!
+    
+    var isSignIn:Bool = true
     var handle: FIRAuthStateDidChangeListenerHandle?
+    
+    var ref:FIRDatabaseReference!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signInSilently()
         handle = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             if user != nil {
                 MeasurementHelper.sendLoginEvent()
-                self.performSegue(withIdentifier: "signedIn", sender: nil)
+                self.performSegue(withIdentifier: "signedIn", sender: self)
             }
         }
     }
     
-    deinit {
+    @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
+        
+        isSignIn = !isSignIn
+        
+        if isSignIn{
+            signLabel.text = "Sign In"
+            loginButton.setTitle("Sign In", for: .normal)
+        }
+        else{
+            signLabel.text = "Register"
+            loginButton.setTitle("Register", for: .normal)
+        }
+    }
+    
+    @IBAction func signInButtonTapped(_ sender: UIButton) {
+       ref = FIRDatabase.database().reference()
+        
+        if let email = emailTextField.text, let pass = passwordTextView.text{
+            
+            if isSignIn{
+                FIRAuth.auth()?.signIn(withEmail: email, password: pass, completion: {(user,error) in
+                    //check if user exist
+                    if user != nil{
+                        MeasurementHelper.sendLoginEvent()
+                        self.emailTextField.text = ""
+                        self.passwordTextView.text=""
+                        
+                        self.performSegue(withIdentifier: "signedIn", sender: self)
+
+                    }
+                    else{
+                        //throw error
+                        print("register error")
+                    }
+                
+                })
+                
+            }else{
+                FIRAuth.auth()?.createUser(withEmail: email, password: pass, completion: {(user,error) in
+                    //check if user exist
+                if user != nil{
+                    MeasurementHelper.sendLoginEvent()
+                    self.emailTextField.text = ""
+                    self.passwordTextView.text=""
+                    self.ref.child("users").child(user!.uid).setValue(["Provider": "email","Email": email])
+                    
+                    self.performSegue(withIdentifier: "signedIn", sender: self)
+                    
+                    
+                }
+                else{
+                    print("Error is = \(error?.localizedDescription)")
+                    print("register error")
+                }
+                    
+            })
+            
+        }
+        
+        }
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        emailTextField.resignFirstResponder()
+        passwordTextView.resignFirstResponder()
     }
 }
