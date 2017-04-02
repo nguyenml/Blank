@@ -10,15 +10,16 @@ import UIKit
 
 class IndividualEntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
-    var entry : Entry!
+    var entry : [String:String] = [:]
 
     @IBOutlet weak var wordCount: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.isEditable = false;
-        textView.text = entry.text!
-       wordCount.text = String(entry.word_count)
+        textView.text = entry[Constants.Entry.text]
+       wordCount.text = entry[Constants.Entry.wordCount]
+        
         
         
 

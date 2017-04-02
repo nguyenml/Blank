@@ -45,6 +45,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="QIQ-LG-IUI"/>
                     <connections>
                         <outlet property="tableView" destination="0PD-GK-M2W" id="QMa-ws-D7e"/>
+                        <segue destination="ar5-Qb-mgG" kind="show" identifier="segueToEntry" id="Ml9-fh-z73"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rsE-Tx-Frz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -82,12 +83,11 @@
                     <tabBarItem key="tabBarItem" title="Item 2" id="rjC-6n-bPc"/>
                     <connections>
                         <outlet property="tableView" destination="6dq-jf-K6K" id="Ioa-yk-TfA"/>
-                        <segue destination="ar5-Qb-mgG" kind="show" identifier="segueToEntry" id="JYF-xk-sGQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wz5-79-r7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="681"/>
+            <point key="canvasLocation" x="260" y="1168"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="uNH-9j-wuA">
@@ -606,13 +606,13 @@
                     <connections>
                         <outlet property="textView" destination="UIv-XR-PLZ" id="9rn-os-r3B"/>
                         <outlet property="wordCount" destination="6LI-Rr-uqS" id="9Qs-rK-AyN"/>
-                        <segue destination="ItU-Cb-QEK" kind="unwind" identifier="unwindToLogs" unwindAction="unwindToLogsWithSegue:" id="3hy-v8-WQ2"/>
+                        <segue destination="ItU-Cb-QEK" kind="unwind" identifier="unwindToLogs" unwindAction="unwindToLogsWithSegue:" id="YBc-kc-UJF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycp-hX-Cit" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ItU-Cb-QEK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1406" y="681"/>
+            <point key="canvasLocation" x="790" y="571"/>
         </scene>
     </scenes>
     <resources>

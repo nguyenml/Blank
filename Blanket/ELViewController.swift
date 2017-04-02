@@ -14,7 +14,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     @IBOutlet weak var tableView: UITableView!
     var ref:FIRDatabaseReference?
     
-    let uid = String(describing: FIRAuth.auth()?.currentUser?.uid)
+    let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
     
     var entries: [FIRDataSnapshot]! = []
     var handle: FIRAuthStateDidChangeListenerHandle?
@@ -38,14 +38,12 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     func configureDatabase() {
         ref = FIRDatabase.database().reference()
-        let key = self.ref?.child("Entry").queryEqual(toValue: uid, childKey: "uid")
-        print("/n")
-        print(String(describing: key))
-        print("/n")
         // Listen for new messages in the Firebase database
-        self.ref?.child("Entry").queryOrdered(byChild: "").queryEqual(toValue: uid).observe(.value, with: { [weak self] (snapshot) -> Void in
+        self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
+            print(snapshot)
             strongSelf.entries.append(snapshot)
+            print(strongSelf.entries.count)
             strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
         })
     }
@@ -76,7 +74,8 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let entry = entries[indexPath.row]
+        let entrySnap = self.entries[indexPath.row]
+        let entry = entrySnap.value as? [String: String]
         
         self.performSegue(withIdentifier: "segueToEntry", sender: entry);
     }
@@ -96,7 +95,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "segueToEntry" {
-            guard let object = sender as? Entry else { return }
+            guard let object = sender as? [String:String] else { return }
             let dvc = segue.destination as! IndividualEntryViewController
             dvc.entry = object
         }

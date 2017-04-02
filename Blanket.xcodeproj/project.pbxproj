@@ -25,7 +25,6 @@
 		582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */; };
 		582E11BD1E8B1D2D0074ADE1 /* ELViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */; };
 		582E11C11E8B38E30074ADE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11C01E8B38E30074ADE1 /* Constants.swift */; };
-		585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F71E74604B0011B2E3 /* LogsViewController.swift */; };
 		585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */; };
 		585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FB1E7613D00011B2E3 /* PopUpContainer.swift */; };
 		585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FF1E76D48B0011B2E3 /* AnimationClass.swift */; };
@@ -93,7 +92,6 @@
 		582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementHelper.swift; sourceTree = "<group>"; };
 		582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ELViewController.swift; sourceTree = "<group>"; };
 		582E11C01E8B38E30074ADE1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		585297F71E74604B0011B2E3 /* LogsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndividualEntryViewController.swift; path = ../IndividualEntryViewController.swift; sourceTree = "<group>"; };
 		585297FB1E7613D00011B2E3 /* PopUpContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpContainer.swift; sourceTree = "<group>"; };
 		585297FF1E76D48B0011B2E3 /* AnimationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				58FFEBD41E817C08003523C5 /* MainViewController.swift */,
 				58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */,
 				585297FB1E7613D00011B2E3 /* PopUpContainer.swift */,
-				585297F71E74604B0011B2E3 /* LogsViewController.swift */,
 				582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */,
 				581DA3E51E70EB7F0051C64B /* InputViewController.swift */,
 				581DA3B61E70D66B0051C64B /* Assets.xcassets */,
@@ -561,7 +558,6 @@
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
 				582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */,
-				585297F81E74604B0011B2E3 /* LogsViewController.swift in Sources */,
 				58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */,
 				5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */,
 				58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */,
