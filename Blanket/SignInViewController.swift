@@ -74,7 +74,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                     }
                     else{
                         //throw error
-                        print("register error")
+                         print("Error is = \(error?.localizedDescription)")
                     }
                 
                 })
@@ -86,8 +86,15 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                     MeasurementHelper.sendLoginEvent()
                     self.emailTextField.text = ""
                     self.passwordTextView.text=""
-                    self.ref.child("users").child(user!.uid).setValue(["Provider": "email","Email": email])
-                    
+                    let stats: [String:Int] = [ "currentStreak": 0,
+                                                      "longestStreak": 0,
+                                                      "daysActive": 1,
+                                                      "avgWordcount": 0,
+                                                      "totalWordcount": 0
+                                                      ]
+                    self.ref.child("users").child(user!.uid).setValue(["Provider": "email",
+                                                                       "Email": email,
+                                                                       "Stats": stats])
                     self.performSegue(withIdentifier: "signedIn", sender: self)
                     
                     

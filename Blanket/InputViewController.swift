@@ -20,12 +20,15 @@ class InputViewController: UIViewController {
     @IBOutlet var timer: UILabel!
     var counter = 0;
     
+    
+    var stats:[String:Int] = [:]
     let uid = FIRAuth.auth()!.currentUser!.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         ref  = FIRDatabase.database().reference()
+        getData()
+        print(stats)
         iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         backButton.isHidden = true
 
@@ -54,33 +57,25 @@ class InputViewController: UIViewController {
     }
     
     func updateStats(){
-        //let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let myDefaults = UserDefaults.standard
+        let userStats = ref?.child("users").child(uid).child("Stats")
         
-        var streak = myDefaults.integer(forKey: "streak")
-        var total = myDefaults.integer(forKey: "total")
-        var high = myDefaults.integer(forKey: "high")
-        streak += 1
-        total += 1
-        if streak > high{
-            high = streak
+        let current = stats["currentStreak"]! + 1
+        let longest = stats["longestStreak"]!
+        let total = stats["totalWordcount"]! + wordCount(str: textField.text!)
+        
+        userStats?.updateChildValues(["currentStreak":current])
+        if current>longest{
+            userStats?.updateChildValues(["longestStreak":current])
         }
         
-        //let entry = Entry(context:context);
-        
-        //entry.text = textField.text!
-        //entry.date = NSDate()
-        //entry.word_count = wordCount(str: textField.text!)
-        
-        myDefaults.set(streak, forKey: "streak")
-        myDefaults.set(total, forKey: "total")
-        myDefaults.set(high, forKey: "high")
+        userStats?.updateChildValues(["totalWordcount": total])
         
         post()
         
        // (UIApplication.shared.delegate as! AppDelegate).saveContext()
         
     }
+    
     
     func addToFB(withData data: [String: String]){
         var mdata = data
@@ -131,6 +126,15 @@ class InputViewController: UIViewController {
             }
         }
         return count
+    }
+    
+    func getData(){
+        ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Stats").observe(FIRDataEventType.value, with: {
+            (snapshot) in
+            self.stats = snapshot.value as? [String : Int] ?? [:]
+            print(self.stats)
+        })
+        
     }
 
     /*

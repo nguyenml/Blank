@@ -150,17 +150,6 @@ extension UserDefaults {
             defaults.set(newValue, forKey: "lastAccessDate")
         }
     }
-    
-    static func isFirstLaunch() -> Bool {
-        let hasBeenLaunchedBeforeFlag = "hasBeenLaunchedBeforeFlag"
-        let isFirstLaunch = !UserDefaults.standard.bool(forKey: hasBeenLaunchedBeforeFlag)
-        if (isFirstLaunch) {
-            UserDefaults.standard.set(true, forKey: hasBeenLaunchedBeforeFlag)
-            UserDefaults.standard.synchronize()
-            UserDefaults.standard.set(NSDate(), forKey:"firstAccessDate")
-        }
-        return isFirstLaunch
-    }
 }
 
 extension Date {

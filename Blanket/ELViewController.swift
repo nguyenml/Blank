@@ -41,9 +41,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         // Listen for new messages in the Firebase database
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
-            print(snapshot)
             strongSelf.entries.append(snapshot)
-            print(strongSelf.entries.count)
             strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
         })
     }

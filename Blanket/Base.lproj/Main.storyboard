@@ -50,44 +50,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rsE-Tx-Frz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-471.19999999999999" y="680.5097451274363"/>
-        </scene>
-        <!--Item 2-->
-        <scene sceneID="t1g-hb-vRR">
-            <objects>
-                <viewController storyboardIdentifier="LogsViewController" id="FNa-85-kMU" customClass="LogsViewController" customModule="Blanket" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="jCZ-yh-REc"/>
-                        <viewControllerLayoutGuide type="bottom" id="d8w-Fi-463"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hds-1R-fvc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6dq-jf-K6K">
-                                <rect key="frame" x="0.0" y="55" width="375" height="563"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="seN-or-o7U">
-                                <rect key="frame" x="296" y="20" width="63" height="28"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Calender"/>
-                                <connections>
-                                    <action selector="showCalendar:" destination="FNa-85-kMU" eventType="touchUpInside" id="4GK-YQ-gWL"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="rjC-6n-bPc"/>
-                    <connections>
-                        <outlet property="tableView" destination="6dq-jf-K6K" id="Ioa-yk-TfA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wz5-79-r7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="260" y="1168"/>
+            <point key="canvasLocation" x="366" y="629"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="uNH-9j-wuA">
@@ -118,7 +81,7 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="hcl-Eu-jyo" kind="show" id="o4C-Kc-Zea"/>
+                                    <segue destination="hcl-Eu-jyo" kind="show" identifier="segueToInput" id="o4C-Kc-Zea"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqs-2J-H4N">
@@ -159,7 +122,6 @@
                     <connections>
                         <outlet property="completedText" destination="Tqs-2J-H4N" id="7ud-8A-4gj"/>
                         <outlet property="dateLabel" destination="i8c-dV-xfb" id="Upg-xH-uc9"/>
-                        <outlet property="entryBtn" destination="22X-UX-L33" id="yR2-ZY-hn8"/>
                         <outlet property="textLabel" destination="QCR-GD-I1u" id="hcx-JR-x22"/>
                     </connections>
                 </viewController>
@@ -612,7 +574,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycp-hX-Cit" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ItU-Cb-QEK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="790" y="571"/>
+            <point key="canvasLocation" x="1406" y="630"/>
         </scene>
     </scenes>
     <resources>
