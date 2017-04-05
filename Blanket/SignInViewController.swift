@@ -90,7 +90,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                                                       "longestStreak": 0,
                                                       "daysActive": 1,
                                                       "avgWordcount": 0,
-                                                      "totalWordcount": 0
+                                                      "totalWordcount": 0,
+                                                      "totalEntries": 0
                                                       ]
                     self.ref.child("users").child(user!.uid).setValue(["Provider": "email",
                                                                        "Email": email,

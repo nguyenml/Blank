@@ -29,3 +29,12 @@ struct Constants {
     }
 
 }
+
+struct Stats{
+    static var currentStreak = 0
+    static var longestStreak = 0
+    static var avgWordcount = 0
+    static var totalWordcount = 0
+    static var daysActive = 0
+    static var totalEntries = 0
+}

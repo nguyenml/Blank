@@ -27,8 +27,6 @@ class InputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref  = FIRDatabase.database().reference()
-        getData()
-        print(stats)
         iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         backButton.isHidden = true
 
@@ -57,23 +55,36 @@ class InputViewController: UIViewController {
     }
     
     func updateStats(){
+
         let userStats = ref?.child("users").child(uid).child("Stats")
-        
-        let current = stats["currentStreak"]! + 1
-        let longest = stats["longestStreak"]!
-        let total = stats["totalWordcount"]! + wordCount(str: textField.text!)
-        
-        userStats?.updateChildValues(["currentStreak":current])
-        if current>longest{
-            userStats?.updateChildValues(["longestStreak":current])
+        userStats?.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            if var stats = currentData.value as? [String : Int]{
+                let current = stats["currentStreak"]! + 1
+                var longest = stats["longestStreak"]!
+                let total = Int(stats["totalWordcount"]! + self.wordCount(str: self.textField.text!))
+                let entries:Int = stats["totalEntries"]! + 1
+                if current>longest{
+                    longest = current
+                }
+                stats["currentStreak"] = current as Int
+                stats["longestStreak"] = longest as Int
+                stats["totalWordcount"] = total as Int
+                stats["totalEntries"] = entries as Int
+                stats["avgWordcount"] = total/entries as Int
+                
+                
+                // Set value and report transaction success
+                currentData.value = stats
+                
+                return FIRTransactionResult.success(withValue: currentData)
+            }
+            return FIRTransactionResult.success(withValue: currentData)
+        }) { (error, committed, snapshot) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
         }
-        
-        userStats?.updateChildValues(["totalWordcount": total])
-        
         post()
-        
-       // (UIApplication.shared.delegate as! AppDelegate).saveContext()
-        
     }
     
     
@@ -127,15 +138,9 @@ class InputViewController: UIViewController {
         }
         return count
     }
+
     
-    func getData(){
-        ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Stats").observe(FIRDataEventType.value, with: {
-            (snapshot) in
-            self.stats = snapshot.value as? [String : Int] ?? [:]
-            print(self.stats)
-        })
-        
-    }
+    
 
     /*
     // MARK: - Navigation
