@@ -29,12 +29,13 @@ class MainViewController: UIViewController {
     
     let myDefaults = UserDefaults.standard
     
+    var myBadges:BadgeClass? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         currentDate = Date()
         getData()
-        initiateViews()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -62,26 +63,16 @@ class MainViewController: UIViewController {
             print(String(describing: self.stats["currentStreak"]))
             
             //100% the wrong way to do this but cant figure out what else to do
-            if self.stats["currentStreak"] != nil{
-                    self.textLabel.text = ("Day" + " " + String(describing: self.stats["currentStreak"]!))
-            }
+            self.textLabel.text = ("Day" + " " + String(describing: self.stats["currentStreak"]!))
             
-            if self.stats["avgWordcount"] != nil{
-                Stats.avgWordcount = (self.stats["avgWordcount"]!)
-            }
-            
-            if self.stats["currentStreak"] != nil{
+            Stats.avgWordcount = (self.stats["avgWordcount"]!)
                 Stats.currentStreak = (self.stats["currentStreak"])!
-            }
-            if self.stats["longestStreak"] != nil{
                 Stats.longestStreak = (self.stats["longestStreak"])!
-            }
-            if self.stats["totalWordcount"] != nil{
                 Stats.totalWordcount = (self.stats["totalWordcount"])!
-            }
-            if self.stats["daysActive"] != nil{
                 Stats.daysActive = (self.stats["daysActive"])!
-            }
+            
+            self.myBadges?.checkBadge()
+            print(Badges.badgeForADay)
             
         })
 
@@ -101,11 +92,7 @@ class MainViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func initiateViews(){
-    let mainStoryBoard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-    mainStoryBoard.instantiateViewController(withIdentifier: "ELViewController") as UIViewController
-    }
+
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
     
     

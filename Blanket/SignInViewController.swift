@@ -95,6 +95,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                                                       ]
                     self.ref.child("users").child(user!.uid).setValue(["Provider": "email",
                                                                        "Email": email,
+                                                                       "Date": self.dateToString(),
                                                                        "Stats": stats])
                     self.performSegue(withIdentifier: "signedIn", sender: self)
                     
@@ -110,6 +111,13 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         }
         
         }
+    }
+    
+    func dateToString() -> String{
+        let dateform = DateFormatter()
+        dateform.dateFormat = "MMM dd, yyyy"
+        
+        return dateform.string(from: NSDate() as Date)
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

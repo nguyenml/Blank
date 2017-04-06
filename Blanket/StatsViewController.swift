@@ -28,9 +28,13 @@ class StatsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setLabels()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setLabels()
+    }
+
     
     func setLabels(){
         CurrentStreak.text = String(Stats.currentStreak)
@@ -62,5 +66,9 @@ class StatsViewController: UIViewController{
             print ("Error signing out: \(signOutError.localizedDescription)")
         }
     }
+    
+    @IBAction func unwindToStats(segue: UIStoryboardSegue) {}
+    
+    
     
 }

@@ -27,6 +27,10 @@ struct Constants {
         static let wordCount = "wordcount"
         static let uid = "uid"
     }
+    
+    struct StartDate{
+        static var date = "date"
+    }
 
 }
 
@@ -38,3 +42,11 @@ struct Stats{
     static var daysActive = 0
     static var totalEntries = 0
 }
+
+struct Badges{
+    static var badgeForADay = false
+    static var badgeFor5Days = false
+    static var badgeFor200Words = false
+    static var badgeFor500Words = false
+}
+

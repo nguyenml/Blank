@@ -28,12 +28,15 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionCellView
         
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.BadgeLabel.text = self.items[indexPath.item]
-        cell.backgroundColor = UIColor.cyan // make cell more visible in our example project
+        cell.BadgeLabel.text = "?"
+        cell.backgroundColor = UIColor.gray // make cell more visible in our example project
         
         return cell
     }
     
+    @IBAction func backToStats(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "unwindToStats", sender: self)
+    }
     // MARK: - UICollectionViewDelegate protocol
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
