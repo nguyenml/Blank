@@ -57,10 +57,12 @@ class BadgeClass{
     }
     
     func checkBadgeFor5Days(){
-        if length > 4{
+        if length > 5{
             badgeFor5Days = true
             badgeEarned = true
             ref?.setValue(["badgeFor5Days":true])
+            ref?.setValue(["badgeFor6Days":true])
+            ref?.setValue(["badgeFor7Days":true])
                        print("sucess")
         }
     }
