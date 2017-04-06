@@ -7,41 +7,79 @@
 //
 
 import Foundation
+import Firebase
+
+var myBadges = BadgeClass()
 
 class BadgeClass{
     var length:Int =  0
     var words:Int = 0
+    var badgeEarned = false // check if a badge has been earned
+    
+    var ref:FIRDatabaseReference?
+    
+    var badgeForADay = false
+    var badgeFor5Days = false
+    var badgeFor200Words = false
+    var badgeFor500Words = false
     
     func checkBadge(){
+        ref = FIRDatabase.database().reference()
+        ref = ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Badges")
         length = Stats.currentStreak
         words = Stats.totalWordcount
-        checkBadgeForADay()
-        checkBadgeFor5Days()
-        checkBadgeFor200Words()
-        checkBadgeFor500Words()
+        if badgeForADay == false{
+            checkBadgeForADay()
+        }
+        if badgeFor5Days == false{
+            checkBadgeFor5Days()
+        }
+        if badgeFor200Words == false{
+            checkBadgeFor200Words()
+        }
+        if badgeFor500Words == false{
+            checkBadgeFor500Words()
+        }
+        
+        if badgeEarned == true{
+            badgeEarned = false
+            
+        }
     }
     
     func checkBadgeForADay(){
         if length > 0{
-            Badges.badgeForADay = true
+            badgeForADay = true
+            badgeEarned = true
+            ref?.setValue(["badgeForADay":true])
+            print("sucess")
         }
     }
     
     func checkBadgeFor5Days(){
         if length > 4{
-            Badges.badgeFor5Days = true
+            badgeFor5Days = true
+            badgeEarned = true
+            ref?.setValue(["badgeFor5Days":true])
+                       print("sucess")
         }
     }
     
     func checkBadgeFor200Words(){
         if words > 199{
-            Badges.badgeFor200Words = true
+            badgeFor200Words = true
+            badgeEarned = true
+            ref?.setValue(["badgeFor200Words":true])
+                       print("sucess")
         }
     }
     
     func checkBadgeFor500Words(){
         if words > 499{
-            Badges.badgeFor500Words = true
+            badgeFor500Words = true
+            badgeEarned = true
+            ref?.setValue(["badgeFor500Words":true])            
         }
     }
+    
 }

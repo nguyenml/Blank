@@ -67,6 +67,17 @@ class StatsViewController: UIViewController{
         }
     }
     
+    func safeReset(){
+        myBadges = BadgeClass()
+        Stats.avgWordcount = 0
+        Stats.currentStreak = 0
+        Stats.daysActive = 0
+        Stats.longestStreak = 0
+        Stats.totalEntries = 0
+        Stats.totalWordcount = 0
+        
+    }
+    
     @IBAction func unwindToStats(segue: UIStoryboardSegue) {}
     
     

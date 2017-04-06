@@ -29,8 +29,6 @@ class MainViewController: UIViewController {
     
     let myDefaults = UserDefaults.standard
     
-    var myBadges:BadgeClass? = nil
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
@@ -70,10 +68,7 @@ class MainViewController: UIViewController {
                 Stats.longestStreak = (self.stats["longestStreak"])!
                 Stats.totalWordcount = (self.stats["totalWordcount"])!
                 Stats.daysActive = (self.stats["daysActive"])!
-            
-            self.myBadges?.checkBadge()
-            print(Badges.badgeForADay)
-            
+            myBadges.checkBadge()
         })
 
     }

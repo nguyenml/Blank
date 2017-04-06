@@ -34,6 +34,7 @@ struct Constants {
 
 }
 
+
 struct Stats{
     static var currentStreak = 0
     static var longestStreak = 0
@@ -43,10 +44,4 @@ struct Stats{
     static var totalEntries = 0
 }
 
-struct Badges{
-    static var badgeForADay = false
-    static var badgeFor5Days = false
-    static var badgeFor200Words = false
-    static var badgeFor500Words = false
-}
 
