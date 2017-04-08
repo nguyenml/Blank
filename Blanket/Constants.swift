@@ -44,4 +44,3 @@ struct Stats{
     static var totalEntries = 0
 }
 
-

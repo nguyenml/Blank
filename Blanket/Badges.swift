@@ -51,8 +51,7 @@ class BadgeClass{
         if length > 0{
             badgeForADay = true
             badgeEarned = true
-            ref?.setValue(["badgeForADay":true])
-            print("sucess")
+            ref?.updateChildValues(["badgeForADay":true])
         }
     }
     
@@ -60,10 +59,7 @@ class BadgeClass{
         if length > 5{
             badgeFor5Days = true
             badgeEarned = true
-            ref?.setValue(["badgeFor5Days":true])
-            ref?.setValue(["badgeFor6Days":true])
-            ref?.setValue(["badgeFor7Days":true])
-                       print("sucess")
+            ref?.updateChildValues(["badgeFor5Days":true])
         }
     }
     
@@ -71,7 +67,7 @@ class BadgeClass{
         if words > 199{
             badgeFor200Words = true
             badgeEarned = true
-            ref?.setValue(["badgeFor200Words":true])
+            ref?.updateChildValues(["badgeFor200Words":true])
                        print("sucess")
         }
     }
@@ -80,7 +76,7 @@ class BadgeClass{
         if words > 499{
             badgeFor500Words = true
             badgeEarned = true
-            ref?.setValue(["badgeFor500Words":true])            
+            ref?.updateChildValues(["badgeFor500Words":true])            
         }
     }
     

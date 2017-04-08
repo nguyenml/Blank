@@ -64,10 +64,10 @@ class MainViewController: UIViewController {
             self.textLabel.text = ("Day" + " " + String(describing: self.stats["currentStreak"]!))
             
             Stats.avgWordcount = (self.stats["avgWordcount"]!)
-                Stats.currentStreak = (self.stats["currentStreak"])!
-                Stats.longestStreak = (self.stats["longestStreak"])!
-                Stats.totalWordcount = (self.stats["totalWordcount"])!
-                Stats.daysActive = (self.stats["daysActive"])!
+            Stats.currentStreak = (self.stats["currentStreak"])!
+            Stats.longestStreak = (self.stats["longestStreak"])!
+            Stats.totalWordcount = (self.stats["totalWordcount"])!
+            Stats.daysActive = (self.stats["daysActive"])!
             myBadges.checkBadge()
         })
 

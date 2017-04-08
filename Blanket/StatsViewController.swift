@@ -52,6 +52,9 @@ class StatsViewController: UIViewController{
     
     func findActiveDates()-> Int{
         let currentCalendar     = NSCalendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM, dd yyyy"
+        let startDate = dateFormatter.date(from:  )
         guard let start = currentCalendar.ordinality(of: .day, in: .era, for: myDefaults.object(forKey: "lastAccessDate") as! Date) else { return 0 }
         guard let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date) else { return 0 }
         return end - start
