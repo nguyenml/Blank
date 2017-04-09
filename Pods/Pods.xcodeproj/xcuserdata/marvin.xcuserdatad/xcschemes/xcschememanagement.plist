@@ -39,6 +39,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PopupDialog.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Protobuf.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -57,11 +62,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>54E4C4BE50F82DE32A252B72646F1C8E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>681BE6E3D02A43F9BA63777AC435C8FD</key>
 		<dict>
 			<key>primary</key>
@@ -72,17 +72,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7D6BC74522EB89CFE7FE7C253C5617A8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8896EAC962C92500598DC8AB4C31BC11</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>927205A98F2E703E223E957020B3275F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9889017F0C0CBAFFF7350BE0245A4D60</key>
+		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<key>DE442D41CABF355581428F041FB13C5D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

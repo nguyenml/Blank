@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import PopupDialog
 
 class BadgesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate  {
     
@@ -20,7 +21,42 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
 
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items = [myBadges.badgeForADay, myBadges.badgeFor3Days, myBadges.badgeFor200Words, myBadges.badgeFor200Words]
+    var items = [myBadges.badgeForADay,
+                 myBadges.badgeFor3Days,
+                 myBadges.badgeFor10Days,
+                 myBadges.badgeFor20Days,
+                 myBadges.badgeFor50Days,
+                 myBadges.badgeFor100Days,
+                 myBadges.badgeFor200Words,
+                 myBadges.badgeFor500Words,
+                 myBadges.badgeFor1000Words,
+                 myBadges.badgeFor2000Words,
+                 myBadges.badgeFor5000Words,
+                 myBadges.badgeFor10000Words,
+                 myBadges.badgeFor25000Words]
+    
+    var itemTitles = ["First Day",
+                     "Third Times The Charm",
+                     "Double Digits",
+                     "Long Run",
+                     "100 Days",
+                     "Title",
+                     "Title",
+                     "Title",
+                     "Title",
+                     "Title"
+                     ]
+    
+    var itemMessages=["Congratulations on your first entry. This is the beginning of a long challenging journey, but you have the determination to travel it.",
+                      "Three Days! You already passed all the people who quit on the first day. Pat yourself on the back for commiting to this challenge",
+                      "message",
+                      "message",
+                      "message",
+                      "message",
+                      "message",
+                      "message",
+                      "message",
+                      "message"]
     
     
     // MARK: - UICollectionViewDataSource protocol
@@ -34,8 +70,6 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         // get a reference to our storyboard cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionCellView
-        
-        
         let badge = items[indexPath.row]
         if badge{
             cell.BadgeLabel.text = " "
@@ -57,6 +91,30 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
         print("You selected cell #\(indexPath.item)!")
+        if(items[indexPath.row]){
+        showImageDialog(item: indexPath.row)
+        }
+    }
+    
+    func showImageDialog(animated: Bool = true, item:Int) {
+        
+        // Prepare the popup assets
+        let title = itemTitles[item]
+        let message = itemMessages[item]
+        let image = UIImage(named: "pexels-photo-103290")
+        
+        // Create the dialog
+        let popup = PopupDialog(title: title, message: message, image: image)
+        
+        // Create third button
+        let buttonThree = DefaultButton(title: "Okay") {
+        }
+        
+        // Add buttons to dialog
+        popup.addButtons([buttonThree])
+        
+        // Present dialog
+        self.present(popup, animated: animated, completion: nil)
     }
 
 }

@@ -99,7 +99,7 @@ class InputViewController: UIViewController {
     
     func dateToString() -> String{
         let dateform = DateFormatter()
-        dateform.dateFormat = "MMM dd, yyyy"
+        dateform.dateFormat = "MMM dd, yyyy h:mm a"
         
         return dateform.string(from: NSDate() as Date)
     }

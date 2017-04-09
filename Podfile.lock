@@ -63,6 +63,7 @@ PODS:
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
   - JTAppleCalendar (6.1.5)
+  - PopupDialog (0.5.4)
   - Protobuf (3.2.0)
 
 DEPENDENCIES:
@@ -73,6 +74,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - Google/SignIn
   - JTAppleCalendar (~> 6.1)
+  - PopupDialog (~> 0.5)
 
 SPEC CHECKSUMS:
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
@@ -89,8 +91,9 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   JTAppleCalendar: 7fe18d6b7c26b8095f714ff089d4c0cbd9d6a632
+  PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   Protobuf: 745f59e122e5de98d4d7ef291e264a0eef80f58e
 
-PODFILE CHECKSUM: 303fa1c86abadf577f39599806fca017a7fc79da
+PODFILE CHECKSUM: 01ae45df429360d0c083df4a632a460ef6a153ee
 
 COCOAPODS: 1.2.0
