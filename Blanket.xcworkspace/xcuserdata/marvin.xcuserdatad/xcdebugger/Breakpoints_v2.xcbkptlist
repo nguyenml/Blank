@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/SignInViewController.swift"
-            timestampString = "512598477.495754"
+            timestampString = "513458606.99773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "51"
-            endingLineNumber = "51"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "signInSelectorChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/SignInViewController.swift"
-            timestampString = "512598477.495754"
+            timestampString = "513458606.99773"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
             landmarkName = "signInButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -362,7 +362,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "513360341.068438"
+            timestampString = "513459870.232737"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/Badges.swift"
-            timestampString = "513210094.367884"
+            timestampString = "513362189.215632"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "BadgeClass"
             landmarkType = "3">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/Badges.swift"
-            timestampString = "513283238.855663"
+            timestampString = "513366277.468858"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "checkBadgeForADay()"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/StatsViewController.swift"
-            timestampString = "513283887.663119"
+            timestampString = "513369986.514959"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
             landmarkName = "fetchUser()"
             landmarkType = "7">
          </BreakpointContent>

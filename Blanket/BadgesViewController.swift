@@ -20,7 +20,7 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
 
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
-    var items = [myBadges.badgeForADay, myBadges.badgeFor5Days, myBadges.badgeFor200Words, myBadges.badgeFor200Words]
+    var items = [myBadges.badgeForADay, myBadges.badgeFor3Days, myBadges.badgeFor200Words, myBadges.badgeFor200Words]
     
     
     // MARK: - UICollectionViewDataSource protocol

@@ -26,6 +26,9 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
     @IBOutlet weak var passwordTextView: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
+    @IBOutlet weak var usernameField: UIStackView!
+    
+    @IBOutlet weak var usernameTextField: UITextField!
     var isSignIn:Bool = true
     var handle: FIRAuthStateDidChangeListenerHandle?
     
@@ -40,6 +43,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                 self.performSegue(withIdentifier: "signedIn", sender: self)
             }
         }
+        usernameField.isHidden = true
     }
     
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
@@ -47,10 +51,12 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         isSignIn = !isSignIn
         
         if isSignIn{
+            usernameField.isHidden = true
             signLabel.text = "Sign In"
             loginButton.setTitle("Sign In", for: .normal)
         }
         else{
+            usernameField.isHidden = false
             signLabel.text = "Register"
             loginButton.setTitle("Register", for: .normal)
         }
@@ -84,8 +90,18 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                     //check if user exist
                 if user != nil{
                     MeasurementHelper.sendLoginEvent()
+                    let changeRequest = user?.profileChangeRequest()
+                    changeRequest?.displayName = self.usernameTextField.text
+                    changeRequest?.commitChanges { error in
+                        if let error = error {
+                            print("Error is = \(error.localizedDescription)")
+                        } else {
+                            // Profile updated.
+                        }
+                    }
                     self.emailTextField.text = ""
                     self.passwordTextView.text=""
+                    self.usernameTextField.text = ""
                     let stats: [String:Int] = [ "currentStreak": 0,
                                                       "longestStreak": 0,
                                                       "daysActive": 1,

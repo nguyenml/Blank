@@ -46,8 +46,8 @@ class StatsViewController: UIViewController{
     }
     
     func fetchUser(){
-        let user = FIRAuth.auth()?.currentUser?.uid
-        userLabel.text = user
+        let user = FIRAuth.auth()?.currentUser
+        userLabel.text = user?.displayName
     }
     
     func findActiveDates()-> Int{
@@ -72,6 +72,7 @@ class StatsViewController: UIViewController{
     
     func safeReset(){
         myBadges = BadgeClass()
+        myBadges.reset()
         Stats.avgWordcount = 0
         Stats.currentStreak = 0
         Stats.daysActive = 0

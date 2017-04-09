@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
+        checkUser()
         currentDate = Date()
         getData()
         // Do any additional setup after loading the view, typically from a nib.
@@ -39,7 +40,6 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setLabels()
-        resetStreak()
     }
     
     func setLabels(){
@@ -58,9 +58,6 @@ class MainViewController: UIViewController {
         ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Stats").observe(FIRDataEventType.value, with: {
             (snapshot) in
             self.stats = snapshot.value as? [String : Int] ?? [:]
-            print(String(describing: self.stats["currentStreak"]))
-            
-            //100% the wrong way to do this but cant figure out what else to do
             self.textLabel.text = ("Day" + " " + String(describing: self.stats["currentStreak"]!))
             
             Stats.avgWordcount = (self.stats["avgWordcount"]!)
@@ -72,20 +69,35 @@ class MainViewController: UIViewController {
         })
 
     }
-    
-    func resetStreak(){
-        let currentCalendar     = NSCalendar.current
-        let start = currentCalendar.ordinality(of: .day, in: .era, for: UserDefaults.lastAccessDate as Any as! Date)
-        let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
-        let daysSinceWriting = end! - start!
-        if daysSinceWriting > 1{
-            ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Stats").updateChildValues(["currentStreak":0])
-        }
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    //TEMP TEMP TEMP TEMP TEMP FIX
+    //PLEASE FIX THIS CANNOT GO PRODUCTION
+    //THIS LITERALY MAKES NO SENSE
+    //THIS IS LITERALLY THE SHITTIEST CODE IN THE WHOLE LIBRARY
+    // 4/09/17 3:49 a.m.
+    
+    func checkUser(){
+        if FIRAuth.auth()?.currentUser != nil {
+            let firebaseAuth = FIRAuth.auth()
+            ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Stats").observe(FIRDataEventType.value, with: {
+                (snapshot) in
+                self.stats = snapshot.value as? [String : Int] ?? [:]
+                if(self.stats["currentStreak"] == nil){
+                    do {
+                        try firebaseAuth?.signOut()
+                        self.dismiss(animated: true, completion: nil)
+                    } catch let signOutError as NSError {
+                        print ("Error signing out: \(signOutError.localizedDescription)")
+                    }
+                }
+            })
+        }else {
+        }
     }
 
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
