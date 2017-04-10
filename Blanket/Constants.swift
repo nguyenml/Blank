@@ -32,9 +32,16 @@ struct Constants {
     struct StartDate{
         static var date = "date"
     }
+    struct Emotions{
+        static let content = "Content"
+        static let sad = "Sad"
+        static let angry = "Angry"
+        static let excited = "Excited"
+    }
 
 }
 
+var imFeeling = ""
 
 struct Stats{
     static var currentStreak = 0

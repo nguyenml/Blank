@@ -1,4 +1,5 @@
 PODS:
+  - CZPicker (0.4.3)
   - Firebase/Auth (3.15.0):
     - Firebase/Core
     - FirebaseAuth (= 3.1.1)
@@ -67,6 +68,7 @@ PODS:
   - Protobuf (3.2.0)
 
 DEPENDENCIES:
+  - CZPicker
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -77,6 +79,7 @@ DEPENDENCIES:
   - PopupDialog (~> 0.5)
 
 SPEC CHECKSUMS:
+  CZPicker: 55aa1751ea26e209814552da1a9a08cba8bbf72a
   Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
   FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
   FirebaseAuth: cc8a1824170adbd351edb7f994490a3fb5c18be6
@@ -94,6 +97,6 @@ SPEC CHECKSUMS:
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   Protobuf: 745f59e122e5de98d4d7ef291e264a0eef80f58e
 
-PODFILE CHECKSUM: 01ae45df429360d0c083df4a632a460ef6a153ee
+PODFILE CHECKSUM: 70ee78a05af4a646c2e62952b562720d775c1c38
 
 COCOAPODS: 1.2.0

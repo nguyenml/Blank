@@ -14,6 +14,7 @@ target 'Blanket' do
     pod 'Firebase/Storage'
     pod 'Firebase/RemoteConfig'
     pod 'PopupDialog', '~> 0.5'
+    pod 'CZPicker'
   target 'BlanketTests' do
     inherit! :search_paths
     # Pods for testing

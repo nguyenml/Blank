@@ -8,16 +8,21 @@
 
 import UIKit
 import Firebase
+import CZPicker
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var EmojiLabel: UILabel!
+    @IBOutlet weak var emotionLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var completedText: UILabel!
     @IBOutlet weak var entryBtn: UIButton!
     
+    @IBOutlet weak var emoteButton: UIButton!
     var ref:FIRDatabaseReference?
     
     var stats:[String:Int] = [:]
+    var emotes = [String]()
     
     @IBOutlet weak var dateLabel: UILabel!
 
@@ -26,7 +31,17 @@ class MainViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
+        setLabels()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func setEmotes(){
+        
+        emotes = ["😠 " + Constants.Emotions.angry,
+                  "☺️ " + Constants.Emotions.content,
+                  "😀 " + Constants.Emotions.excited,
+                  "😢 " + Constants.Emotions.sad]
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,6 +51,8 @@ class MainViewController: UIViewController {
     func setLabels(){
         completedText.text = "You already wrote today"
         completedText.isHidden = true
+        setEmotes()
+        emoteButton.setTitle("Im Feeling..", for: .normal)
     }
     
     
@@ -88,8 +105,12 @@ class MainViewController: UIViewController {
         }
     }
     
-    func emoteTag(){
-        
+    @IBAction func emoteBtnPressed(_ sender: UIButton) {
+        let picker = CZPickerView(headerTitle: "I'm feeling", cancelButtonTitle: "Cancel", confirmButtonTitle: "Confirm")
+        picker?.delegate = self
+        picker?.dataSource = self
+        picker?.needFooterView = false
+        picker?.show()
     }
 
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
