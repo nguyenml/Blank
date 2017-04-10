@@ -21,6 +21,7 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
     }
 
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
+    //array of badges
     var items = [myBadges.badgeForADay,
                  myBadges.badgeFor3Days,
                  myBadges.badgeFor10Days,
@@ -35,6 +36,7 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
                  myBadges.badgeFor10000Words,
                  myBadges.badgeFor25000Words]
     
+    //array of badge titles
     var itemTitles = ["First Day",
                      "Third Times The Charm",
                      "Double Digits",
@@ -45,8 +47,9 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
                      "Title",
                      "Title",
                      "Title"
-                     ]
+        ]
     
+    //array of badge messages
     var itemMessages=["Congratulations on your first entry. This is the beginning of a long challenging journey, but you have the determination to travel it.",
                       "Three Days! You already passed all the people who quit on the first day. Pat yourself on the back for commiting to this challenge",
                       "message",
@@ -83,6 +86,7 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         return cell
     }
     
+    //return to stats page
     @IBAction func backToStats(_ sender: UIButton) {
         self.performSegue(withIdentifier: "unwindToStats", sender: self)
     }
@@ -96,6 +100,7 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         }
     }
     
+    //popup when a user presses on a badge they have completed
     func showImageDialog(animated: Bool = true, item:Int) {
         
         // Prepare the popup assets
@@ -107,11 +112,11 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let popup = PopupDialog(title: title, message: message, image: image)
         
         // Create third button
-        let buttonThree = DefaultButton(title: "Okay") {
+        let buttonClose = DefaultButton(title: "Close") {
         }
         
         // Add buttons to dialog
-        popup.addButtons([buttonThree])
+        popup.addButtons([buttonClose])
         
         // Present dialog
         self.present(popup, animated: animated, completion: nil)

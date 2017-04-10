@@ -46,6 +46,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         usernameField.isHidden = true
     }
     
+    //changes the form from signin to signup
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
         
         isSignIn = !isSignIn
@@ -62,6 +63,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         }
     }
     
+    //function to signin/create user
     @IBAction func signInButtonTapped(_ sender: UIButton) {
        ref = FIRDatabase.database().reference()
         

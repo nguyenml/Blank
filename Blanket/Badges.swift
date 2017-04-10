@@ -43,12 +43,28 @@ class BadgeClass{
         if badgeFor3Days == false{
             checkBadgeFor3Days()
         }
+        if badgeFor10Days == false{
+            checkBadgeFor10Days()
+        }
+        if badgeFor20Days == false{
+            checkBadgeFor20Days()
+        }
+        if badgeFor50Days == false{
+            checkBadgeFor50Days()
+        }
+        if badgeFor100Days == false{
+            checkBadgeFor100Days()
+        }
         if badgeFor200Words == false{
             checkBadgeFor200Words()
         }
         if badgeFor500Words == false{
             checkBadgeFor500Words()
         }
+        if badgeFor1000Words == false{
+            checkBadgeFor1000Words()
+        }
+        
     }
     
     func checkBadgeForADay(){
@@ -73,23 +89,23 @@ class BadgeClass{
         }
     }
     
-    func checkBadgeFor20(){
+    func checkBadgeFor20Days(){
         if length > 19{
             badgeFor20Days = true
             ref?.updateChildValues(["badgeFor20Days":true])
         }
     }
     
-    func checkBadgeFor50(){
+    func checkBadgeFor50Days(){
         if length > 49{
-            badgeFor20Days = true
+            badgeFor50Days = true
             ref?.updateChildValues(["badgeFor50Days":true])
         }
     }
     
-    func checkBadgeFor100(){
+    func checkBadgeFor100Days(){
         if length > 99{
-            badgeFor20Days = true
+            badgeFor100Days = true
             ref?.updateChildValues(["badgeFor100Days":true])
         }
     }

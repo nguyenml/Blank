@@ -15,25 +15,16 @@ class MainViewController: UIViewController {
     @IBOutlet weak var completedText: UILabel!
     @IBOutlet weak var entryBtn: UIButton!
     
-    var currentDate: Date! = Date() {
-        didSet {
-            setDate()
-        }
-    }
-    
     var ref:FIRDatabaseReference?
     
     var stats:[String:Int] = [:]
     
     @IBOutlet weak var dateLabel: UILabel!
-    
-    let myDefaults = UserDefaults.standard
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         checkUser()
-        currentDate = Date()
         getData()
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -48,12 +39,15 @@ class MainViewController: UIViewController {
     }
     
     
+    // Set the date to the front label
     func setDate() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM"
         dateLabel.text = (dateFormatter.string(from: NSDate() as Date))
     }
     
+    //Retrieve all the stats of the user from firebase
+    //Checks which badges the user has earned and puts all the information into a local struct to reduce redundant calls
     func getData(){
         ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Stats").observe(FIRDataEventType.value, with: {
             (snapshot) in
@@ -69,16 +63,10 @@ class MainViewController: UIViewController {
         })
 
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     //TEMP TEMP TEMP TEMP TEMP FIX
     //PLEASE FIX THIS CANNOT GO PRODUCTION
     //THIS LITERALY MAKES NO SENSE
-    //THIS IS LITERALLY THE SHITTIEST CODE IN THE WHOLE LIBRARY
+    //THIS IS SHIT
     // 4/09/17 3:49 a.m.
     
     func checkUser(){
@@ -98,6 +86,10 @@ class MainViewController: UIViewController {
             })
         }else {
         }
+    }
+    
+    func emoteTag(){
+        
     }
 
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}

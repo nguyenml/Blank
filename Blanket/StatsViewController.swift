@@ -35,7 +35,7 @@ class StatsViewController: UIViewController{
         setLabels()
     }
 
-    
+    //Updates all labels
     func setLabels(){
         CurrentStreak.text = String(Stats.currentStreak)
         AverageWordCount.text = String(Stats.avgWordcount)
@@ -45,11 +45,13 @@ class StatsViewController: UIViewController{
         fetchUser()
     }
     
+    //find user and find user display name
     func fetchUser(){
         let user = FIRAuth.auth()?.currentUser
         userLabel.text = user?.displayName
     }
     
+    //incomplete
     func findActiveDates()-> Int{
         let currentCalendar     = NSCalendar.current
         let dateFormatter = DateFormatter()
@@ -60,6 +62,7 @@ class StatsViewController: UIViewController{
         return end - start
     }
     
+    //Logs a user out
     @IBAction func signOut(_ sender: UIButton) {
         let firebaseAuth = FIRAuth.auth()
         do {
@@ -70,6 +73,7 @@ class StatsViewController: UIViewController{
         }
     }
     
+    //resets all the local structs and classes that held the users local data
     func safeReset(){
         myBadges = BadgeClass()
         myBadges.reset()

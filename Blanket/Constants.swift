@@ -26,6 +26,7 @@ struct Constants {
         static let text = "text"
         static let wordCount = "wordcount"
         static let uid = "uid"
+        static let emotion = "emotion"
     }
     
     struct StartDate{
@@ -43,4 +44,5 @@ struct Stats{
     static var daysActive = 0
     static var totalEntries = 0
 }
+
 
