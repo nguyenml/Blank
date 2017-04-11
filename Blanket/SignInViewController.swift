@@ -108,14 +108,16 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                                                       "longestStreak": 0,
                                                       "avgWordcount": 0,
                                                       "totalWordcount": 0,
-                                                      "totalEntries": 0
+                                                      "totalEntries": 0,
                                                       ]
                     let badges: [String:Bool] = [:]
+                    let lastAccess:String = " "
                     self.ref.child("users").child(user!.uid).setValue(["Provider": "email",
                                                                        "Email": email,
                                                                        "Date": self.dateToString(),
                                                                        "Stats": stats,
-                                                                       "Badges": badges])
+                                                                       "Badges": badges,
+                                                                       "LastAccess": lastAccess])
                     self.performSegue(withIdentifier: "signedIn", sender: self)
                     myBadges = BadgeClass()
                     

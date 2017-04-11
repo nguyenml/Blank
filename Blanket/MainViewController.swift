@@ -49,10 +49,16 @@ class MainViewController: UIViewController {
     }
     
     func setLabels(){
-        completedText.text = "You already wrote today"
-        completedText.isHidden = true
         setEmotes()
         emoteButton.setTitle("Im Feeling..", for: .normal)
+    }
+    
+    func checkLastAccess(){
+        if Calendar.current.isDateInToday(LastAccess.date as Any as! Date) {
+            entryBtn.isHidden = true
+            completedText.isHidden = false
+        }
+        
     }
     
     
@@ -77,6 +83,15 @@ class MainViewController: UIViewController {
             Stats.totalWordcount = (self.stats["totalWordcount"])!
             Stats.daysActive = (self.stats["daysActive"])!
             myBadges.checkBadge()
+        })
+        ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("LastAccess").observe(FIRDataEventType.value, with: {
+            (snapshot) in
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, yyyy"
+            let date = (snapshot.value as! String)
+            LastAccess.date = dateFormatter.date(from: date)!
+            self.checkLastAccess()
+            
         })
     }
     
@@ -103,6 +118,14 @@ class MainViewController: UIViewController {
         }else {
         }
     }
+    
+    func resetStreak(){
+                let currentCalendar     = NSCalendar.current
+                let start = currentCalendar.ordinality(of: .day, in: .era, for: LastAccess.date as Any as! Date)
+                let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
+                let daysSinceWriting = end! - start!
+                print(daysSinceWriting)
+            }
     
     @IBAction func emoteBtnPressed(_ sender: UIButton) {
         let picker = CZPickerView(headerTitle: "I'm feeling", cancelButtonTitle: "Cancel", confirmButtonTitle: "Confirm")

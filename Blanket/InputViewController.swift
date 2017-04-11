@@ -100,7 +100,11 @@ class InputViewController: UIViewController {
         mdata[Constants.Entry.uid] = uid
         mdata[Constants.Entry.emotion] = imFeeling
         ref?.child("Entry").childByAutoId().setValue(mdata)
-        
+        updateLastAccess(date: dateToString())
+    }
+    
+    func updateLastAccess(date: String){
+        ref?.child("users").child(String(describing: uid )).setValue(["LastAccess",date])
     }
     
     //converts date to a string to be but into the db
@@ -126,9 +130,6 @@ class InputViewController: UIViewController {
         textField.isEditable = false
         textField.isUserInteractionEnabled = false
         updateStats()
-        UserDefaults.lastAccessDate = Date()
-        
-        
     }
     
     //How many words the user wrote

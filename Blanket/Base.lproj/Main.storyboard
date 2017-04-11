@@ -160,6 +160,7 @@
                         <outlet property="dateLabel" destination="i8c-dV-xfb" id="Upg-xH-uc9"/>
                         <outlet property="emoteButton" destination="QFN-vW-kgc" id="jtS-ZB-qb9"/>
                         <outlet property="emotionLabel" destination="3sT-Hr-y1h" id="3jD-Pm-X3g"/>
+                        <outlet property="entryBtn" destination="22X-UX-L33" id="00j-nN-RCc"/>
                         <outlet property="textLabel" destination="QCR-GD-I1u" id="hcx-JR-x22"/>
                     </connections>
                 </viewController>

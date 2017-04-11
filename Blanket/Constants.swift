@@ -34,9 +34,9 @@ struct Constants {
     }
     struct Emotions{
         static let content = "Content"
-        static let sad = "Sad"
-        static let angry = "Angry"
-        static let excited = "Excited"
+        static let sad = "Dissapointed"
+        static let angry = "Upset"
+        static let excited = "Motivated"
     }
 
 }
@@ -50,6 +50,12 @@ struct Stats{
     static var totalWordcount = 0
     static var daysActive = 0
     static var totalEntries = 0
+}
+
+struct LastAccess{
+    
+    static var date = NSDate() as Date
+    
 }
 
 
