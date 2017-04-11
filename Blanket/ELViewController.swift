@@ -18,8 +18,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     var entries: [FIRDataSnapshot]! = []
     var handle: FIRAuthStateDidChangeListenerHandle?
-    
-    var aPopupContainer: PopupContainer?
+
     var testCalendar = Calendar(identifier: .gregorian)
     var currentDate: Date! = Date() {
         didSet {

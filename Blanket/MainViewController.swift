@@ -78,14 +78,13 @@ class MainViewController: UIViewController {
             Stats.daysActive = (self.stats["daysActive"])!
             myBadges.checkBadge()
         })
-
     }
+    
     //TEMP TEMP TEMP TEMP TEMP FIX
     //PLEASE FIX THIS CANNOT GO PRODUCTION
     //THIS LITERALY MAKES NO SENSE
     //THIS IS SHIT
     // 4/09/17 3:49 a.m.
-    
     func checkUser(){
         if FIRAuth.auth()?.currentUser != nil {
             let firebaseAuth = FIRAuth.auth()

@@ -41,7 +41,7 @@ struct Constants {
 
 }
 
-var imFeeling = ""
+var imFeeling = "Content"
 
 struct Stats{
     static var currentStreak = 0

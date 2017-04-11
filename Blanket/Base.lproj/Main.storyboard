@@ -106,27 +106,32 @@
                                 <nil key="textColor"/>
                                 <color key="highlightedColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Atl-vn-lGt">
-                                <rect key="frame" x="140" y="225" width="97" height="84"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="PSl-rN-HZ5">
+                                <rect key="frame" x="139" y="234" width="97" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFN-vW-kgc">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Atl-vn-lGt">
                                         <rect key="frame" x="0.0" y="0.0" width="97" height="34"/>
-                                        <state key="normal" title="I'm Feeling..">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="emoteBtnPressed:" destination="rlw-PC-1tq" eventType="touchUpInside" id="Pzx-99-UbI"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mff-iE-Ayd">
-                                        <rect key="frame" x="19.5" y="34" width="58.5" height="29"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QFN-vW-kgc">
+                                                <rect key="frame" x="0.0" y="0.0" width="97" height="34"/>
+                                                <state key="normal" title="I'm Feeling..">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="emoteBtnPressed:" destination="rlw-PC-1tq" eventType="touchUpInside" id="Pzx-99-UbI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Lg-cj-xMP">
+                                        <rect key="frame" x="46.5" y="34" width="4.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wxc-gU-e87">
-                                        <rect key="frame" x="27.5" y="63" width="42" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sT-Hr-y1h">
+                                        <rect key="frame" x="46.5" y="54.5" width="4.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -150,11 +155,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" systemItem="featured" id="qu5-fU-R6N"/>
                     <connections>
-                        <outlet property="EmojiLabel" destination="Mff-iE-Ayd" id="TRh-kg-rGe"/>
+                        <outlet property="EmojiLabel" destination="0Lg-cj-xMP" id="ru7-bb-jaX"/>
                         <outlet property="completedText" destination="Tqs-2J-H4N" id="7ud-8A-4gj"/>
                         <outlet property="dateLabel" destination="i8c-dV-xfb" id="Upg-xH-uc9"/>
                         <outlet property="emoteButton" destination="QFN-vW-kgc" id="jtS-ZB-qb9"/>
-                        <outlet property="emotionLabel" destination="wxc-gU-e87" id="Tdf-EK-bvZ"/>
+                        <outlet property="emotionLabel" destination="3sT-Hr-y1h" id="3jD-Pm-X3g"/>
                         <outlet property="textLabel" destination="QCR-GD-I1u" id="hcx-JR-x22"/>
                     </connections>
                 </viewController>

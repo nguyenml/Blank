@@ -28,6 +28,8 @@ class StatsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ref = FIRDatabase.database().reference()
+        getData()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -49,17 +51,6 @@ class StatsViewController: UIViewController{
     func fetchUser(){
         let user = FIRAuth.auth()?.currentUser
         userLabel.text = user?.displayName
-    }
-    
-    //incomplete
-    func findActiveDates()-> Int{
-        let currentCalendar     = NSCalendar.current
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM, dd yyyy"
-        let startDate = dateFormatter.date(from:  )
-        guard let start = currentCalendar.ordinality(of: .day, in: .era, for: myDefaults.object(forKey: "lastAccessDate") as! Date) else { return 0 }
-        guard let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date) else { return 0 }
-        return end - start
     }
     
     //Logs a user out
@@ -85,6 +76,28 @@ class StatsViewController: UIViewController{
         Stats.totalWordcount = 0
         
     }
+    
+    func getData(){
+        ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Date").observeSingleEvent(of: .value,with: {
+            (snapshot) in
+            print(String(describing: FIRAuth.auth()!.currentUser!.uid))
+            Constants.StartDate.date = (snapshot.value as? String)!
+            Stats.daysActive = self.findActiveDates()
+            self.setLabels()
+        })
+    }
+    
+    //incomplete
+    func findActiveDates()-> Int{
+        let currentCalendar     = NSCalendar.current
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        let startDate = dateFormatter.date(from: Constants.StartDate.date)
+        guard let start = currentCalendar.ordinality(of: .day, in: .era, for: startDate!) else { return 0 }
+        guard let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date) else { return 0 }
+        return end - start
+    }
+    
     
     @IBAction func unwindToStats(segue: UIStoryboardSegue) {}
     

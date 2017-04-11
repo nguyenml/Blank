@@ -106,7 +106,6 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                     self.usernameTextField.text = ""
                     let stats: [String:Int] = [ "currentStreak": 0,
                                                       "longestStreak": 0,
-                                                      "daysActive": 1,
                                                       "avgWordcount": 0,
                                                       "totalWordcount": 0,
                                                       "totalEntries": 0

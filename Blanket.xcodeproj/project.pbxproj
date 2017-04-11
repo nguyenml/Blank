@@ -27,12 +27,6 @@
 		582E11C11E8B38E30074ADE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11C01E8B38E30074ADE1 /* Constants.swift */; };
 		582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11C41E9597FB0074ADE1 /* Badges.swift */; };
 		585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */; };
-		585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FB1E7613D00011B2E3 /* PopUpContainer.swift */; };
-		585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297FF1E76D48B0011B2E3 /* AnimationClass.swift */; };
-		585298021E76D4930011B2E3 /* CalendarPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298011E76D4930011B2E3 /* CalendarPopUp.swift */; };
-		585298041E76D4990011B2E3 /* CalendarPopUp.xib in Resources */ = {isa = PBXBuildFile; fileRef = 585298031E76D4990011B2E3 /* CalendarPopUp.xib */; };
-		585298061E76D4A40011B2E3 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298051E76D4A40011B2E3 /* CellView.swift */; };
-		585298081E76D4AA0011B2E3 /* CellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 585298071E76D4AA0011B2E3 /* CellView.xib */; };
 		5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298091E76D4B10011B2E3 /* Extensions.swift */; };
 		585298211E7A1E040011B2E3 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585298191E7A1E040011B2E3 /* Dosis-Bold.ttf */; };
 		585298221E7A1E040011B2E3 /* Dosis-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981A1E7A1E040011B2E3 /* Dosis-ExtraBold.ttf */; };
@@ -95,12 +89,6 @@
 		582E11C01E8B38E30074ADE1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		582E11C41E9597FB0074ADE1 /* Badges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badges.swift; sourceTree = "<group>"; };
 		585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndividualEntryViewController.swift; path = ../IndividualEntryViewController.swift; sourceTree = "<group>"; };
-		585297FB1E7613D00011B2E3 /* PopUpContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpContainer.swift; sourceTree = "<group>"; };
-		585297FF1E76D48B0011B2E3 /* AnimationClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationClass.swift; sourceTree = "<group>"; };
-		585298011E76D4930011B2E3 /* CalendarPopUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPopUp.swift; sourceTree = "<group>"; };
-		585298031E76D4990011B2E3 /* CalendarPopUp.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarPopUp.xib; sourceTree = "<group>"; };
-		585298051E76D4A40011B2E3 /* CellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
-		585298071E76D4AA0011B2E3 /* CellView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CellView.xib; sourceTree = "<group>"; };
 		585298091E76D4B10011B2E3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		585298191E7A1E040011B2E3 /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Bold.ttf"; path = "Resources/Dosis-Bold.ttf"; sourceTree = "<group>"; };
 		5852981A1E7A1E040011B2E3 /* Dosis-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-ExtraBold.ttf"; path = "Resources/Dosis-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -175,12 +163,7 @@
 			children = (
 				5801590F1E81CC93008D934E /* Calendar */,
 				5801590D1E81C997008D934E /* CollectionCellView.swift */,
-				585298071E76D4AA0011B2E3 /* CellView.xib */,
-				585298051E76D4A40011B2E3 /* CellView.swift */,
-				585298031E76D4990011B2E3 /* CalendarPopUp.xib */,
 				585298091E76D4B10011B2E3 /* Extensions.swift */,
-				585298011E76D4930011B2E3 /* CalendarPopUp.swift */,
-				585297FF1E76D48B0011B2E3 /* AnimationClass.swift */,
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
@@ -191,7 +174,6 @@
 				580159091E81C82D008D934E /* BadgesViewController.swift */,
 				58FFEBD41E817C08003523C5 /* MainViewController.swift */,
 				58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */,
-				585297FB1E7613D00011B2E3 /* PopUpContainer.swift */,
 				582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */,
 				581DA3E51E70EB7F0051C64B /* InputViewController.swift */,
 				581DA3B61E70D66B0051C64B /* Assets.xcassets */,
@@ -377,9 +359,7 @@
 			files = (
 				585298281E7A1E040011B2E3 /* OFL.txt in Resources */,
 				585298261E7A1E040011B2E3 /* Dosis-Regular.ttf in Resources */,
-				585298081E76D4AA0011B2E3 /* CellView.xib in Resources */,
 				585298221E7A1E040011B2E3 /* Dosis-ExtraBold.ttf in Resources */,
-				585298041E76D4990011B2E3 /* CalendarPopUp.xib in Resources */,
 				585298211E7A1E040011B2E3 /* Dosis-Bold.ttf in Resources */,
 				581DA3BA1E70D66B0051C64B /* LaunchScreen.storyboard in Resources */,
 				585298231E7A1E040011B2E3 /* Dosis-ExtraLight.ttf in Resources */,
@@ -552,10 +532,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				585298061E76D4A40011B2E3 /* CellView.swift in Sources */,
 				582E11C11E8B38E30074ADE1 /* Constants.swift in Sources */,
-				585298021E76D4930011B2E3 /* CalendarPopUp.swift in Sources */,
-				585297FC1E7613D00011B2E3 /* PopUpContainer.swift in Sources */,
 				5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */,
 				582E11BD1E8B1D2D0074ADE1 /* ELViewController.swift in Sources */,
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
@@ -566,7 +543,6 @@
 				58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */,
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
 				582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */,
-				585298001E76D48B0011B2E3 /* AnimationClass.swift in Sources */,
 				582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,

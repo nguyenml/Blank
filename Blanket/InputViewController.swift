@@ -98,6 +98,7 @@ class InputViewController: UIViewController {
         mdata[Constants.Entry.wordCount] = String(wordCount(str: textField.text!))
         mdata[Constants.Entry.date] = dateToString()
         mdata[Constants.Entry.uid] = uid
+        mdata[Constants.Entry.emotion] = imFeeling
         ref?.child("Entry").childByAutoId().setValue(mdata)
         
     }
