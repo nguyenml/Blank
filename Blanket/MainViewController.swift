@@ -86,12 +86,11 @@ class MainViewController: UIViewController {
         ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("LastAccess").observe(FIRDataEventType.value, with: {
             (snapshot) in
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMM dd, yyyy"
-            print(snapshot)
+            dateFormatter.dateFormat = "MMM dd, yyyy h:mm a"
+            dateFormatter.calendar = Calendar(identifier: .gregorian)
             let date = dateFormatter.date(from: (snapshot.value as! String))
-            print(date)
             if date != nil{
-            LastAccess.date = (date! as NSDate)
+            LastAccess.date = (date! as Date)
             }
             else{
                 //no date

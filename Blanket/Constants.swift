@@ -53,7 +53,7 @@ struct Stats{
 }
 
 struct LastAccess{
-    static var date = NSDate()
+    static var date = NSDate() as Date
 }
 
 
