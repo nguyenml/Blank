@@ -54,7 +54,7 @@ class MainViewController: UIViewController {
     }
     
     func checkLastAccess(){
-        if Calendar.current.isDateInToday(LastAccess.date as Any as! Date) {
+        if Calendar.current.isDateInToday(LastAccess.date as Date) {
             entryBtn.isHidden = true
             completedText.isHidden = false
         }
@@ -81,15 +81,21 @@ class MainViewController: UIViewController {
             Stats.currentStreak = (self.stats["currentStreak"])!
             Stats.longestStreak = (self.stats["longestStreak"])!
             Stats.totalWordcount = (self.stats["totalWordcount"])!
-            Stats.daysActive = (self.stats["daysActive"])!
             myBadges.checkBadge()
         })
         ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("LastAccess").observe(FIRDataEventType.value, with: {
             (snapshot) in
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM dd, yyyy"
-            let date = (snapshot.value as! String)
-            LastAccess.date = dateFormatter.date(from: date)!
+            print(snapshot)
+            let date = dateFormatter.date(from: (snapshot.value as! String))
+            print(date)
+            if date != nil{
+            LastAccess.date = (date! as NSDate)
+            }
+            else{
+                //no date
+            }
             self.checkLastAccess()
             
         })

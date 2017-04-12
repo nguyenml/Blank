@@ -104,7 +104,8 @@ class InputViewController: UIViewController {
     }
     
     func updateLastAccess(date: String){
-        ref?.child("users").child(String(describing: uid )).setValue(["LastAccess",date])
+        print(date)
+        ref?.child("users").child(String(describing: uid )).updateChildValues(["LastAccess": date])
     }
     
     //converts date to a string to be but into the db

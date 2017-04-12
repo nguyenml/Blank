@@ -95,7 +95,7 @@ class StatsViewController: UIViewController{
         let startDate = dateFormatter.date(from: Constants.StartDate.date)
         guard let start = currentCalendar.ordinality(of: .day, in: .era, for: startDate!) else { return 0 }
         guard let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date) else { return 0 }
-        return end - start
+        return (end - start) + 1
     }
     
     

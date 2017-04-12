@@ -111,7 +111,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                                                       "totalEntries": 0,
                                                       ]
                     let badges: [String:Bool] = [:]
-                    let lastAccess:String = " "
+                    let lastAccess:String = "Apr 1, 2017"
                     self.ref.child("users").child(user!.uid).setValue(["Provider": "email",
                                                                        "Email": email,
                                                                        "Date": self.dateToString(),
