@@ -20,6 +20,7 @@
 		581DA3C51E70D66C0051C64B /* BlanketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3C41E70D66C0051C64B /* BlanketTests.swift */; };
 		581DA3D01E70D66C0051C64B /* BlanketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */; };
 		581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3E51E70EB7F0051C64B /* InputViewController.swift */; };
+		582C3E471EA0126000DC1698 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582C3E461EA0126000DC1698 /* GoalsViewController.swift */; };
 		582E11B71E8AB8EC0074ADE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */; };
 		582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */; };
 		582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */; };
@@ -82,6 +83,7 @@
 		581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlanketUITests.swift; sourceTree = "<group>"; };
 		581DA3D11E70D66C0051C64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		581DA3E51E70EB7F0051C64B /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		582C3E461EA0126000DC1698 /* GoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementHelper.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				582C3E461EA0126000DC1698 /* GoalsViewController.swift */,
 				582E11C01E8B38E30074ADE1 /* Constants.swift */,
 				582E11C41E9597FB0074ADE1 /* Badges.swift */,
 				582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */,
@@ -546,6 +549,7 @@
 				582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
+				582C3E471EA0126000DC1698 /* GoalsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,7 +704,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Blanket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = marvo.Blanket;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marvo.Blanket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -713,7 +717,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Blanket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = marvo.Blanket;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marvo.Blanket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
