@@ -28,6 +28,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setDate()
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
@@ -56,6 +57,7 @@ class MainViewController: UIViewController {
     func checkLastAccess(){
         if Calendar.current.isDateInToday(LastAccess.date as Date) {
             entryBtn.isHidden = true
+            completedText.text = "You already wrote today"
             completedText.isHidden = false
         }
         
@@ -95,7 +97,12 @@ class MainViewController: UIViewController {
             else{
                 //no date
             }
+            print(snapshot.value as! String)
+            print(date)
+            print(LastAccess.date)
+            print(snapshot)
             self.checkLastAccess()
+            self.resetStreak()
             
         })
     }

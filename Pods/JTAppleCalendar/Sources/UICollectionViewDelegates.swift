@@ -58,17 +58,11 @@ extension JTAppleCalendarView: UICollectionViewDelegate, UICollectionViewDataSou
         }
         headerView.setupView(source, leftToRightOrientation: orientation)
         headerView.update()
-        self.delegate?.calendar(
-            self,
-            willDisplaySectionHeader: headerView.view!,
-            range: validDate.range,
-            identifier: reuseIdentifier)
+        delegate?.calendar(self, willDisplaySectionHeader: headerView.view!, range: validDate.range, identifier: reuseIdentifier)
         return headerView
     }
     /// Notifies the delegate that a cell is no longer on screen
-    public func collectionView(_ collectionView: UICollectionView,
-                               didEndDisplaying cell: UICollectionViewCell,
-                               forItemAt indexPath: IndexPath) {
+    public func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         guard #available(iOS 10, *) else {
             guard
                 let theCell = cell as? JTAppleDayCell,
@@ -76,7 +70,7 @@ extension JTAppleCalendarView: UICollectionViewDelegate, UICollectionViewDataSou
                     developerError(string: "Cell view was nil")
                     return
             }
-            self.delegate?.calendar(self, willResetCell: cellView)
+            delegate?.calendar(self, willResetCell: cellView)
             return
         }
     }
@@ -166,7 +160,7 @@ extension JTAppleCalendarView: UICollectionViewDelegate, UICollectionViewDataSou
                 }
             }
             if pathsToReload.count > 0 {
-                self.batchReloadIndexPaths(pathsToReload)
+                batchReloadIndexPaths(pathsToReload)
             }
             delegate.calendar(self, didDeselectDate: dateInfoDeselectedByUser.date, cell: selectedCell?.view, cellState: cellState)
         }
@@ -221,7 +215,7 @@ extension JTAppleCalendarView: UICollectionViewDelegate, UICollectionViewDataSou
             }
         }
         if pathsToReload.count > 0 {
-            self.batchReloadIndexPaths(pathsToReload)
+            batchReloadIndexPaths(pathsToReload)
         }
         delegate.calendar(self, didSelectDate: infoOfDateSelectedByUser.date, cell: selectedCell?.view, cellState: cellState)
     }

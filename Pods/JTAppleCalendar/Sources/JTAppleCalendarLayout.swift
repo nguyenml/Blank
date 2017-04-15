@@ -56,10 +56,19 @@ open class JTAppleCalendarLayout: UICollectionViewLayout, JTAppleCalendarLayoutP
     var yCellOffset: CGFloat = 0
     var daysInSection: [Int: Int] = [:] // temporary caching
     
-    init(withDelegate delegate: JTAppleCalendarDelegateProtocol) {
+    init(withDelegate delegates: JTAppleCalendarDelegateProtocol) {
         super.init()
-        self.delegate = delegate
+        delegate = delegates
+        
     }
+    
+    /// Returns an object initialized from data in a given unarchiver.
+    /// self, initialized using the data in decoder.
+    required public init?(coder aDecoder: NSCoder) {
+        self.delegate = aDecoder.value(forKey: "delegate") as! JTAppleCalendarDelegateProtocol
+        super.init(coder: aDecoder)
+    }
+
     
     func indexPath(direction: SegmentDestination, of section:Int, item: Int) -> IndexPath? {
         switch direction {
@@ -177,7 +186,7 @@ open class JTAppleCalendarLayout: UICollectionViewLayout, JTAppleCalendarLayoutP
                 section += 1
             }
         }
-        contentHeight = self.collectionView!.bounds.size.height
+        contentHeight = collectionView!.bounds.size.height
     }
 
     func verticalStuff() {
@@ -233,7 +242,7 @@ open class JTAppleCalendarLayout: UICollectionViewLayout, JTAppleCalendarLayoutP
                 section += 1
             }
         }
-        contentWidth = self.collectionView!.bounds.size.width
+        contentWidth = collectionView!.bounds.size.width
     }
 
     /// Returns the width and height of the collection view’s contents.
@@ -485,13 +494,7 @@ open class JTAppleCalendarLayout: UICollectionViewLayout, JTAppleCalendarLayoutP
         }
         return midIndex
     }
-
-    /// Returns an object initialized from data in a given unarchiver.
-    /// self, initialized using the data in decoder.
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-
+    
     /// Returns the content offset to use after an animation
     /// layout update or change.
     /// - Parameter proposedContentOffset: The proposed point for the

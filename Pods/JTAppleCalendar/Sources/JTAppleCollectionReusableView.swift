@@ -12,8 +12,8 @@ open class JTAppleCollectionReusableView: UICollectionReusableView, JTAppleReusa
     var view: JTAppleHeaderView?
     
     func update() {
-        view!.frame = self.frame
-        view!.center = CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.5)
+        view!.frame = frame
+        view!.center = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
     }
 
     override init(frame: CGRect) {

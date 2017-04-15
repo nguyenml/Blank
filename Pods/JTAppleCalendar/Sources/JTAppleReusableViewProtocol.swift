@@ -45,7 +45,7 @@ extension JTAppleReusableViewProtocol {
                 assert(false)
                 return
             }
-            self.view = theCellClass.init()
+            view = theCellClass.init()
             break
         case let .fromType(cellType):
             guard let theCellClass = cellType as? ViewType.Type else {
@@ -54,7 +54,7 @@ extension JTAppleReusableViewProtocol {
                 assert(false)
                 return
             }
-            self.view = theCellClass.init()
+            view = theCellClass.init()
             break
         }
         guard let validView = view else {

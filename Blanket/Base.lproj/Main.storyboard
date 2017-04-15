@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kS4-YY-TrL">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="kS4-YY-TrL">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -331,9 +331,8 @@
                                 <rect key="frame" x="16" y="76" width="343" height="2"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOw-a3-eF7">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOw-a3-eF7">
                                 <rect key="frame" x="165" y="197" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -345,16 +344,24 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQf-ME-GjH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WQf-ME-GjH">
                                 <rect key="frame" x="161" y="262" width="46" height="47"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="aDT-8U-paq"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="initGoal:" destination="9YI-2e-B13" eventType="touchUpInside" id="5lk-O6-lfT"/>
+                                    <action selector="addGoal:" destination="9YI-2e-B13" eventType="touchUpInside" id="zE7-yY-HaA"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WQf-ME-GjH" firstAttribute="leading" secondItem="M1s-lE-6Mc" secondAttribute="leading" constant="161" id="4Zo-Cm-run"/>
+                            <constraint firstItem="WQf-ME-GjH" firstAttribute="top" secondItem="gOw-a3-eF7" secondAttribute="bottom" constant="44" id="BZ2-7f-JMK"/>
+                            <constraint firstItem="WQf-ME-GjH" firstAttribute="trailing" secondItem="gOw-a3-eF7" secondAttribute="trailing" id="Pao-SI-lw3"/>
+                            <constraint firstItem="WQf-ME-GjH" firstAttribute="top" secondItem="M1s-lE-6Mc" secondAttribute="top" constant="262" id="xTb-O9-0Du"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="Mwb-ry-YM3"/>
                     <connections>

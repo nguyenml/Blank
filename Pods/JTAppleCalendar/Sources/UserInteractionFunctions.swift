@@ -131,7 +131,7 @@ extension JTAppleCalendarView {
         unregisterHeaders()
         for headerViewXibName in xibFileNames {
             registeredHeaderViews.append(JTAppleCalendarViewSource.fromXib(headerViewXibName, bundle))
-            self.calendarView.register(JTAppleCollectionReusableView.self,
+            calendarView.register(JTAppleCollectionReusableView.self,
                                        forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
                                        withReuseIdentifier: headerViewXibName)
         }
@@ -146,14 +146,10 @@ extension JTAppleCalendarView {
         if classStringNames.isEmpty { return }
         unregisterHeaders()
         for headerViewClassName in classStringNames {
-            registeredHeaderViews.append(JTAppleCalendarViewSource
-                .fromClassName(headerViewClassName, bundle))
-            self.calendarView.register(
-                JTAppleCollectionReusableView.self,
-                forSupplementaryViewOfKind:
-                UICollectionElementKindSectionHeader,
-                withReuseIdentifier: headerViewClassName
-            )
+            registeredHeaderViews.append(JTAppleCalendarViewSource.fromClassName(headerViewClassName, bundle))
+            calendarView.register(JTAppleCollectionReusableView.self,
+                                  forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                                  withReuseIdentifier: headerViewClassName)
         }
     }
     
@@ -164,13 +160,10 @@ extension JTAppleCalendarView {
         if classTypeNames.isEmpty { return }
         unregisterHeaders()
         for aClass in classTypeNames {
-            registeredHeaderViews
-                .append(JTAppleCalendarViewSource.fromType(aClass))
-            self.calendarView.register(
-                JTAppleCollectionReusableView.self,
-                forSupplementaryViewOfKind:
-                UICollectionElementKindSectionHeader,
-                withReuseIdentifier: aClass.description()
+            registeredHeaderViews.append(JTAppleCalendarViewSource.fromType(aClass))
+            calendarView.register(JTAppleCollectionReusableView.self,
+                                  forSupplementaryViewOfKind: UICollectionElementKindSectionHeader,
+                                  withReuseIdentifier: aClass.description()
             )
         }
     }
@@ -263,7 +256,7 @@ extension JTAppleCalendarView {
         if !calendarIsAlreadyLoaded {
             // If the calendar is not yet fully loaded.
             // Add the task to the delayed queue
-            delayedExecutionClosure.append {
+            delayedExecutionClosure.append {[unowned self] in
                 self.selectDates(
                     dates,
                     triggerSelectionDelegate: triggerSelectionDelegate,
@@ -341,14 +334,14 @@ extension JTAppleCalendarView {
             if !(firstDayOfDate >= startOfMonthCache! && firstDayOfDate <= endOfMonthCache!) {
                 continue
             }
-            let pathFromDates = self.pathsFromDates([date])
+            let pathFromDates = pathsFromDates([date])
             // If the date path youre searching for, doesnt exist, return
             if pathFromDates.isEmpty { continue }
             let sectionIndexPath = pathFromDates[0]
             // Remove old selections
-            if self.calendarView.allowsMultipleSelection == false {
+            if calendarView.allowsMultipleSelection == false {
                 // If single selection is ON
-                let selectedIndexPaths = self.theSelectedIndexPaths
+                let selectedIndexPaths = theSelectedIndexPaths
                 // made a copy because the array is about to be mutated
                 for indexPath in selectedIndexPaths {
                     if indexPath != sectionIndexPath {
@@ -375,7 +368,7 @@ extension JTAppleCalendarView {
                         // Just add it to be reloaded
                     }
                 }
-                if self.theSelectedIndexPaths.contains(sectionIndexPath) {
+                if theSelectedIndexPaths.contains(sectionIndexPath) {
                     // If this cell is already selected, then deselect it
                     deSelectTheDate(sectionIndexPath)
                 } else {
@@ -390,7 +383,7 @@ extension JTAppleCalendarView {
         // called, we do want the cell refreshed.
         // Reload to call itemAtIndexPath
         if !triggerSelectionDelegate && !allIndexPathsToReload.isEmpty {
-            self.batchReloadIndexPaths(allIndexPathsToReload)
+            batchReloadIndexPaths(allIndexPathsToReload)
         }
     }
     
@@ -401,7 +394,7 @@ extension JTAppleCalendarView {
     /// - Parameter completionHandler: A completion handler that will be executed at the end of the scroll animation
     public func scrollToSegment(_ destination: SegmentDestination, triggerScrollToDateDelegate: Bool = true, animateScroll: Bool = true, completionHandler: (() -> Void)? = nil) {
         if !calendarIsAlreadyLoaded {
-            delayedExecutionClosure.append {
+            delayedExecutionClosure.append {[unowned self] in
                 self.scrollToSegment(destination, triggerScrollToDateDelegate: triggerScrollToDateDelegate, animateScroll: animateScroll, completionHandler: completionHandler)
             }
         }
@@ -485,7 +478,7 @@ extension JTAppleCalendarView {
                              preferredScrollPosition: UICollectionViewScrollPosition? = nil,
                              completionHandler: (() -> Void)? = nil) {
         if !calendarIsAlreadyLoaded {
-            delayedExecutionClosure.append {
+            delayedExecutionClosure.append {[unowned self] in
                 self.scrollToDate(date,
                                   triggerScrollToDateDelegate: triggerScrollToDateDelegate,
                                   animateScroll: animateScroll,
@@ -527,29 +520,29 @@ extension JTAppleCalendarView {
                 } else {
                     let validPosition = position ?? .left
                     scrollInProgress = true
-                    self.scrollTo(indexPath: validIndexPath, isAnimationEnabled: isAnimationEnabled, position: validPosition, completionHandler: completionHandler)
+                    scrollTo(indexPath: validIndexPath, isAnimationEnabled: isAnimationEnabled, position: validPosition, completionHandler: completionHandler)
                 }
             }
             
             // Jt101 put this into a function to reduce code between
             // this and the scroll to header function
             if !isAnimationEnabled {
-                self.scrollViewDidEndScrollingAnimation(self.calendarView)
+                scrollViewDidEndScrollingAnimation(calendarView)
             }
-            self.scrollInProgress = false
+            scrollInProgress = false
         }
         
         // This part should be inside the mainRunLoop
-        if !((firstDayOfDate >= self.startOfMonthCache!) && (firstDayOfDate <= self.endOfMonthCache!)) {
+        if !((firstDayOfDate >= startOfMonthCache!) && (firstDayOfDate <= endOfMonthCache!)) {
             return
         }
-        let retrievedPathsFromDates = self.pathsFromDates([date])
+        let retrievedPathsFromDates = pathsFromDates([date])
         guard !retrievedPathsFromDates.isEmpty else { return }
-        let sectionIndexPath =  self.pathsFromDates([date])[0]
-        var position: UICollectionViewScrollPosition = self.scrollDirection == .horizontal ? .left : .top
-        if !self.scrollingMode.pagingIsEnabled() {
+        let sectionIndexPath =  pathsFromDates([date])[0]
+        var position: UICollectionViewScrollPosition = scrollDirection == .horizontal ? .left : .top
+        if !scrollingMode.pagingIsEnabled() {
             if let validPosition = preferredScrollPosition {
-                if self.scrollDirection == .horizontal {
+                if scrollDirection == .horizontal {
                     if validPosition == .left || validPosition == .right || validPosition == .centeredHorizontally {
                         position = validPosition
                     }
@@ -561,10 +554,10 @@ extension JTAppleCalendarView {
             }
         }
         var point: CGPoint?
-        switch self.scrollingMode {
+        switch scrollingMode {
         case .stopAtEach, .stopAtEachSection, .stopAtEachCalendarFrameWidth:
-            if self.scrollDirection == .horizontal || (self.scrollDirection == .vertical && !self.thereAreHeaders) {
-                point = self.targetPointForItemAt(indexPath: sectionIndexPath)
+            if scrollDirection == .horizontal || (scrollDirection == .vertical && !thereAreHeaders) {
+                point = targetPointForItemAt(indexPath: sectionIndexPath)
             }
         default:
             break
@@ -579,12 +572,12 @@ extension JTAppleCalendarView {
     
     func scrollTo(point: CGPoint, triggerScrollToDateDelegate: Bool? = nil, isAnimationEnabled: Bool, completionHandler: (() -> Void)?) {
         if let validCompletionHandler = completionHandler {
-            self.delayedExecutionClosure.append(validCompletionHandler)
+            delayedExecutionClosure.append(validCompletionHandler)
         }
         self.triggerScrollToDateDelegate = triggerScrollToDateDelegate
-        self.scrollInProgress = true
-        self.calendarView.setContentOffset(point, animated: isAnimationEnabled)
-        self.scrollInProgress = false
+        scrollInProgress = true
+        calendarView.setContentOffset(point, animated: isAnimationEnabled)
+        scrollInProgress = false
     }
     
     func scrollTo(rect: CGRect, triggerScrollToDateDelegate: Bool? = nil, isAnimationEnabled: Bool, completionHandler: (() -> Void)?) {
@@ -634,7 +627,7 @@ extension JTAppleCalendarView {
     ///     - DateSegmentInfo
     public func visibleDates(_ completionHandler: @escaping (_ dateSegmentInfo: DateSegmentInfo) ->()) {
         if !calendarIsAlreadyLoaded {
-            delayedExecutionClosure.append {
+            delayedExecutionClosure.append {[unowned self] in
                 self.visibleDates(completionHandler)
             }
             return

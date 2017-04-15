@@ -13,10 +13,10 @@ open class JTAppleDayCell: UICollectionViewCell, JTAppleReusableViewProtocol {
 	public var view: JTAppleDayCellView?
 
     func updateCellView(_ cellInsetX: CGFloat, cellInsetY: CGFloat) {
-        let vFrame = self.frame.insetBy(dx: cellInsetX, dy: cellInsetY)
+        let vFrame = frame.insetBy(dx: cellInsetX, dy: cellInsetY)
         view!.frame = vFrame
-        view!.center = CGPoint(x: self.bounds.size.width * 0.5,
-                               y: self.bounds.size.height * 0.5)
+        view!.center = CGPoint(x: bounds.size.width * 0.5,
+                               y: bounds.size.height * 0.5)
 	}
 
 	override init(frame: CGRect) {

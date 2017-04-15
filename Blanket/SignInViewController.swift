@@ -19,7 +19,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class SignInViewController: UIViewController, GIDSignInUIDelegate {
+class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signLabel: UILabel!
     @IBOutlet weak var selector: UISegmentedControl!
@@ -37,12 +37,18 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        passwordTextView.delegate = self
+        emailTextField.delegate = self
+        usernameTextField.delegate = self
+        
         handle = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             if user != nil {
                 MeasurementHelper.sendLoginEvent()
                 self.performSegue(withIdentifier: "signedIn", sender: self)
             }
         }
+        
         usernameField.isHidden = true
     }
     
@@ -50,6 +56,9 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
     @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
         
         isSignIn = !isSignIn
+        usernameTextField.text = ""
+        emailTextField.text = ""
+        passwordTextView.text = ""
         
         if isSignIn{
             usernameField.isHidden = true
@@ -82,7 +91,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                     }
                     else{
                         //throw error
-                         print("Error is = \(error?.localizedDescription)")
+                         print("Error is = \(String(describing: error?.localizedDescription))")
                     }
                 
                 })
@@ -111,7 +120,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                                                       "totalEntries": 0,
                                                       ]
                     let badges: [String:Bool] = [:]
-                    let lastAccess:String = "Apr 1, 2017"
+                    let lastAccess:String = "Apr 1, 2017 11:00 AM"
                     self.ref.child("users").child(user!.uid).setValue(["Provider": "email",
                                                                        "Email": email,
                                                                        "Date": self.dateToString(),
@@ -124,7 +133,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
                     
                 }
                 else{
-                    print("Error is = \(error?.localizedDescription)")
+                    print("Error is = \(String(describing: error?.localizedDescription))")
                     print("register error")
                 }
                     
@@ -145,5 +154,11 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextField.resignFirstResponder()
         passwordTextView.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
+    {
+        textField.resignFirstResponder()
+        return true;
     }
 }

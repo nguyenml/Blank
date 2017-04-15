@@ -58,6 +58,8 @@ class StatsViewController: UIViewController{
         let firebaseAuth = FIRAuth.auth()
         do {
             try firebaseAuth?.signOut()
+            safeReset()
+            
             dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
             print ("Error signing out: \(signOutError.localizedDescription)")

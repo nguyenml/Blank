@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		17D21BBDB4F5BD123260170C /* Pods_BlanketUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3549D8732BBE76514189A3 /* Pods_BlanketUITests.framework */; };
 		2B7A1CD99C12D2B02EFF1DEC /* Pods_BlanketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBF83373C439FFAB0DE777D /* Pods_BlanketTests.framework */; };
+		5801067A1EA2A8420046D252 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580106791EA2A8420046D252 /* RatingViewController.swift */; };
+		5801067E1EA2AB400046D252 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5801067D1EA2AB400046D252 /* RatingViewController.xib */; };
 		5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580159091E81C82D008D934E /* BadgesViewController.swift */; };
 		5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801590D1E81C997008D934E /* CollectionCellView.swift */; };
 		580159101E81CC93008D934E /* Calendar in Resources */ = {isa = PBXBuildFile; fileRef = 5801590F1E81CC93008D934E /* Calendar */; };
@@ -65,6 +67,8 @@
 		22C221EC26499480EC12A8C7 /* Pods-BlanketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketTests/Pods-BlanketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2F3549D8732BBE76514189A3 /* Pods_BlanketUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlanketUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBF83373C439FFAB0DE777D /* Pods_BlanketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlanketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		580106791EA2A8420046D252 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		5801067D1EA2AB400046D252 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingViewController.xib; sourceTree = "<group>"; };
 		580159091E81C82D008D934E /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		5801590D1E81C997008D934E /* CollectionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
 		5801590F1E81CC93008D934E /* Calendar */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Calendar; sourceTree = "<group>"; };
@@ -165,6 +169,8 @@
 			children = (
 				5801590F1E81CC93008D934E /* Calendar */,
 				5801590D1E81C997008D934E /* CollectionCellView.swift */,
+				580106791EA2A8420046D252 /* RatingViewController.swift */,
+				5801067D1EA2AB400046D252 /* RatingViewController.xib */,
 				585298091E76D4B10011B2E3 /* Extensions.swift */,
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
@@ -321,6 +327,7 @@
 				TargetAttributes = {
 					581DA3A81E70D66B0051C64B = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 9PX3VD966J;
 						ProvisioningStyle = Automatic;
 					};
 					581DA3BF1E70D66C0051C64B = {
@@ -371,6 +378,7 @@
 				580159101E81CC93008D934E /* Calendar in Resources */,
 				585298251E7A1E040011B2E3 /* Dosis-Medium.ttf in Resources */,
 				581DA3B71E70D66B0051C64B /* Assets.xcassets in Resources */,
+				5801067E1EA2AB400046D252 /* RatingViewController.xib in Resources */,
 				585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */,
 				581DA3B21E70D66B0051C64B /* Main.storyboard in Resources */,
 			);
@@ -544,6 +552,7 @@
 				58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */,
 				5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */,
 				58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */,
+				5801067A1EA2A8420046D252 /* RatingViewController.swift in Sources */,
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
 				582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */,
 				582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */,
@@ -702,10 +711,14 @@
 			baseConfigurationReference = C4F866F5A230DFD16B11187E /* Pods-Blanket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9PX3VD966J;
 				INFOPLIST_FILE = Blanket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.marvo.Blanket;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mhabits.blanket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -715,10 +728,14 @@
 			baseConfigurationReference = 01F62AD5976AA08C5764A39F /* Pods-Blanket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 9PX3VD966J;
 				INFOPLIST_FILE = Blanket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.marvo.Blanket;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mhabits.blanket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -18,6 +18,9 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     var entries: [FIRDataSnapshot]! = []
     var handle: FIRAuthStateDidChangeListenerHandle?
+    var connectedRef:FIRDatabaseReference?
+    
+    var connected:Bool = true;
 
     var testCalendar = Calendar(identifier: .gregorian)
     var currentDate: Date! = Date() {
@@ -29,11 +32,24 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         currentDate = Date()
+        checkConnectionWithFB()
         //sets table up to tableviewcell.xib
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
         configureDatabase()
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    //Temporary measure before adding persistent state
+    func checkConnectionWithFB(){
+        connectedRef = FIRDatabase.database().reference(withPath: ".info/connected")
+        connectedRef?.observe(.value, with: { snapshot in
+            if let connected = snapshot.value as? Bool, connected {
+                self.connected = true
+            } else {
+                self.connected = false
+            }
+        })
     }
     
     //This function retrieves data form FB and puts starts to enter it into the tableview

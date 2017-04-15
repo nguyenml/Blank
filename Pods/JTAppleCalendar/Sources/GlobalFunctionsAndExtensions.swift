@@ -23,7 +23,7 @@ extension Calendar {
     func endOfMonth(for date: Date) -> Date? {
         guard
             let comp = dateFormatterComponents(from: date),
-            let day = self.range(of: .day, in: .month, for: date)?.count,
+            let day = range(of: .day, in: .month, for: date)?.count,
             let retVal = Calendar.formatter.date(from: "\(comp.year) \(comp.month) \(day)") else {
                 return nil
         }
@@ -33,10 +33,10 @@ extension Calendar {
     private func dateFormatterComponents(from date: Date) -> (month: Int, year: Int)? {
         
         // Setup the dateformatter to this instance's settings
-        Calendar.formatter.timeZone = self.timeZone
-        Calendar.formatter.locale = self.locale
+        Calendar.formatter.timeZone = timeZone
+        Calendar.formatter.locale = locale
         
-        let comp = self.dateComponents([.year, .month], from: date)
+        let comp = dateComponents([.year, .month], from: date)
         
         guard
             let month = comp.month,
