@@ -35,7 +35,9 @@ class GoalsViewController: UIViewController {
     
     func setGoal(){
         if hasGoal{
-            goalLabel.text = String(goalNumber)
+            goalLabel.text = String(goalNumber) + " Days"
+            initGoalButton.isHidden = true
+            initGoalButton.isUserInteractionEnabled = false;
         }
         else{
             initGoalButton.isHidden = false
@@ -57,12 +59,16 @@ class GoalsViewController: UIViewController {
         
         // Create first button
         let buttonOne = DefaultButton(title: "Done", height: 60) {
+            self.goalNumber = Int(goalVC.commentTextField.text!)!
+            if self.goalNumber > 0{
+                self.hasGoal = true
+                self.setGoal()
+            }
+            print(self.goalNumber)
         }
         
         // Add buttons to dialog
-        //popup.addButtons([buttonOne])
-        
-        goalNumber = goalVC.goalTarget
+        popup.addButtons([buttonOne])
         
         // Present dialog
         present(popup, animated: animated, completion: nil)
@@ -70,9 +76,5 @@ class GoalsViewController: UIViewController {
 
     @IBAction func addGoal(_ sender: Any) {
         showCustomDialog()
-        if goalNumber > 0{
-            hasGoal = true
-            setGoal()
-        }
     }
 }

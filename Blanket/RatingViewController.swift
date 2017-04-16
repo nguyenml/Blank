@@ -37,7 +37,6 @@ extension NewGoalViewController: UITextFieldDelegate {
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         endEditing()
-        goalTarget = Int(commentTextField.text!)!
         return true
     }
 }
