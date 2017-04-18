@@ -66,5 +66,7 @@ struct LastAccess{
 struct Goals{
     static var endGoal = 0
     static var current = 0
+    static var hasGoal = false
+    static var goalId = "ID"
 }
 

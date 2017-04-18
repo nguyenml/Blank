@@ -98,9 +98,6 @@ class MainViewController: UIViewController {
             else{
                 //no date
             }
-            print(snapshot.value as! String)
-            print(LastAccess.date)
-            print(snapshot)
             self.checkLastAccess()
             self.resetStreak()
             
@@ -116,6 +113,8 @@ class MainViewController: UIViewController {
                 if ((myGoal["inProgress"] as! Bool)){
                     Goals.endGoal = myGoal["endGoal"]! as! Int
                     Goals.current = myGoal["currentGoal"]! as! Int
+                    Goals.hasGoal = true
+                    Goals.goalId = goals.key
                 }
             }
             print(Goals.endGoal)
@@ -152,11 +151,14 @@ class MainViewController: UIViewController {
                 let start = currentCalendar.ordinality(of: .day, in: .era, for: LastAccess.date as Any as! Date)
                 let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
                 let daysSinceWriting = end! - start!
+                print("\n\n")
                 print(daysSinceWriting)
-                if daysSinceWriting > 1{
-                    
-                }
-            }
+                if daysSinceWriting > 0{
+                    print(daysSinceWriting)
+                    ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
+                    ref?.child("Goals").child("Goals.goalId").updateChildValues(["inProgress":false as AnyObject])
+        }
+    }
     
     @IBAction func emoteBtnPressed(_ sender: UIButton) {
         let picker = CZPickerView(headerTitle: "I'm feeling", cancelButtonTitle: "Cancel", confirmButtonTitle: "Confirm")

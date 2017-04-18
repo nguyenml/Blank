@@ -21,8 +21,7 @@ class GoalsViewController: UIViewController {
     let uid = FIRAuth.auth()!.currentUser!.uid
     
     var ref:FIRDatabaseReference?
-    
-    var hasGoal = false;
+
     var goalNumber = 0;
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +53,7 @@ class GoalsViewController: UIViewController {
     }
     
     func setGoal(){
-        if hasGoal{
+        if Goals.hasGoal{
             goalLabel.text = String(goalNumber) + " Days"
             initGoalButton.isHidden = true
             initGoalButton.isUserInteractionEnabled = false;
@@ -81,7 +80,7 @@ class GoalsViewController: UIViewController {
         let buttonOne = DefaultButton(title: "Done", height: 60) {
             self.goalNumber = Int(goalVC.commentTextField.text!)!
             if self.goalNumber > 0{
-                self.hasGoal = true
+                Goals.hasGoal = true
                 self.setGoal()
                 self.post()
             }
