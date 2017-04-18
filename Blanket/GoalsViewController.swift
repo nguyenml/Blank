@@ -8,6 +8,7 @@
 
 import UIKit
 import PopupDialog
+import Firebase
 
 class GoalsViewController: UIViewController {
     @IBOutlet weak var progressBar: UIProgressView!
@@ -17,6 +18,10 @@ class GoalsViewController: UIViewController {
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var mainGoalLabel: UILabel!
     
+    let uid = FIRAuth.auth()!.currentUser!.uid
+    
+    var ref:FIRDatabaseReference?
+    
     var hasGoal = false;
     var goalNumber = 0;
     override func viewDidLoad() {
@@ -24,6 +29,7 @@ class GoalsViewController: UIViewController {
         initGoalButton.isHidden = true;
         initGoalButton.isUserInteractionEnabled = false;
         setGoal()
+        ref = FIRDatabase.database().reference()
 
         // Do any additional setup after loading the view.
     }
@@ -31,6 +37,20 @@ class GoalsViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func addToFB(withData data: [String: AnyObject]){
+        var mdata = data
+        mdata[Constants.Goal.currentGoal] = 0 as AnyObject
+        mdata[Constants.Goal.uid] = uid as AnyObject
+        mdata[Constants.Goal.inProgress] = true as AnyObject
+        ref?.child("Goals").childByAutoId().setValue(mdata)
+    }
+    
+    func post(){
+        let goal = goalNumber
+        let data = [Constants.Goal.endGoal: goal]
+        addToFB(withData: data as [String : AnyObject] )
     }
     
     func setGoal(){
@@ -63,8 +83,8 @@ class GoalsViewController: UIViewController {
             if self.goalNumber > 0{
                 self.hasGoal = true
                 self.setGoal()
+                self.post()
             }
-            print(self.goalNumber)
         }
         
         // Add buttons to dialog

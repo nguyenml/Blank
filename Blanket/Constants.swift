@@ -29,6 +29,13 @@ struct Constants {
         static let emotion = "emotion"
     }
     
+    struct Goal {
+        static let endGoal = "endGoal"
+        static let currentGoal = "currentGoal"
+        static let uid = "uid"
+        static let inProgress = "inProgress"
+    }
+    
     struct StartDate{
         static var date = "date"
     }
@@ -56,4 +63,8 @@ struct LastAccess{
     static var date = NSDate() as Date
 }
 
+struct Goals{
+    static var endGoal = 0
+    static var current = 0
+}
 

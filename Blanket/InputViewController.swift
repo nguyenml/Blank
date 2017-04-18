@@ -121,7 +121,6 @@ class InputViewController: UIViewController {
         let text = textField.text
         let data = [Constants.Entry.text: text]
         addToFB(withData: data as! [String : String])
-        
     }
     
     //resets timer, buttons, and access
