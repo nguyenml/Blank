@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/SignInViewController.swift"
-            timestampString = "514313737.112481"
+            timestampString = "514325257.860391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
             landmarkName = "signInSelectorChanged(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/SignInViewController.swift"
-            timestampString = "514314179.975238"
+            timestampString = "514325257.860391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "signInButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/StatsViewController.swift"
-            timestampString = "513612305.291013"
+            timestampString = "514331756.331051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "fetchUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/StatsViewController.swift"
-            timestampString = "513970944.307324"
+            timestampString = "514331756.331051"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -522,11 +522,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/SignInViewController.swift"
-            timestampString = "514314179.975238"
+            timestampString = "514325257.860391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "signInButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -538,11 +538,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/GoalsViewController.swift"
-            timestampString = "514231551.929003"
+            timestampString = "514325257.860391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "showCustomDialog(animated:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -554,7 +554,23 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/GoalsViewController.swift"
-            timestampString = "514231551.929003"
+            timestampString = "514325257.860391"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "showCustomDialog(animated:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/GoalsViewController.swift"
+            timestampString = "514325257.860391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "88"
@@ -570,11 +586,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/GoalsViewController.swift"
-            timestampString = "514231551.929003"
+            timestampString = "514325257.860391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "89"
+            endingLineNumber = "89"
             landmarkName = "showCustomDialog(animated:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -586,27 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/GoalsViewController.swift"
-            timestampString = "514231551.929003"
+            timestampString = "514325257.860391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "86"
-            endingLineNumber = "86"
-            landmarkName = "showCustomDialog(animated:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Blanket/GoalsViewController.swift"
-            timestampString = "514222573.555162"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
             landmarkName = "post()"
             landmarkType = "7">
          </BreakpointContent>
@@ -618,11 +618,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/GoalsViewController.swift"
-            timestampString = "514221004.036163"
+            timestampString = "514325257.860391"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "addToFB(withData:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -13,9 +13,12 @@ class StatsViewController: UIViewController{
 
     @IBOutlet weak var CurrentStreak: UILabel!
     @IBOutlet weak var LongestStreak: UILabel!
-    @IBOutlet weak var DaysActive: UILabel!
     @IBOutlet weak var AverageWordCount: UILabel!
     @IBOutlet weak var TotalWordCount: UILabel!
+    @IBOutlet weak var csStack: UIView!
+    @IBOutlet weak var lsStack: UIView!
+    @IBOutlet weak var awsStack: UIView!
+    @IBOutlet weak var twsStack: UIView!
     
     @IBOutlet weak var userLabel: UILabel!
     
@@ -30,7 +33,16 @@ class StatsViewController: UIViewController{
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         getData()
+        setupUI()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func setupUI(){
+        csStack.layer.cornerRadius = 8.0
+        lsStack.layer.cornerRadius = 8.0
+        awsStack.layer.cornerRadius = 8.0
+        twsStack.layer.cornerRadius = 8.0
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,7 +54,6 @@ class StatsViewController: UIViewController{
         CurrentStreak.text = String(Stats.currentStreak)
         AverageWordCount.text = String(Stats.avgWordcount)
         TotalWordCount.text = String(Stats.totalWordcount)
-        DaysActive.text = String(Stats.daysActive)
         LongestStreak.text = String(Stats.longestStreak)
         fetchUser()
     }

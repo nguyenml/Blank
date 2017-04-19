@@ -20,6 +20,7 @@ import Firebase
 import GoogleSignIn
 import TextFieldEffects
 
+
 class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signLabel: UILabel!

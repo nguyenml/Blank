@@ -11,6 +11,7 @@
 		2B7A1CD99C12D2B02EFF1DEC /* Pods_BlanketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBF83373C439FFAB0DE777D /* Pods_BlanketTests.framework */; };
 		5801067A1EA2A8420046D252 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580106791EA2A8420046D252 /* RatingViewController.swift */; };
 		580106801EA2C0270046D252 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5801067F1EA2C0270046D252 /* RatingViewController.xib */; };
+		580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580106831EA7FF100046D252 /* CustomTableCell.swift */; };
 		5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580159091E81C82D008D934E /* BadgesViewController.swift */; };
 		5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801590D1E81C997008D934E /* CollectionCellView.swift */; };
 		580159101E81CC93008D934E /* Calendar in Resources */ = {isa = PBXBuildFile; fileRef = 5801590F1E81CC93008D934E /* Calendar */; };
@@ -69,6 +70,7 @@
 		3FBF83373C439FFAB0DE777D /* Pods_BlanketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlanketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		580106791EA2A8420046D252 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		5801067F1EA2C0270046D252 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingViewController.xib; sourceTree = "<group>"; };
+		580106831EA7FF100046D252 /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
 		580159091E81C82D008D934E /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		5801590D1E81C997008D934E /* CollectionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
 		5801590F1E81CC93008D934E /* Calendar */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Calendar; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			children = (
 				5801590F1E81CC93008D934E /* Calendar */,
 				5801590D1E81C997008D934E /* CollectionCellView.swift */,
+				580106831EA7FF100046D252 /* CustomTableCell.swift */,
 				580106791EA2A8420046D252 /* RatingViewController.swift */,
 				5801067F1EA2C0270046D252 /* RatingViewController.xib */,
 				585298091E76D4B10011B2E3 /* Extensions.swift */,
@@ -556,6 +559,7 @@
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
 				582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */,
 				582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */,
+				580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
 				582C3E471EA0126000DC1698 /* GoalsViewController.swift in Sources */,

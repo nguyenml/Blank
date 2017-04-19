@@ -67,12 +67,14 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     // Creates each individual cell given the data of that cell's entry
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue cell
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath)
+        let cell:CustomTableCell = self.tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableCell
         // Unpack message from Firebase DataSnapshot
         let entrySnapshot = self.entries[indexPath.row]
         guard let entry = entrySnapshot.value as? [String: String] else { return cell }
         let date = entry[Constants.Entry.date]
-        cell.textLabel?.text = date
+        let preview = entry[Constants.Entry.text]
+        cell.dateLabel?.text = date
+        cell.previewLabel?.text = preview
         //when emotions come in
         // cell.imageView?.image = UIImage(named: "ic_account_circle")
         

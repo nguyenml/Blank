@@ -9,10 +9,11 @@
 import UIKit
 import PopupDialog
 import Firebase
+import CircleProgressView
 
 class GoalsViewController: UIViewController {
-    @IBOutlet weak var progressBar: UIProgressView!
-
+    
+    @IBOutlet weak var progressView: CircleProgressView!
     @IBOutlet weak var initGoalButton: UIButton!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
@@ -58,11 +59,11 @@ class GoalsViewController: UIViewController {
     
     func setGoal(){
         if Goals.hasGoal{
-            goalLabel.text = String(goalNumber) + " Days"
+            goalLabel.text = "Day " + String(goalNumber)
             initGoalButton.isHidden = true
             initGoalButton.isUserInteractionEnabled = false;
             let fractionalProgress = Float(Goals.current) / Float(Goals.endGoal)
-            progressBar.setProgress(fractionalProgress, animated: true)
+            progressView.setProgress(Double(fractionalProgress), animated: true)
         }
         else{
             initGoalButton.isHidden = false
