@@ -60,6 +60,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
             guard let strongSelf = self else { return }
             strongSelf.entries.append(snapshot)
             strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
+            strongSelf.entries.reverse()
         })
     }
     

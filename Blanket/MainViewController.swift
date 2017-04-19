@@ -130,7 +130,7 @@ class MainViewController: UIViewController {
     func checkUser(){
         if FIRAuth.auth()?.currentUser != nil {
             let firebaseAuth = FIRAuth.auth()
-            ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Stats").observe(FIRDataEventType.value, with: {
+            ref?.child("users").child(uid).child("Stats").observe(FIRDataEventType.value, with: {
                 (snapshot) in
                 self.stats = snapshot.value as? [String : Int] ?? [:]
                 if(self.stats["currentStreak"] == nil){
@@ -156,7 +156,7 @@ class MainViewController: UIViewController {
                 if daysSinceWriting > 0{
                     print(daysSinceWriting)
                     ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
-                    ref?.child("Goals").child("Goals.goalId").updateChildValues(["inProgress":false as AnyObject])
+                    ref?.child("Goals").child(Goals.goalId).child("inProgress").setValue(false)
         }
     }
     

@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '13D8A4302FDE20BEC06A9A840B35A763'
-               BlueprintName = 'PopupDialog'
+               BlueprintIdentifier = '326BE90E6ED8045F3530124802FE00AE'
+               BlueprintName = 'CircleProgressView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PopupDialog.framework'>
+               BuildableName = 'CircleProgressView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

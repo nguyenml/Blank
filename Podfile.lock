@@ -1,4 +1,5 @@
 PODS:
+  - CircleProgressView (1.1.1)
   - CZPicker (0.4.3)
   - Firebase/Auth (3.16.0):
     - Firebase/Core
@@ -67,8 +68,10 @@ PODS:
   - JTAppleCalendar (6.1.6)
   - PopupDialog (0.5.4)
   - Protobuf (3.2.1)
+  - TextFieldEffects (1.3.2)
 
 DEPENDENCIES:
+  - CircleProgressView (~> 1.0)
   - CZPicker
   - Firebase/Auth
   - Firebase/Core
@@ -78,8 +81,10 @@ DEPENDENCIES:
   - Google/SignIn
   - JTAppleCalendar (~> 6.1)
   - PopupDialog (~> 0.5)
+  - TextFieldEffects
 
 SPEC CHECKSUMS:
+  CircleProgressView: 3a02912b8cb05ca68f31d8a08e242f7b0f067665
   CZPicker: 55aa1751ea26e209814552da1a9a08cba8bbf72a
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
   FirebaseAnalytics: 920e46455f27b0a52a80907a6d9b73ee4bd1c635
@@ -97,7 +102,8 @@ SPEC CHECKSUMS:
   JTAppleCalendar: 560fb46421880f53ad54123295072de24bca2b18
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
+  TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
 
-PODFILE CHECKSUM: 70ee78a05af4a646c2e62952b562720d775c1c38
+PODFILE CHECKSUM: 7030a4153f323f21181f675f4cfee8ced1ec3a29
 
 COCOAPODS: 1.2.0

@@ -15,6 +15,8 @@ target 'Blanket' do
     pod 'Firebase/RemoteConfig'
     pod 'PopupDialog', '~> 0.5'
     pod 'CZPicker'
+    pod 'TextFieldEffects'
+    pod 'CircleProgressView', '~> 1.0'
   target 'BlanketTests' do
     inherit! :search_paths
     # Pods for testing

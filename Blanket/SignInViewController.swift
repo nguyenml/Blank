@@ -18,15 +18,15 @@ import UIKit
 
 import Firebase
 import GoogleSignIn
+import TextFieldEffects
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signLabel: UILabel!
-    @IBOutlet weak var selector: UISegmentedControl!
     @IBOutlet weak var passwordTextView: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     
-    @IBOutlet weak var usernameField: UIStackView!
+    @IBOutlet weak var switchControl: UIButton!
     
     @IBOutlet weak var usernameTextField: UITextField!
     var isSignIn:Bool = true
@@ -48,12 +48,12 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                 self.performSegue(withIdentifier: "signedIn", sender: self)
             }
         }
-        
-        usernameField.isHidden = true
+        usernameTextField.isHidden = false
+        isSignIn = false
     }
     
     //changes the form from signin to signup
-    @IBAction func signInSelectorChanged(_ sender: UISegmentedControl) {
+    @IBAction func signInSelectorChanged(_ sender: UIButton) {
         
         isSignIn = !isSignIn
         usernameTextField.text = ""
@@ -61,14 +61,15 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         passwordTextView.text = ""
         
         if isSignIn{
-            usernameField.isHidden = true
-            signLabel.text = "Sign In"
-            loginButton.setTitle("Sign In", for: .normal)
+            usernameTextField.isHidden = true
+            loginButton.setTitle("Authenticate", for: .normal)
+            switchControl.setTitle("Don't have an account? Sign up now.", for: .normal)
         }
         else{
-            usernameField.isHidden = false
-            signLabel.text = "Register"
+            usernameTextField.isHidden = false
             loginButton.setTitle("Register", for: .normal)
+            switchControl.setTitle("Already have an account?", for: .normal)
+            usernameTextField.isHidden = false
         }
     }
     

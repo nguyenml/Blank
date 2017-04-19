@@ -27,6 +27,8 @@ class GoalsViewController: UIViewController {
         super.viewDidLoad()
         initGoalButton.isHidden = true;
         initGoalButton.isUserInteractionEnabled = false;
+        initGoalButton.layer.cornerRadius = 5
+        initGoalButton.layer.borderWidth = 1
         setGoal()
         ref = FIRDatabase.database().reference()
 
@@ -44,6 +46,8 @@ class GoalsViewController: UIViewController {
         mdata[Constants.Goal.uid] = uid as AnyObject
         mdata[Constants.Goal.inProgress] = true as AnyObject
         ref?.child("Goals").childByAutoId().setValue(mdata)
+        Goals.current = 0
+        Goals.endGoal = goalNumber
     }
     
     func post(){
@@ -57,12 +61,15 @@ class GoalsViewController: UIViewController {
             goalLabel.text = String(goalNumber) + " Days"
             initGoalButton.isHidden = true
             initGoalButton.isUserInteractionEnabled = false;
+            let fractionalProgress = Float(Goals.current) / Float(Goals.endGoal)
+            progressBar.setProgress(fractionalProgress, animated: true)
         }
         else{
             initGoalButton.isHidden = false
             initGoalButton.isUserInteractionEnabled = true;
         }
     }
+    
     /*!
      Displays a custom view controller instead of the default view.
      Buttons can be still added, if needed

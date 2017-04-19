@@ -82,7 +82,7 @@ class StatsViewController: UIViewController{
     func getData(){
         ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Date").observeSingleEvent(of: .value,with: {
             (snapshot) in
-            print(String(describing: FIRAuth.auth()!.currentUser!.uid))
+           // print(String(describing: FIRAuth.auth()!.currentUser!.uid))
             Constants.StartDate.date = (snapshot.value as? String)!
             Stats.daysActive = self.findActiveDates()
             self.setLabels()
