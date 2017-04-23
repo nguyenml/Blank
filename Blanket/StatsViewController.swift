@@ -19,8 +19,14 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         var gLabel = " "
     }
     
+    @IBOutlet weak var circleAvatar: UIButton!
     @IBOutlet weak var statsTable: UITableView!
+    @IBOutlet weak var wordCount: UILabel!
+    @IBOutlet weak var totalDays: UILabel!
     
+    @IBOutlet weak var calender: UIImageView!
+    @IBOutlet weak var pencil: UIImageView!
+    @IBOutlet weak var clock: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
     
     var entries : [Entry] = []
@@ -28,7 +34,6 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     let myDefaults = UserDefaults.standard
     var total : Int = 0
-    
     var ref:FIRDatabaseReference?
     
     override func viewDidLoad() {
@@ -39,11 +44,27 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         setupUI()
         statsTable.dataSource = self
         statsTable.delegate = self
+                self.statsTable.register(UITableViewCell.self, forCellReuseIdentifier: "statsCell")
+        setLabels()
+        statsTable.insertRows(at: [IndexPath(row: statsEntries.count-1, section: 0)], with: .automatic)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     func setupUI(){
-
+        circleAvatar.layer.borderWidth = 1
+        circleAvatar.layer.cornerRadius = self.circleAvatar.frame.size.width / 2;
+        circleAvatar.layer.masksToBounds = true
+        circleAvatar.layer.borderColor = UIColor.white.cgColor
+        circleAvatar.backgroundColor = UIColor.gray
+        
+        clock.image = clock.image!.withRenderingMode(.alwaysTemplate)
+        clock.tintColor = UIColor.white
+        
+        calender.image = calender.image!.withRenderingMode(.alwaysTemplate)
+        calender.tintColor = UIColor.white
+        
+        pencil.image = pencil.image!.withRenderingMode(.alwaysTemplate)
+        pencil.tintColor = UIColor.white
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -71,7 +92,8 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     //find user and find user display name
     func fetchUser(){
         let user = FIRAuth.auth()?.currentUser
-        userLabel.text = user?.displayName
+        userLabel.text = user?.displayName?.capitalizingFirstLetter()
+                circleAvatar.setTitle(user?.displayName?[0].capitalized, for: .normal)
     }
     
     //Logs a user out
@@ -133,12 +155,11 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.gLabel.text = entry.gLabel
         cell.numbersLabel.text = entry.numbersLabel
         cell.progress = entry.progress
-        
+
         return cell
     }
     
     @IBAction func unwindToStats(segue: UIStoryboardSegue) {}
-    
     
     
 }

@@ -458,11 +458,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/StatsViewController.swift"
-            timestampString = "514415415.664719"
+            timestampString = "514679493.570827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "fetchUser()"
             landmarkType = "7">
          </BreakpointContent>
@@ -474,11 +474,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/StatsViewController.swift"
-            timestampString = "514415415.664719"
+            timestampString = "514679493.570827"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "126"
+            endingLineNumber = "126"
             landmarkName = "getData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -624,6 +624,22 @@
             startingLineNumber = "48"
             endingLineNumber = "48"
             landmarkName = "addToFB(withData:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/StatsViewController.swift"
+            timestampString = "514679693.039032"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "setupUI()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
