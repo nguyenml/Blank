@@ -17,6 +17,7 @@ target 'Blanket' do
     pod 'CZPicker'
     pod 'TextFieldEffects'
     pod 'CircleProgressView', '~> 1.0'
+    pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
   target 'BlanketTests' do
     inherit! :search_paths
     # Pods for testing

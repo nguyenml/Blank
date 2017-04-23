@@ -9,20 +9,22 @@
 import UIKit
 import Firebase
 
-class StatsViewController: UIViewController{
 
-    @IBOutlet weak var CurrentStreak: UILabel!
-    @IBOutlet weak var LongestStreak: UILabel!
-    @IBOutlet weak var AverageWordCount: UILabel!
-    @IBOutlet weak var TotalWordCount: UILabel!
-    @IBOutlet weak var csStack: UIView!
-    @IBOutlet weak var lsStack: UIView!
-    @IBOutlet weak var awsStack: UIView!
-    @IBOutlet weak var twsStack: UIView!
+class StatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
+    struct statsBlock{
+        var progress = UIProgressView()
+        var numbersLabel = " "
+        var definitionLabel = " "
+        var gLabel = " "
+    }
+    
+    @IBOutlet weak var statsTable: UITableView!
     
     @IBOutlet weak var userLabel: UILabel!
     
     var entries : [Entry] = []
+    var statsEntries : [statsBlock] = []
     
     let myDefaults = UserDefaults.standard
     var total : Int = 0
@@ -31,30 +33,38 @@ class StatsViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Constants.backgroundColor.bc
         ref = FIRDatabase.database().reference()
         getData()
         setupUI()
+        statsTable.dataSource = self
+        statsTable.delegate = self
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     func setupUI(){
-        csStack.layer.cornerRadius = 8.0
-        lsStack.layer.cornerRadius = 8.0
-        awsStack.layer.cornerRadius = 8.0
-        twsStack.layer.cornerRadius = 8.0
-    
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setLabels()
     }
-
+    
+    
     //Updates all labels
     func setLabels(){
-        CurrentStreak.text = String(Stats.currentStreak)
-        AverageWordCount.text = String(Stats.avgWordcount)
-        TotalWordCount.text = String(Stats.totalWordcount)
-        LongestStreak.text = String(Stats.longestStreak)
+        var cs = statsBlock()
+        cs.definitionLabel = "Current Streak"
+        cs.gLabel = "50"
+        cs.numbersLabel = String(Stats.currentStreak)
+        cs.progress.progressTintColor = UIColor.orange
+        var aw = statsBlock()
+        aw.definitionLabel = "Average Word Count"
+        aw.numbersLabel = String(Stats.avgWordcount)
+        cs.gLabel = "70,000"
+        cs.progress.progressTintColor = UIColor.yellow
+        statsEntries.append(cs)
+        statsEntries.append(aw)
         fetchUser()
     }
     
@@ -111,6 +121,21 @@ class StatsViewController: UIViewController{
         return (end - start) + 1
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statsEntries.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Dequeue cell
+        let cell:CustomStatsCell = self.statsTable.dequeueReusableCell(withIdentifier: "statsCell", for: indexPath) as! CustomStatsCell
+        
+        let entry = statsEntries[indexPath.row]
+        cell.definitionLabel.text = entry.definitionLabel
+        cell.gLabel.text = entry.gLabel
+        cell.numbersLabel.text = entry.numbersLabel
+        cell.progress = entry.progress
+        
+        return cell
+    }
     
     @IBAction func unwindToStats(segue: UIStoryboardSegue) {}
     

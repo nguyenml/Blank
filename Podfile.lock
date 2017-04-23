@@ -1,4 +1,7 @@
 PODS:
+  - ChameleonFramework/Default (2.1.0)
+  - ChameleonFramework/Swift (2.1.0):
+    - ChameleonFramework/Default
   - CircleProgressView (1.1.1)
   - CZPicker (0.4.3)
   - Firebase/Auth (3.16.0):
@@ -71,6 +74,7 @@ PODS:
   - TextFieldEffects (1.3.2)
 
 DEPENDENCIES:
+  - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`)
   - CircleProgressView (~> 1.0)
   - CZPicker
   - Firebase/Auth
@@ -83,7 +87,17 @@ DEPENDENCIES:
   - PopupDialog (~> 0.5)
   - TextFieldEffects
 
+EXTERNAL SOURCES:
+  ChameleonFramework:
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
+CHECKOUT OPTIONS:
+  ChameleonFramework:
+    :commit: acc480fbe023c6e5fe40f68593f4a70a8c4c7ad5
+    :git: https://github.com/ViccAlexander/Chameleon.git
+
 SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CircleProgressView: 3a02912b8cb05ca68f31d8a08e242f7b0f067665
   CZPicker: 55aa1751ea26e209814552da1a9a08cba8bbf72a
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
@@ -104,6 +118,6 @@ SPEC CHECKSUMS:
   Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
   TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
 
-PODFILE CHECKSUM: 7030a4153f323f21181f675f4cfee8ced1ec3a29
+PODFILE CHECKSUM: d12a49c0c273c308169eaaa25742b9ba0aee1aa0
 
 COCOAPODS: 1.2.0

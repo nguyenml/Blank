@@ -19,6 +19,7 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import TextFieldEffects
+import ChameleonFramework
 
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
@@ -34,6 +35,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
     var handle: FIRAuthStateDidChangeListenerHandle?
     
     var ref:FIRDatabaseReference!
+    let colors = NSArray(ofColorsWith:ColorScheme.analogous, with:UIColor.flatSkyBlue, flatScheme:true)
     
     
     override func viewDidLoad() {
@@ -42,6 +44,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         passwordTextView.delegate = self
         emailTextField.delegate = self
         usernameTextField.delegate = self
+        setupView()
         
         handle = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             if user != nil {
@@ -51,6 +54,12 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         }
         usernameTextField.isHidden = false
         isSignIn = false
+    }
+    
+    func setupView(){
+        print(colors)
+        view.backgroundColor = colors?[2] as! UIColor
+        usernameTextField.textColor = colors?[1] as! UIColor
     }
     
     //changes the form from signin to signup

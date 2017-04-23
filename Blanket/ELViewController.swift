@@ -31,6 +31,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = Constants.backgroundColor.bc
         currentDate = Date()
         checkConnectionWithFB()
         //sets table up to tableviewcell.xib
@@ -66,6 +67,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     // Creates each individual cell given the data of that cell's entry
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         // Dequeue cell
         let cell:CustomTableCell = self.tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableCell
         // Unpack message from Firebase DataSnapshot
@@ -77,6 +79,14 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         cell.previewLabel?.text = preview
         //when emotions come in
         // cell.imageView?.image = UIImage(named: "ic_account_circle")
+        
+        //Change color
+        if ( indexPath.row % 2 == 0 ){
+            cell.backgroundColor = Constants.backgroundColor.bc
+        }
+        else{
+            cell.backgroundColor = UIColor.white
+        }
         
         return cell
     }

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ChameleonFramework.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>CircleProgressView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,7 +77,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>13D8A4302FDE20BEC06A9A840B35A763</key>
+		<key>1EE38954023EF24EB21563EC0BB62273</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,7 +87,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>42AC8F1935188341D0D1FDB16DFE913C</key>
+		<key>42FF28C1B4657A1DD3B3B7FB806B1EBB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +107,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>85062B466EFFF6A879CA9A071717150E</key>
+		<key>76BD4592010354D6C23D6ECCA20D83A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,12 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>A10376492EED33AB5501F85094840FBE</key>
+		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
+		<key>D75AD2787E06E91BEEDCBCC8FF4CBBCC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EECF5AC2371EA60DDDF84F38E44B9AA7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

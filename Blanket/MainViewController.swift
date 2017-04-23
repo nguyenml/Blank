@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import CZPicker
+import ChameleonFramework
 
 class MainViewController: UIViewController {
     
@@ -25,16 +26,27 @@ class MainViewController: UIViewController {
     var stats:[String:Int] = [:]
     var emotes = [String]()
     
+    var colorArray = ColorSchemeOf(ColorScheme.complementary, color:UIColor.flatWhite, isFlatScheme:true)
+    
     @IBOutlet weak var dateLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setDate()
+        setupUIColor()
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
         setLabels()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func setupUIColor(){
+        entryBtn.layer.cornerRadius = 50;
+        entryBtn.layer.borderColor = UIColor.white.cgColor
+        entryBtn.layer.borderWidth = 1;
+        
+        
     }
     
     func setEmotes(){

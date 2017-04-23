@@ -14,6 +14,7 @@
 //  limitations under the License.
 //
 import UIKit
+import ChameleonFramework
 
 struct Constants {
     
@@ -44,6 +45,11 @@ struct Constants {
         static let sad = "Dissapointed"
         static let angry = "Upset"
         static let excited = "Motivated"
+    }
+    
+    struct backgroundColor{
+        static let bc = UIColor.flatWhite
+        static let bcd = UIColor.flatWhiteDark
     }
 
 }

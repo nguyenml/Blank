@@ -40,6 +40,7 @@
 		585298261E7A1E040011B2E3 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */; };
 		585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */; };
 		585298281E7A1E040011B2E3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 585298201E7A1E040011B2E3 /* OFL.txt */; };
+		58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */; };
 		58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */; };
 		58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBD41E817C08003523C5 /* MainViewController.swift */; };
 		8ADD5C9478BB01739E9EF289 /* Pods_Blanket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F210F8755DF50D7DF7D7A4C0 /* Pods_Blanket.framework */; };
@@ -106,6 +107,7 @@
 		5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.ttf"; path = "Resources/Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.ttf"; path = "Resources/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		585298201E7A1E040011B2E3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Resources/OFL.txt; sourceTree = "<group>"; };
+		58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStatsCell.swift; sourceTree = "<group>"; };
 		58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		58FFEBD41E817C08003523C5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		75B92434C61436E1FCCB85A6 /* Pods-BlanketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				5801590F1E81CC93008D934E /* Calendar */,
 				5801590D1E81C997008D934E /* CollectionCellView.swift */,
 				580106831EA7FF100046D252 /* CustomTableCell.swift */,
+				58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */,
 				580106791EA2A8420046D252 /* RatingViewController.swift */,
 				5801067F1EA2C0270046D252 /* RatingViewController.xib */,
 				585298091E76D4B10011B2E3 /* Extensions.swift */,
@@ -562,6 +565,7 @@
 				580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
+				58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */,
 				582C3E471EA0126000DC1698 /* GoalsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
