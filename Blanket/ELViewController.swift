@@ -74,9 +74,11 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         let entrySnapshot = self.entries[indexPath.row]
         guard let entry = entrySnapshot.value as? [String: String] else { return cell }
         let date = entry[Constants.Entry.date]
+        let words = entry[Constants.Entry.wordCount]
         let preview = entry[Constants.Entry.text]
         cell.dateLabel?.text = date
         cell.previewLabel?.text = preview
+        cell.wordCount?.text = words
         //when emotions come in
         // cell.imageView?.image = UIImage(named: "ic_account_circle")
         

@@ -29,7 +29,7 @@ class InputViewController: UIViewController {
         ref  = FIRDatabase.database().reference()
         
         //change this timer
-        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         backButton.isHidden = true
         // Do any advarional setup after loadingvare view.
     }

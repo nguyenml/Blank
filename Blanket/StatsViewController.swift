@@ -13,7 +13,7 @@ import Firebase
 class StatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
     struct statsBlock{
-        var progress = UIProgressView()
+        var color:UIColor = UIColor.orange
         var numbersLabel = " "
         var definitionLabel = " "
         var gLabel = " "
@@ -43,8 +43,6 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         getData()
         setupUI()
         statsTable.dataSource = self
-        statsTable.delegate = self
-                self.statsTable.register(UITableViewCell.self, forCellReuseIdentifier: "statsCell")
         setLabels()
         statsTable.insertRows(at: [IndexPath(row: statsEntries.count-1, section: 0)], with: .automatic)
         // Do any additional setup after loading the view, typically from a nib.
@@ -76,14 +74,14 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func setLabels(){
         var cs = statsBlock()
         cs.definitionLabel = "Current Streak"
-        cs.gLabel = "50"
+        cs.gLabel = "200"
         cs.numbersLabel = String(Stats.currentStreak)
-        cs.progress.progressTintColor = UIColor.orange
+        cs.color = UIColor.orange
         var aw = statsBlock()
         aw.definitionLabel = "Average Word Count"
         aw.numbersLabel = String(Stats.avgWordcount)
-        cs.gLabel = "70,000"
-        cs.progress.progressTintColor = UIColor.yellow
+        aw.gLabel = "50"
+        aw.color = UIColor.yellow
         statsEntries.append(cs)
         statsEntries.append(aw)
         fetchUser()
@@ -154,7 +152,7 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.definitionLabel.text = entry.definitionLabel
         cell.gLabel.text = entry.gLabel
         cell.numbersLabel.text = entry.numbersLabel
-        cell.progress = entry.progress
+        cell.progress.progressTintColor = entry.color
 
         return cell
     }

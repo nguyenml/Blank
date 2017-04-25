@@ -9,17 +9,19 @@
 import UIKit
 import PopupDialog
 import Firebase
-import CircleProgressView
+import KYCircularProgress
 import ChameleonFramework
 
 class GoalsViewController: UIViewController {
     
-    @IBOutlet weak var progressView: CircleProgressView!
+    @IBOutlet weak var flag: UIImageView!
+    @IBOutlet weak var percentProgress: UILabel!
     @IBOutlet weak var initGoalButton: UIButton!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var goalLabel: UILabel!
     @IBOutlet weak var mainGoalLabel: UILabel!
     @IBOutlet weak var CSgoalLabel: UILabel!
+    @IBOutlet weak var circleProgress: KYCircularProgress!
     
     let uid = FIRAuth.auth()!.currentUser!.uid
     
@@ -28,14 +30,20 @@ class GoalsViewController: UIViewController {
     var goalNumber = 0;
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = GradientColor(UIGradientStyle.topToBottom, frame: view.frame, colors: [.flatSkyBlue,.flatMint])
-        initGoalButton.isHidden = true;
         initGoalButton.isUserInteractionEnabled = false;
         initGoalButton.layer.cornerRadius = 5
+        setUI()
         setGoal()
         ref = FIRDatabase.database().reference()
 
         // Do any additional setup after loading the view.
+    }
+    
+    func setUI(){
+        circleProgress.colors = [UIColor(rgba: 0xF5A623),UIColor(rgba: 0xF5A623),UIColor(rgba: 0xF5A623)]
+        
+        flag.image = flag.image!.withRenderingMode(.alwaysTemplate)
+        flag.tintColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
@@ -63,18 +71,17 @@ class GoalsViewController: UIViewController {
         if Goals.hasGoal{
             CSgoalLabel.text = String(Goals.current)
             goalLabel.text = "/" + String(goalNumber)
-            initGoalButton.isHidden = true
             initGoalButton.isUserInteractionEnabled = false;
+            initGoalButton.backgroundColor = UIColor.flatGray
             //testing purposes delete b4 prod
             let fractionalProgress = 1 / Float(Goals.endGoal)
             //let fractionalProgress = Float(Goals.current) / Float(Goals.endGoal)
             print(Goals.current)
             print(Goals.endGoal)
             print(fractionalProgress)
-            progressView.setProgress(Double(fractionalProgress), animated: true)
+           // progressView.setProgress(Double(fractionalProgress), animated: true)
         }
         else{
-            initGoalButton.isHidden = false
             initGoalButton.isUserInteractionEnabled = true;
             CSgoalLabel.isHidden = true;
             goalLabel.isHidden = true;

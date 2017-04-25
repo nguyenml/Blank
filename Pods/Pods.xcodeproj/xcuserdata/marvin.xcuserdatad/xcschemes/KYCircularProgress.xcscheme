@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '326BE90E6ED8045F3530124802FE00AE'
-               BlueprintName = 'CircleProgressView'
+               BlueprintIdentifier = '5C1F0BC8AD9DB9D282F6612636923786'
+               BlueprintName = 'KYCircularProgress'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'CircleProgressView.framework'>
+               BuildableName = 'KYCircularProgress.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

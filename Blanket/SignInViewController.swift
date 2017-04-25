@@ -27,7 +27,11 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
     @IBOutlet weak var signLabel: UILabel!
     @IBOutlet weak var passwordTextView: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var choiceStack: UIStackView!
+    @IBOutlet weak var registerChoice: UIButton!
+    @IBOutlet weak var signInChoice: UIButton!
     
+    @IBOutlet weak var formStack: UIStackView!
     @IBOutlet weak var switchControl: UIButton!
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -52,14 +56,30 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                 self.performSegue(withIdentifier: "signedIn", sender: self)
             }
         }
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification: )), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide: )), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         usernameTextField.isHidden = false
         isSignIn = false
     }
     
     func setupView(){
-        print(colors)
         view.backgroundColor = colors?[2] as! UIColor
-        usernameTextField.textColor = colors?[1] as! UIColor
+        formStack.isHidden = true
+        formStack.isUserInteractionEnabled = false
+        loginButton.isHidden = true
+        loginButton.isUserInteractionEnabled = false
+        switchControl.isHidden = true
+        switchControl.isUserInteractionEnabled = false
+    }
+    
+    func goToForms(){
+        formStack.isHidden = false
+        formStack.isUserInteractionEnabled = true
+        loginButton.isHidden = false
+        loginButton.isUserInteractionEnabled = true
+        switchControl.isHidden = false
+        switchControl.isUserInteractionEnabled = true
     }
     
     //changes the form from signin to signup
@@ -81,6 +101,38 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
             switchControl.setTitle("Already have an account?", for: .normal)
             usernameTextField.isHidden = false
         }
+    }
+    
+    @IBAction func registerChoice(_ sender: UIButton) {
+        choiceStack.isUserInteractionEnabled = false;
+        choiceStack.isHidden = true
+        goToForms()
+        isSignIn = false
+        resetChoiceForm()
+    }
+    
+    func resetChoiceForm(){
+        
+        if isSignIn{
+            usernameTextField.isHidden = true
+            loginButton.setTitle("Authenticate", for: .normal)
+            switchControl.setTitle("Don't have an account? Sign up now.", for: .normal)
+        }
+        else{
+            usernameTextField.isHidden = false
+            loginButton.setTitle("Register", for: .normal)
+            switchControl.setTitle("Already have an account?", for: .normal)
+            usernameTextField.isHidden = false
+        }
+        
+    }
+    
+    @IBAction func signInChoice(_ sender: UIButton) {
+        choiceStack.isUserInteractionEnabled = false;
+        choiceStack.isHidden = true
+        goToForms()
+        isSignIn = true
+        resetChoiceForm()
     }
     
     //function to signin/create user
@@ -152,6 +204,23 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
             
         }
         
+        }
+    }
+    
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
         }
     }
     

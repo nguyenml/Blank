@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CircleProgressView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>GTMOAuth2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -35,6 +30,11 @@
 			<false/>
 		</dict>
 		<key>JTAppleCalendar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>KYCircularProgress.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -77,22 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1EE38954023EF24EB21563EC0BB62273</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>326BE90E6ED8045F3530124802FE00AE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>42FF28C1B4657A1DD3B3B7FB806B1EBB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4D5B8B1BE64F80268007C79821DDDC20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C1F0BC8AD9DB9D282F6612636923786</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,6 +102,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>8E63E8A005128C7257F013E24E6C41B6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>927205A98F2E703E223E957020B3275F</key>
 		<dict>
 			<key>primary</key>
@@ -122,12 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D75AD2787E06E91BEEDCBCC8FF4CBBCC</key>
+		<key>C2E6443F875C4AADC50183B0EE962CF2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EECF5AC2371EA60DDDF84F38E44B9AA7</key>
+		<key>E9DBA74D87E769B1B34DC2035C4DEABF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F825B333572501515822043618B95813</key>
 		<dict>
 			<key>primary</key>
 			<true/>
