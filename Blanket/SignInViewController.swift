@@ -23,6 +23,7 @@ import ChameleonFramework
 
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
+    
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signLabel: UILabel!
     @IBOutlet weak var passwordTextView: UITextField!
@@ -30,17 +31,14 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
     @IBOutlet weak var choiceStack: UIStackView!
     @IBOutlet weak var registerChoice: UIButton!
     @IBOutlet weak var signInChoice: UIButton!
-    
     @IBOutlet weak var formStack: UIStackView!
     @IBOutlet weak var switchControl: UIButton!
-    
     @IBOutlet weak var usernameTextField: UITextField!
+    
     var isSignIn:Bool = true
     var handle: FIRAuthStateDidChangeListenerHandle?
     
     var ref:FIRDatabaseReference!
-    let colors = NSArray(ofColorsWith:ColorScheme.analogous, with:UIColor.flatSkyBlue, flatScheme:true)
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,15 +54,17 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                 self.performSegue(withIdentifier: "signedIn", sender: self)
             }
         }
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification: )), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide: )), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
         usernameTextField.isHidden = false
         isSignIn = false
     }
     
+    //TODO
+    func keyboardSafety(){
+        //TODO
+    }
+    
     func setupView(){
-        view.backgroundColor = colors?[2] as! UIColor
+        view.backgroundColor = UIColor.flatSkyBlue
         formStack.isHidden = true
         formStack.isUserInteractionEnabled = false
         loginButton.isHidden = true

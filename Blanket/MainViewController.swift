@@ -96,6 +96,7 @@ class MainViewController: UIViewController {
             Stats.currentStreak = (self.stats["currentStreak"])!
             Stats.longestStreak = (self.stats["longestStreak"])!
             Stats.totalWordcount = (self.stats["totalWordcount"])!
+            Stats.totalEntries = (self.stats["totalEntries"])!
             myBadges.checkBadge()
         })
         ref?.child("users").child(uid).child("LastAccess").observe(FIRDataEventType.value, with: {
@@ -129,8 +130,6 @@ class MainViewController: UIViewController {
                     Goals.goalId = goals.key
                 }
             }
-            print(Goals.endGoal)
-            
         })
     }
     
@@ -168,7 +167,9 @@ class MainViewController: UIViewController {
                 if daysSinceWriting > 0{
                     print(daysSinceWriting)
                     ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
-                    ref?.child("Goals").child(Goals.goalId).child("inProgress").setValue(false)
+                    if Goals.hasGoal{
+                        ref?.child("Goals").child(Goals.goalId).child("inProgress").setValue(false)
+                    }
         }
     }
     

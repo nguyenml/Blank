@@ -86,6 +86,9 @@ class InputViewController: UIViewController {
                 print(error.localizedDescription)
             }
         }
+        if Goals.hasGoal{
+            ref?.child("Goals").child(Goals.goalId).child("currentGoal").setValue(Goals.current + 1)
+        }
         // this will submit the entry to firebase
         // at this point the information has left the client side
         post()

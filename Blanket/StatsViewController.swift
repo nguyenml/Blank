@@ -23,6 +23,7 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var statsTable: UITableView!
     @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var totalDays: UILabel!
+    @IBOutlet weak var totalTime: UILabel!
     
     @IBOutlet weak var calender: UIImageView!
     @IBOutlet weak var pencil: UIImageView!
@@ -85,6 +86,9 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         statsEntries.append(cs)
         statsEntries.append(aw)
         fetchUser()
+        
+        totalDays.text = String(Stats.totalEntries)
+        wordCount.text = String(Stats.totalWordcount)
     }
     
     //find user and find user display name

@@ -12,25 +12,25 @@ class IndividualEntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     var entry : [String:String] = [:]
 
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var wordCount: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.isEditable = false;
         textView.text = entry[Constants.Entry.text]
-       wordCount.text = entry[Constants.Entry.wordCount]
-        
-        
-        
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        wordCount.text = entry[Constants.Entry.wordCount]
+        dateLabel.text = seperateDate()
     }
     
+    func seperateDate() -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy h:mm a"
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        let date = dateFormatter.date(from: (entry[Constants.Entry.date]!))
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        return dateFormatter.string(from: date!)
+    }
     
     @IBAction func back(_ sender: Any) {
         performSegue(withIdentifier: "unwindToLogs", sender: self)

@@ -14,16 +14,16 @@ import ChameleonFramework
 
 class GoalsViewController: UIViewController {
     
+    @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var flag: UIImageView!
     @IBOutlet weak var percentProgress: UILabel!
     @IBOutlet weak var initGoalButton: UIButton!
     @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var goalLabel: UILabel!
-    @IBOutlet weak var mainGoalLabel: UILabel!
     @IBOutlet weak var CSgoalLabel: UILabel!
     @IBOutlet weak var circleProgress: KYCircularProgress!
     
     let uid = FIRAuth.auth()!.currentUser!.uid
+    var descSwitch = true
     
     var ref:FIRDatabaseReference?
 
@@ -35,6 +35,8 @@ class GoalsViewController: UIViewController {
         setUI()
         setGoal()
         ref = FIRDatabase.database().reference()
+        CSgoalLabel.isHidden = true
+        daysLabel.isHidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -67,24 +69,34 @@ class GoalsViewController: UIViewController {
         addToFB(withData: data as [String : AnyObject] )
     }
     
+    @IBAction func desc(_ sender: UIButton) {
+        descSwitch = !descSwitch
+        if descSwitch{
+            CSgoalLabel.isHidden = true
+            daysLabel.isHidden = true
+            percentProgress.isHidden = false
+        }else{
+            CSgoalLabel.isHidden = false
+            daysLabel.isHidden = false
+            percentProgress.isHidden = true
+        }
+    }
+    
     func setGoal(){
         if Goals.hasGoal{
-            CSgoalLabel.text = String(Goals.current)
-            goalLabel.text = "/" + String(goalNumber)
+            let attrsA = [NSFontAttributeName: UIFont.systemFont(ofSize: 19)]
+            let current = String(Goals.current)
+            let attrText = NSMutableAttributedString(string:current)
+            let end = "/" + String(Goals.endGoal)
+            attrText.append(NSAttributedString(string: end, attributes: attrsA))
+            CSgoalLabel.attributedText = attrText
             initGoalButton.isUserInteractionEnabled = false;
             initGoalButton.backgroundColor = UIColor.flatGray
-            //testing purposes delete b4 prod
-            let fractionalProgress = 1 / Float(Goals.endGoal)
-            //let fractionalProgress = Float(Goals.current) / Float(Goals.endGoal)
-            print(Goals.current)
-            print(Goals.endGoal)
-            print(fractionalProgress)
-           // progressView.setProgress(Double(fractionalProgress), animated: true)
+            circleProgress.progress = Double((Goals.current) / (Goals.endGoal))
         }
         else{
             initGoalButton.isUserInteractionEnabled = true;
             CSgoalLabel.isHidden = true;
-            goalLabel.isHidden = true;
         }
     }
     
