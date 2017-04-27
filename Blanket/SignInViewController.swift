@@ -42,16 +42,18 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.isHidden = true
         
         passwordTextView.delegate = self
         emailTextField.delegate = self
         usernameTextField.delegate = self
         setupView()
-        
         handle = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             if user != nil {
                 MeasurementHelper.sendLoginEvent()
                 self.performSegue(withIdentifier: "signedIn", sender: self)
+            }else{
+                self.view.isHidden = false
             }
         }
         usernameTextField.isHidden = false

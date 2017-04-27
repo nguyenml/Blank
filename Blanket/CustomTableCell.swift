@@ -13,4 +13,5 @@ class CustomTableCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var wordCount: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
 }

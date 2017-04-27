@@ -157,7 +157,8 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.gLabel.text = entry.gLabel
         cell.numbersLabel.text = entry.numbersLabel
         cell.progress.progressTintColor = entry.color
-
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
         return cell
     }
     

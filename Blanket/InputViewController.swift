@@ -42,7 +42,7 @@ class InputViewController: UIViewController {
     //Sets a timer up for 3 mins and shows user how long they spent
     func updateCounter() {
         //you code, this is an example
-        if counter < 180{
+        if counter < 300{
         counter = counter + 1;
         }
         timer.text = String(counter)
@@ -118,6 +118,21 @@ class InputViewController: UIViewController {
         
         return dateform.string(from: NSDate() as Date)
     }
+    func getUTC() -> String{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
+        formatter.timeZone = TimeZone(abbreviation: "UTC")
+        return formatter.string(from: date)
+    }
+    
+    func getTimeStamp() ->String {
+        let timestamp = (Date().timeIntervalSince1970)
+        print(timestamp)
+        let reversedTimestamp = -1.0 * timestamp
+        return String(reversedTimestamp)
+    }
     
     //puts info into a struct
     func post(){
@@ -129,7 +144,7 @@ class InputViewController: UIViewController {
     //resets timer, buttons, and access
     func reset(){
         backButton.isHidden = false
-        timer.isHidden = false
+        timer.isHidden = true
         textField.isEditable = false
         textField.isUserInteractionEnabled = false
         updateStats()
@@ -153,18 +168,5 @@ class InputViewController: UIViewController {
         }
         return count
     }
-
-    
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

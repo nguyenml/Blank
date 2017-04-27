@@ -37,8 +37,16 @@ class GoalsViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         CSgoalLabel.isHidden = true
         daysLabel.isHidden = true
-
+        updateGoal()
         // Do any additional setup after loading the view.
+    }
+    func updateGoal(){
+        if Goals.hasGoal{
+            ref?.child("Goals").child(Goals.goalId).child("currentGoal").observe(FIRDataEventType.value, with: { (snapshot) -> Void in
+                        Goals.current = snapshot.value as! Int
+            })
+
+        }
     }
     
     func setUI(){
@@ -83,16 +91,19 @@ class GoalsViewController: UIViewController {
     }
     
     func setGoal(){
+        let progress = Double(Goals.current) / Double(Goals.endGoal)
         if Goals.hasGoal{
             let attrsA = [NSFontAttributeName: UIFont.systemFont(ofSize: 19)]
             let current = String(Goals.current)
             let attrText = NSMutableAttributedString(string:current)
-            let end = "/" + String(Goals.endGoal)
+            let end = "/ " + String(Goals.endGoal)
             attrText.append(NSAttributedString(string: end, attributes: attrsA))
             CSgoalLabel.attributedText = attrText
             initGoalButton.isUserInteractionEnabled = false;
             initGoalButton.backgroundColor = UIColor.flatGray
-            circleProgress.progress = Double((Goals.current) / (Goals.endGoal))
+            circleProgress.progress = progress / Double(UInt8.max)
+            percentProgress.text = String(Int(progress * 100)) + "%"
+            print(progress)
         }
         else{
             initGoalButton.isUserInteractionEnabled = true;

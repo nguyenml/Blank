@@ -28,6 +28,7 @@ struct Constants {
         static let wordCount = "wordcount"
         static let uid = "uid"
         static let emotion = "emotion"
+        static let timestamp = "timestamp"
     }
     
     struct Goal {

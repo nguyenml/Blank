@@ -32,12 +32,9 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setDate()
-        setupUIColor()
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
-        setLabels()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -45,8 +42,7 @@ class MainViewController: UIViewController {
         entryBtn.layer.cornerRadius = 50;
         entryBtn.layer.borderColor = UIColor.white.cgColor
         entryBtn.layer.borderWidth = 1;
-        
-        
+        entryBtn.setTitle("Write", for: .normal)
     }
     
     func setEmotes(){
@@ -63,6 +59,7 @@ class MainViewController: UIViewController {
     }
     
     func setLabels(){
+        setDate()
         setEmotes()
         emoteButton.setTitle("Im Feeling..", for: .normal)
     }
@@ -72,6 +69,9 @@ class MainViewController: UIViewController {
             entryBtn.isHidden = true
             completedText.text = "You already wrote today"
             completedText.isHidden = false
+        }
+        else{
+            setupUIColor()
         }
         
     }
@@ -98,6 +98,7 @@ class MainViewController: UIViewController {
             Stats.totalWordcount = (self.stats["totalWordcount"])!
             Stats.totalEntries = (self.stats["totalEntries"])!
             myBadges.checkBadge()
+            self.setLabels()
         })
         ref?.child("users").child(uid).child("LastAccess").observe(FIRDataEventType.value, with: {
             (snapshot) in
@@ -113,7 +114,6 @@ class MainViewController: UIViewController {
             }
             self.checkLastAccess()
             self.resetStreak()
-            
         })
         ref?.child("Goals").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             var pastGoals: [FIRDataSnapshot]! = []
@@ -164,7 +164,7 @@ class MainViewController: UIViewController {
                 let daysSinceWriting = end! - start!
                 print("\n\n")
                 print(daysSinceWriting)
-                if daysSinceWriting > 0{
+                if daysSinceWriting > 1{
                     print(daysSinceWriting)
                     ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
                     if Goals.hasGoal{

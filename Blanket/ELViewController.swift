@@ -12,10 +12,12 @@ import Firebase
 class ELViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+
+    @IBOutlet weak var timeLabel: UILabel!
+    
     var ref:FIRDatabaseReference?
     
     let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
-    
     var entries: [FIRDataSnapshot]! = []
     var handle: FIRAuthStateDidChangeListenerHandle?
     var connectedRef:FIRDatabaseReference?
@@ -39,6 +41,24 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         configureDatabase()
         tableView.dataSource = self
         tableView.delegate = self
+    }
+    
+    func seperateDate(dateS:String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy h:mm a"
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        let date = dateFormatter.date(from: dateS)
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        return dateFormatter.string(from: date!)
+    }
+    
+    func seperateTime(dateS:String) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy h:mm a"
+        dateFormatter.calendar = Calendar(identifier: .gregorian)
+        let date = dateFormatter.date(from: dateS)
+        dateFormatter.dateFormat = "h:mm a"
+        return dateFormatter.string(from: date!)
     }
     
     //Temporary measure before adding persistent state
@@ -76,9 +96,10 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         let date = entry[Constants.Entry.date]
         let words = entry[Constants.Entry.wordCount]
         let preview = entry[Constants.Entry.text]
-        cell.dateLabel?.text = date
+        cell.dateLabel?.text = seperateDate(dateS: entry[Constants.Entry.date]!)
         cell.previewLabel?.text = preview
         cell.wordCount?.text = words
+        cell.timeLabel?.text = seperateTime(dateS: entry[Constants.Entry.date]!)
         //when emotions come in
         // cell.imageView?.image = UIImage(named: "ic_account_circle")
         
@@ -89,7 +110,8 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         else{
             cell.backgroundColor = UIColor.white
         }
-        
+        cell.separatorInset = UIEdgeInsets.zero
+        cell.layoutMargins = UIEdgeInsets.zero
         return cell
     }
     
@@ -102,6 +124,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let entrySnap = self.entries[indexPath.row]
+        print(indexPath.row)
         let entry = entrySnap.value as? [String: String]
         
         self.performSegue(withIdentifier: "segueToEntry", sender: entry);
