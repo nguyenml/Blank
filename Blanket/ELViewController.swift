@@ -18,7 +18,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     var ref:FIRDatabaseReference?
     
     let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
-    var entries: [FIRDataSnapshot]! = []
+    //var entries: [FIRDataSnapshot]! = []
     var handle: FIRAuthStateDidChangeListenerHandle?
     var connectedRef:FIRDatabaseReference?
     
@@ -38,9 +38,9 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         checkConnectionWithFB()
         //sets table up to tableviewcell.xib
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
-        configureDatabase()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.insertRows(at: [IndexPath(row: entries.count-1, section: 0)], with: .automatic)
     }
     
     func seperateDate(dateS:String) -> String{
@@ -80,8 +80,8 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
             print("test")
-            strongSelf.entries.append(snapshot)
-            strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
+           // strongSelf.entries.append(snapshot)
+            //strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
         })
     }
     
@@ -91,7 +91,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         // Dequeue cell
         let cell:CustomTableCell = self.tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableCell
         // Unpack message from Firebase DataSnapshot
-        let entrySnapshot = self.entries[indexPath.row]
+        let entrySnapshot = entries[indexPath.row]
         guard let entry = entrySnapshot.value as? [String: String] else { return cell }
         let date = entry[Constants.Entry.date]
         let words = entry[Constants.Entry.wordCount]
@@ -123,7 +123,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     //On selection of a cell, this function take the user to the entry the cell contains
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let entrySnap = self.entries[indexPath.row]
+        let entrySnap = entries[indexPath.row]
         print(indexPath.row)
         let entry = entrySnap.value as? [String: String]
         

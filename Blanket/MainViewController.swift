@@ -131,6 +131,12 @@ class MainViewController: UIViewController {
                 }
             }
         })
+        
+        //small hack probably doesnt scale with larger data set
+        ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            guard let strongSelf = self else { return }
+            entries.insert(snapshot, at: 0)
+        })
     }
     
     //TEMP TEMP TEMP TEMP TEMP FIX

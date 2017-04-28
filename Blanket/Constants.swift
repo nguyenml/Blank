@@ -14,7 +14,7 @@
 //  limitations under the License.
 //
 import UIKit
-import ChameleonFramework
+import Firebase
 
 struct Constants {
     
@@ -77,4 +77,4 @@ struct Goals{
     static var goalId = "ID"
 }
 
-static 
+var entries: [FIRDataSnapshot]! = []
