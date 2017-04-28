@@ -43,7 +43,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.isHidden = true
-        
+
         passwordTextView.delegate = self
         emailTextField.delegate = self
         usernameTextField.delegate = self
@@ -58,11 +58,37 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         }
         usernameTextField.isHidden = false
         isSignIn = false
+        //keyboardSafety()
     }
     
     //TODO
     func keyboardSafety(){
-        //TODO
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0{
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+        loginButton.isHidden = true
+        loginButton.isUserInteractionEnabled = false
+        switchControl.isHidden = true
+        switchControl.isUserInteractionEnabled = false
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y != 0{
+                self.view.frame.origin.y += keyboardSize.height
+            }
+        }
+        loginButton.isHidden = false
+        loginButton.isUserInteractionEnabled = true
+        switchControl.isHidden = false
+        switchControl.isUserInteractionEnabled = true
     }
     
     func setupView(){
@@ -94,14 +120,15 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         
         if isSignIn{
             usernameTextField.isHidden = true
+            usernameTextField.isUserInteractionEnabled = false
             loginButton.setTitle("Authenticate", for: .normal)
             switchControl.setTitle("Don't have an account? Sign up now.", for: .normal)
         }
         else{
             usernameTextField.isHidden = false
+            usernameTextField.isUserInteractionEnabled = true
             loginButton.setTitle("Register", for: .normal)
             switchControl.setTitle("Already have an account?", for: .normal)
-            usernameTextField.isHidden = false
         }
     }
     
@@ -209,23 +236,6 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         }
     }
     
-    
-    func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height
-            }
-        }
-    }
-    
-    func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height
-            }
-        }
-    }
-    
     func dateToString() -> String{
         let dateform = DateFormatter()
         dateform.dateFormat = "MMM dd, yyyy"
@@ -236,6 +246,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         emailTextField.resignFirstResponder()
         passwordTextView.resignFirstResponder()
+        usernameTextField.resignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool // called when 'return' key pressed. return NO to ignore.
@@ -243,4 +254,6 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         textField.resignFirstResponder()
         return true;
     }
+    
+    
 }

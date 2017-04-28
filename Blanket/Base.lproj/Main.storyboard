@@ -253,7 +253,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JaM-V3-Z8E">
-                                <rect key="frame" x="69" y="557" width="236" height="52"/>
+                                <rect key="frame" x="69" y="493" width="236" height="52"/>
                                 <color key="backgroundColor" red="0.54117647058823526" green="0.81176470588235294" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="7Fn-Vj-3SU"/>
@@ -267,21 +267,31 @@
                                     <action selector="signInButtonTapped:" destination="kS4-YY-TrL" eventType="touchUpInside" id="BFb-py-nZn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbM-u3-4jI">
-                                <rect key="frame" x="115" y="628" width="145" height="19"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <state key="normal" title="Already have an account?">
-                                    <color key="titleColor" red="0.54117647059999996" green="0.8112879623" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signInSelectorChanged:" destination="kS4-YY-TrL" eventType="touchUpInside" id="0B7-ny-muv"/>
-                                </connections>
-                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="c4B-rH-tMk">
-                                <rect key="frame" x="69" y="311" width="236" height="186"/>
+                                <rect key="frame" x="69" y="193" width="236" height="248"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Zn-bu-vJE" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                    <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hNb-eP-3Et">
                                         <rect key="frame" x="0.0" y="0.0" width="236" height="62"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="62" id="gRW-DU-RIq"/>
+                                        </constraints>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                                <color key="value" red="0.96078431369999995" green="0.94509803920000002" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="borderActiveColor">
+                                                <color key="value" red="0.54117647059999996" green="0.8112879623" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Zn-bu-vJE" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                        <rect key="frame" x="0.0" y="62" width="236" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="62" id="pGv-mm-RKu"/>
                                         </constraints>
@@ -301,7 +311,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9P5-VV-LoS" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="0.0" y="62" width="236" height="62"/>
+                                        <rect key="frame" x="0.0" y="124" width="236" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="62" id="rK0-KK-oAq"/>
                                         </constraints>
@@ -321,7 +331,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vC8-5Y-Mqx" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                        <rect key="frame" x="0.0" y="124" width="236" height="62"/>
+                                        <rect key="frame" x="0.0" y="186" width="236" height="62"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="62" id="oQs-Rv-bc4"/>
                                         </constraints>
@@ -354,11 +364,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="UtQ-YQ-xes">
-                                <rect key="frame" x="69" y="350" width="236" height="154"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="UtQ-YQ-xes">
+                                <rect key="frame" x="69" y="250" width="236" height="154"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5c-qb-YXR">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q5c-qb-YXR">
                                         <rect key="frame" x="0.0" y="0.0" width="236" height="52"/>
                                         <color key="backgroundColor" red="0.54117647058823526" green="0.81176470588235294" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -374,7 +383,7 @@
                                             <action selector="signInButtonTapped:" destination="kS4-YY-TrL" eventType="touchUpInside" id="NqN-gK-0bi"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k90-Kh-ZO8">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k90-Kh-ZO8">
                                         <rect key="frame" x="0.0" y="102" width="236" height="52"/>
                                         <color key="backgroundColor" red="0.54117647058823526" green="0.81176470588235294" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -391,21 +400,33 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qbM-u3-4jI">
+                                <rect key="frame" x="115" y="564" width="145" height="19"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <state key="normal" title="Already have an account?">
+                                    <color key="titleColor" red="0.54117647059999996" green="0.8112879623" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="signInSelectorChanged:" destination="kS4-YY-TrL" eventType="touchUpInside" id="0B7-ny-muv"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eds-hP-XBf" firstAttribute="trailing" secondItem="NXV-xc-oNd" secondAttribute="trailingMargin" id="0UG-Zh-9ph"/>
-                            <constraint firstItem="qbM-u3-4jI" firstAttribute="centerX" secondItem="JaM-V3-Z8E" secondAttribute="centerX" id="2Y8-yw-HMy"/>
                             <constraint firstItem="eds-hP-XBf" firstAttribute="centerX" secondItem="c4B-rH-tMk" secondAttribute="centerX" id="3uP-ho-i6f"/>
                             <constraint firstItem="Uul-Ie-HIa" firstAttribute="top" secondItem="5Oh-rr-G54" secondAttribute="bottom" constant="173" id="5HB-T9-QDm"/>
-                            <constraint firstAttribute="bottom" secondItem="qbM-u3-4jI" secondAttribute="bottom" constant="20" symbolic="YES" id="7AQ-Hx-QAD"/>
+                            <constraint firstItem="Uul-Ie-HIa" firstAttribute="top" secondItem="UtQ-YQ-xes" secondAttribute="bottom" constant="-211" id="GeF-5p-kPY"/>
+                            <constraint firstItem="qbM-u3-4jI" firstAttribute="centerX" secondItem="JaM-V3-Z8E" secondAttribute="centerX" id="Ng1-tc-byw"/>
                             <constraint firstItem="eds-hP-XBf" firstAttribute="top" secondItem="5Oh-rr-G54" secondAttribute="bottom" constant="43" id="PcF-qW-6rK"/>
-                            <constraint firstItem="sGU-6W-qto" firstAttribute="top" secondItem="JaM-V3-Z8E" secondAttribute="bottom" constant="58" id="Plc-W5-nwc"/>
+                            <constraint firstItem="sGU-6W-qto" firstAttribute="top" secondItem="JaM-V3-Z8E" secondAttribute="bottom" constant="122" id="Plc-W5-nwc"/>
+                            <constraint firstItem="qbM-u3-4jI" firstAttribute="top" secondItem="JaM-V3-Z8E" secondAttribute="bottom" constant="19" id="SZQ-xL-nEk"/>
                             <constraint firstItem="eds-hP-XBf" firstAttribute="leading" secondItem="NXV-xc-oNd" secondAttribute="leadingMargin" id="VhI-zQ-KiK"/>
+                            <constraint firstItem="UtQ-YQ-xes" firstAttribute="leading" secondItem="c4B-rH-tMk" secondAttribute="leading" id="Yur-fP-clG"/>
                             <constraint firstItem="c4B-rH-tMk" firstAttribute="leading" secondItem="JaM-V3-Z8E" secondAttribute="leading" id="aio-eO-OaM"/>
-                            <constraint firstItem="c4B-rH-tMk" firstAttribute="top" secondItem="eds-hP-XBf" secondAttribute="bottom" constant="47" id="gw8-kD-rcS"/>
-                            <constraint firstItem="qbM-u3-4jI" firstAttribute="top" secondItem="JaM-V3-Z8E" secondAttribute="bottom" constant="19" id="iDJ-wa-JLh"/>
+                            <constraint firstItem="c4B-rH-tMk" firstAttribute="top" secondItem="eds-hP-XBf" secondAttribute="bottom" constant="-71" id="gw8-kD-rcS"/>
                             <constraint firstItem="Uul-Ie-HIa" firstAttribute="leading" secondItem="NXV-xc-oNd" secondAttribute="leadingMargin" constant="108" id="s37-ip-kE7"/>
+                            <constraint firstItem="sGU-6W-qto" firstAttribute="top" secondItem="qbM-u3-4jI" secondAttribute="bottom" constant="84" id="w3d-Iq-Upa"/>
                         </constraints>
                     </view>
                     <connections>

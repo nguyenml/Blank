@@ -77,3 +77,4 @@ struct Goals{
     static var goalId = "ID"
 }
 
+static 
