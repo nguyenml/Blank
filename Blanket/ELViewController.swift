@@ -17,6 +17,8 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     var ref:FIRDatabaseReference?
     
+    var entries: [Packet]! = []
+    
     let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
     //var entries: [FIRDataSnapshot]! = []
     var handle: FIRAuthStateDidChangeListenerHandle?
@@ -40,7 +42,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.insertRows(at: [IndexPath(row: entries.count-1, section: 0)], with: .automatic)
+        configureDatabase()
     }
     
     func seperateDate(dateS:String) -> String{
@@ -79,9 +81,19 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         // Listen for new messages in the Firebase database
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
-            print("test")
-           // strongSelf.entries.append(snapshot)
-            //strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
+            guard let entrySnap = snapshot.value as? [String: String] else { return }
+            let entry = Packet.init(date: entrySnap[Constants.Entry.date]!,
+                                    text: entrySnap[Constants.Entry.text]!,
+                                    wordCount: entrySnap[Constants.Entry.wordCount]!,
+                                    uid: entrySnap[Constants.Entry.uid]!,
+                                    emotion: entrySnap[Constants.Entry.emotion]!,
+                                    timeStamp: entrySnap[Constants.Entry.timestamp]!)
+            entry.setOrder(order: entry.timestamp)
+            strongSelf.entries.append(entry)
+            strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
+            
+            strongSelf.entries.sort(by: {$0.order < $1.order})
+            strongSelf.tableView.reloadData()
         })
     }
     
@@ -90,16 +102,15 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
 
         // Dequeue cell
         let cell:CustomTableCell = self.tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableCell
+
         // Unpack message from Firebase DataSnapshot
-        let entrySnapshot = entries[indexPath.row]
-        guard let entry = entrySnapshot.value as? [String: String] else { return cell }
-        let date = entry[Constants.Entry.date]
-        let words = entry[Constants.Entry.wordCount]
-        let preview = entry[Constants.Entry.text]
-        cell.dateLabel?.text = seperateDate(dateS: entry[Constants.Entry.date]!)
+        let entry = self.entries[indexPath.row]
+        let words = entry.wordCount
+        let preview = entry.text
+        cell.dateLabel?.text = seperateDate(dateS: entry.date)
         cell.previewLabel?.text = preview
         cell.wordCount?.text = words
-        cell.timeLabel?.text = seperateTime(dateS: entry[Constants.Entry.date]!)
+        cell.timeLabel?.text = seperateTime(dateS: entry.date)
         //when emotions come in
         // cell.imageView?.image = UIImage(named: "ic_account_circle")
         
@@ -112,6 +123,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         }
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
+        
         return cell
     }
     
@@ -123,9 +135,8 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     //On selection of a cell, this function take the user to the entry the cell contains
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let entrySnap = entries[indexPath.row]
+        let entry = self.entries[indexPath.row]
         print(indexPath.row)
-        let entry = entrySnap.value as? [String: String]
         
         self.performSegue(withIdentifier: "segueToEntry", sender: entry);
     }
@@ -147,7 +158,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "segueToEntry" {
-            guard let object = sender as? [String:String] else { return }
+            guard let object = sender as? Packet else { return }
             let dvc = segue.destination as! IndividualEntryViewController
             dvc.entry = object
         }

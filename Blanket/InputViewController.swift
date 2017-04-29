@@ -46,7 +46,7 @@ class InputViewController: UIViewController {
         counter = counter + 1;
         }
         timer.text = String(counter)
-        if counter >= 180{
+        if counter >= 300{
             iTimer.invalidate()
             // at 3 mins update info and reset timer for next use
             reset()

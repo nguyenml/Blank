@@ -77,4 +77,26 @@ struct Goals{
     static var goalId = "ID"
 }
 
-var entries: [FIRDataSnapshot]! = []
+class Packet{
+    var date:String
+    var text:String
+    var wordCount:String
+    var uid:String
+    var emotion:String
+    var timestamp:String
+    var order:Double = 0
+    
+    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String){
+        self.date = date
+        self.text = text
+        self.wordCount = wordCount
+        self.uid = uid
+        self.emotion = emotion
+        self.timestamp = timeStamp
+        }
+    
+    func setOrder(order:String){
+        self.order = Double(order)!
+    }
+}
+

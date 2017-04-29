@@ -87,6 +87,11 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         statsEntries.append(aw)
         fetchUser()
         
+        updateLabels()
+    }
+    
+    func updateLabels(){
+
         totalDays.text = String(Stats.totalEntries)
         wordCount.text = String(Stats.totalWordcount)
     }

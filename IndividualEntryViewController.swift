@@ -10,7 +10,7 @@ import UIKit
 
 class IndividualEntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
-    var entry : [String:String] = [:]
+    var entry:Packet!
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var wordCount: UILabel!
@@ -18,8 +18,8 @@ class IndividualEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.isEditable = false;
-        textView.text = entry[Constants.Entry.text]
-        wordCount.text = entry[Constants.Entry.wordCount]
+        textView.text = entry.text
+        wordCount.text = entry.wordCount
         dateLabel.text = seperateDate()
     }
     
@@ -27,7 +27,7 @@ class IndividualEntryViewController: UIViewController {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MMM dd, yyyy h:mm a"
         dateFormatter.calendar = Calendar(identifier: .gregorian)
-        let date = dateFormatter.date(from: (entry[Constants.Entry.date]!))
+        let date = dateFormatter.date(from: (entry.date))
         dateFormatter.dateFormat = "MMM dd, yyyy"
         return dateFormatter.string(from: date!)
     }
