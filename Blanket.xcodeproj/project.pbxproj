@@ -40,6 +40,7 @@
 		585298261E7A1E040011B2E3 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */; };
 		585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */; };
 		585298281E7A1E040011B2E3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 585298201E7A1E040011B2E3 /* OFL.txt */; };
+		5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */; };
 		58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */; };
 		58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */; };
 		58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBD41E817C08003523C5 /* MainViewController.swift */; };
@@ -107,6 +108,7 @@
 		5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.ttf"; path = "Resources/Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.ttf"; path = "Resources/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		585298201E7A1E040011B2E3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Resources/OFL.txt; sourceTree = "<group>"; };
+		5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkOptionsViewController.swift; sourceTree = "<group>"; };
 		58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStatsCell.swift; sourceTree = "<group>"; };
 		58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		58FFEBD41E817C08003523C5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				582E11C41E9597FB0074ADE1 /* Badges.swift */,
 				582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */,
 				582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */,
+				5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */,
 				580159091E81C82D008D934E /* BadgesViewController.swift */,
 				58FFEBD41E817C08003523C5 /* MainViewController.swift */,
 				58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */,
@@ -561,6 +564,7 @@
 				5801067A1EA2A8420046D252 /* RatingViewController.swift in Sources */,
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
 				582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */,
+				5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */,
 				582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */,
 				580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,

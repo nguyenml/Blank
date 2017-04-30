@@ -35,7 +35,7 @@ class BadgeClass{
     func checkBadge(){
         ref = FIRDatabase.database().reference()
         ref = ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Badges")
-        length = Stats.currentStreak
+        length = Stats.longestStreak
         words = Stats.totalWordcount
         if badgeForADay == false{
             checkBadgeForADay()

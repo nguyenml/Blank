@@ -77,6 +77,10 @@ struct Goals{
     static var goalId = "ID"
 }
 
+struct Mark{
+    let name:String
+}
+
 class Packet{
     var date:String
     var text:String

@@ -64,6 +64,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwipeCellKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>TextFieldEffects.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -73,6 +78,16 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>10D02DB000FE0AA105B0E486373CA594</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E66E0A7444139346450428CBB9C9A7A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,12 +117,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E63E8A005128C7257F013E24E6C41B6</key>
+		<key>927205A98F2E703E223E957020B3275F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>927205A98F2E703E223E957020B3275F</key>
+		<key>9FA8B2E3EB2CD70B7D0FBBAEA140C79A</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,17 +132,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C2E6443F875C4AADC50183B0EE962CF2</key>
+		<key>CFFFDB36D3BC5DD85B3B3A5C93B79E48</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9DBA74D87E769B1B34DC2035C4DEABF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F825B333572501515822043618B95813</key>
+		<key>DAAACF7BDA8161BF714DD1C525E1E44E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

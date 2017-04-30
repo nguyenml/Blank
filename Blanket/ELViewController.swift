@@ -8,12 +8,12 @@
 
 import UIKit
 import Firebase
+import SwipeCellKit
 
-class ELViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    @IBOutlet weak var tableView: UITableView!
+class ELViewController: UITableViewController{
 
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var entriesLabel: UILabel!
     
     var ref:FIRDatabaseReference?
     
@@ -25,6 +25,11 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     var connectedRef:FIRDatabaseReference?
     
     var connected:Bool = true;
+    
+    var defaultOptions = SwipeTableOptions()
+    var isSwipeRightEnabled = true
+    var buttonDisplayMode: ButtonDisplayMode = .titleAndImage
+    var buttonStyle: ButtonStyle = .circular
 
     var testCalendar = Calendar(identifier: .gregorian)
     var currentDate: Date! = Date() {
@@ -33,16 +38,24 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         }
     }
     
+    func labelUI(){
+        let border = CALayer()
+        let width = CGFloat(1.0)
+        border.borderColor = UIColor.lightGray.cgColor
+        border.frame = CGRect(x: 0, y: entriesLabel.frame.size.height - width, width:  entriesLabel.frame.size.width, height: entriesLabel.frame.size.height)
+        border.borderWidth = width
+        entriesLabel.layer.addSublayer(border)
+        entriesLabel.layer.masksToBounds = true
+        defaultOptions.transitionStyle = .reveal
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = Constants.backgroundColor.bc
         currentDate = Date()
         checkConnectionWithFB()
-        //sets table up to tableviewcell.xib
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "tableViewCell")
-        tableView.dataSource = self
-        tableView.delegate = self
         configureDatabase()
+        labelUI()
     }
     
     func seperateDate(dateS:String) -> String{
@@ -77,6 +90,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     //This function retrieves data form FB and puts starts to enter it into the tableview
     func configureDatabase() {
+        print("test")
         ref = FIRDatabase.database().reference()
         // Listen for new messages in the Firebase database
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
@@ -94,15 +108,17 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
             
             strongSelf.entries.sort(by: {$0.order < $1.order})
             strongSelf.tableView.reloadData()
+            
+            print("test")
         })
     }
     
     // Creates each individual cell given the data of that cell's entry
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         // Dequeue cell
-        let cell:CustomTableCell = self.tableView.dequeueReusableCell(withIdentifier: "CustomTableCell", for: indexPath) as! CustomTableCell
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell") as! CustomTableCell
+        cell.delegate = self
         // Unpack message from Firebase DataSnapshot
         let entry = self.entries[indexPath.row]
         let words = entry.wordCount
@@ -128,12 +144,12 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     //Returns the number of cells
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return entries.count
     }
     
     //On selection of a cell, this function take the user to the entry the cell contains
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let entry = self.entries[indexPath.row]
         print(indexPath.row)
@@ -150,9 +166,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         _ = DateFormatter().shortWeekdaySymbols[weekday-1]
         
         _ = testCalendar.component(.day, from: currentDate)
-        
     }
-    
     
     //Creates a segue to take the user to a specific entry
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -172,4 +186,95 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     @IBAction func unwindToLogs(segue: UIStoryboardSegue) {}
     
     
+}
+
+extension ELViewController: SwipeTableViewCellDelegate {
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        let entry = entries[indexPath.row]
+        
+        if orientation == .left {
+            let flag = SwipeAction(style: .default, title: nil, handler: nil)
+            flag.hidesWhenSelected = true
+            configure(action: flag, with: .flag)
+            
+            return[flag]
+        } else {
+            
+            let cell = tableView.cellForRow(at: indexPath) as! CustomTableCell
+            let closure: (UIAlertAction) -> Void = { _ in cell.hideSwipe(animated: true) }
+            let more = SwipeAction(style: .default, title: nil) { action, indexPath in
+                let controller = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+                controller.addAction(UIAlertAction(title: "Reply", style: .default, handler: closure))
+                controller.addAction(UIAlertAction(title: "Forward", style: .default, handler: closure))
+                controller.addAction(UIAlertAction(title: "Mark...", style: .default, handler: closure))
+                controller.addAction(UIAlertAction(title: "Notify Me...", style: .default, handler: closure))
+                controller.addAction(UIAlertAction(title: "Move Message...", style: .default, handler: closure))
+                controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: closure))
+                self.present(controller, animated: true, completion: nil)
+            }
+            configure(action: more, with: .more)
+            
+                return [more]
+        }
+    }
+    
+    func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
+        action.title = descriptor.title(forDisplayMode: buttonDisplayMode)
+        action.image = descriptor.image(forStyle: buttonStyle, displayMode: buttonDisplayMode)
+        action.backgroundColor = .clear
+        action.textColor = descriptor.color
+        action.font = .systemFont(ofSize: 13)
+        action.transitionDelegate = ScaleTransition.default
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+        var options = SwipeTableOptions()
+        options.expansionStyle = orientation == .left ? .selection : .destructive
+        options.transitionStyle = defaultOptions.transitionStyle
+        options.buttonSpacing = 4
+        options.backgroundColor = #colorLiteral(red: 0.9467939734, green: 0.9468161464, blue: 0.9468042254, alpha: 1)
+        return options
+    }
+
+}
+
+enum ActionDescriptor {
+    case more, flag
+    
+    func title(forDisplayMode displayMode: ButtonDisplayMode) -> String? {
+        guard displayMode != .imageOnly else { return nil }
+        
+        switch self {
+        case .more: return "More"
+        case .flag: return "Flag"
+            
+        }
+    }
+    
+    func image(forStyle style: ButtonStyle, displayMode: ButtonDisplayMode) -> UIImage? {
+        guard displayMode != .titleOnly else { return nil }
+        
+        let name: String
+        switch self {
+        case .more: name = "more"
+        case .flag: name = "flag"
+        }
+        
+        return UIImage(named: style == .backgroundColor ? name : name + "-circle")
+    }
+    
+    var color: UIColor {
+        switch self {
+        case .more: return #colorLiteral(red: 0.7803494334, green: 0.7761332393, blue: 0.7967314124, alpha: 1)
+        case .flag: return #colorLiteral(red: 1, green: 0.5803921569, blue: 0, alpha: 1)
+        }
+    }
+}
+enum ButtonDisplayMode {
+    case titleAndImage, titleOnly, imageOnly
+}
+
+enum ButtonStyle {
+    case backgroundColor, circular
 }
