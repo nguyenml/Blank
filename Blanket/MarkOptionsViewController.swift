@@ -33,7 +33,7 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
             guard snapshot.exists() else{
                 return
             }
-            
+            print("test")
             let ma:Mark = Mark(name: snapshot.value! as! String)
             marks.append(ma)
             strongSelf.tableView.insertRows(at: [IndexPath(row: marks.count-1, section: 0)], with: .automatic)
@@ -58,6 +58,7 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.deselectRow(at: indexPath, animated: true)
         let option = marks[indexPath.row]
         ref?.child("Entry").child(key).child("mark").setValue(option.name)
+        performSegue(withIdentifier: "unwindToEntry", sender: self)
         
     }
     

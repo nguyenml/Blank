@@ -909,6 +909,17 @@
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sdE-32-ZR9">
+                                <rect key="frame" x="290" y="27" width="41" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="Mark">
+                                    <color key="titleColor" red="0.08944702148" green="0.87380654940000002" blue="0.51103310449999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="markBtn:" destination="ar5-Qb-mgG" eventType="touchUpInside" id="ycd-nn-RJO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1080,7 +1091,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSw-LK-OuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JfL-Ua-Ie0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2300" y="741.67916041979015"/>
+            <point key="canvasLocation" x="2372" y="256"/>
         </scene>
     </scenes>
     <resources>
