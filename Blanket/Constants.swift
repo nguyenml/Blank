@@ -38,6 +38,12 @@ struct Constants {
         static let inProgress = "inProgress"
     }
     
+    struct Mark {
+        static let marks = "marks"
+        static let uid = "uid"
+        
+    }
+    
     struct StartDate{
         static var date = "date"
     }
@@ -56,6 +62,7 @@ struct Constants {
 }
 
 var imFeeling = "Content"
+var marks:[Mark] = []
 
 struct Stats{
     static var currentStreak = 0
@@ -89,14 +96,16 @@ class Packet{
     var emotion:String
     var timestamp:String
     var order:Double = 0
+    var key:String
     
-    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String){
+    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String, key:String){
         self.date = date
         self.text = text
         self.wordCount = wordCount
         self.uid = uid
         self.emotion = emotion
         self.timestamp = timeStamp
+        self.key = key
         }
     
     func setOrder(order:String){

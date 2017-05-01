@@ -47,7 +47,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avj-b6-jgx">
-                                            <rect key="frame" x="35" y="8" width="190" height="21"/>
+                                            <rect key="frame" x="35" y="8" width="125" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -100,7 +100,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bPF-ZQ-5S4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="747"/>
+            <point key="canvasLocation" x="405.60000000000002" y="745.27736131934034"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="uNH-9j-wuA">
@@ -975,9 +975,7 @@
                                     <color key="titleColor" red="0.08944702148" green="0.87380654940000002" blue="0.51103310449999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="9ud-Qs-12S" kind="popoverPresentation" popoverAnchorView="Aw1-an-Ndf" id="xA3-hJ-H9L">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <action selector="markBtn:" destination="ar5-Qb-mgG" eventType="touchUpInside" id="1nK-cF-WJP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="WC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6LI-Rr-uqS">
@@ -995,6 +993,7 @@
                         <outlet property="textView" destination="UIv-XR-PLZ" id="9rn-os-r3B"/>
                         <outlet property="wordCount" destination="6LI-Rr-uqS" id="9Qs-rK-AyN"/>
                         <segue destination="ItU-Cb-QEK" kind="unwind" identifier="unwindToLogs" unwindAction="unwindToLogsWithSegue:" id="Pkj-zp-mFd"/>
+                        <segue destination="9ud-Qs-12S" kind="show" identifier="segueToMark" id="wpd-Dn-WhN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycp-hX-Cit" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1034,6 +1033,7 @@
                                 <rect key="frame" x="0.0" y="60" width="375" height="587"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="optionCell" id="fLF-G6-WwT" customClass="OptionCell" customModule="Blanket" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
@@ -1062,7 +1062,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                 <state key="normal" title="+">
-                                    <color key="titleColor" red="0.08944702148" green="0.87380654940000002" blue="0.51103310449999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.090196078431372548" green="0.87450980392156863" blue="0.50980392156862742" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="addOption:" destination="9ud-Qs-12S" eventType="touchUpInside" id="IQ7-nd-D72"/>

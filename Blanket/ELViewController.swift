@@ -101,15 +101,14 @@ class ELViewController: UITableViewController{
                                     wordCount: entrySnap[Constants.Entry.wordCount]!,
                                     uid: entrySnap[Constants.Entry.uid]!,
                                     emotion: entrySnap[Constants.Entry.emotion]!,
-                                    timeStamp: entrySnap[Constants.Entry.timestamp]!)
+                                    timeStamp: entrySnap[Constants.Entry.timestamp]!,
+                                    key: snapshot.key)
             entry.setOrder(order: entry.timestamp)
             strongSelf.entries.append(entry)
             strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
             
             strongSelf.entries.sort(by: {$0.order < $1.order})
             strongSelf.tableView.reloadData()
-            
-            print("test")
         })
     }
     
@@ -176,6 +175,13 @@ class ELViewController: UITableViewController{
             let dvc = segue.destination as! IndividualEntryViewController
             dvc.entry = object
         }
+        
+        if segue.identifier == "segueToMark"{
+            guard let object = sender as? String else { return }
+            let dvc = segue.destination as! MarkOptionsViewController
+            dvc.key = object
+        }
+        
     }
     
     //Go back to main view

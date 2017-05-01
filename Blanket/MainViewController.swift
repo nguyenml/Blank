@@ -131,6 +131,18 @@ class MainViewController: UIViewController {
                 }
             }
         })
+        ref?.child("users").child(uid).child("Marks").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            print("test")
+            
+            guard snapshot.exists() else{
+                return
+            }
+            
+            let ma:Mark = Mark(name: snapshot.value! as! String)
+            marks.append(ma)
+        })
+
+        
     }
     
     //TEMP TEMP TEMP TEMP TEMP FIX

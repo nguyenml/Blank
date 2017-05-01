@@ -153,6 +153,7 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return statsEntries.count
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue cell
         let cell:CustomStatsCell = self.statsTable.dequeueReusableCell(withIdentifier: "statsCell", for: indexPath) as! CustomStatsCell

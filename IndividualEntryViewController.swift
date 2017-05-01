@@ -15,12 +15,15 @@ class IndividualEntryViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var wordCount: UILabel!
     
+    var key:String! = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.isEditable = false;
         textView.text = entry.text
         wordCount.text = entry.wordCount
         dateLabel.text = seperateDate()
+        key = entry.key
     }
     
     func seperateDate() -> String{
@@ -35,16 +38,12 @@ class IndividualEntryViewController: UIViewController {
     @IBAction func back(_ sender: Any) {
         performSegue(withIdentifier: "unwindToLogs", sender: self)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    @IBAction func markBtn(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "segueToEntry", sender: key);
     }
-    */
+
     @IBAction func unwindToEntry(segue: UIStoryboardSegue) {}
 
 }

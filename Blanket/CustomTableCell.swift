@@ -26,7 +26,7 @@ class CustomTableCell: SwipeTableViewCell {
     
     func setupIndicatorView() {
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
-        indicatorView.color = tintColor
+        indicatorView.color = UIColor(hex: 0x17DF82)
         indicatorView.backgroundColor = .clear
         contentView.addSubview(indicatorView)
         
