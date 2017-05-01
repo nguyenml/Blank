@@ -28,8 +28,18 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func setMark(){
-        tableView.insertRows(at: [IndexPath(row: marks.count-1, section: 0)], with: .automatic)
-        tableView.tableFooterView = UIView()
+        ref?.child("users").child(uid!).child("Marks").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            guard let strongSelf = self else { return }
+            guard snapshot.exists() else{
+                return
+            }
+            
+            let ma:Mark = Mark(name: snapshot.value! as! String)
+            marks.append(ma)
+            strongSelf.tableView.insertRows(at: [IndexPath(row: marks.count-1, section: 0)], with: .automatic)
+            strongSelf.tableView.reloadData()
+            strongSelf.tableView.tableFooterView = UIView()
+        })
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,7 +57,7 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let option = marks[indexPath.row]
-        ref?.child("Entry").child(key).child("Mark").setValue(option.name)
+        ref?.child("Entry").child(key).child("mark").setValue(option.name)
         
     }
     
@@ -58,7 +68,6 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
             textField.text = ""
         }
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
-            print("Cancel")
         }))
         
         // 3. Grab the value from the text field, and print it when the user clicks OK.
@@ -66,7 +75,6 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             let newMark:Mark = Mark(name: (textField?.text)!)
             post(mark: newMark)
-            self.tableView.reloadData()
             self.tableView.tableFooterView = UIView()
         }))
         

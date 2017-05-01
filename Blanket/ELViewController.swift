@@ -90,7 +90,6 @@ class ELViewController: UITableViewController{
     
     //This function retrieves data form FB and puts starts to enter it into the tableview
     func configureDatabase() {
-        print("test")
         ref = FIRDatabase.database().reference()
         // Listen for new messages in the Firebase database
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
@@ -174,12 +173,14 @@ class ELViewController: UITableViewController{
             guard let object = sender as? Packet else { return }
             let dvc = segue.destination as! IndividualEntryViewController
             dvc.entry = object
+            print(dvc.key)
         }
         
         if segue.identifier == "segueToMark"{
             guard let object = sender as? String else { return }
             let dvc = segue.destination as! MarkOptionsViewController
             dvc.key = object
+            print(dvc.key)
         }
         
     }

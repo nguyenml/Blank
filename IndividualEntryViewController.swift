@@ -15,7 +15,7 @@ class IndividualEntryViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var wordCount: UILabel!
     
-    var key:String! = nil
+    var key:String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,9 +41,20 @@ class IndividualEntryViewController: UIViewController {
     
     
     @IBAction func markBtn(_ sender: UIButton) {
-        self.performSegue(withIdentifier: "segueToEntry", sender: key);
+        self.performSegue(withIdentifier: "segueToMark", sender: key);
     }
 
     @IBAction func unwindToEntry(segue: UIStoryboardSegue) {}
+    
+    //Creates a segue to take the user to a specific entry
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueToMark"{
+            guard let object = sender as? String else { return }
+            let dvc = segue.destination as! MarkOptionsViewController
+            dvc.key = object
+        }
+        
+    }
 
 }
