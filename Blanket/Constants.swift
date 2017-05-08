@@ -63,6 +63,7 @@ struct Constants {
 
 var imFeeling = "Content"
 var marks:[Mark] = []
+var semaphore = DispatchSemaphore(value: 0)
 
 struct Stats{
     static var currentStreak = 0

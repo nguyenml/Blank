@@ -24,26 +24,20 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.delegate = self
         tableView.dataSource = self
         ref = FIRDatabase.database().reference()
-        setMark()
+        tableView.tableFooterView = UIView()
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
     }
-    
-    func setMark(){
-        ref?.child("users").child(uid!).child("Marks").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
-            guard let strongSelf = self else { return }
-            guard snapshot.exists() else{
-                return
-            }
-            print("test")
-            let ma:Mark = Mark(name: snapshot.value! as! String)
-            marks.append(ma)
-            strongSelf.tableView.insertRows(at: [IndexPath(row: marks.count-1, section: 0)], with: .automatic)
-            strongSelf.tableView.reloadData()
-            strongSelf.tableView.tableFooterView = UIView()
-        })
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return marks.count
+    }
+    
+    func reloadTableData(_ notification: Notification) {
+        print("test2")
+        tableView.insertRows(at: [IndexPath(row: marks.count-1, section: 0)], with: .automatic)
+        tableView.reloadData()
+        tableView.tableFooterView = UIView()
+        print("test2")
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -76,7 +70,6 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
             let newMark:Mark = Mark(name: (textField?.text)!)
             post(mark: newMark)
-            self.tableView.tableFooterView = UIView()
         }))
         
         func post(mark:Mark){

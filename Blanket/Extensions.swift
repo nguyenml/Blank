@@ -240,4 +240,8 @@ extension String {
     }
 }
 
+extension Notification.Name {
+    static let reload = Notification.Name("reload")
+}
+
 

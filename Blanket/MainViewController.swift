@@ -131,6 +131,16 @@ class MainViewController: UIViewController {
                 }
             }
         })
+        ref?.child("users").child(uid).child("Marks").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            guard let strongSelf = self else { return }
+            guard snapshot.exists() else{
+                return
+            }
+            print("test")
+            let ma:Mark = Mark(name: snapshot.value! as! String)
+            marks.append(ma)
+            NotificationCenter.default.post(name: .reload, object: nil)
+        })
         
     }
     
