@@ -1,4 +1,14 @@
 //
+//  ContinueViewController.swift
+//  Blanket
+//
+//  Created by Marvin Nguyen on 5/8/17.
+//  Copyright © 2017 Marvin Nguyen. All rights reserved.
+//
+
+import UIKit
+
+//
 //  MarkOptionsViewController.swift
 //  Blanket
 //
@@ -9,12 +19,14 @@
 import UIKit
 import Firebase
 
-class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-
+class ContinueViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+    
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var key:String!
+    
+    var loadString:String = ""
     
     var ref:FIRDatabaseReference?
     let uid = String(FIRAuth.auth()!.currentUser!.uid)
@@ -27,7 +39,7 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         tableView.tableFooterView = UIView()
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return marks.count
     }
@@ -49,9 +61,14 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let option = marks[indexPath.row]
-        ref?.child("Entry").child(key).child("mark").setValue(option.key)
-        ref?.child("Marks").child(option.key).child("entries").updateChildValues([key:key])
-        performSegue(withIdentifier: "unwindToEntry", sender: self)
+        for entryKey in option.entries{
+            ref?.child("Entry").child(entryKey).child("text").observe(FIRDataEventType.value, with :{ (snapshot) -> Void in
+                self.loadString = self.loadString + (snapshot.value as! String)
+            })
+        }
+        print(loadString)
+        performSegue(withIdentifier: "unwindToInput", sender: loadString)
+        
     }
     
     @IBAction func addOption(_ sender: UIButton) {
@@ -66,16 +83,12 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            let markName = (textField?.text)!
-            post(markName: markName)
+            let markName = textField?.text
+            post(markName: markName!)
         }))
         
-        func post(markName:String){
+        func post(markName: String){
             let newMark = markName
-            var mdata:[String:String] = [:]
-            mdata[Constants.Mark.marks] = newMark
-            mdata[Constants.Mark.uid] = uid
-            ref?.child("Marks").childByAutoId().setValue(mdata)
 
         }
         
@@ -85,14 +98,8 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     @IBAction func backSegue(_ sender: UIButton) {
-        performSegue(withIdentifier: "unwindToEntry", sender: self)
+        performSegue(withIdentifier: "unwindToInput", sender: self)
     }
-
+    
 }
 
-
-
-class OptionCell: UITableViewCell {
-
-    @IBOutlet weak var nameLabel: UILabel!
-}

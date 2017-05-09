@@ -20,6 +20,8 @@ class InputViewController: UIViewController {
     @IBOutlet var timer: UILabel!
     var counter = 0;
     
+    var loadedString:String!
+    
     
     var stats:[String:Int] = [:]
     let uid = FIRAuth.auth()!.currentUser!.uid
@@ -29,7 +31,7 @@ class InputViewController: UIViewController {
         ref  = FIRDatabase.database().reference()
         
         //change this timer
-        iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         backButton.isHidden = true
         // Do any advarional setup after loadingvare view.
     }
@@ -102,6 +104,7 @@ class InputViewController: UIViewController {
         mdata[Constants.Entry.date] = dateToString()
         mdata[Constants.Entry.uid] = uid
         mdata[Constants.Entry.emotion] = imFeeling
+        mdata[Constants.Entry.timestamp] = getTimeStamp()
         ref?.child("Entry").childByAutoId().setValue(mdata)
         updateLastAccess(date: dateToString())
     }
@@ -168,5 +171,7 @@ class InputViewController: UIViewController {
         }
         return count
     }
+    
+    @IBAction func unwindToInput(segue: UIStoryboardSegue) {}
 
 }

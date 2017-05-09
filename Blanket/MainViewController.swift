@@ -66,9 +66,10 @@ class MainViewController: UIViewController {
     
     func checkLastAccess(){
         if Calendar.current.isDateInToday(LastAccess.date as Date) {
-            entryBtn.isHidden = true
-            completedText.text = "You already wrote today"
-            completedText.isHidden = false
+            //entryBtn.isHidden = true
+            //completedText.text = "You already wrote today"
+            //completedText.isHidden = false
+            setupUIColor()
         }
         else{
             setupUIColor()
@@ -131,13 +132,15 @@ class MainViewController: UIViewController {
                 }
             }
         })
-        ref?.child("users").child(uid).child("Marks").observe(.childAdded, with: { [weak self] (snapshot) -> Void in
-            guard let strongSelf = self else { return }
-            guard snapshot.exists() else{
-                return
-            }
-            print("test")
-            let ma:Mark = Mark(name: snapshot.value! as! String)
+        ref?.child("Marks").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            guard snapshot.exists() else{ return }
+            guard self != nil else { return }
+            let markSnap = snapshot.value as? [String: Any]
+            var ma:Mark = Mark(name: markSnap![Constants.Mark.marks]! as! String, key:snapshot.key, entries: [], loadedString: "")
+            self?.ref?.child("Marks").child(ma.key).child("entries").observe(.childAdded, with:{ [weak self] (snapshot) -> Void in
+                let entrykey = snapshot.value as! String
+                ma.entries.append(entrykey)
+                })
             marks.append(ma)
             NotificationCenter.default.post(name: .reload, object: nil)
         })

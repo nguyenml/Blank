@@ -56,6 +56,7 @@ class ELViewController: UITableViewController{
         checkConnectionWithFB()
         configureDatabase()
         labelUI()
+        print("test123123")
     }
     
     func seperateDate(dateS:String) -> String{
@@ -183,6 +184,12 @@ class ELViewController: UITableViewController{
             print(dvc.key)
         }
         
+        if segue.identifier == "unwindToInput"{
+            guard let object = sender as? String else {return}
+            let dvc = segue.destination as! InputViewController
+            dvc.loadedString = object
+        }
+
     }
     
     //Go back to main view

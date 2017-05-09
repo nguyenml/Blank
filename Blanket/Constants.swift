@@ -86,7 +86,12 @@ struct Goals{
 }
 
 struct Mark{
-    let name:String
+    var name:String
+    var key:String
+    
+    var entries:[String] = []
+    
+    var loadedString = ""
 }
 
 class Packet{
