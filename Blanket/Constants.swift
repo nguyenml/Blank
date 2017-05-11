@@ -85,13 +85,26 @@ struct Goals{
     static var goalId = "ID"
 }
 
-struct Mark{
+class Mark{
     var name:String
     var key:String
-    
     var entries:[String] = []
+    var loadedString:String
     
-    var loadedString = ""
+    init(name:String, key:String, loadedString:String){
+        self.name = name
+        self.key = key
+        self.loadedString = loadedString
+    }
+    
+    func getString() ->String{
+        return loadedString
+    }
+    
+    func resetString(){
+        loadedString = ""
+    }
+    
 }
 
 class Packet{

@@ -51,6 +51,7 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         let option = marks[indexPath.row]
         ref?.child("Entry").child(key).child("mark").setValue(option.key)
         ref?.child("Marks").child(option.key).child("entries").updateChildValues([key:key])
+        option.resetString()
         performSegue(withIdentifier: "unwindToEntry", sender: self)
     }
     

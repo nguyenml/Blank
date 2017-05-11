@@ -61,14 +61,11 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let option = marks[indexPath.row]
-        for entryKey in option.entries{
-            ref?.child("Entry").child(entryKey).child("text").observe(FIRDataEventType.value, with :{ (snapshot) -> Void in
-                self.loadString = self.loadString + (snapshot.value as! String)
-            })
-        }
-        print(loadString)
-        performSegue(withIdentifier: "unwindToInput", sender: loadString)
-        
+        var loadedString = option.getString()
+        loadedString = loadedString + "\n______________________________ \n"
+        option.entries.index(of: key).map { option.entries.remove(at: $0) }
+        ref?.child("Marks").child(option.key).child("entries").setValue([key:key])
+        performSegue(withIdentifier: "unwindToInput", sender: loadedString)
     }
     
     @IBAction func addOption(_ sender: UIButton) {
@@ -100,6 +97,18 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBAction func backSegue(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToInput", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+
+        if segue.identifier == "unwindToInput"{
+            guard let object = sender as? String else {return}
+            let dvc = segue.destination as! InputViewController
+            dvc.loadedString = object
+        }
+        
+    }
+    
+    
     
 }
 

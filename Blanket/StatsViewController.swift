@@ -94,6 +94,7 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
 
         totalDays.text = String(Stats.totalEntries)
         wordCount.text = String(Stats.totalWordcount)
+        totalTime.text = convertTime()
     }
     
     //find user and find user display name
@@ -166,6 +167,24 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         cell.separatorInset = UIEdgeInsets.zero
         cell.layoutMargins = UIEdgeInsets.zero
         return cell
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+    }
+    
+    func convertTime() -> String{
+        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: (Stats.totalEntries*300))
+        var time:String
+        if h < 12{
+            time = String(h) + ":" + String(m)
+        }
+        else{
+             //comeback TO this when moving on
+            time = String(h) + " " + String(m)
+        }
+        
+        return time
     }
     
     @IBAction func unwindToStats(segue: UIStoryboardSegue) {}

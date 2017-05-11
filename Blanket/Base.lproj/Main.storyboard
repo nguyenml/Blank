@@ -895,7 +895,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Mss-Aw-dZa">
-                                <rect key="frame" x="16" y="109" width="343" height="488"/>
+                                <rect key="frame" x="16" y="87" width="343" height="510"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -917,7 +917,7 @@
                                     <color key="titleColor" red="0.08944702148" green="0.87380654940000002" blue="0.51103310449999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Cek-ib-r4r" kind="show" id="fXY-Cy-OUf"/>
+                                    <action selector="goToMarks:" destination="hcl-Eu-jyo" eventType="touchUpInside" id="m0H-8l-vjA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -928,6 +928,7 @@
                         <outlet property="textField" destination="Mss-Aw-dZa" id="gBy-Al-bA8"/>
                         <outlet property="timer" destination="Abd-DI-i9S" id="bDd-qJ-mEh"/>
                         <segue destination="hEy-N8-vjM" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="IOX-sY-YjZ"/>
+                        <segue destination="Cek-ib-r4r" kind="show" identifier="segueToContinue" id="RJl-4t-mVY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wac-TP-zU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1041,7 +1042,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="1QA-qZ-3fo">
-                                <rect key="frame" x="0.0" y="60" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="60" width="375" height="563"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1096,7 +1097,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSw-LK-OuQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="JfL-Ua-Ie0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2439" y="745"/>
+            <point key="canvasLocation" x="2437.5999999999999" y="744.3778110944528"/>
         </scene>
         <!--Continue View Controller-->
         <scene sceneID="7If-9a-gKA">
@@ -1127,7 +1128,7 @@
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zcv-WY-yef">
-                                <rect key="frame" x="0.0" y="60" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="103" width="375" height="515"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -1170,6 +1171,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <textField opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Choosing a mark will erase all the work you've written so far." textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8ye-72-lvn">
+                                <rect key="frame" x="0.0" y="63" width="375" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1181,7 +1189,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bC7-d1-Jfh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ZOQ-yE-9xS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2438" y="-197"/>
+            <point key="canvasLocation" x="2437.5999999999999" y="-197.45127436281859"/>
         </scene>
     </scenes>
     <resources>

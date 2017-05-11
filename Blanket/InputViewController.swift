@@ -12,6 +12,7 @@ import Firebase
 class InputViewController: UIViewController {
     
     var ref:FIRDatabaseReference?
+    var entryRef:FIRDatabaseReference?
 
     @IBOutlet var backButton: UIButton!
     @IBOutlet var textField: UITextView!
@@ -21,7 +22,7 @@ class InputViewController: UIViewController {
     var counter = 0;
     
     var loadedString:String!
-    
+    var loadedWordCount = 0
     
     var stats:[String:Int] = [:]
     let uid = FIRAuth.auth()!.currentUser!.uid
@@ -29,11 +30,17 @@ class InputViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref  = FIRDatabase.database().reference()
+        entryRef = ref?.child("Entry").childByAutoId()
         
         //change this timer
         iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         backButton.isHidden = true
         // Do any advarional setup after loadingvare view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        textField.text = loadedString
+        loadedWordCount = Int(wordCount(str: textField.text!))
     }
     
     //return to main view
@@ -100,17 +107,24 @@ class InputViewController: UIViewController {
     //submit struct to FB
     func addToFB(withData data: [String: String]){
         var mdata = data
-        mdata[Constants.Entry.wordCount] = String(wordCount(str: textField.text!))
+        mdata[Constants.Entry.wordCount] = String(greaterThanZero())
         mdata[Constants.Entry.date] = dateToString()
         mdata[Constants.Entry.uid] = uid
         mdata[Constants.Entry.emotion] = imFeeling
         mdata[Constants.Entry.timestamp] = getTimeStamp()
-        ref?.child("Entry").childByAutoId().setValue(mdata)
+        entryRef?.setValue(mdata)
         updateLastAccess(date: dateToString())
     }
     
+    //make sure wordCount > 0
+    func greaterThanZero() -> Int{
+        if(Int(wordCount(str: textField.text!)) - loadedWordCount) < 0{
+            return 0
+        }
+        return (Int(wordCount(str: textField.text!)) - loadedWordCount)
+    }
+    
     func updateLastAccess(date: String){
-        print(date)
         ref?.child("users").child(String(describing: uid )).updateChildValues(["LastAccess": date])
     }
     
@@ -132,7 +146,6 @@ class InputViewController: UIViewController {
     
     func getTimeStamp() ->String {
         let timestamp = (Date().timeIntervalSince1970)
-        print(timestamp)
         let reversedTimestamp = -1.0 * timestamp
         return String(reversedTimestamp)
     }
@@ -172,6 +185,21 @@ class InputViewController: UIViewController {
         return count
     }
     
+    @IBAction func goToMarks(_ sender: UIButton) {
+        let key:String = (entryRef?.key)!
+        performSegue(withIdentifier: "segueToContinue", sender: key)
+    }
+    
     @IBAction func unwindToInput(segue: UIStoryboardSegue) {}
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "segueToContinue"{
+            guard let object = sender as? String else {return}
+            let dvc = segue.destination as! ContinueViewController
+            dvc.key = object
+        }
+        
+    }
 
 }
