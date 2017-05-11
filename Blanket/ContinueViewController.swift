@@ -91,7 +91,10 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         
         func post(markName: String){
             let newMark = markName
-
+            var mdata:[String:String] = [:]
+            mdata[Constants.Mark.marks] = newMark
+            mdata[Constants.Mark.uid] = uid
+            ref?.child("Marks").childByAutoId().setValue(mdata)
         }
         
         // 4. Present the alert.
