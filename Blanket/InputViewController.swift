@@ -21,7 +21,11 @@ class InputViewController: UIViewController {
     @IBOutlet var timer: UILabel!
     var counter = 0;
     
+    //sent by previous view
     var loadedString:String!
+    var markKey:String!
+    //-----------------------
+    
     var loadedWordCount = 0
     
     var stats:[String:Int] = [:]
@@ -113,6 +117,10 @@ class InputViewController: UIViewController {
         mdata[Constants.Entry.emotion] = imFeeling
         mdata[Constants.Entry.timestamp] = getTimeStamp()
         entryRef?.setValue(mdata)
+        let key:String = (entryRef?.key)!
+        if markKey != nil{
+        ref?.child("Marks").child(markKey).child("entries").setValue([key:key])
+        }
         updateLastAccess(date: dateToString())
     }
     

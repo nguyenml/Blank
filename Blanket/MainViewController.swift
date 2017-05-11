@@ -148,18 +148,14 @@ class MainViewController: UIViewController {
             self?.ref?.child("Marks").child(ma.key).child("entries").observe(.childAdded, with:{ [weak self] (snapshot) -> Void in
                 let entrykey = snapshot.value as! String
                 ma.entries.append(entrykey)
-                
-                //For each of those entries, query through FB and retrieve the TEXT
-                for entryKey in ma.entries{
-                    ma.resetString()
-                    self?.ref?.child("Entry").child(entryKey).child("text").observe(FIRDataEventType.value, with :{ (snapshot) -> Void in
-                        guard snapshot.exists() else{
-                            return
-                        }
-                        // Add that text to the loaded string, async call so this will return after the mark has been appended
-                        ma.loadedString = ma.loadedString + (snapshot.value as! String) + "\n\n"
-                    })
-                }
+                self?.ref?.child("Entry").child(entrykey).child("text").observe(FIRDataEventType.value, with :{ (snapshot) -> Void in
+                    guard snapshot.exists() else{
+                        return
+                    }
+                    // Add that text to the loaded string, async call so this will return after the mark has been appended
+                    ma.loadedString = ma.loadedString + (snapshot.value as! String) + "\n"
+                })
+                print(ma.entries.count)
                 })
             //append all of that
             marks.append(ma)

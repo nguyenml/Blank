@@ -24,9 +24,13 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    //Recieve key from input controller
     var key:String!
     
+    //Send to input
+    var markChosen:String = ""
     var loadString:String = ""
+    //------------------------
     
     var ref:FIRDatabaseReference?
     let uid = String(FIRAuth.auth()!.currentUser!.uid)
@@ -62,10 +66,11 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         tableView.deselectRow(at: indexPath, animated: true)
         let option = marks[indexPath.row]
         var loadedString = option.getString()
-        loadedString = loadedString + "\n______________________________ \n"
-        option.entries.index(of: key).map { option.entries.remove(at: $0) }
-        ref?.child("Marks").child(option.key).child("entries").setValue([key:key])
-        performSegue(withIdentifier: "unwindToInput", sender: loadedString)
+        option.resetString()
+        loadedString = loadedString + "\n"
+        markChosen = option.key
+        loadString = loadedString
+        performSegue(withIdentifier: "unwindToInput", sender: self)
     }
     
     @IBAction func addOption(_ sender: UIButton) {
@@ -101,9 +106,9 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "unwindToInput"{
-            guard let object = sender as? String else {return}
             let dvc = segue.destination as! InputViewController
-            dvc.loadedString = object
+            dvc.loadedString = loadString
+            dvc.markKey = markChosen
         }
         
     }
