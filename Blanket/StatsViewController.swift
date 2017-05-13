@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 
-class StatsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
+class StatsViewController: UIViewController{
     
     struct statsBlock{
         var color:UIColor = UIColor.orange
@@ -20,7 +20,6 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     @IBOutlet weak var circleAvatar: UIButton!
-    @IBOutlet weak var statsTable: UITableView!
     @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var totalDays: UILabel!
     @IBOutlet weak var totalTime: UILabel!
@@ -29,6 +28,13 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     @IBOutlet weak var pencil: UIImageView!
     @IBOutlet weak var clock: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
+    
+    @IBOutlet weak var currentDays: UILabel!
+    @IBOutlet weak var highestStreak: UILabel!
+    @IBOutlet weak var wordsPerDay: UILabel!
+    
+    @IBOutlet weak var wordsProgress: UIProgressView!
+    @IBOutlet weak var currentProgress: UIProgressView!
     
     var entries : [Entry] = []
     var statsEntries : [statsBlock] = []
@@ -39,14 +45,10 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Constants.backgroundColor.bc
         ref = FIRDatabase.database().reference()
         getData()
         setupUI()
-        statsTable.dataSource = self
         setLabels()
-        statsTable.insertRows(at: [IndexPath(row: statsEntries.count-1, section: 0)], with: .automatic)
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     func setupUI(){
@@ -73,20 +75,13 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
     
     //Updates all labels
     func setLabels(){
-        var cs = statsBlock()
-        cs.definitionLabel = "Current Streak"
-        cs.gLabel = "200"
-        cs.numbersLabel = String(Stats.currentStreak)
-        cs.color = UIColor.orange
-        var aw = statsBlock()
-        aw.definitionLabel = "Average Word Count"
-        aw.numbersLabel = String(Stats.avgWordcount)
-        aw.gLabel = "50"
-        aw.color = UIColor.yellow
-        statsEntries.append(cs)
-        statsEntries.append(aw)
+        currentDays.text = String(Stats.currentStreak)
+        highestStreak.text = String(Stats.longestStreak)
+        currentProgress.progressTintColor = UIColor.orange
+        currentProgress.progress = Float(Stats.currentStreak/Stats.longestStreak)
+        wordsPerDay.text = String(Stats.avgWordcount)
+        wordsProgress.progressTintColor = UIColor.yellow
         fetchUser()
-        
         updateLabels()
     }
     
@@ -149,24 +144,6 @@ class StatsViewController: UIViewController, UITableViewDataSource, UITableViewD
         guard let start = currentCalendar.ordinality(of: .day, in: .era, for: startDate!) else { return 0 }
         guard let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date) else { return 0 }
         return (end - start) + 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statsEntries.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Dequeue cell
-        let cell:CustomStatsCell = self.statsTable.dequeueReusableCell(withIdentifier: "statsCell", for: indexPath) as! CustomStatsCell
-        
-        let entry = statsEntries[indexPath.row]
-        cell.definitionLabel.text = entry.definitionLabel
-        cell.gLabel.text = entry.gLabel
-        cell.numbersLabel.text = entry.numbersLabel
-        cell.progress.progressTintColor = entry.color
-        cell.separatorInset = UIEdgeInsets.zero
-        cell.layoutMargins = UIEdgeInsets.zero
-        return cell
     }
     
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {

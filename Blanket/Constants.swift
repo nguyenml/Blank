@@ -29,6 +29,7 @@ struct Constants {
         static let uid = "uid"
         static let emotion = "emotion"
         static let timestamp = "timestamp"
+        static let mark = "mark"
     }
     
     struct Goal {
@@ -41,7 +42,6 @@ struct Constants {
     struct Mark {
         static let marks = "marks"
         static let uid = "uid"
-        
     }
     
     struct StartDate{
@@ -116,8 +116,9 @@ class Packet{
     var timestamp:String
     var order:Double = 0
     var key:String
+    var mark:String
     
-    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String, key:String){
+    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String, key:String, mark:String = ""){
         self.date = date
         self.text = text
         self.wordCount = wordCount
@@ -125,10 +126,15 @@ class Packet{
         self.emotion = emotion
         self.timestamp = timeStamp
         self.key = key
+        self.mark = mark
         }
     
     func setOrder(order:String){
         self.order = Double(order)!
+    }
+    
+    func hasMark()-> Bool{
+        return(mark.isEmpty)
     }
 }
 

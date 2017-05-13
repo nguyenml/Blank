@@ -60,8 +60,6 @@ class MainViewController: UIViewController {
     
     func setLabels(){
         setDate()
-        setEmotes()
-        emoteButton.setTitle("Im Feeling..", for: .normal)
     }
     
     func checkLastAccess(){

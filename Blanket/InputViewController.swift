@@ -116,11 +116,12 @@ class InputViewController: UIViewController {
         mdata[Constants.Entry.uid] = uid
         mdata[Constants.Entry.emotion] = imFeeling
         mdata[Constants.Entry.timestamp] = getTimeStamp()
-        entryRef?.setValue(mdata)
         let key:String = (entryRef?.key)!
         if markKey != nil{
-        ref?.child("Marks").child(markKey).child("entries").setValue([key:key])
+            mdata[Constants.Entry.mark] = markKey
+            ref?.child("Marks").child(markKey).child("entries").setValue([key:key])
         }
+        entryRef?.setValue(mdata)
         updateLastAccess(date: dateToString())
     }
     

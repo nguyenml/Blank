@@ -103,6 +103,12 @@ class ELViewController: UITableViewController{
                                     emotion: entrySnap[Constants.Entry.emotion]!,
                                     timeStamp: entrySnap[Constants.Entry.timestamp]!,
                                     key: snapshot.key)
+            
+            if snapshot.hasChild(Constants.Entry.mark){
+                print("This Entry has a Mark")
+                entry.mark = entrySnap[Constants.Entry.mark]!
+                print(entry.mark)
+            }
             entry.setOrder(order: entry.timestamp)
             strongSelf.entries.append(entry)
             strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
@@ -114,21 +120,21 @@ class ELViewController: UITableViewController{
     
     // Creates each individual cell given the data of that cell's entry
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        let entry = self.entries[indexPath.row]
         // Dequeue cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell") as! CustomTableCell
         cell.delegate = self
         // Unpack message from Firebase DataSnapshot
-        let entry = self.entries[indexPath.row]
+        if entry.hasMark(){
+            cell.setupIndicatorView()
+        }
+        
         let words = entry.wordCount
         let preview = entry.text
         cell.dateLabel?.text = seperateDate(dateS: entry.date)
         cell.previewLabel?.text = preview
         cell.wordCount?.text = words
         cell.timeLabel?.text = seperateTime(dateS: entry.date)
-        //when emotions come in
-        // cell.imageView?.image = UIImage(named: "ic_account_circle")
-        
         //Change color
         if ( indexPath.row % 2 == 0 ){
             cell.backgroundColor = Constants.backgroundColor.bc
