@@ -25,11 +25,12 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var tableView: UITableView!
     
     //Recieve key from input controller
-    var key:String!
+    var currentString:String!
     
     //Send to input
     var markChosen:String = ""
     var loadString:String = ""
+    var markName:String = ""
     //------------------------
     
     var ref:FIRDatabaseReference?
@@ -67,9 +68,17 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         let option = marks[indexPath.row]
         var loadedString = option.getString()
         option.resetString()
-        loadedString = loadedString + "\n"
+        
+        if loadedString.isEmpty{
+            loadedString = currentString
+        }
+        else{
+            loadedString = loadedString + "\n" + currentString
+        }
+        
         markChosen = option.key
         loadString = loadedString
+        markName = option.name
         performSegue(withIdentifier: "unwindToInput", sender: self)
     }
     
@@ -112,6 +121,7 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
             let dvc = segue.destination as! InputViewController
             dvc.loadedString = loadString
             dvc.markKey = markChosen
+            dvc.markName = markName
         }
         
     }

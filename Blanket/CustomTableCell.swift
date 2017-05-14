@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import SwipeCellKit
 
-class CustomTableCell: SwipeTableViewCell {
+class CustomTableCell: UITableViewCell {
     @IBOutlet weak var myView: UIView!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!

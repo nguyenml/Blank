@@ -153,7 +153,6 @@ class MainViewController: UIViewController {
                     // Add that text to the loaded string, async call so this will return after the mark has been appended
                     ma.loadedString = ma.loadedString + (snapshot.value as! String) + "\n"
                 })
-                print(ma.entries.count)
                 })
             //append all of that
             marks.append(ma)
@@ -191,10 +190,7 @@ class MainViewController: UIViewController {
                 let start = currentCalendar.ordinality(of: .day, in: .era, for: LastAccess.date as Any as! Date)
                 let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
                 let daysSinceWriting = end! - start!
-                print("\n\n")
-                print(daysSinceWriting)
                 if daysSinceWriting > 1{
-                    print(daysSinceWriting)
                     ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
                     if Goals.hasGoal{
                         ref?.child("Goals").child(Goals.goalId).child("inProgress").setValue(false)

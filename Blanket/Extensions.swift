@@ -245,3 +245,78 @@ extension Notification.Name {
 }
 
 
+//extension ELViewController: SwipeTableViewCellDelegate {
+//    
+//    need a lot of help on this one
+//    ------------
+//     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: //SwipeActionsOrientation) -> [SwipeAction]? {
+//        let entry = entries[indexPath.row]
+//       let flag = SwipeAction(style: .default, title: nil, handler: nil)
+//       if orientation == .left {
+//           flag.hidesWhenSelected = true
+//           configure(action: flag, with: .flag)
+//       }
+//        return[flag]
+//}
+//
+//func configure(action: SwipeAction, with descriptor: ActionDescriptor) {
+//    action.title = descriptor.title(forDisplayMode: buttonDisplayMode)
+//    action.image = descriptor.image(forStyle: buttonStyle, displayMode: buttonDisplayMode)
+//    action.backgroundColor = .clear
+//    action.textColor = descriptor.color
+//    action.font = .systemFont(ofSize: 13)
+//    action.transitionDelegate = ScaleTransition.default
+//}
+//
+//func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeTableOptions {
+//    var options = SwipeTableOptions()
+//    options.expansionStyle = orientation == .left ? .selection : .destructive
+//    options.transitionStyle = defaultOptions.transitionStyle
+//    options.buttonSpacing = 4
+//    options.backgroundColor = #colorLiteral(red: 0.9467939734, green: 0.9468161464, blue: 0.9468042254, alpha: 1)
+//    return options
+//}
+//
+//}
+
+enum ActionDescriptor {
+    case more, flag
+    
+    func title(forDisplayMode displayMode: ButtonDisplayMode) -> String? {
+        guard displayMode != .imageOnly else { return nil }
+        
+        switch self {
+        case .more: return "More"
+        case .flag: return "Flag"
+            
+        }
+    }
+    
+    func image(forStyle style: ButtonStyle, displayMode: ButtonDisplayMode) -> UIImage? {
+        guard displayMode != .titleOnly else { return nil }
+        
+        let name: String
+        switch self {
+        case .more: name = "more"
+        case .flag: name = "flag"
+        }
+        
+        return UIImage(named: style == .backgroundColor ? name : name + "-circle")
+    }
+    
+    var color: UIColor {
+        switch self {
+        case .more: return #colorLiteral(red: 0.7803494334, green: 0.7761332393, blue: 0.7967314124, alpha: 1)
+        case .flag: return #colorLiteral(red: 1, green: 0.5803921569, blue: 0, alpha: 1)
+        }
+    }
+}
+enum ButtonDisplayMode {
+    case titleAndImage, titleOnly, imageOnly
+}
+
+enum ButtonStyle {
+    case backgroundColor, circular
+}
+
+

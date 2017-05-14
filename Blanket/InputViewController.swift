@@ -24,6 +24,7 @@ class InputViewController: UIViewController {
     //sent by previous view
     var loadedString:String!
     var markKey:String!
+    var markName:String!
     //-----------------------
     
     var loadedWordCount = 0
@@ -43,6 +44,11 @@ class InputViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        if loadedString != nil{
+            if loadedString == textField.text{
+                return
+            }
+        }
         textField.text = loadedString
         loadedWordCount = Int(wordCount(str: textField.text!))
     }
@@ -118,7 +124,7 @@ class InputViewController: UIViewController {
         mdata[Constants.Entry.timestamp] = getTimeStamp()
         let key:String = (entryRef?.key)!
         if markKey != nil{
-            mdata[Constants.Entry.mark] = markKey
+            mdata[Constants.Entry.mark] = markName
             ref?.child("Marks").child(markKey).child("entries").setValue([key:key])
         }
         entryRef?.setValue(mdata)
@@ -195,8 +201,9 @@ class InputViewController: UIViewController {
     }
     
     @IBAction func goToMarks(_ sender: UIButton) {
-        let key:String = (entryRef?.key)!
-        performSegue(withIdentifier: "segueToContinue", sender: key)
+        let currentString:String = textField.text
+        
+        performSegue(withIdentifier: "segueToContinue", sender: currentString)
     }
     
     @IBAction func unwindToInput(segue: UIStoryboardSegue) {}
@@ -206,7 +213,7 @@ class InputViewController: UIViewController {
         if segue.identifier == "segueToContinue"{
             guard let object = sender as? String else {return}
             let dvc = segue.destination as! ContinueViewController
-            dvc.key = object
+            dvc.currentString = object
         }
         
     }

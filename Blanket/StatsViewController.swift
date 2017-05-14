@@ -77,8 +77,12 @@ class StatsViewController: UIViewController{
     func setLabels(){
         currentDays.text = String(Stats.currentStreak)
         highestStreak.text = String(Stats.longestStreak)
+        
         currentProgress.progressTintColor = UIColor.orange
-        currentProgress.progress = Float(Stats.currentStreak/Stats.longestStreak)
+        let fractionalProgress = Float(25)/Float(Stats.longestStreak)
+        //let animated = Stats.currentStreak != 0
+        currentProgress.progress = fractionalProgress
+        
         wordsPerDay.text = String(Stats.avgWordcount)
         wordsProgress.progressTintColor = UIColor.yellow
         fetchUser()

@@ -12,18 +12,32 @@ class IndividualEntryViewController: UIViewController {
     @IBOutlet weak var textView: UITextView!
     var entry:Packet!
 
+    @IBOutlet weak var markLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var wordCount: UILabel!
     
+    //Recieve from views
+    //----------------
     var key:String!
+    var markName:String!
+    //-----------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.isEditable = false;
         textView.text = entry.text
         wordCount.text = entry.wordCount
+        markLabel.text = entry.mark
         dateLabel.text = seperateDate()
         key = entry.key
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(markName)
+        if markName != nil{
+            entry.mark = markName
+        }
+        markLabel.text = entry.mark
     }
     
     func seperateDate() -> String{
@@ -38,7 +52,6 @@ class IndividualEntryViewController: UIViewController {
     @IBAction func back(_ sender: Any) {
         performSegue(withIdentifier: "unwindToLogs", sender: self)
     }
-    
     
     @IBAction func markBtn(_ sender: UIButton) {
         self.performSegue(withIdentifier: "segueToMark", sender: key);

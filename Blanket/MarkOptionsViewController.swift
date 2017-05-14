@@ -43,15 +43,17 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath) as! OptionCell
         let option = marks[indexPath.row]
         cell.nameLabel.text = option.name
+        cell.numMarks.text = String(option.entries.count)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let option = marks[indexPath.row]
-        ref?.child("Entry").child(key).child("mark").setValue(option.key)
+        ref?.child("Entry").child(key).child("mark").setValue(option.name)
         ref?.child("Marks").child(option.key).child("entries").updateChildValues([key:key])
-        performSegue(withIdentifier: "unwindToEntry", sender: self)
+        let markName = option.name
+        performSegue(withIdentifier: "unwindToEntry", sender: markName)
     }
     
     @IBAction func addOption(_ sender: UIButton) {
@@ -66,12 +68,12 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            let markName = (textField?.text)!
-            post(markName: markName)
+            let name = (textField?.text)!
+            post(name: name)
         }))
         
-        func post(markName:String){
-            let newMark = markName
+        func post(name:String){
+            let newMark = name
             var mdata:[String:String] = [:]
             mdata[Constants.Mark.marks] = newMark
             mdata[Constants.Mark.uid] = uid
@@ -87,6 +89,16 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func backSegue(_ sender: UIButton) {
         performSegue(withIdentifier: "unwindToEntry", sender: self)
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "unwindToEntry"{
+            guard let object = sender as? String else { return }
+            let dvc = segue.destination as! IndividualEntryViewController
+            dvc.markName = object
+        }
+        
+    }
 
 }
 
@@ -94,5 +106,6 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
 
 class OptionCell: UITableViewCell {
 
+    @IBOutlet weak var numMarks: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
 }

@@ -102,7 +102,7 @@ class GoalsViewController: UIViewController {
             initGoalButton.isUserInteractionEnabled = false;
             initGoalButton.backgroundColor = UIColor.flatGray
             circleProgress.progress = progress / Double(UInt8.max)
-            percentProgress.text = String(Int(progress * 100)) + "%"
+            percentProgress.text = String(Double(round(progress*100)/1)) + "%"
             print(progress)
         }
         else{
