@@ -79,7 +79,7 @@ class StatsViewController: UIViewController{
         highestStreak.text = String(Stats.longestStreak)
         
         currentProgress.progressTintColor = UIColor.orange
-        let fractionalProgress = Float(25)/Float(Stats.longestStreak)
+        let fractionalProgress = Float(Stats.currentStreak)/Float(Stats.longestStreak)
         //let animated = Stats.currentStreak != 0
         currentProgress.progress = fractionalProgress
         

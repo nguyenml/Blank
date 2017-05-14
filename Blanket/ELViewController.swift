@@ -31,6 +31,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     var isSwipeRightEnabled = true
     var buttonDisplayMode: ButtonDisplayMode = .titleAndImage
     var buttonStyle: ButtonStyle = .circular
+    var num = 0
 
     var testCalendar = Calendar(identifier: .gregorian)
     var currentDate: Date! = Date() {
@@ -43,8 +44,9 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         currentDate = Date()
         tableView.delegate = self
         tableView.dataSource = self
-        checkConnectionWithFB()
+       // checkConnectionWithFB()
         configureDatabase()
+        print(entries.count)
     }
     
     func seperateDate(dateS:String) -> String{
@@ -93,9 +95,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
                                     key: snapshot.key)
             
             if snapshot.hasChild(Constants.Entry.mark){
-                print("This Entry has a Mark")
                 entry.mark = entrySnap[Constants.Entry.mark]!
-                print(entry.mark)
             }
             entry.setOrder(order: entry.timestamp)
             strongSelf.entries.append(entry)
@@ -112,9 +112,8 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         // Dequeue cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell") as! CustomTableCell
         // Unpack message from Firebase DataSnapshot
-        if entry.hasMark(){
-            cell.setupIndicatorView()
-        }
+        let isMarked = entry.hasMark()
+        cell.setupIndicatorView(bool: isMarked)
         
         let words = entry.wordCount
         let preview = entry.text
@@ -144,8 +143,6 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let entry = self.entries[indexPath.row]
-        print(indexPath.row)
-        
         self.performSegue(withIdentifier: "segueToEntry", sender: entry);
     }
     

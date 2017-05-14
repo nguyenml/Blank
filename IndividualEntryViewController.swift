@@ -33,7 +33,6 @@ class IndividualEntryViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print(markName)
         if markName != nil{
             entry.mark = markName
         }

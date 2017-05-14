@@ -9,8 +9,6 @@
 import UIKit
 import PopupDialog
 import Firebase
-import KYCircularProgress
-import ChameleonFramework
 
 class GoalsViewController: UIViewController {
     
@@ -20,7 +18,6 @@ class GoalsViewController: UIViewController {
     @IBOutlet weak var initGoalButton: UIButton!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var CSgoalLabel: UILabel!
-    @IBOutlet weak var circleProgress: KYCircularProgress!
     
     let uid = FIRAuth.auth()!.currentUser!.uid
     var descSwitch = true
@@ -101,7 +98,6 @@ class GoalsViewController: UIViewController {
             CSgoalLabel.attributedText = attrText
             initGoalButton.isUserInteractionEnabled = false;
             initGoalButton.backgroundColor = UIColor.flatGray
-            circleProgress.progress = progress / Double(UInt8.max)
             percentProgress.text = String(Double(round(progress*100)/1)) + "%"
             print(progress)
         }

@@ -28,9 +28,9 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     var currentString:String!
     
     //Send to input
-    var markChosen:String = ""
-    var loadString:String = ""
-    var markName:String = ""
+    var markChosen:String!
+    var loadString:String!
+    var markName:String!
     //------------------------
     
     var ref:FIRDatabaseReference?
@@ -112,6 +112,7 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     
     
     @IBAction func backSegue(_ sender: UIButton) {
+        
         performSegue(withIdentifier: "unwindToInput", sender: self)
     }
     

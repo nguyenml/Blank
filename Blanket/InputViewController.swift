@@ -38,16 +38,14 @@ class InputViewController: UIViewController {
         entryRef = ref?.child("Entry").childByAutoId()
         
         //change this timer
-        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         backButton.isHidden = true
         // Do any advarional setup after loadingvare view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if loadedString != nil{
-            if loadedString == textField.text{
-                return
-            }
+        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        if loadedString == nil{
+            return
         }
         textField.text = loadedString
         loadedWordCount = Int(wordCount(str: textField.text!))
@@ -202,7 +200,7 @@ class InputViewController: UIViewController {
     
     @IBAction func goToMarks(_ sender: UIButton) {
         let currentString:String = textField.text
-        
+        iTimer.invalidate()
         performSegue(withIdentifier: "segueToContinue", sender: currentString)
     }
     

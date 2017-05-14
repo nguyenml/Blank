@@ -19,21 +19,21 @@ class CustomTableCell: UITableViewCell {
     var animator: Any?
     var indicatorView = IndicatorView(frame: .zero)
     
-    func setupIndicatorView() {
+    func setupIndicatorView(bool:Bool) {
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
-        indicatorView.color = UIColor(hex: 0x17DF82)
+        if bool{
+            indicatorView.color = UIColor(hex: 0x17DF82)
+        }
+        else{
+            indicatorView.color = UIColor.clear
+        }
         indicatorView.backgroundColor = .clear
         contentView.addSubview(indicatorView)
-        
         let size: CGFloat = 12
         indicatorView.widthAnchor.constraint(equalToConstant: size).isActive = true
         indicatorView.heightAnchor.constraint(equalTo: indicatorView.widthAnchor).isActive = true
         indicatorView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 12).isActive = true
         indicatorView.centerYAnchor.constraint(equalTo: dateLabel.centerYAnchor).isActive = true
-    }
-    
-    func setUpIndicator(){
-        setupIndicatorView()
     }
 }
 

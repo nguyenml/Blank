@@ -134,7 +134,7 @@ class Packet{
     }
     
     func hasMark()-> Bool{
-        return(mark.isEmpty)
+        return(!mark.isEmpty)
     }
 }
 
