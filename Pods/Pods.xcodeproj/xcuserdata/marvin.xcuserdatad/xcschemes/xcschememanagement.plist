@@ -34,11 +34,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>KYCircularProgress.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-Blanket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -77,27 +72,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>017741669BD6E27A359D4AB827031DC3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>10D02DB000FE0AA105B0E486373CA594</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2E66E0A7444139346450428CBB9C9A7A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>4D5B8B1BE64F80268007C79821DDDC20</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5C1F0BC8AD9DB9D282F6612636923786</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +102,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>89F3D683B7D7EC8B128DDD91E633D526</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>920C8C29BE9A7F9E93C0BC2F0800B82E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>927205A98F2E703E223E957020B3275F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9FA8B2E3EB2CD70B7D0FBBAEA140C79A</key>
+		<key>9EBF9192E5F838B80E1B94CFBE934DC5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,12 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CFFFDB36D3BC5DD85B3B3A5C93B79E48</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DAAACF7BDA8161BF714DD1C525E1E44E</key>
+		<key>DD373DBB4B0B0B780060DF2EF16BC497</key>
 		<dict>
 			<key>primary</key>
 			<true/>

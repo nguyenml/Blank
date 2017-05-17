@@ -29,7 +29,6 @@ class GoalsViewController: UIViewController {
         super.viewDidLoad()
         initGoalButton.isUserInteractionEnabled = false;
         initGoalButton.layer.cornerRadius = 5
-        setUI()
         setGoal()
         ref = FIRDatabase.database().reference()
         CSgoalLabel.isHidden = true
@@ -45,13 +44,6 @@ class GoalsViewController: UIViewController {
 
         }
     }
-    
-    func setUI(){
-        circleProgress.colors = [UIColor(rgba: 0xF5A623),UIColor(rgba: 0xF5A623),UIColor(rgba: 0xF5A623)]
-        
-        flag.image = flag.image!.withRenderingMode(.alwaysTemplate)
-        flag.tintColor = UIColor.white
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -60,7 +52,7 @@ class GoalsViewController: UIViewController {
     
     func addToFB(withData data: [String: AnyObject]){
         var mdata = data
-        mdata[Constants.Goal.currentGoal] = 0 as AnyObject
+        mdata[Constants.Goal.currentGoal] = 1 as AnyObject
         mdata[Constants.Goal.uid] = uid as AnyObject
         mdata[Constants.Goal.inProgress] = true as AnyObject
         ref?.child("Goals").childByAutoId().setValue(mdata)
@@ -88,18 +80,18 @@ class GoalsViewController: UIViewController {
     }
     
     func setGoal(){
-        let progress = Double(Goals.current) / Double(Goals.endGoal)
+        let progress = Float(Goals.current) / Float(Goals.endGoal)
         if Goals.hasGoal{
-            let attrsA = [NSFontAttributeName: UIFont.systemFont(ofSize: 19)]
-            let current = String(Goals.current)
-            let attrText = NSMutableAttributedString(string:current)
-            let end = "/ " + String(Goals.endGoal)
-            attrText.append(NSAttributedString(string: end, attributes: attrsA))
-            CSgoalLabel.attributedText = attrText
+//            let attrsA = [NSFontAttributeName: UIFont.systemFont(ofSize: 19)]
+//            let current = String(Goals.current)
+//            let attrText = NSMutableAttributedString(string:current)
+//            let end = "/ " + String(Goals.endGoal)
+//            attrText.append(NSAttributedString(string: end, attributes: attrsA))
             initGoalButton.isUserInteractionEnabled = false;
             initGoalButton.backgroundColor = UIColor.flatGray
-            percentProgress.text = String(Double(round(progress*100)/1)) + "%"
+            percentProgress.text = String((Float(progress*100).cleanValue)) + "%"
             print(progress)
+            print("test")
         }
         else{
             initGoalButton.isUserInteractionEnabled = true;

@@ -16,7 +16,6 @@ target 'Blanket' do
     pod 'PopupDialog', '~> 0.5'
     pod 'CZPicker'
     pod 'TextFieldEffects'
-    pod 'KYCircularProgress'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'SwipeCellKit'
   target 'BlanketTests' do
