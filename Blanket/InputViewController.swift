@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class InputViewController: UIViewController {
+class InputViewController: UIViewController, UITextViewDelegate {
     
     var ref:FIRDatabaseReference?
     var entryRef:FIRDatabaseReference?
@@ -36,9 +36,13 @@ class InputViewController: UIViewController {
         super.viewDidLoad()
         ref  = FIRDatabase.database().reference()
         entryRef = ref?.child("Entry").childByAutoId()
-        
+        self.textField.delegate = self
         //change this timer
         backButton.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(InputViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(InputViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         // Do any advarional setup after loadingvare view.
     }
     
@@ -216,6 +220,21 @@ class InputViewController: UIViewController {
             dvc.currentString = object
         }
         
+    }
+    
+    func updateTextView(notification:Notification){
+        let userInfo = notification.userInfo!
+        let keyboardEndFrameScreenCoordinates = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardEndFrame = self.view.convert(keyboardEndFrameScreenCoordinates, to:view.window)
+        
+        if notification.name == Notification.Name.UIKeyboardWillHide{
+            textField.contentInset = UIEdgeInsets.zero
+        }else{
+            textField.contentInset = UIEdgeInsets(top:0,left:0,bottom:keyboardEndFrame.height, right:0)
+            textField.scrollIndicatorInsets = textField.contentInset
+        }
+        
+        textField.scrollRangeToVisible(textField.selectedRange)
     }
 
 }

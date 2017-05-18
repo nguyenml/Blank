@@ -78,8 +78,8 @@ class GoalsViewController: UIViewController {
             initGoalButton.isUserInteractionEnabled = false;
             initGoalButton.backgroundColor = UIColor.flatGray
             progressVIew.value = CGFloat(Float(progress*100))
-            endLabel.text = Goals.endGoal
-            currentLabel.text = Goals.current
+            endLabel.text = String(Goals.endGoal)
+            currentLabel.text = String(Goals.current)
         }
         else{
             initGoalButton.isUserInteractionEnabled = true;
