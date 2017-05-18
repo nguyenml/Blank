@@ -9,16 +9,18 @@
 import UIKit
 import PopupDialog
 import Firebase
+import MBCircularProgressBar
 
 class GoalsViewController: UIViewController {
     
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var flag: UIImageView!
-    @IBOutlet weak var percentProgress: UILabel!
     @IBOutlet weak var initGoalButton: UIButton!
     @IBOutlet weak var pointsLabel: UILabel!
-    @IBOutlet weak var CSgoalLabel: UILabel!
-    
+    @IBOutlet weak var progressVIew: MBCircularProgressBarView!
+
+    @IBOutlet weak var endLabel: UILabel!
+    @IBOutlet weak var currentLabel: UILabel!
     let uid = FIRAuth.auth()!.currentUser!.uid
     var descSwitch = true
     
@@ -31,7 +33,6 @@ class GoalsViewController: UIViewController {
         initGoalButton.layer.cornerRadius = 5
         setGoal()
         ref = FIRDatabase.database().reference()
-        CSgoalLabel.isHidden = true
         daysLabel.isHidden = true
         updateGoal()
         // Do any additional setup after loading the view.
@@ -71,31 +72,17 @@ class GoalsViewController: UIViewController {
         addToFB(withData: data as [String : AnyObject] )
     }
     
-    @IBAction func desc(_ sender: UIButton) {
-        descSwitch = !descSwitch
-        if descSwitch{
-            CSgoalLabel.isHidden = true
-            daysLabel.isHidden = false
-            percentProgress.isHidden = false
-        }else{
-            CSgoalLabel.isHidden = false
-            daysLabel.isHidden = false
-            percentProgress.isHidden = true
-        }
-    }
-    
     func setGoal(){
         let progress = Float(Goals.current) / Float(Goals.endGoal)
         if Goals.hasGoal{
             initGoalButton.isUserInteractionEnabled = false;
             initGoalButton.backgroundColor = UIColor.flatGray
-            percentProgress.text = String((Float(progress*100).cleanValue)) + "%"
-            print(progress)
-            print("test")
+            progressVIew.value = CGFloat(Float(progress*100))
+            endLabel.text = Goals.endGoal
+            currentLabel.text = Goals.current
         }
         else{
             initGoalButton.isUserInteractionEnabled = true;
-            CSgoalLabel.isHidden = true;
         }
     }
     
