@@ -18,6 +18,7 @@ target 'Blanket' do
     pod 'TextFieldEffects'
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'SwipeCellKit'
+    pod 'MBCircularProgressBar'
   target 'BlanketTests' do
     inherit! :search_paths
     # Pods for testing

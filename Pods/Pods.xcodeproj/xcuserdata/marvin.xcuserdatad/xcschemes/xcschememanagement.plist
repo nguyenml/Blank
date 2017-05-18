@@ -34,6 +34,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>MBCircularProgressBar-MBCircularProgressBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>MBCircularProgressBar.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Blanket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -72,17 +82,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>017741669BD6E27A359D4AB827031DC3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>107A9565F9DF88517DFD3E28C05B2B96</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>25D3C39812C432EB7E6255D7D158EDB0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2FAE6E9A8442B1EA668799336EDC22CE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4D5B8B1BE64F80268007C79821DDDC20</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4E9301D26C3F01DB931E5EE5C43C42A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,17 +117,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>700B0BF0517914C5332AC7026E6A2DE4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>745539636ED52152F924111D56BF787F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>76BD4592010354D6C23D6ECCA20D83A8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>89F3D683B7D7EC8B128DDD91E633D526</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>920C8C29BE9A7F9E93C0BC2F0800B82E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,17 +137,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9EBF9192E5F838B80E1B94CFBE934DC5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>B1C4AAFAF49036C7007633DAA3C806AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>DD373DBB4B0B0B780060DF2EF16BC497</key>
+		<key>CAC840DD7C14BED838F74AD37CD7CBBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F579AA4D4755DD9570010BC36D0422F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

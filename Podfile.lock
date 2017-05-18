@@ -68,6 +68,7 @@ PODS:
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
   - JTAppleCalendar (6.1.6)
+  - MBCircularProgressBar (0.3.5)
   - PopupDialog (0.5.4)
   - Protobuf (3.2.1)
   - SwipeCellKit (1.7.0)
@@ -83,6 +84,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - Google/SignIn
   - JTAppleCalendar (~> 6.1)
+  - MBCircularProgressBar
   - PopupDialog (~> 0.5)
   - SwipeCellKit
   - TextFieldEffects
@@ -113,11 +115,12 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   JTAppleCalendar: 560fb46421880f53ad54123295072de24bca2b18
+  MBCircularProgressBar: 0b795b722a5eb5b0923822f90474e2576a1a7855
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
   SwipeCellKit: 73440541f03434eaedc158e5aed9bc1e0d9b898e
   TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
 
-PODFILE CHECKSUM: eeac5c9e0182075014928109e26d67e38a94ac06
+PODFILE CHECKSUM: a9c799f28813ff33bf7eada7a0862342069d6c02
 
 COCOAPODS: 1.2.0

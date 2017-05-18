@@ -36,6 +36,11 @@ class GoalsViewController: UIViewController {
         updateGoal()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setGoal()
+    }
+    
     func updateGoal(){
         if Goals.hasGoal{
             ref?.child("Goals").child(Goals.goalId).child("currentGoal").observe(FIRDataEventType.value, with: { (snapshot) -> Void in
@@ -70,7 +75,7 @@ class GoalsViewController: UIViewController {
         descSwitch = !descSwitch
         if descSwitch{
             CSgoalLabel.isHidden = true
-            daysLabel.isHidden = true
+            daysLabel.isHidden = false
             percentProgress.isHidden = false
         }else{
             CSgoalLabel.isHidden = false
@@ -82,11 +87,6 @@ class GoalsViewController: UIViewController {
     func setGoal(){
         let progress = Float(Goals.current) / Float(Goals.endGoal)
         if Goals.hasGoal{
-//            let attrsA = [NSFontAttributeName: UIFont.systemFont(ofSize: 19)]
-//            let current = String(Goals.current)
-//            let attrText = NSMutableAttributedString(string:current)
-//            let end = "/ " + String(Goals.endGoal)
-//            attrText.append(NSAttributedString(string: end, attributes: attrsA))
             initGoalButton.isUserInteractionEnabled = false;
             initGoalButton.backgroundColor = UIColor.flatGray
             percentProgress.text = String((Float(progress*100).cleanValue)) + "%"
