@@ -70,6 +70,7 @@ class GoalsViewController: UIViewController {
         let goal = goalNumber
         let data = [Constants.Goal.endGoal: goal]
         addToFB(withData: data as [String : AnyObject] )
+        setGoal()
     }
     
     func setGoal(){
@@ -104,7 +105,6 @@ class GoalsViewController: UIViewController {
             self.goalNumber = Int(goalVC.commentTextField.text!)!
             if self.goalNumber > 0{
                 Goals.hasGoal = true
-                self.setGoal()
                 self.post()
             }
         }
