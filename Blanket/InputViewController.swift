@@ -39,7 +39,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
         self.textField.delegate = self
         //change this timer
         backButton.isHidden = true
-        
         NotificationCenter.default.addObserver(self, selector: #selector(InputViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(InputViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
@@ -235,28 +234,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
         }
         
         textField.scrollRangeToVisible(textField.selectedRange)
-    }
-    
-    func formatTextInTextView(textView: UITextView) {
-        textView.isScrollEnabled = false
-        let selectedRange = textView.selectedRange
-        let text = textView.text
-        
-        // This will give me an attributedString with the base text-style
-        let attributedString = NSMutableAttributedString(string: text!)
-        
-        let regex = try? NSRegularExpression(pattern: "#(\\w+)", options: [])
-        let matches = regex!.matches(in: text!, options: [], range: NSMakeRange(0, (text?.characters.count)!))
-        
-        for match in matches {
-            let matchRange = match.rangeAt(0)
-            textView.attributedText = NSAttributedString(string: entry.text, attributes:[NSFontAttributeName: UIFont(name: "Georgia", size: 19.0)!,NSParagraphStyleAttributeName : style])
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor(rgb: 0x333333), range: matchRange)
-        }
-        
-        textView.attributedText = NSAttributedString(string: entry.text, attributes:[NSFontAttributeName: UIFont(name: "Georgia", size: 19.0)!,NSParagraphStyleAttributeName : style])
-        textView.selectedRange = selectedRange
-        textView.isScrollEnabled = true
     }
 
 }

@@ -25,7 +25,7 @@ class IndividualEntryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.isEditable = false;
-        attrText()
+        textView.text = entry.text
         wordCount.text = entry.wordCount
         markLabel.text = entry.mark
         dateLabel.text = seperateDate()
@@ -37,12 +37,6 @@ class IndividualEntryViewController: UIViewController {
             entry.mark = markName
         }
         markLabel.text = entry.mark
-    }
-    
-    func attrText(){
-        let style = NSMutableParagraphStyle()
-        style.lineSpacing = 10
-        textView.attributedText = NSAttributedString(string: entry.text, attributes:[NSFontAttributeName: UIFont(name: "Georgia", size: 19.0)!,NSParagraphStyleAttributeName : style])
     }
     
     func seperateDate() -> String{
