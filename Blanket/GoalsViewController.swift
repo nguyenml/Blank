@@ -10,9 +10,11 @@ import UIKit
 import PopupDialog
 import Firebase
 import MBCircularProgressBar
+import UserNotifications
 
 class GoalsViewController: UIViewController {
     
+    @IBOutlet weak var reminderSwitch: UISwitch!
     @IBOutlet weak var daysLabel: UILabel!
     @IBOutlet weak var flag: UIImageView!
     @IBOutlet weak var initGoalButton: UIButton!
@@ -22,12 +24,13 @@ class GoalsViewController: UIViewController {
     @IBOutlet weak var endLabel: UILabel!
     @IBOutlet weak var currentLabel: UILabel!
     let uid = FIRAuth.auth()!.currentUser!.uid
-    var descSwitch = true
+    var isReminder = false
     
     var ref:FIRDatabaseReference?
 
     var goalNumber = 0;
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         initGoalButton.isUserInteractionEnabled = false;
         initGoalButton.layer.cornerRadius = 5
@@ -35,11 +38,57 @@ class GoalsViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         daysLabel.isHidden = true
         updateGoal()
-        // Do any additional setup after loading the view.
+        
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey:
+            "Hello!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey:
+            "Hello_message_body", arguments: nil)
+        
+        // Deliver the notification in five seconds.
+        content.sound = UNNotificationSound.default()
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 10,
+                                                        repeats: false)
+        
+        // Schedule the notification.
+        let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        print(center)
+        center.add(request, withCompletionHandler: nil)
+        
+    }
+    
+    func didNotify(){
+        if(isReminder){
+            
+            let content = UNMutableNotificationContent()
+            content.title = NSString.localizedUserNotificationString(forKey:
+                "Hello!", arguments: nil)
+            content.body = NSString.localizedUserNotificationString(forKey:
+                "Hello_message_body", arguments: nil)
+            
+            // Deliver the notification in five seconds.
+            content.sound = UNNotificationSound.default()
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5,
+                                                            repeats: false)
+            
+            // Schedule the notification.
+            let request = UNNotificationRequest(identifier: "FiveSecond", content: content, trigger: trigger)
+            let center = UNUserNotificationCenter.current()
+            print(center)
+            center.add(request, withCompletionHandler: nil)
+            print("test 123 123")
+            
+    }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setGoal()
+    }
+    
+    @IBAction func switchDidChange(_ sender: UISwitch) {
+        isReminder = !isReminder
+        didNotify()
     }
     
     func updateGoal(){

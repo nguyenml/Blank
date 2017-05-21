@@ -458,7 +458,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Sea Weed" translatesAutoresizingMaskIntoConstraints="NO" id="UW1-cp-nUb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sea Weed" translatesAutoresizingMaskIntoConstraints="NO" id="UW1-cp-nUb">
                                 <rect key="frame" x="0.0" y="63" width="375" height="291"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWW-mX-Bac" customClass="MBCircularProgressBarView">
@@ -466,7 +466,7 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="value">
-                                        <real key="value" value="10"/>
+                                        <real key="value" value="0.0"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -520,6 +520,9 @@
                                         <rect key="frame" x="163" y="56" width="51" height="31"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="onTintColor" red="0.090196078430000007" green="0.87450980389999999" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="switchDidChange:" destination="9YI-2e-B13" eventType="valueChanged" id="ctb-RS-mgK"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Set Reminder" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzt-6v-bgZ">
                                         <rect key="frame" x="113" y="8" width="148" height="40"/>
@@ -562,7 +565,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAYS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TFG-3Y-yWa">
-                                <rect key="frame" x="146" y="304" width="82" height="39"/>
+                                <rect key="frame" x="146" y="303.5" width="82" height="39"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="39" id="60U-an-bEq"/>
                                     <constraint firstAttribute="width" constant="82" id="vca-7w-gMv"/>
@@ -586,6 +589,7 @@
                             <constraint firstItem="wxO-r1-cGL" firstAttribute="top" secondItem="vBn-qn-QJo" secondAttribute="bottom" constant="32" id="KZq-SS-y0H"/>
                             <constraint firstItem="vBn-qn-QJo" firstAttribute="centerX" secondItem="IWW-mX-Bac" secondAttribute="centerX" id="LZK-BS-3vh"/>
                             <constraint firstItem="vBn-qn-QJo" firstAttribute="centerX" secondItem="wxO-r1-cGL" secondAttribute="centerX" id="MzI-uc-S76"/>
+                            <constraint firstItem="UW1-cp-nUb" firstAttribute="top" secondItem="K1a-yO-vT1" secondAttribute="top" id="NGm-4M-emk"/>
                             <constraint firstItem="wxO-r1-cGL" firstAttribute="leading" secondItem="UW1-cp-nUb" secondAttribute="leading" id="Np5-Mm-xF5"/>
                             <constraint firstItem="wxO-r1-cGL" firstAttribute="top" secondItem="IWW-mX-Bac" secondAttribute="bottom" constant="44" id="QMK-Gz-q5l"/>
                             <constraint firstItem="IWW-mX-Bac" firstAttribute="centerX" secondItem="wxO-r1-cGL" secondAttribute="centerX" id="TKV-8N-Qix"/>
@@ -593,7 +597,9 @@
                             <constraint firstItem="tEe-Uf-0TU" firstAttribute="top" secondItem="g3s-Yj-Fbg" secondAttribute="bottom" constant="-20" id="VsY-PE-nOP"/>
                             <constraint firstItem="h3e-Dh-th4" firstAttribute="top" secondItem="wxO-r1-cGL" secondAttribute="bottom" constant="-1" id="Z1u-cr-Gxz"/>
                             <constraint firstItem="wxO-r1-cGL" firstAttribute="leading" secondItem="Cj1-Rx-696" secondAttribute="leading" id="bny-7L-GLC"/>
+                            <constraint firstItem="UW1-cp-nUb" firstAttribute="top" secondItem="Cj1-Rx-696" secondAttribute="top" id="dmU-aT-PUC"/>
                             <constraint firstItem="wxO-r1-cGL" firstAttribute="top" secondItem="TFG-3Y-yWa" secondAttribute="bottom" constant="9" id="f4f-x6-d9x"/>
+                            <constraint firstItem="h3e-Dh-th4" firstAttribute="top" secondItem="UW1-cp-nUb" secondAttribute="bottom" constant="264" id="kg1-qW-xqq"/>
                             <constraint firstItem="IWW-mX-Bac" firstAttribute="centerX" secondItem="K1a-yO-vT1" secondAttribute="centerX" id="myp-Ri-nMX"/>
                             <constraint firstItem="IWW-mX-Bac" firstAttribute="leading" secondItem="M1s-lE-6Mc" secondAttribute="leadingMargin" constant="71" id="pfJ-Ne-gsx"/>
                             <constraint firstItem="IWW-mX-Bac" firstAttribute="top" secondItem="Cj1-Rx-696" secondAttribute="bottom" constant="44" id="r3d-nX-X3C"/>
@@ -609,11 +615,12 @@
                         <outlet property="endLabel" destination="Bma-LY-aqR" id="pb2-zV-0n6"/>
                         <outlet property="initGoalButton" destination="WQf-ME-GjH" id="eRG-5b-KV8"/>
                         <outlet property="progressVIew" destination="IWW-mX-Bac" id="wyb-MI-lqE"/>
+                        <outlet property="reminderSwitch" destination="8uO-sP-yft" id="rpu-0z-KYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEj-PS-CCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-914.39999999999998" y="1110.4947526236883"/>
+            <point key="canvasLocation" x="406" y="1541"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mj1-nM-Bi9">
@@ -919,6 +926,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W6" family="Hiragino Sans" pointSize="26"/>
                                 <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l1Z-dl-g99">
+                                <rect key="frame" x="41" y="115" width="292" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">Badges are a fun way to feel yourself grow as you continue writing. You can earn different badges by each individual requirement.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>

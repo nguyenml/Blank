@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import CZPicker
 import ChameleonFramework
+import UserNotifications
 
 class MainViewController: UIViewController {
     
@@ -35,6 +36,9 @@ class MainViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
+        
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler:{didAllow, error in})
         // Do any additional setup after loading the view, typically from a nib.
     }
     
