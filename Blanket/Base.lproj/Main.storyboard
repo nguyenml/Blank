@@ -531,6 +531,14 @@
                                         <color key="textColor" red="0.31764705882352939" green="0.31764705882352939" blue="0.31764705882352939" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wr6-oa-4k9">
+                                        <rect key="frame" x="62" y="110" width="251" height="47"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="setTime:" destination="9YI-2e-B13" eventType="touchUpInside" id="7jl-7E-eBo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -615,12 +623,13 @@
                         <outlet property="endLabel" destination="Bma-LY-aqR" id="pb2-zV-0n6"/>
                         <outlet property="initGoalButton" destination="WQf-ME-GjH" id="eRG-5b-KV8"/>
                         <outlet property="progressVIew" destination="IWW-mX-Bac" id="wyb-MI-lqE"/>
+                        <outlet property="reminderButton" destination="Wr6-oa-4k9" id="oJM-B0-l7j"/>
                         <outlet property="reminderSwitch" destination="8uO-sP-yft" id="rpu-0z-KYA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bEj-PS-CCV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="406" y="1541"/>
+            <point key="canvasLocation" x="405.60000000000002" y="1540.4797601199402"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mj1-nM-Bi9">
