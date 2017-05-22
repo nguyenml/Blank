@@ -42,52 +42,35 @@ class GoalsViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         daysLabel.isHidden = true
         updateGoal()
+        setTimeUI()
         // Do any additional setup after loading the view.
     }
     
     func setTimeUI(){
-        reminderButton.layer.borderColor = UIColor.init(hex: 0x333333) as! CGColor
+        checkSwitch()
+        reminderButton.layer.borderColor = UIColor.init(hex: 0x333333).cgColor
         reminderButton.layer.borderWidth = 1
         reminderButton.setTitle("12:00 PM", for: .normal)
-    }
-    
-    func didNotify(){
-        let content = UNMutableNotificationContent()
-        content.title = "Reminder"
-        content.body = "You haven't written an entry today"
-        content.sound = UNNotificationSound.default()
-        content.badge = 1
-        
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 1,
-                                                        repeats: false)
-        
-        let identifier = "Reminder"
-        
-        let request = UNNotificationRequest(identifier: identifier,
-                                            content: content, trigger: trigger)
-            
-        let triggerDaily = Calendar.current.dateComponents([hour,.minute,.second,], from: date)
-            
-        center.add(request, withCompletionHandler: { (error) in
-            if error != nil {
-                print("Could not request")
-            }
-        })
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setGoal()
     }
     
-    @IBAction func switchDidChange(_ sender: UISwitch) {
-        isReminder = !isReminder
+    func checkSwitch(){
         if isReminder{
             reminderButton.isHidden = false
             reminderButton.isUserInteractionEnabled = true
         }else{
+            center.removeAllPendingNotificationRequests()
             reminderButton.isHidden = true
             reminderButton.isUserInteractionEnabled = false
         }
+    }
+    
+    @IBAction func switchDidChange(_ sender: UISwitch) {
+        isReminder = !isReminder
+        checkSwitch()
     }
     
     func updateGoal(){
@@ -136,22 +119,39 @@ class GoalsViewController: UIViewController {
     }
     
     @IBAction func setTime(_ sender: UIButton) {
+        showTimeDialog()
     }
     
     
-    func setReminderTimer(){
-        let dateComp:NSDateComponents = NSDateComponents()
-        let calender:NSCalendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)!
+    func setReminderTimer(dateString: String) -> UNNotificationTrigger{
         
-        let date:NSDate = calender.dateFromComponents(dateComp as DateComponents)! as NSDate
+        reminderButton.setTitle(dateString, for: .normal)
         
-        dateComp.hour = 12;
-        dateComp.minute = 55;
-        dateComp.timeZone = NSTimeZone.system
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        let date = dateFormatter.date(from: dateString)
+        let triggerDaily = Calendar.current.dateComponents([.hour,.minute], from: date!)
         
-        let triggerDaily = Calendar.current.dateComponents([.hour,.minute,.second,], from: date as Date)
+        return UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+    }
+    
+    func didNotify(trigger:UNNotificationTrigger){
+        let content = UNMutableNotificationContent()
+        content.title = "Reminder"
+        content.body = "You haven't written an entry today"
+        content.sound = UNNotificationSound.default()
+        content.badge = 1
         
-        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+        let identifier = "Reminder"
+        
+        let request = UNNotificationRequest(identifier: identifier,
+                                            content: content, trigger: trigger)
+        
+        center.add(request, withCompletionHandler: { (error) in
+            if error != nil {
+                print("Could not request")
+            }
+        })
     }
     
     /*!
@@ -174,6 +174,25 @@ class GoalsViewController: UIViewController {
                 Goals.hasGoal = true
                 self.post()
             }
+        }
+        
+        // Add buttons to dialog
+        popup.addButtons([buttonOne])
+        
+        // Present dialog
+        present(popup, animated: animated, completion: nil)
+    }
+    
+    func showTimeDialog(animated: Bool = true) {
+        let timeVC = TimeViewController(nibName: "TimeViewController", bundle: nil)
+        // Create the dialog
+        let popup = PopupDialog(viewController: timeVC, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+        
+        // Create first button
+        let buttonOne = DefaultButton(title: "Done", height: 60) {
+           let trigger = self.setReminderTimer(dateString: timeVC.selectedDate)
+            self.didNotify(trigger: trigger)
+
         }
         
         // Add buttons to dialog

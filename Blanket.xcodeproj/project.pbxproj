@@ -42,6 +42,8 @@
 		585298281E7A1E040011B2E3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 585298201E7A1E040011B2E3 /* OFL.txt */; };
 		5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */; };
 		58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */; };
+		58B9751F1ED1F976003A910F /* TimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B9751E1ED1F975003A910F /* TimeViewController.xib */; };
+		58B975211ED1F9F2003A910F /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B975201ED1F9F2003A910F /* TimeViewController.swift */; };
 		58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */; };
 		58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */; };
 		58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBD41E817C08003523C5 /* MainViewController.swift */; };
@@ -111,6 +113,8 @@
 		585298201E7A1E040011B2E3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Resources/OFL.txt; sourceTree = "<group>"; };
 		5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkOptionsViewController.swift; sourceTree = "<group>"; };
 		58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinueViewController.swift; sourceTree = "<group>"; };
+		58B9751E1ED1F975003A910F /* TimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeViewController.xib; sourceTree = "<group>"; };
+		58B975201ED1F9F2003A910F /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStatsCell.swift; sourceTree = "<group>"; };
 		58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		58FFEBD41E817C08003523C5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 				58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */,
 				580106791EA2A8420046D252 /* RatingViewController.swift */,
 				5801067F1EA2C0270046D252 /* RatingViewController.xib */,
+				58B9751E1ED1F975003A910F /* TimeViewController.xib */,
+				58B975201ED1F9F2003A910F /* TimeViewController.swift */,
 				585298091E76D4B10011B2E3 /* Extensions.swift */,
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
@@ -386,6 +392,7 @@
 				581DA3BA1E70D66B0051C64B /* LaunchScreen.storyboard in Resources */,
 				585298231E7A1E040011B2E3 /* Dosis-ExtraLight.ttf in Resources */,
 				585298241E7A1E040011B2E3 /* Dosis-Light.ttf in Resources */,
+				58B9751F1ED1F976003A910F /* TimeViewController.xib in Resources */,
 				582E11B71E8AB8EC0074ADE1 /* GoogleService-Info.plist in Resources */,
 				580159101E81CC93008D934E /* Calendar in Resources */,
 				585298251E7A1E040011B2E3 /* Dosis-Medium.ttf in Resources */,
@@ -559,6 +566,7 @@
 				5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */,
 				582E11BD1E8B1D2D0074ADE1 /* ELViewController.swift in Sources */,
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
+				58B975211ED1F9F2003A910F /* TimeViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
 				582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */,
 				58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */,
