@@ -28,6 +28,8 @@ class GoalsViewController: UIViewController {
     let center = UNUserNotificationCenter.current()
     
     let uid = FIRAuth.auth()!.currentUser!.uid
+    
+    //------Reminder globals-----
     var isReminder = false
     
     var ref:FIRDatabaseReference?
@@ -43,7 +45,22 @@ class GoalsViewController: UIViewController {
         daysLabel.isHidden = true
         updateGoal()
         setTimeUI()
+        checkForReminder()
         // Do any additional setup after loading the view.
+    }
+    
+    func checkForReminder(){
+        center.getPendingNotificationRequests(completionHandler: { requests in
+            for request in requests {
+                self.isReminder = true
+                self.center.add(request, withCompletionHandler: { (error) in
+                    if error != nil {
+                        print("Could not request")
+                    }
+                })
+            }
+        })
+        
     }
     
     func setTimeUI(){
@@ -140,7 +157,6 @@ class GoalsViewController: UIViewController {
         content.title = "Reminder"
         content.body = "You haven't written an entry today"
         content.sound = UNNotificationSound.default()
-        content.badge = 1
         
         let identifier = "Reminder"
         

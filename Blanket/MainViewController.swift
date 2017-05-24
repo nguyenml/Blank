@@ -66,6 +66,9 @@ class MainViewController: UIViewController {
         setDate()
     }
     
+    //--------------------------------------------------------
+    //FOR TESTING//
+    //------------------------
     func checkLastAccess(){
         if Calendar.current.isDateInToday(LastAccess.date as Date) {
             //entryBtn.isHidden = true
@@ -78,6 +81,25 @@ class MainViewController: UIViewController {
         }
         
     }
+    //--------------------------------------------------------
+    //FOR TESTING//
+    //------------------------
+    
+    //FOR IPHONE TESTING-------------
+    //----------------------------------
+    //func checkLastAccess(){
+      //  if Calendar.current.isDateInToday(LastAccess.date as Date) {
+        //    entryBtn.isHidden = true
+          //  completedText.text = "You already wrote today"
+            //completedText.isHidden = false
+    //        setupUIColor()
+     //   }
+      //  else{
+       //     setupUIColor()
+        //}
+        
+    //}
+
     
     
     // Set the date to the front label
@@ -192,8 +214,11 @@ class MainViewController: UIViewController {
     func resetStreak(){
                 let currentCalendar     = NSCalendar.current
                 let start = currentCalendar.ordinality(of: .day, in: .era, for: LastAccess.date as Any as! Date)
+                print(start)
                 let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
+                print(end)
                 let daysSinceWriting = end! - start!
+                print(daysSinceWriting)
                 if daysSinceWriting > 1{
                     ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
                     if Goals.hasGoal{
