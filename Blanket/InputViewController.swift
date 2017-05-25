@@ -14,6 +14,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     var ref:FIRDatabaseReference?
     var entryRef:FIRDatabaseReference?
 
+    @IBOutlet weak var addMin: UIButton!
     @IBOutlet var backButton: UIButton!
     @IBOutlet var textField: UITextView!
     var iTimer = Timer();
@@ -28,6 +29,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     //-----------------------
     
     var loadedWordCount = 0
+    var extraTime = false
     
     var stats:[String:Int] = [:]
     let uid = FIRAuth.auth()!.currentUser!.uid
@@ -46,7 +48,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         if loadedString == nil{
             return
         }
@@ -56,20 +58,35 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
+        if !extraTime{
+            self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+        }
+        iTimer.invalidate()
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
     //Sets a timer up for 3 mins and shows user how long they spent
     func updateCounter() {
-        //you code, this is an example
+        if extraTime{
+            if counter < 360{
+                counter = counter + 1;
+            }
+            timer.text = String(counter)
+            if counter >= 360{
+                iTimer.invalidate()
+            }
+            
+        }
+        else{
         if counter < 300{
-        counter = counter + 1;
+            counter = counter + 1;
         }
         timer.text = String(counter)
         if counter >= 300{
             iTimer.invalidate()
             // at 3 mins update info and reset timer for next use
             reset()
+        }
         }
     }
     
@@ -106,10 +123,12 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 print(error.localizedDescription)
             }
         }
-        if Goals.hasGoal{
-            Goals.current += 1
-            ref?.child("Goals").child(Goals.goalId).child("currentGoal").setValue(Goals.current)
+        if !extraTime{
+            if Goals.hasGoal{
+                Goals.current += 1
+                 ref?.child("Goals").child(Goals.goalId).child("currentGoal").setValue(Goals.current)
 
+            }
         }
         // this will submit the entry to firebase
         // at this point the information has left the client side
@@ -218,6 +237,14 @@ class InputViewController: UIViewController, UITextViewDelegate {
             let dvc = segue.destination as! ContinueViewController
             dvc.currentString = object
         }
+        
+    }
+    @IBAction func addMinute(_ sender: UIButton) {
+        addMin.isHidden = true
+        addMin.isUserInteractionEnabled = false
+        extraTime = true
+        updateCounter()
+        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
         
     }
     

@@ -67,6 +67,7 @@ class GoalsViewController: UIViewController {
         checkSwitch()
         reminderButton.layer.borderColor = UIColor.init(hex: 0x333333).cgColor
         reminderButton.layer.borderWidth = 1
+        reminderButton.layer.cornerRadius = 5
         reminderButton.setTitle("12:00 PM", for: .normal)
     }
     
