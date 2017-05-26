@@ -21,6 +21,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet var timer: UILabel!
     var counter = 0;
+    var lwc = 0
     
     //sent by previous view
     var loadedString:String!
@@ -40,6 +41,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         entryRef = ref?.child("Entry").childByAutoId()
         self.textField.delegate = self
         //change this timer
+        addMin.isHidden = true
         backButton.isHidden = true
         NotificationCenter.default.addObserver(self, selector: #selector(InputViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         
@@ -48,7 +50,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        timeSituations()
         if loadedString == nil{
             return
         }
@@ -56,12 +58,31 @@ class InputViewController: UIViewController, UITextViewDelegate {
         loadedWordCount = Int(wordCount(str: textField.text!))
     }
     
+    func timeSituations(){
+        //4 possible outlooks
+        //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
+        if (counter < 300){
+            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        }
+        //path 2 - the user just finished and goes to mark, the timer should come back invalidated and the entry should already be posted/updated. still need to update the mark though so 
+        if(counter == 300){
+            post()
+        }
+        //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than 360. Do not post, but keep the timer going
+        if (counter < 360 && counter > 300){
+            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        }
+        //path 4 - the user has finished up writing and finished his extra minute as well
+        if (counter == 360){
+            post()
+        }
+    }
+    
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
-        if !extraTime{
-            self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+        if extraTime{
+            reset()
         }
-        iTimer.invalidate()
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
@@ -73,7 +94,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             }
             timer.text = String(counter)
             if counter >= 360{
-                iTimer.invalidate()
+                reset()
             }
             
         }
@@ -83,8 +104,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
         }
         timer.text = String(counter)
         if counter >= 300{
-            iTimer.invalidate()
+            addMin.isHidden = false
             // at 3 mins update info and reset timer for next use
+            lwc = greaterThanZero()
             reset()
         }
         }
@@ -99,7 +121,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             if var stats = currentData.value as? [String : Int]{
                 let current = stats["currentStreak"]! + 1
                 var longest = stats["longestStreak"]!
-                let total = Int(stats["totalWordcount"]! + self.wordCount(str: self.textField.text!))
+                let total = Int(stats["totalWordcount"]! + self.lwc)
                 let entries:Int = stats["totalEntries"]! + 1
                 if current>longest{
                     longest = current
@@ -127,7 +149,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
             if Goals.hasGoal{
                 Goals.current += 1
                  ref?.child("Goals").child(Goals.goalId).child("currentGoal").setValue(Goals.current)
-
             }
         }
         // this will submit the entry to firebase
@@ -135,10 +156,30 @@ class InputViewController: UIViewController, UITextViewDelegate {
         post()
     }
     
+    func smallUpdate(){
+        let userStats = ref?.child("users").child(uid).child("Stats")
+        userStats?.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
+            if var stats = currentData.value as? [String : Int]{
+                let entries:Int = stats["totalEntries"]!
+                let total = Int(stats["totalWordcount"]! - self.lwc + self.greaterThanZero())
+                stats["avgWordcount"] = total/entries as Int
+                currentData.value = stats
+                return FIRTransactionResult.success(withValue: currentData)
+            }
+        return FIRTransactionResult.success(withValue: currentData)
+        }) { (error, committed, snapshot) in
+            if let error = error {
+                //error
+            }
+        }
+        post()
+    }
+    
     
     //submit struct to FB
     func addToFB(withData data: [String: String]){
         var mdata = data
+        print("postng to the db")
         mdata[Constants.Entry.wordCount] = String(greaterThanZero())
         mdata[Constants.Entry.date] = dateToString()
         mdata[Constants.Entry.uid] = uid
@@ -172,6 +213,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         
         return dateform.string(from: NSDate() as Date)
     }
+    
     func getUTC() -> String{
         let date = Date()
         let formatter = DateFormatter()
@@ -196,11 +238,17 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     //resets timer, buttons, and access
     func reset(){
+        iTimer.invalidate()
         backButton.isHidden = false
-        timer.isHidden = true
         textField.isEditable = false
         textField.isUserInteractionEnabled = false
-        updateStats()
+        if extraTime{
+            smallUpdate()
+            extraTime = false
+        }
+        else{
+            updateStats()
+        }
     }
     
     //How many words the user wrote
@@ -242,10 +290,11 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBAction func addMinute(_ sender: UIButton) {
         addMin.isHidden = true
         addMin.isUserInteractionEnabled = false
+        textField.isEditable = true
+        textField.isUserInteractionEnabled = true
         extraTime = true
         updateCounter()
         iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-        
     }
     
     func updateTextView(notification:Notification){
