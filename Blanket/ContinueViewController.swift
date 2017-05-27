@@ -73,7 +73,7 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
             loadedString = currentString
         }
         else{
-            loadedString = loadedString + "\n" + currentString
+            loadedString = loadedString + currentString
         }
         
         markChosen = option.key

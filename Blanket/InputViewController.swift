@@ -51,11 +51,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         timeSituations()
-        if loadedString == nil{
-            return
-        }
-        textField.text = loadedString
-        loadedWordCount = Int(wordCount(str: textField.text!))
     }
     
     func timeSituations(){
@@ -63,19 +58,32 @@ class InputViewController: UIViewController, UITextViewDelegate {
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < 300){
             iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            setupDataOnReturn()
         }
         //path 2 - the user just finished and goes to mark, the timer should come back invalidated and the entry should already be posted/updated. still need to update the mark though so 
         if(counter == 300){
+            setupDataOnReturn()
             post()
+            
         }
         //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than 360. Do not post, but keep the timer going
         if (counter < 360 && counter > 300){
             iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            setupDataOnReturn()
         }
         //path 4 - the user has finished up writing and finished his extra minute as well
         if (counter == 360){
+            setupDataOnReturn()
             post()
         }
+    }
+    
+    func setupDataOnReturn(){
+        if loadedString == nil{
+            return
+        }
+        textField.text = loadedString
+        loadedWordCount = Int(wordCount(str: textField.text!))
     }
     
     //return to main view
@@ -179,7 +187,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
     //submit struct to FB
     func addToFB(withData data: [String: String]){
         var mdata = data
-        print("postng to the db")
         mdata[Constants.Entry.wordCount] = String(greaterThanZero())
         mdata[Constants.Entry.date] = dateToString()
         mdata[Constants.Entry.uid] = uid

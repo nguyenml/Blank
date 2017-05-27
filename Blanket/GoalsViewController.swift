@@ -111,7 +111,11 @@ class GoalsViewController: UIViewController {
         mdata[Constants.Goal.uid] = uid as AnyObject
         mdata[Constants.Goal.inProgress] = true as AnyObject
         ref?.child("Goals").childByAutoId().setValue(mdata)
-        Goals.current = 1
+        if didWriteToday{
+            Goals.current = 1
+        }else{
+            Goals.current = 0
+        }
         Goals.endGoal = goalNumber
     }
     

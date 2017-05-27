@@ -46,7 +46,6 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         tableView.dataSource = self
        // checkConnectionWithFB()
         configureDatabase()
-        print(entries.count)
     }
     
     func seperateDate(dateS:String) -> String{
@@ -102,6 +101,23 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
             strongSelf.tableView.insertRows(at: [IndexPath(row: strongSelf.entries.count-1, section: 0)], with: .automatic)
             
             strongSelf.entries.sort(by: {$0.order < $1.order})
+            strongSelf.tableView.reloadData()
+        })
+        
+        self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childChanged, with: { [weak self] (snapshot) in
+            guard let strongSelf = self else { return }
+            let changedKey = snapshot.key //the firebase key
+            guard let entrySnap = snapshot.value as? [String: String] else { return }
+            for entry in strongSelf.entries{
+                if entry.key == changedKey{
+                    entry.setText(newText: entrySnap[Constants.Entry.text]!)
+                    entry.setWC(newWC: entrySnap[Constants.Entry.wordCount]!)
+                    if snapshot.hasChild(Constants.Entry.mark){
+                        entry.mark = entrySnap[Constants.Entry.mark]!
+                    }
+                }
+            }
+            print("test new entry 123 123 123 123 123 123 123")
             strongSelf.tableView.reloadData()
         })
     }

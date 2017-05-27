@@ -62,9 +62,10 @@ struct Constants {
 
 }
 
+
 var imFeeling = "Content"
 var marks:[Mark] = []
-var semaphore = DispatchSemaphore(value: 0)
+var didWriteToday = false
 
 struct Stats{
     static var currentStreak = 0
@@ -136,6 +137,14 @@ class Packet{
     
     func hasMark()-> Bool{
         return(!mark.isEmpty)
+    }
+    
+    func setText(newText:String){
+        text = newText
+    }
+    
+    func setWC(newWC:String){
+        wordCount = newWC
     }
 }
 
