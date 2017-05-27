@@ -27,7 +27,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
     var loadedString:String!
     var markKey:String!
     var markName:String!
+    var loadedWC:Int16!
     //-----------------------
+    
     
     var loadedWordCount = 0
     var extraTime = false
@@ -83,7 +85,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             return
         }
         textField.text = loadedString
-        loadedWordCount = Int(wordCount(str: textField.text!))
+        loadedWordCount = Int(loadedWC)
     }
     
     //return to main view
@@ -204,8 +206,11 @@ class InputViewController: UIViewController, UITextViewDelegate {
     //make sure wordCount > 0
     func greaterThanZero() -> Int{
         if(Int(wordCount(str: textField.text!)) - loadedWordCount) < 0{
+            print("this is a new mark")
             return 0
         }
+        print(wordCount(str: textField.text!))
+        print(loadedWordCount)
         return (Int(wordCount(str: textField.text!)) - loadedWordCount)
     }
     

@@ -136,7 +136,9 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         cell.dateLabel?.text = seperateDate(dateS: entry.date)
         cell.previewLabel?.text = preview
         cell.wordCount?.text = words
-        cell.timeLabel?.text = seperateTime(dateS: entry.date)
+        if(isMarked){
+            cell.markLabel?.text = entry.mark
+        }
         //Change color
         if ( indexPath.row % 2 == 0 ){
             cell.backgroundColor = Constants.backgroundColor.bc

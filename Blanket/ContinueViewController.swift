@@ -30,6 +30,7 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     //Send to input
     var markChosen:String!
     var loadString:String!
+    var loadedWC:Int16!
     var markName:String!
     //------------------------
     
@@ -68,6 +69,7 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         let option = marks[indexPath.row]
         var loadedString = option.getString()
         option.resetString()
+        loadedWC = wordCount(str: loadedString)
         
         if loadedString.isEmpty{
             loadedString = currentString
@@ -123,11 +125,30 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
             dvc.loadedString = loadString
             dvc.markKey = markChosen
             dvc.markName = markName
+            dvc.loadedWC = loadedWC
         }
         
     }
     
     
+    //How many words the user wrote
+    func wordCount(str:String) -> Int16{
+        
+        let wordList =  str.components(separatedBy: NSCharacterSet.punctuationCharacters).joined(separator: "").components(separatedBy: " ").filter{$0 != ""}
+        
+        return Int16(wordList.count)
+    }
+    
+    //function for WC
+    func SpecificWordCount(str:String, word:String) ->Int {
+        let words = str.components(separatedBy: " "); var count = 0
+        for thing in words {
+            if thing == word {
+                count += 1
+            }
+        }
+        return count
+    }
     
 }
 

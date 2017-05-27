@@ -15,7 +15,7 @@ class CustomTableCell: UITableViewCell {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var previewLabel: UILabel!
     @IBOutlet weak var wordCount: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var markLabel: UILabel!
     var animator: Any?
     var indicatorView = IndicatorView(frame: .zero)
     
