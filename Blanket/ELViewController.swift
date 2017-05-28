@@ -127,7 +127,6 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
                     }
                 }
             }
-            print("test new entry 123 123 123 123 123 123 123")
             strongSelf.tableView.reloadData()
         })
     }
@@ -146,9 +145,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         cell.dateLabel?.text = seperateDate(dateS: entry.date)
         cell.previewLabel?.text = preview
         cell.wordCount?.text = words
-        if(isMarked){
-            cell.markLabel?.text = entry.mark
-        }
+        cell.markLabel?.text = entry.mark
         //Change color
         if ( indexPath.row % 2 == 0 ){
             cell.backgroundColor = Constants.backgroundColor.bc

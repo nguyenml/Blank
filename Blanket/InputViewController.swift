@@ -112,24 +112,30 @@ class InputViewController: UIViewController, UITextViewDelegate {
             if counter < 360{
                 counter = counter + 1;
             }
-            timer.text = String(counter)
             if counter >= 360{
                 reset()
             }
             
         }
         else{
-        if counter < 300{
-            counter = counter + 1;
+            if counter < 300{
+                counter = counter + 1;
+            }
+            if counter >= 300{
+                addMin.isHidden = false
+                // at 3 mins update info and reset timer for next use
+                lwc = greaterThanZero()
+                reset()
+            }
         }
-        timer.text = String(counter)
-        if counter >= 300{
-            addMin.isHidden = false
-            // at 3 mins update info and reset timer for next use
-            lwc = greaterThanZero()
-            reset()
+        let minutes = Int(Double(counter) / 60.0)
+        let seconds = Int(counter - (minutes*60))
+        var strMinutes = ""
+        if minutes > 0{
+            strMinutes = String(minutes)
         }
-        }
+        let strSeconds = String(format: "%02d", seconds)
+        timer.text = "\(strMinutes):\(strSeconds)"
     }
     
     // retrieves data from firebase and updates all the users stats
@@ -218,6 +224,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     func concatString(str:String) -> String{
+        if str.isEmpty{
+            return textField.text
+        }
         if textField.text.range(of:loadedString) != nil{
             let copyText = textField.text
             let newString = copyText?.replacingOccurrences(of: loadedString, with: "")
@@ -225,8 +234,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         }
         let length = currentString.characters.count
         if length < 35 {
-            let startIndex = str.index(str.startIndex, offsetBy: length - 1)
-            return(str.substring(to: startIndex))
+            return(str)
         }
         let startIndex = str.index(str.startIndex, offsetBy: 35)
         return(str.substring(to: startIndex))

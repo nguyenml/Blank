@@ -14,6 +14,7 @@ import UserNotifications
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var EmojiLabel: UILabel!
     @IBOutlet weak var emotionLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
@@ -36,8 +37,6 @@ class MainViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
-        
-        
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler:{didAllow, error in})
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -126,6 +125,7 @@ class MainViewController: UIViewController {
             Stats.totalEntries = (self.stats["totalEntries"])!
             myBadges.checkBadge()
             self.setLabels()
+            self.overlay?.removeFromSuperview()
         })
         ref?.child("users").child(uid).child("LastAccess").observe(FIRDataEventType.value, with: {
             (snapshot) in
