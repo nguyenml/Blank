@@ -319,7 +319,13 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func goToMarks(_ sender: UIButton) {
-        currentString = textField.text
+        var newString = textField.text
+        //reset the loadedstring on mark changes
+//        if (loadedString != nil) && (textField.text.range(of:loadedString) != nil){
+//            let copyText = textField.text
+//            newString = copyText?.replacingOccurrences(of: loadedString, with: "")
+//        }
+        currentString = newString!
         iTimer.invalidate()
         performSegue(withIdentifier: "segueToContinue", sender: currentString)
     }
