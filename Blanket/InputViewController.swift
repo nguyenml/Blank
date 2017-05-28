@@ -197,21 +197,27 @@ class InputViewController: UIViewController, UITextViewDelegate {
         mdata[Constants.Entry.uid] = uid
         mdata[Constants.Entry.emotion] = imFeeling
         mdata[Constants.Entry.timestamp] = getTimeStamp()
-        mdata[Constants.Entry.textStart] = concatString(str: textField.text!)
         let key:String = (entryRef?.key)!
         if markKey != nil{
             mdata[Constants.Entry.mark] = markName
             ref?.child("Marks").child(markKey).child("entries").setValue([key:key])
             mdata[Constants.Entry.textStart] = concatString(str: currentString)
         }
+        else{
+            mdata[Constants.Entry.textStart] = textField.text
+        }
         entryRef?.setValue(mdata)
         updateLastAccess(date: dateToString())
     }
     
     func concatString(str:String) -> String{
+        if textField.text.range(of:loadedString) != nil{
+            let copyText = textField.text
+            let newString = copyText?.replacingOccurrences(of: loadedString, with: "")
+            return newString!
+        }
         let length = currentString.characters.count
         if length < 35 {
-            print("low")
             let startIndex = str.index(str.startIndex, offsetBy: length - 1)
             return(str.substring(to: startIndex))
         }

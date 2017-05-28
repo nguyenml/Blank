@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/InputViewController.swift"
-            timestampString = "517625457.66979"
+            timestampString = "517626589.833545"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "294"
+            endingLineNumber = "294"
             landmarkName = "wordCount(str:)"
             landmarkType = "7">
          </BreakpointContent>
