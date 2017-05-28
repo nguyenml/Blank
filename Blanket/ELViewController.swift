@@ -95,6 +95,14 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
                                     //textStart: entrySnap[Constants.Entry.textStart]!
             )
             
+            //TEMP MEASURE---------------------------------------------
+            if snapshot.hasChild(Constants.Entry.textStart){
+                entry.textStart = entrySnap[Constants.Entry.textStart]!
+            }else{
+                entry.textStart = entry.text
+            }
+            //-----------------------------_TEMP-----------------------
+            
             if snapshot.hasChild(Constants.Entry.mark){
                 entry.mark = entrySnap[Constants.Entry.mark]!
             }
@@ -134,7 +142,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         cell.setupIndicatorView(bool: isMarked)
         
         let words = entry.wordCount
-        let preview = entry.text
+        let preview = entry.textStart
         cell.dateLabel?.text = seperateDate(dateS: entry.date)
         cell.previewLabel?.text = preview
         cell.wordCount?.text = words
