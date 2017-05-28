@@ -40,18 +40,25 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         ref  = FIRDatabase.database().reference()
         entryRef = ref?.child("Entry").childByAutoId()
         self.textField.delegate = self
-        //change this timer
+        setupInput()
+    }
+    
+    // get rid of xcode backspace error, hide buttons, add notification for keyboard scrolling
+    func setupInput(){
+        textField.text = ""
         addMin.isHidden = true
         backButton.isHidden = true
+        
         NotificationCenter.default.addObserver(self, selector: #selector(InputViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(InputViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
-        // Do any advarional setup after loadingvare view.
     }
     
+    //setup text everytime coming back form markVC
     override func viewDidAppear(_ animated: Bool) {
         timeSituations()
     }
