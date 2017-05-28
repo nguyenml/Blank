@@ -91,7 +91,9 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
                                     uid: entrySnap[Constants.Entry.uid]!,
                                     emotion: entrySnap[Constants.Entry.emotion]!,
                                     timeStamp: entrySnap[Constants.Entry.timestamp]!,
-                                    key: snapshot.key)
+                                    key: snapshot.key
+                                    //textStart: entrySnap[Constants.Entry.textStart]!
+            )
             
             if snapshot.hasChild(Constants.Entry.mark){
                 entry.mark = entrySnap[Constants.Entry.mark]!

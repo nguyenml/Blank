@@ -216,17 +216,11 @@ class MainViewController: UIViewController {
     func resetStreak(){
                 let currentCalendar     = NSCalendar.current
                 let start = currentCalendar.ordinality(of: .day, in: .era, for: LastAccess.date as Any as! Date)
-                print(start)
                 let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
-                print(end)
                 let daysSinceWriting = end! - start!
-                print(daysSinceWriting)
                 if daysSinceWriting > 1{
-                    ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
-                    if Goals.hasGoal{
-                        ref?.child("Goals").child(Goals.goalId).child("inProgress").setValue(false)
-                    }
-        }
+                ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
+                }
     }
     
     @IBAction func emoteBtnPressed(_ sender: UIButton) {

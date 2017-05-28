@@ -33,6 +33,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     var loadedWordCount = 0
     var extraTime = false
+    var currentString:String = ""
     
     var stats:[String:Int] = [:]
     let uid = FIRAuth.auth()!.currentUser!.uid
@@ -84,7 +85,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
         if loadedString == nil{
             return
         }
-        textField.text = loadedString
+        else{
+            textField.text = loadedString + currentString
+        }
         loadedWordCount = Int(loadedWC)
     }
     
@@ -194,19 +197,31 @@ class InputViewController: UIViewController, UITextViewDelegate {
         mdata[Constants.Entry.uid] = uid
         mdata[Constants.Entry.emotion] = imFeeling
         mdata[Constants.Entry.timestamp] = getTimeStamp()
+        mdata[Constants.Entry.textStart] = concatString(str: textField.text!)
         let key:String = (entryRef?.key)!
         if markKey != nil{
             mdata[Constants.Entry.mark] = markName
             ref?.child("Marks").child(markKey).child("entries").setValue([key:key])
+            mdata[Constants.Entry.textStart] = concatString(str: currentString)
         }
         entryRef?.setValue(mdata)
         updateLastAccess(date: dateToString())
     }
     
+    func concatString(str:String) -> String{
+        let length = currentString.characters.count
+        if length < 35 {
+            print("low")
+            let startIndex = str.index(str.startIndex, offsetBy: length - 1)
+            return(str.substring(to: startIndex))
+        }
+        let startIndex = str.index(str.startIndex, offsetBy: 35)
+        return(str.substring(to: startIndex))
+    }
+    
     //make sure wordCount > 0
     func greaterThanZero() -> Int{
         if(Int(wordCount(str: textField.text!)) - loadedWordCount) < 0{
-            print("this is a new mark")
             return 0
         }
         print(wordCount(str: textField.text!))
@@ -283,7 +298,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     @IBAction func goToMarks(_ sender: UIButton) {
-        let currentString:String = textField.text
+        currentString = textField.text
         iTimer.invalidate()
         performSegue(withIdentifier: "segueToContinue", sender: currentString)
     }

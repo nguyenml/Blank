@@ -67,17 +67,9 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let option = marks[indexPath.row]
-        var loadedString = option.getString()
+        let loadedString = option.getString()
         option.resetString()
         loadedWC = wordCount(str: loadedString)
-        
-        if loadedString.isEmpty{
-            loadedString = currentString
-        }
-        else{
-            loadedString = loadedString + currentString
-        }
-        
         markChosen = option.key
         loadString = loadedString
         markName = option.name
