@@ -19,6 +19,7 @@ target 'Blanket' do
     pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'SwipeCellKit'
     pod 'MBCircularProgressBar'
+    pod "DGRunkeeperSwitch", "~> 1.1.4"
   target 'BlanketTests' do
     inherit! :search_paths
     # Pods for testing

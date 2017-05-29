@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'CAF2C5D270FA6C2F4D0751CBD4CF990B'
-               BlueprintName = 'PopupDialog'
+               BlueprintIdentifier = 'E6201897E03F1CF81B18D371B6BEA2CB'
+               BlueprintName = 'DGRunkeeperSwitch'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'PopupDialog.framework'>
+               BuildableName = 'DGRunkeeperSwitch.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

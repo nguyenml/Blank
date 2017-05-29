@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>DGRunkeeperSwitch.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>GTMOAuth2.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,22 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>25D3C39812C432EB7E6255D7D158EDB0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2FAE6E9A8442B1EA668799336EDC22CE</key>
+		<key>327D33790D244B2EE7BE20BF1A6D3776</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>4D5B8B1BE64F80268007C79821DDDC20</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4E9301D26C3F01DB931E5EE5C43C42A6</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,12 +112,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>700B0BF0517914C5332AC7026E6A2DE4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>745539636ED52152F924111D56BF787F</key>
+		<key>704E2CA405DD5A5C4796B9D7275E0011</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +122,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>82049C66C4B2B745C7B6C941BB12ADDD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>927205A98F2E703E223E957020B3275F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9D321385EB535CF8F5D2945BBFD40C4B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -143,6 +143,16 @@
 			<true/>
 		</dict>
 		<key>CAC840DD7C14BED838F74AD37CD7CBBA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAF2C5D270FA6C2F4D0751CBD4CF990B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E6201897E03F1CF81B18D371B6BEA2CB</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -8,19 +8,23 @@
 
 import UIKit
 import Firebase
+import DGRunkeeperSwitch
 
 class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
 
+    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
     var key:String!
+    var markOrTopic = false
     
     var ref:FIRDatabaseReference?
     let uid = String(FIRAuth.auth()!.currentUser!.uid)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpDG()
         tableView.delegate = self
         tableView.dataSource = self
         ref = FIRDatabase.database().reference()
@@ -98,6 +102,28 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
             dvc.markName = object
         }
         
+    }
+    
+    func setUpDG(){
+        let runkeeperSwitch = DGRunkeeperSwitch(titles: ["Topics", "Marks"])
+        runkeeperSwitch.backgroundColor = UIColor(red: 23.0/255.0, green: 223.0/255.0, blue: 130.0/255.0, alpha: 1.0)
+        runkeeperSwitch.selectedBackgroundColor = .white
+        runkeeperSwitch.titleColor = .white
+        runkeeperSwitch.selectedTitleColor = UIColor(red: 23.0/255.0, green: 223.0/255.0, blue: 130.0/255.0, alpha: 1.0)
+        runkeeperSwitch.titleFont = UIFont(name: "System", size: 11.0)
+        runkeeperSwitch.frame = CGRect(x: 87.0, y: 28.0, width: 150.0, height: 23.0)
+        runkeeperSwitch.center.x = self.view.center.x
+        runkeeperSwitch.addTarget(self, action: #selector(MarkOptionsViewController.switchChange(sender:)), for: .valueChanged)
+        view.addSubview(runkeeperSwitch)
+    }
+    
+    @IBAction func switchChange( sender: DGRunkeeperSwitch) {
+        markOrTopic = !markOrTopic
+        if !markOrTopic{
+            descLabel.text = "Topics are helpful categories to label your thoughts and pieces of writing. They relate but are individual."
+        }else{
+            descLabel.text = "Marks are pieces of writings that continue off one another. Use these to create progressive writing."
+        }
     }
 
 }
