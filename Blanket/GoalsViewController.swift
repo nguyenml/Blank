@@ -31,6 +31,7 @@ class GoalsViewController: UIViewController {
     
     //------Reminder globals-----
     var isReminder = false
+    var dateString = ""
     
     var ref:FIRDatabaseReference?
 
@@ -53,18 +54,21 @@ class GoalsViewController: UIViewController {
         center.getPendingNotificationRequests(completionHandler: { requests in
             for request in requests {
                 self.isReminder = true
+                self.reminderSwitch.isOn = true
+                self.checkSwitch()
+                self.reminderButton.setTitle(request.content.subtitle, for: .normal)
                 self.center.add(request, withCompletionHandler: { (error) in
                     if error != nil {
                         print("Could not request")
                     }
                 })
             }
+            self.checkSwitch()
         })
         
     }
     
     func setTimeUI(){
-        checkSwitch()
         reminderButton.layer.borderColor = UIColor.init(hex: 0x333333).cgColor
         reminderButton.layer.borderWidth = 1
         reminderButton.layer.cornerRadius = 5
@@ -145,7 +149,7 @@ class GoalsViewController: UIViewController {
     }
     
     
-    func setReminderTimer(dateString: String) -> UNNotificationTrigger{
+    func setReminderTimer() -> UNNotificationTrigger{
         
         reminderButton.setTitle(dateString, for: .normal)
         
@@ -160,6 +164,7 @@ class GoalsViewController: UIViewController {
     func didNotify(trigger:UNNotificationTrigger){
         let content = UNMutableNotificationContent()
         content.title = "Reminder"
+        content.subtitle = dateString
         content.body = "You haven't written an entry today"
         content.sound = UNNotificationSound.default()
         
@@ -210,9 +215,10 @@ class GoalsViewController: UIViewController {
         let popup = PopupDialog(viewController: timeVC, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
         
         // Create first button
-        let buttonOne = DefaultButton(title: "Done", height: 60) {
-           let trigger = self.setReminderTimer(dateString: timeVC.selectedDate)
-            self.didNotify(trigger: trigger)
+        let buttonOne = DefaultButton(title: "Set Time", height: 60) {
+           self.dateString = timeVC.selectedDate
+           let trigger = self.setReminderTimer()
+           self.didNotify(trigger: trigger)
 
         }
         

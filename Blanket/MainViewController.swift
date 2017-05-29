@@ -68,18 +68,18 @@ class MainViewController: UIViewController {
 //    //--------------------------------------------------------
 //    //FOR TESTING//
 //    //------------------------
-    func checkLastAccess(){
-        if Calendar.current.isDateInToday(LastAccess.date as Date) {
-            //entryBtn.isHidden = true
-            //completedText.text = "You already wrote today"
-            //completedText.isHidden = false
-            setupUIColor()
-        }
-        else{
-            setupUIColor()
-        }
-        
-    }
+//    func checkLastAccess(){
+//        if Calendar.current.isDateInToday(LastAccess.date as Date) {
+//            //entryBtn.isHidden = true
+//            //completedText.text = "You already wrote today"
+//            //completedText.isHidden = false
+//            setupUIColor()
+//        }
+//        else{
+//            setupUIColor()
+//        }
+//        
+//    }
     //--------------------------------------------------------
     //FOR TESTING//
     //------------------------
@@ -87,19 +87,19 @@ class MainViewController: UIViewController {
     
     //FOR IPHONE TESTING-------------
     //----------------------------------
-//    func checkLastAccess(){
-//        if Calendar.current.isDateInToday(LastAccess.date as Date) {
-//            entryBtn.isHidden = true
-//            completedText.text = "You already wrote today"
-//            completedText.isHidden = false
-//            setupUIColor()
-//            didWriteToday = true
-//        }
-//        else{
-//            setupUIColor()
-//        }
-//        
-//    }
+    func checkLastAccess(){
+        if Calendar.current.isDateInToday(LastAccess.date as Date) {
+            entryBtn.isHidden = true
+            completedText.text = "You already wrote today"
+            completedText.isHidden = false
+            setupUIColor()
+            didWriteToday = true
+        }
+        else{
+            setupUIColor()
+        }
+        
+    }
 
     
     
