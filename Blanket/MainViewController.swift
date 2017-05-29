@@ -186,7 +186,18 @@ class MainViewController: UIViewController {
             marks.append(ma)
             NotificationCenter.default.post(name: .reload, object: nil)
         })
-        
+        ref?.child("Topics").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            guard snapshot.exists() else{ return }
+            guard self != nil else { return }
+            let topicSnap = snapshot.value as? [String: Any]
+            let topic:Topic = Topic(name: topicSnap![Constants.Topic.topics]! as! String, key:snapshot.key)
+            self?.ref?.child("Topics").child(topic.key).child("entries").observe(.childAdded, with:{ [weak self] (snapshot) -> Void in
+                let entrykey = snapshot.value as! String
+                topic.entries.append(entrykey)
+            })
+            topics.append(topic)
+            NotificationCenter.default.post(name: .reload, object: nil)
+        })
     }
     
     //TEMP TEMP TEMP TEMP TEMP FIX

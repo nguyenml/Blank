@@ -46,6 +46,11 @@ struct Constants {
         static let uid = "uid"
     }
     
+    struct Topic {
+        static let topics = "topics"
+        static let uid = "uid"
+    }
+    
     struct StartDate{
         static var date = "date"
     }
@@ -66,6 +71,7 @@ struct Constants {
 
 var imFeeling = "Content"
 var marks:[Mark] = []
+var topics:[Topic] = []
 var didWriteToday = false
 
 struct Stats{
@@ -108,6 +114,17 @@ class Mark{
         loadedString = ""
     }
     
+}
+
+class Topic{
+    var name:String
+    var key:String
+    var entries:[String] = []
+    
+    init(name:String, key:String){
+        self.name = name
+        self.key = key
+    }
 }
 
 class Packet{

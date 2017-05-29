@@ -14,10 +14,12 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
 
     @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var backBtn: UIButton!
+    
+    @IBOutlet weak var topicsView: UITableView!
     @IBOutlet weak var tableView: UITableView!
     
     var key:String!
-    var markOrTopic = false
+    var markOrTopic = true
     
     var ref:FIRDatabaseReference?
     let uid = String(FIRAuth.auth()!.currentUser!.uid)
@@ -27,37 +29,82 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         setUpDG()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.isHidden = true
+        topicsView.dataSource = self
+        topicsView.delegate = self
         ref = FIRDatabase.database().reference()
+        
         tableView.tableFooterView = UIView()
+        topicsView.tableFooterView = UIView()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return marks.count
+        
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Return the number of items in the sample data structure.
+        var count:Int?
+        
+        if tableView == self.tableView {
+            count = marks.count
+        }
+        
+        if tableView == self.topicsView {
+            count = topics.count
+        }
+        
+        return count!
+        
+    }
+
     func reloadTableData(_ notification: Notification) {
-        tableView.insertRows(at: [IndexPath(row: marks.count-1, section: 0)], with: .automatic)
-        tableView.reloadData()
-        tableView.tableFooterView = UIView()
+        if markOrTopic{
+          topicsView.insertRows(at: [IndexPath(row: topics.count-1, section: 0)], with: .automatic)
+          topicsView.reloadData()
+          topicsView.tableFooterView = UIView()
+        }
+        else{
+          tableView.insertRows(at: [IndexPath(row: marks.count-1, section: 0)], with: .automatic)
+          tableView.reloadData()
+          tableView.tableFooterView = UIView()
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Dequeue cell
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath) as! OptionCell
-        let option = marks[indexPath.row]
-        cell.nameLabel.text = option.name
-        cell.numMarks.text = String(option.entries.count)
+        // Dequeue cell
+        if tableView == self.tableView{
+            let option = marks[indexPath.row]
+            cell.nameLabel.text = option.name
+            cell.numMarks.text = String(option.entries.count)
+        }
+        
+        if tableView == topicsView{
+            let option = topics[indexPath.row]
+            cell.nameLabel.text = option.name
+            cell.numMarks.text = String(option.entries.count)
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        let option = marks[indexPath.row]
-        ref?.child("Entry").child(key).child("mark").setValue(option.name)
-        ref?.child("Marks").child(option.key).child("entries").updateChildValues([key:key])
-        let markName = option.name
-        performSegue(withIdentifier: "unwindToEntry", sender: markName)
+        if tableView == self.tableView{
+            print("test")
+            tableView.deselectRow(at: indexPath, animated: true)
+            let option = marks[indexPath.row]
+            ref?.child("Entry").child(key).child("mark").setValue(option.name)
+            ref?.child("Marks").child(option.key).child("entries").updateChildValues([key:key])
+            let markName = option.name
+            performSegue(withIdentifier: "unwindToEntry", sender: markName)
+        }
+        if tableView == self.topicsView{
+            topicsView.deselectRow(at: indexPath, animated: true)
+            let option = marks[indexPath.row]
+            ref?.child("Entry").child(key).child("topic").setValue(option.name)
+            ref?.child("Topics").child(option.key).child("entries").updateChildValues([key:key])
+            let topicName = option.name
+            performSegue(withIdentifier: "unwindToEntry", sender: topicName)
+        }
     }
     
     @IBAction func addOption(_ sender: UIButton) {
@@ -77,11 +124,20 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         }))
         
         func post(name:String){
-            let newMark = name
-            var mdata:[String:String] = [:]
-            mdata[Constants.Mark.marks] = newMark
-            mdata[Constants.Mark.uid] = uid
-            ref?.child("Marks").childByAutoId().setValue(mdata)
+            if markOrTopic{
+                let newTopic = name
+                var mdata:[String:String] = [:]
+                mdata[Constants.Topic.topics] = newTopic
+                mdata[Constants.Topic.uid] = uid
+                ref?.child("Topics").childByAutoId().setValue(mdata)
+            }
+            else{
+                let newMark = name
+                var mdata:[String:String] = [:]
+                mdata[Constants.Mark.marks] = newMark
+                mdata[Constants.Mark.uid] = uid
+                ref?.child("Marks").childByAutoId().setValue(mdata)
+            }
 
         }
         
@@ -119,10 +175,14 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
     
     @IBAction func switchChange( sender: DGRunkeeperSwitch) {
         markOrTopic = !markOrTopic
-        if !markOrTopic{
+        if markOrTopic{
             descLabel.text = "Topics are helpful categories to label your thoughts and pieces of writing. They relate but are individual."
+            tableView.isHidden = true
+            topicsView.isHidden = false
         }else{
             descLabel.text = "Marks are pieces of writings that continue off one another. Use these to create progressive writing."
+            tableView.isHidden = false
+            topicsView.isHidden = true
         }
     }
 

@@ -14,6 +14,7 @@ class IndividualEntryViewController: UIViewController {
 
     @IBOutlet weak var markLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var markButton: UIButton!
     @IBOutlet weak var wordCount: UILabel!
     
     //Recieve from views
@@ -24,6 +25,9 @@ class IndividualEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if entry.hasMark(){
+            markButton.isHidden = true
+        }
         textView.isEditable = false;
         textView.text = entry.text
         wordCount.text = entry.wordCount
@@ -35,6 +39,9 @@ class IndividualEntryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         if markName != nil{
             entry.mark = markName
+        }
+        if entry.hasMark(){
+            markButton.isHidden = true
         }
         markLabel.text = entry.mark
     }
