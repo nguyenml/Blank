@@ -18,20 +18,24 @@ import UIKit
 
 import UIKit
 import Firebase
+import DGRunkeeperSwitch
 
 class ContinueViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
+    @IBOutlet weak var descLabel: UILabel!
     @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var topicView: UITableView!
     //Recieve key from input controller
     var currentString:String!
+    var markOrTopic = true
     
     //Send to input
-    var markChosen:String!
+    var chosen:String!
     var loadString:String!
     var loadedWC:Int16!
-    var markName:String!
+    var name:String!
     //------------------------
     
     var ref:FIRDatabaseReference?
@@ -39,41 +43,83 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpDG()
         tableView.delegate = self
         tableView.dataSource = self
+        topicView.delegate = self
+        topicView.dataSource = self
+        
         ref = FIRDatabase.database().reference()
         tableView.tableFooterView = UIView()
+        topicView.tableFooterView = UIView()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return marks.count
+        // Return the number of items in the sample data structure.
+        var count:Int?
+        
+        if tableView == self.tableView {
+            count = marks.count
+        }
+        
+        if tableView == self.topicView {
+            count = topics.count
+        }
+        
+        return count!
+        
     }
     
     func reloadTableData(_ notification: Notification) {
-        tableView.insertRows(at: [IndexPath(row: marks.count-1, section: 0)], with: .automatic)
-        tableView.reloadData()
-        tableView.tableFooterView = UIView()
+        if markOrTopic{
+            topicView.insertRows(at: [IndexPath(row: topics.count-1, section: 0)], with: .automatic)
+            topicView.reloadData()
+            topicView.tableFooterView = UIView()
+        }
+        else{
+            tableView.insertRows(at: [IndexPath(row: marks.count-1, section: 0)], with: .automatic)
+            tableView.reloadData()
+            tableView.tableFooterView = UIView()
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // Dequeue cell
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath) as! OptionCell
-        let option = marks[indexPath.row]
-        cell.nameLabel.text = option.name
+        // Dequeue cell
+        if tableView == self.tableView{
+            let option = marks[indexPath.row]
+            cell.nameLabel.text = option.name
+        }
+        
+        if tableView == self.topicView{
+            let option = topics[indexPath.row]
+            cell.nameLabel.text = option.name
+        }
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let option = marks[indexPath.row]
-        let loadedString = option.getString()
-        option.resetString()
-        loadedWC = wordCount(str: loadedString)
-        markChosen = option.key
-        loadString = loadedString
-        markName = option.name
-        performSegue(withIdentifier: "unwindToInput", sender: self)
+
+        if tableView == self.tableView{
+            let option = marks[indexPath.row]
+            let loadedString = option.getString()
+            option.resetString()
+            loadedWC = wordCount(str: loadedString)
+            chosen = option.key
+            loadString = loadedString
+            name = option.name
+            performSegue(withIdentifier: "unwindToInput", sender: self)
+        }
+        if tableView == self.topicView{
+            topicView.deselectRow(at: indexPath, animated: true)
+            let option = topics[indexPath.row]
+            chosen = option.key
+            name = option.name
+            performSegue(withIdentifier: "unwindToInput", sender: self)
+        }
     }
     
     @IBAction func addOption(_ sender: UIButton) {
@@ -88,16 +134,26 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         // 3. Grab the value from the text field, and print it when the user clicks OK.
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
-            let markName = textField?.text
-            post(markName: markName!)
+            let name = (textField?.text)!
+            post(name: name)
         }))
         
-        func post(markName: String){
-            let newMark = markName
-            var mdata:[String:String] = [:]
-            mdata[Constants.Mark.marks] = newMark
-            mdata[Constants.Mark.uid] = uid
-            ref?.child("Marks").childByAutoId().setValue(mdata)
+        func post(name:String){
+            if markOrTopic{
+                let newTopic = name
+                var mdata:[String:String] = [:]
+                mdata[Constants.Topic.topics] = newTopic
+                mdata[Constants.Topic.uid] = uid
+                ref?.child("Topics").childByAutoId().setValue(mdata)
+            }
+            else{
+                let newMark = name
+                var mdata:[String:String] = [:]
+                mdata[Constants.Mark.marks] = newMark
+                mdata[Constants.Mark.uid] = uid
+                ref?.child("Marks").childByAutoId().setValue(mdata)
+            }
+            
         }
         
         // 4. Present the alert.
@@ -114,10 +170,18 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
 
         if segue.identifier == "unwindToInput"{
             let dvc = segue.destination as! InputViewController
-            dvc.loadedString = loadString
-            dvc.markKey = markChosen
-            dvc.markName = markName
-            dvc.loadedWC = loadedWC
+            if markOrTopic{
+                dvc.markKey = chosen
+                dvc.name = name
+                dvc.mot = markOrTopic
+            }
+            else{
+                dvc.markKey = chosen
+                dvc.name = name
+                dvc.mot = markOrTopic
+                dvc.loadedWC = loadedWC
+                dvc.loadedString = loadString
+            }
         }
         
     }
@@ -140,6 +204,32 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
             }
         }
         return count
+    }
+    
+    func switchChange( sender: DGRunkeeperSwitch) {
+        markOrTopic = !markOrTopic
+        if markOrTopic{
+            descLabel.text = "Topics are helpful categories to label your thoughts and pieces of writing. They relate but are individual."
+            tableView.isHidden = true
+            topicView.isHidden = false
+        }else{
+            descLabel.text = "Marks are pieces of writings that continue off one another. Use these to create progressive writing."
+            tableView.isHidden = false
+            topicView.isHidden = true
+        }
+    }
+    
+    func setUpDG(){
+        let runkeeperSwitch = DGRunkeeperSwitch(titles: ["Topics", "Marks"])
+        runkeeperSwitch.backgroundColor = UIColor(red: 23.0/255.0, green: 223.0/255.0, blue: 130.0/255.0, alpha: 1.0)
+        runkeeperSwitch.selectedBackgroundColor = .white
+        runkeeperSwitch.titleColor = .white
+        runkeeperSwitch.selectedTitleColor = UIColor(red: 23.0/255.0, green: 223.0/255.0, blue: 130.0/255.0, alpha: 1.0)
+        runkeeperSwitch.titleFont = UIFont(name: "System", size: 11.0)
+        runkeeperSwitch.frame = CGRect(x: 87.0, y: 28.0, width: 150.0, height: 23.0)
+        runkeeperSwitch.center.x = self.view.center.x
+        runkeeperSwitch.addTarget(self, action: #selector(MarkOptionsViewController.switchChange(sender:)), for: .valueChanged)
+        view.addSubview(runkeeperSwitch)
     }
     
 }

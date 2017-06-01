@@ -21,29 +21,39 @@ class IndividualEntryViewController: UIViewController {
     //----------------
     var key:String!
     var markName:String!
+    var topicOrMark:Bool!
     //-----------------
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if entry.hasMark(){
-            markButton.isHidden = true
+            markLabel.text = entry.mark
+            self.markButton.isHidden = true
+        }
+        if entry.hasTopic(){
+            markLabel.text = entry.topic
+            self.markButton.isHidden = true
         }
         textView.isEditable = false;
         textView.text = entry.text
         wordCount.text = entry.wordCount
-        markLabel.text = entry.mark
         dateLabel.text = seperateDate()
         key = entry.key
     }
     
     override func viewDidAppear(_ animated: Bool) {
         if markName != nil{
-            entry.mark = markName
+            if topicOrMark{
+                entry.topic = markName
+                markLabel.text = entry.topic
+            }else{
+                entry.mark = markName
+                markLabel.text = entry.mark
+            }
         }
-        if entry.hasMark(){
+        if entry.hasMark() || entry.hasTopic(){
             markButton.isHidden = true
         }
-        markLabel.text = entry.mark
     }
     
     func seperateDate() -> String{

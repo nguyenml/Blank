@@ -19,10 +19,15 @@ class CustomTableCell: UITableViewCell {
     var animator: Any?
     var indicatorView = IndicatorView(frame: .zero)
     
-    func setupIndicatorView(bool:Bool) {
+    func setupIndicatorView(bool:Bool, type:String) {
         indicatorView.translatesAutoresizingMaskIntoConstraints = false
         if bool{
-            indicatorView.color = UIColor(hex: 0x17DF82)
+            if type == "mark"{
+                indicatorView.color = UIColor(hex: 0x17DF82)
+            }
+            else{
+                indicatorView.color = UIColor(hex: 0xFFB200)
+            }
         }
         else{
             indicatorView.color = UIColor.clear

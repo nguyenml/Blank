@@ -31,7 +31,9 @@ struct Constants {
         static let emotion = "emotion"
         static let timestamp = "timestamp"
         static let mark = "mark"
+        static let topic = "topic"
         static let textStart = "textStart"
+        static let totalTime = "totalTime"
     }
     
     struct Goal {
@@ -137,9 +139,10 @@ class Packet{
     var order:Double = 0
     var key:String
     var mark:String
+    var topic:String
     var textStart:String
     
-    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String, key:String, mark:String = "", textStart:String = ""){
+    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String, key:String, mark:String = "", topic:String = "", textStart:String = ""){
         self.date = date
         self.text = text
         self.wordCount = wordCount
@@ -148,6 +151,7 @@ class Packet{
         self.timestamp = timeStamp
         self.key = key
         self.mark = mark
+        self.topic = topic
         self.textStart = textStart
         }
     
@@ -157,6 +161,10 @@ class Packet{
     
     func hasMark()-> Bool{
         return(!mark.isEmpty)
+    }
+    
+    func hasTopic()->Bool{
+        return(!topic.isEmpty)
     }
     
     func setText(newText:String){

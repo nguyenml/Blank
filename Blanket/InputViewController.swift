@@ -26,8 +26,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
     //sent by previous view
     var loadedString:String!
     var markKey:String!
-    var markName:String!
+    var name:String!
     var loadedWC:Int16!
+    var mot:Bool!
     //-----------------------
     
     
@@ -63,27 +64,37 @@ class InputViewController: UIViewController, UITextViewDelegate {
         timeSituations()
     }
     
+    func topicOrMark(){
+        if mot == nil {return}
+        if mot{
+            textField.text = currentString
+        }
+        else{
+            setupDataOnReturn()
+        }
+    }
+    
     func timeSituations(){
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < 300){
             iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-            setupDataOnReturn()
+            topicOrMark()
         }
         //path 2 - the user just finished and goes to mark, the timer should come back invalidated and the entry should already be posted/updated. still need to update the mark though so 
         if(counter == 300){
-            setupDataOnReturn()
+            topicOrMark()
             post()
             
         }
         //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than 360. Do not post, but keep the timer going
         if (counter < 360 && counter > 300){
             iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-            setupDataOnReturn()
+            topicOrMark()
         }
         //path 4 - the user has finished up writing and finished his extra minute as well
         if (counter == 360){
-            setupDataOnReturn()
+            topicOrMark()
             post()
         }
     }
@@ -210,11 +221,17 @@ class InputViewController: UIViewController, UITextViewDelegate {
         mdata[Constants.Entry.uid] = uid
         mdata[Constants.Entry.emotion] = imFeeling
         mdata[Constants.Entry.timestamp] = getTimeStamp()
+        mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!
         if markKey != nil{
-            mdata[Constants.Entry.mark] = markName
-            ref?.child("Marks").child(markKey).child("entries").setValue([key:key])
-            mdata[Constants.Entry.textStart] = concatString(str: currentString)
+            if mot{
+                mdata[Constants.Entry.topic] = name
+                ref?.child("Topics").child(markKey).child("entries").setValue([key:key])
+            }else{
+                mdata[Constants.Entry.mark] = name
+                ref?.child("Marks").child(markKey).child("entries").setValue([key:key])
+                mdata[Constants.Entry.textStart] = concatString(str: currentString)
+            }
         }
         else{
             mdata[Constants.Entry.textStart] = textField.text
@@ -245,8 +262,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
         if(Int(wordCount(str: textField.text!)) - loadedWordCount) < 0{
             return 0
         }
-        print(wordCount(str: textField.text!))
-        print(loadedWordCount)
         return (Int(wordCount(str: textField.text!)) - loadedWordCount)
     }
     

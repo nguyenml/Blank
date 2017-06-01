@@ -20,6 +20,8 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
     
     var key:String!
     var markOrTopic = true
+    var mot:Bool!
+    var name = ""
     
     var ref:FIRDatabaseReference?
     let uid = String(FIRAuth.auth()!.currentUser!.uid)
@@ -94,16 +96,18 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
             let option = marks[indexPath.row]
             ref?.child("Entry").child(key).child("mark").setValue(option.name)
             ref?.child("Marks").child(option.key).child("entries").updateChildValues([key:key])
-            let markName = option.name
-            performSegue(withIdentifier: "unwindToEntry", sender: markName)
+            name = option.name
+            mot = false
+            performSegue(withIdentifier: "unwindToEntry", sender: self)
         }
         if tableView == self.topicsView{
             topicsView.deselectRow(at: indexPath, animated: true)
-            let option = marks[indexPath.row]
+            let option = topics[indexPath.row]
             ref?.child("Entry").child(key).child("topic").setValue(option.name)
             ref?.child("Topics").child(option.key).child("entries").updateChildValues([key:key])
-            let topicName = option.name
-            performSegue(withIdentifier: "unwindToEntry", sender: topicName)
+            name = option.name
+            mot = true
+            performSegue(withIdentifier: "unwindToEntry", sender: self)
         }
     }
     
@@ -153,9 +157,9 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "unwindToEntry"{
-            guard let object = sender as? String else { return }
             let dvc = segue.destination as! IndividualEntryViewController
-            dvc.markName = object
+            dvc.markName = name
+            dvc.topicOrMark = mot
         }
         
     }

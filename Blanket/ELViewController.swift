@@ -102,6 +102,9 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
                 entry.textStart = entry.text
             }
             //-----------------------------_TEMP-----------------------
+            if snapshot.hasChild(Constants.Entry.topic){
+                entry.topic = entrySnap[Constants.Entry.topic]!
+            }
             
             if snapshot.hasChild(Constants.Entry.mark){
                 entry.mark = entrySnap[Constants.Entry.mark]!
@@ -122,6 +125,9 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
                 if entry.key == changedKey{
                     entry.setText(newText: entrySnap[Constants.Entry.text]!)
                     entry.setWC(newWC: entrySnap[Constants.Entry.wordCount]!)
+                    if snapshot.hasChild(Constants.Entry.topic){
+                        entry.topic = entrySnap[Constants.Entry.topic]!
+                    }
                     if snapshot.hasChild(Constants.Entry.mark){
                         entry.mark = entrySnap[Constants.Entry.mark]!
                     }
@@ -137,15 +143,28 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         // Dequeue cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell") as! CustomTableCell
         // Unpack message from Firebase DataSnapshot
+        var type = "none"
         let isMarked = entry.hasMark()
-        cell.setupIndicatorView(bool: isMarked)
+        let isTopic = entry.hasTopic()
+        if isMarked{
+            type = "mark"
+            cell.markLabel?.text = entry.mark
+        }
+        if isTopic{
+            type = "topic"
+            cell.markLabel?.text = entry.topic
+        }
+        if (isMarked || isTopic) == false {
+            cell.markLabel?.text = ""
+        }
+        cell.setupIndicatorView(bool: isMarked || isTopic, type:type )
         
         let words = entry.wordCount
         let preview = entry.textStart
         cell.dateLabel?.text = seperateDate(dateS: entry.date)
         cell.previewLabel?.text = preview
         cell.wordCount?.text = words
-        cell.markLabel?.text = entry.mark
+        
         //Change color
         if ( indexPath.row % 2 == 0 ){
             cell.backgroundColor = Constants.backgroundColor.bc

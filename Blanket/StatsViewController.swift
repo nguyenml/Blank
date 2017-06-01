@@ -155,6 +155,8 @@ class StatsViewController: UIViewController{
     }
     
     func convertTime() -> String{
+        //entries will have counter times soon
+        
         let (h,m,s) = secondsToHoursMinutesSeconds(seconds: (Stats.totalEntries*300))
         var time:String
         if h < 12{
