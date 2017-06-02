@@ -21,6 +21,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet var timer: UILabel!
     var counter = 0;
+    var extraCounter = 300;
     var lwc = 0
     
     //sent by previous view
@@ -87,13 +88,13 @@ class InputViewController: UIViewController, UITextViewDelegate {
             post()
             
         }
-        //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than 360. Do not post, but keep the timer going
-        if (counter < 360 && counter > 300){
+        //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than extraTime. Do not post, but keep the timer going
+        if (counter < extraCounter && counter > 300){
             iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
         }
         //path 4 - the user has finished up writing and finished his extra minute as well
-        if (counter == 360){
+        if (counter == extraCounter){
             topicOrMark()
             post()
         }
@@ -120,10 +121,10 @@ class InputViewController: UIViewController, UITextViewDelegate {
     //Sets a timer up for 3 mins and shows user how long they spent
     func updateCounter() {
         if extraTime{
-            if counter < 360{
+            if counter < extraCounter{
                 counter = counter + 1;
             }
-            if counter >= 360{
+            if counter >= extraCounter{
                 reset()
             }
             
@@ -304,7 +305,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
         iTimer.invalidate()
         backButton.isHidden = false
         textField.isEditable = false
-        textField.isUserInteractionEnabled = false
         if extraTime{
             smallUpdate()
             extraTime = false
@@ -357,10 +357,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
         
     }
     @IBAction func addMinute(_ sender: UIButton) {
-        addMin.isHidden = true
-        addMin.isUserInteractionEnabled = false
         textField.isEditable = true
         textField.isUserInteractionEnabled = true
+        extraCounter = extraCounter + 60
         extraTime = true
         updateCounter()
         iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
