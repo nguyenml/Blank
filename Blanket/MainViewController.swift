@@ -70,9 +70,11 @@ class MainViewController: UIViewController {
 //    //------------------------
     func checkLastAccess(){
         if Calendar.current.isDateInToday(LastAccess.date as Date) {
+            print(LastAccess.date)
+            
             //entryBtn.isHidden = true
-            //completedText.text = "You already wrote today"
-            //completedText.isHidden = false
+            completedText.text = "You already wrote today"
+            completedText.isHidden = false
             setupUIColor()
         }
         else{

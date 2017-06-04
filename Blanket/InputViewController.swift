@@ -79,7 +79,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < 300){
-            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
         }
         //path 2 - the user just finished and goes to mark, the timer should come back invalidated and the entry should already be posted/updated. still need to update the mark though so 
@@ -90,7 +90,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         }
         //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than extraTime. Do not post, but keep the timer going
         if (counter < extraCounter && counter > 300){
-            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
         }
         //path 4 - the user has finished up writing and finished his extra minute as well
@@ -362,7 +362,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         extraCounter = extraCounter + 60
         extraTime = true
         updateCounter()
-        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
     }
     
     func updateTextView(notification:Notification){
