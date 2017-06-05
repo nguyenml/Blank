@@ -200,6 +200,12 @@ class MainViewController: UIViewController {
             topics.append(topic)
             NotificationCenter.default.post(name: .reload, object: nil)
         })
+        ref?.child("users").child(uid).child("LastEntry").observe(FIRDataEventType.value, with: {
+            (snapshot) in
+            if snapshot.value != nil{
+                LastAccess.entry = snapshot.value as! String
+            }
+        })
     }
     
     //TEMP TEMP TEMP TEMP TEMP FIX

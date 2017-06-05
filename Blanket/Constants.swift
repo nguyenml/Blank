@@ -87,6 +87,7 @@ struct Stats{
 
 struct LastAccess{
     static var date = NSDate() as Date
+    static var entry:String = ""
 }
 
 struct Goals{
@@ -141,8 +142,9 @@ class Packet{
     var mark:String
     var topic:String
     var textStart:String
+    var totalTime:String
     
-    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String, key:String, mark:String = "", topic:String = "", textStart:String = ""){
+    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String, key:String, mark:String = "", topic:String = "", textStart:String = "", totalTime:String = ""){
         self.date = date
         self.text = text
         self.wordCount = wordCount
@@ -153,6 +155,7 @@ class Packet{
         self.mark = mark
         self.topic = topic
         self.textStart = textStart
+        self.totalTime = totalTime
         }
     
     func setOrder(order:String){

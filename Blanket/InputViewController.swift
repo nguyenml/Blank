@@ -23,6 +23,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     var counter = 0;
     var extraCounter = 300;
     var lwc = 0
+    var currentPacket:Packet?
     
     //sent by previous view
     var loadedString:String!
@@ -42,18 +43,27 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        ref  = FIRDatabase.database().reference()
-        entryRef = ref?.child("Entry").childByAutoId()
+        ref = FIRDatabase.database().reference()
         self.textField.delegate = self
-        setupInput()
+        getMostRecent()
     }
     
     // get rid of xcode backspace error, hide buttons, add notification for keyboard scrolling
-    func setupInput(){
-        textField.text = ""
-        addMin.isHidden = true
-        backButton.isHidden = true
+    func setupInput(bool : Bool){
+        if bool{
+            textField.text = currentPacket?.text
+            counter = Int((currentPacket?.totalTime)!)!
+            extraCounter = Int((currentPacket?.totalTime)!)!
+            setTimeFormat()
+            addMin.isHidden = false
+            backButton.isHidden = false
+            textField.isEditable = false
+        }else{
+            textField.text = ""
+            addMin.isHidden = true
+            backButton.isHidden = true
+        }
+        
         
         NotificationCenter.default.addObserver(self, selector: #selector(InputViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         
@@ -79,7 +89,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < 300){
-            iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
         }
         //path 2 - the user just finished and goes to mark, the timer should come back invalidated and the entry should already be posted/updated. still need to update the mark though so 
@@ -90,7 +100,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         }
         //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than extraTime. Do not post, but keep the timer going
         if (counter < extraCounter && counter > 300){
-            iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
         }
         //path 4 - the user has finished up writing and finished his extra minute as well
@@ -118,6 +128,53 @@ class InputViewController: UIViewController, UITextViewDelegate {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
+    func getMostRecent(){
+        ref?.child("Entry").child(LastAccess.entry).observeSingleEvent(of: .value, with: { snapshot in
+            guard let entrySnap = snapshot.value as? [String: String] else { return }
+            let entry = Packet.init(date: entrySnap[Constants.Entry.date]!,
+                                    text: entrySnap[Constants.Entry.text]!,
+                                    wordCount: entrySnap[Constants.Entry.wordCount]!,
+                                    uid: entrySnap[Constants.Entry.uid]!,
+                                    emotion: entrySnap[Constants.Entry.emotion]!,
+                                    timeStamp: entrySnap[Constants.Entry.timestamp]!,
+                                    key: snapshot.key,
+                                    totalTime: entrySnap[Constants.Entry.totalTime]!
+                //textStart: entrySnap[Constants.Entry.textStart]!
+            )
+            let timestamp = entry.timestamp
+            let calendar = NSCalendar.current
+            var toInt = Double(timestamp)
+            toInt = toInt! * -1.0
+            let date = NSDate(timeIntervalSince1970: toInt!)
+            //print(self.dayDifference(from: toInt as! TimeInterval))
+            if calendar.isDateInToday(date as Date) {
+                self.currentPacket = entry
+                self.setupInput(bool: true)
+                self.entryRef = self.ref?.child("Entry").child(LastAccess.entry)
+            }else{
+                self.setupInput(bool: false)
+                self.entryRef = self.ref?.child("Entry").childByAutoId()
+            }
+        })
+    }
+    
+    func dayDifference(from interval : TimeInterval) -> String
+    {
+        let calendar = NSCalendar.current
+        let date = Date(timeIntervalSince1970: interval)
+        if calendar.isDateInYesterday(date) { return "Yesterday" }
+        else if calendar.isDateInToday(date) { return "Today" }
+        else if calendar.isDateInTomorrow(date) { return "Tomorrow" }
+        else {
+            let startOfNow = calendar.startOfDay(for: Date())
+            let startOfTimeStamp = calendar.startOfDay(for: date)
+            let components = calendar.dateComponents([.day], from: startOfNow, to: startOfTimeStamp)
+            let day = components.day!
+            if day < 1 { return "\(abs(day)) days ago" }
+            else { return "In \(day) days" }
+        }
+    }
+    
     //Sets a timer up for 3 mins and shows user how long they spent
     func updateCounter() {
         if extraTime{
@@ -125,6 +182,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 counter = counter + 1;
             }
             if counter >= extraCounter{
+                print("reset")
                 reset()
             }
             
@@ -140,6 +198,10 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 reset()
             }
         }
+    setTimeFormat()
+    }
+    
+    func setTimeFormat(){
         let minutes = Int(Double(counter) / 60.0)
         let seconds = Int(counter - (minutes*60))
         var strMinutes = ""
@@ -238,7 +300,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             mdata[Constants.Entry.textStart] = textField.text
         }
         entryRef?.setValue(mdata)
-        updateLastAccess(date: dateToString())
+        updateLastAccess(date: dateToString(), key: key)
     }
     
     func concatString(str:String) -> String{
@@ -266,8 +328,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
         return (Int(wordCount(str: textField.text!)) - loadedWordCount)
     }
     
-    func updateLastAccess(date: String){
+    func updateLastAccess(date: String, key: String){
         ref?.child("users").child(String(describing: uid )).updateChildValues(["LastAccess": date])
+        ref?.child("users").child(String(describing: uid )).updateChildValues(["LastEntry": key])
     }
     
     //converts date to a string to be but into the db
@@ -303,6 +366,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     //resets timer, buttons, and access
     func reset(){
         iTimer.invalidate()
+        timer.textColor = UIColor(hex: 0x333333)
         backButton.isHidden = false
         textField.isEditable = false
         if extraTime{
@@ -359,10 +423,11 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBAction func addMinute(_ sender: UIButton) {
         textField.isEditable = true
         textField.isUserInteractionEnabled = true
+        timer.textColor = UIColor(hex: 0xB8B8B8)
         extraCounter = extraCounter + 60
         extraTime = true
         updateCounter()
-        iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
     }
     
     func updateTextView(notification:Notification){
