@@ -90,11 +90,13 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         // Dequeue cell
         if tableView == self.tableView{
             let option = marks[indexPath.row]
+            cell.numMarks.text = String(option.entries.count)
             cell.nameLabel.text = option.name
         }
         
         if tableView == self.topicView{
             let option = topics[indexPath.row]
+            cell.numMarks.text = String(option.entries.count)
             cell.nameLabel.text = option.name
         }
         return cell

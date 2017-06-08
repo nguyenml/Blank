@@ -14,6 +14,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     var ref:FIRDatabaseReference?
     var entryRef:FIRDatabaseReference?
 
+    @IBOutlet weak var markButton: UIButton!
     @IBOutlet weak var addMin: UIButton!
     @IBOutlet var backButton: UIButton!
     @IBOutlet var textField: UITextView!
@@ -37,6 +38,8 @@ class InputViewController: UIViewController, UITextViewDelegate {
     var loadedWordCount = 0
     var extraTime = false
     var currentString:String = ""
+    var continueEntry = false
+    var continuedEntryWithMark = false
     
     var stats:[String:Int] = [:]
     let uid = FIRAuth.auth()!.currentUser!.uid
@@ -44,6 +47,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
+        entryRef = ref?.child("Entry").childByAutoId()
         self.textField.delegate = self
         getMostRecent()
     }
@@ -54,6 +58,10 @@ class InputViewController: UIViewController, UITextViewDelegate {
             textField.text = currentPacket?.text
             counter = Int((currentPacket?.totalTime)!)!
             extraCounter = Int((currentPacket?.totalTime)!)!
+            if ((currentPacket?.hasMark())! || (currentPacket?.hasTopic())!){
+                markButton.isHidden = true
+                continuedEntryWithMark = true
+            }
             setTimeFormat()
             addMin.isHidden = false
             backButton.isHidden = false
@@ -76,7 +84,9 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     func topicOrMark(){
+        if continuedEntryWithMark {return}
         if mot == nil {return}
+        markButton.isHidden = true
         if mot{
             textField.text = currentString
         }
@@ -85,28 +95,46 @@ class InputViewController: UIViewController, UITextViewDelegate {
         }
     }
     
+    func getCurrentTM(){
+        if (currentPacket?.hasMark())! {
+            mot = false
+            name = currentPacket?.mark
+        }
+        if (currentPacket?.hasTopic())! {
+            mot = true
+            name = currentPacket?.topic
+        }
+    }
+    
     func timeSituations(){
+        print("time")
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < 300){
             iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
+            return
         }
-        //path 2 - the user just finished and goes to mark, the timer should come back invalidated and the entry should already be posted/updated. still need to update the mark though so 
+        //path 2 - the user just finished and goes to mark, the timer should come back invalidated and the entry should already be posted/updated. still need to update the mark though so
         if(counter == 300){
             topicOrMark()
-            post()
-            
+            reset()
+            return
         }
         //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than extraTime. Do not post, but keep the timer going
         if (counter < extraCounter && counter > 300){
             iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
+            return
         }
+
         //path 4 - the user has finished up writing and finished his extra minute as well
+        
         if (counter == extraCounter){
             topicOrMark()
-            post()
+            reset()
+            print("extra")
+            return
         }
     }
     
@@ -141,6 +169,13 @@ class InputViewController: UIViewController, UITextViewDelegate {
                                     totalTime: entrySnap[Constants.Entry.totalTime]!
                 //textStart: entrySnap[Constants.Entry.textStart]!
             )
+            if snapshot.hasChild(Constants.Entry.topic){
+                entry.topic = entrySnap[Constants.Entry.topic]!
+            }
+            
+            if snapshot.hasChild(Constants.Entry.mark){
+                entry.mark = entrySnap[Constants.Entry.mark]!
+            }
             let timestamp = entry.timestamp
             let calendar = NSCalendar.current
             var toInt = Double(timestamp)
@@ -149,11 +184,11 @@ class InputViewController: UIViewController, UITextViewDelegate {
             //print(self.dayDifference(from: toInt as! TimeInterval))
             if calendar.isDateInToday(date as Date) {
                 self.currentPacket = entry
+                self.continueEntry = true
                 self.setupInput(bool: true)
                 self.entryRef = self.ref?.child("Entry").child(LastAccess.entry)
             }else{
                 self.setupInput(bool: false)
-                self.entryRef = self.ref?.child("Entry").childByAutoId()
             }
         })
     }
@@ -182,8 +217,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 counter = counter + 1;
             }
             if counter >= extraCounter{
-                print("reset")
-                reset()
+                timeSituations()
             }
             
         }
@@ -195,7 +229,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 addMin.isHidden = false
                 // at 3 mins update info and reset timer for next use
                 lwc = greaterThanZero()
-                reset()
+                timeSituations()
             }
         }
     setTimeFormat()
@@ -251,9 +285,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
                  ref?.child("Goals").child(Goals.goalId).child("currentGoal").setValue(Goals.current)
             }
         }
-        // this will submit the entry to firebase
-        // at this point the information has left the client side
-        post()
     }
     
     func smallUpdate(){
@@ -272,7 +303,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 //error
             }
         }
-        post()
     }
     
     
@@ -286,6 +316,16 @@ class InputViewController: UIViewController, UITextViewDelegate {
         mdata[Constants.Entry.timestamp] = getTimeStamp()
         mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!
+        
+        if continuedEntryWithMark {
+            getCurrentTM()
+            if mot{
+                mdata[Constants.Entry.topic] = name
+            }else{
+                mdata[Constants.Entry.mark] = name
+            }
+        }
+        
         if markKey != nil{
             if mot{
                 mdata[Constants.Entry.topic] = name
@@ -301,6 +341,22 @@ class InputViewController: UIViewController, UITextViewDelegate {
         }
         entryRef?.setValue(mdata)
         updateLastAccess(date: dateToString(), key: key)
+    }
+    
+    //puts info into a struct
+    func post(){
+        //don't post if continued
+        if skip() {return}
+        let text = textField.text
+        let data = [Constants.Entry.text: text]
+        addToFB(withData: data as! [String : String])
+        if extraTime{
+            smallUpdate()
+            extraTime = false
+        }
+        else{
+            updateStats()
+        }
     }
     
     func concatString(str:String) -> String{
@@ -356,26 +412,13 @@ class InputViewController: UIViewController, UITextViewDelegate {
         return String(reversedTimestamp)
     }
     
-    //puts info into a struct
-    func post(){
-        let text = textField.text
-        let data = [Constants.Entry.text: text]
-        addToFB(withData: data as! [String : String])
-    }
-    
     //resets timer, buttons, and access
     func reset(){
         iTimer.invalidate()
         timer.textColor = UIColor(hex: 0x333333)
         backButton.isHidden = false
         textField.isEditable = false
-        if extraTime{
-            smallUpdate()
-            extraTime = false
-        }
-        else{
-            updateStats()
-        }
+        post()
     }
     
     //How many words the user wrote
@@ -443,6 +486,15 @@ class InputViewController: UIViewController, UITextViewDelegate {
         }
         
         textField.scrollRangeToVisible(textField.selectedRange)
+    }
+    
+    func skip() -> Bool{
+        if continueEntry{
+            continueEntry = false
+            print("broke")
+            return true
+        }
+        return false
     }
 
 }
