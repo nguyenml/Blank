@@ -130,6 +130,20 @@ class Topic{
     }
 }
 
+class IndividualBadge{
+    var name:String
+    var message:String
+    //var image:UIImage
+    var earned:Bool
+    
+    init(name:String, message:String, earned:Bool){
+        self.name = name
+        self.message = message
+        self.earned = earned
+      //  self.image = image
+    }
+}
+
 class Packet{
     var date:String
     var text:String
@@ -179,4 +193,7 @@ class Packet{
     }
     
 }
+
+//Badges
+let mySpecialNotificationKey = ".badgeForADay"
 

@@ -107,7 +107,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     func timeSituations(){
-        print("time")
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < 300){
@@ -133,7 +132,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
         if (counter == extraCounter){
             topicOrMark()
             reset()
-            print("extra")
             return
         }
     }
@@ -181,7 +179,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
             var toInt = Double(timestamp)
             toInt = toInt! * -1.0
             let date = NSDate(timeIntervalSince1970: toInt!)
-            //print(self.dayDifference(from: toInt as! TimeInterval))
             if calendar.isDateInToday(date as Date) {
                 self.currentPacket = entry
                 self.continueEntry = true
@@ -192,24 +189,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             }
         })
     }
-    
-    func dayDifference(from interval : TimeInterval) -> String
-    {
-        let calendar = NSCalendar.current
-        let date = Date(timeIntervalSince1970: interval)
-        if calendar.isDateInYesterday(date) { return "Yesterday" }
-        else if calendar.isDateInToday(date) { return "Today" }
-        else if calendar.isDateInTomorrow(date) { return "Tomorrow" }
-        else {
-            let startOfNow = calendar.startOfDay(for: Date())
-            let startOfTimeStamp = calendar.startOfDay(for: date)
-            let components = calendar.dateComponents([.day], from: startOfNow, to: startOfTimeStamp)
-            let day = components.day!
-            if day < 1 { return "\(abs(day)) days ago" }
-            else { return "In \(day) days" }
-        }
-    }
-    
+
     //Sets a timer up for 3 mins and shows user how long they spent
     func updateCounter() {
         if extraTime{
@@ -275,7 +255,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
             return FIRTransactionResult.success(withValue: currentData)
         }) { (error, committed, snapshot) in
             if let error = error {
-                //error
                 print(error.localizedDescription)
             }
         }
@@ -293,14 +272,16 @@ class InputViewController: UIViewController, UITextViewDelegate {
             if var stats = currentData.value as? [String : Int]{
                 let entries:Int = stats["totalEntries"]!
                 let total = Int(stats["totalWordcount"]! - self.lwc + self.greaterThanZero())
+                
                 stats["avgWordcount"] = total/entries as Int
+                stats["totalWordcount"] = total as Int
                 currentData.value = stats
-                return FIRTransactionResult.success(withValue: currentData)
             }
-        return FIRTransactionResult.success(withValue: currentData)
-        }) { (error, committed, snapshot) in
+           return FIRTransactionResult.success(withValue: currentData)
+        })
+        { (error, committed, snapshot) in
             if let error = error {
-                //error
+                 print(error.localizedDescription)
             }
         }
     }
@@ -491,7 +472,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
     func skip() -> Bool{
         if continueEntry{
             continueEntry = false
-            print("broke")
             return true
         }
         return false

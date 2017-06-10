@@ -118,8 +118,6 @@ class StatsViewController: UIViewController{
     
     //resets all the local structs and classes that held the users local data
     func safeReset(){
-        myBadges = BadgeClass()
-        myBadges.reset()
         Stats.avgWordcount = 0
         Stats.currentStreak = 0
         Stats.daysActive = 0

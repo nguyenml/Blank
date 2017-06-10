@@ -11,7 +11,6 @@ import Firebase
 import SwipeCellKit
 
 class ELViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var entriesLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!

@@ -11,6 +11,7 @@ import Firebase
 import CZPicker
 import ChameleonFramework
 import UserNotifications
+import PopupDialog
 
 class MainViewController: UIViewController {
     
@@ -27,10 +28,13 @@ class MainViewController: UIViewController {
     
     var stats:[String:Int] = [:]
     var emotes = [String]()
+    var timer:Timer?
+    
     
     var colorArray = ColorSchemeOf(ColorScheme.complementary, color:UIColor.flatWhite, isFlatScheme:true)
     
     @IBOutlet weak var dateLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +42,11 @@ class MainViewController: UIViewController {
         checkUser()
         getData()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler:{didAllow, error in})
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.checkView), name: NSNotification.Name(rawValue: mySpecialNotificationKey), object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
+
     
     func setupUIColor(){
         entryBtn.layer.cornerRadius = 50;
@@ -119,15 +126,15 @@ class MainViewController: UIViewController {
             (snapshot) in
             self.stats = snapshot.value as? [String : Int] ?? [:]
             self.textLabel.text = ("Day" + " " + String(describing: self.stats["currentStreak"]!))
-            
             Stats.avgWordcount = (self.stats["avgWordcount"]!)
             Stats.currentStreak = (self.stats["currentStreak"])!
             Stats.longestStreak = (self.stats["longestStreak"])!
             Stats.totalWordcount = (self.stats["totalWordcount"])!
             Stats.totalEntries = (self.stats["totalEntries"])!
             myBadges.checkBadge()
-            self.setLabels()
             self.overlay?.removeFromSuperview()
+            myBadges.updated = true
+          
         })
         ref?.child("users").child(uid).child("LastAccess").observe(FIRDataEventType.value, with: {
             (snapshot) in
@@ -251,7 +258,43 @@ class MainViewController: UIViewController {
     }
 
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
+
+    func newBadgeEarned(_ timer:Timer) {
+        
+        if (self.isViewLoaded && (self.view.window != nil)) {
+        if let badge = timer.userInfo as? IndividualBadge{
+        let title = badge.name
+        let message = badge.message
+        let image = UIImage(named: "pexels-photo-103290")
+        
+        let popup = PopupDialog(title: title, message: message, image: image)
+        
+        let buttonOne = CancelButton(title: "CANCEL") {
+            print("You canceled the car dialog.")
+        }
+
+        let buttonThree = DefaultButton(title: "BUY CAR", height: 60) {
+            print("Ah, maybe next time :)")
+        }
+
+        popup.addButtons([buttonOne, buttonThree])
+        
+        present(popup, animated: true, completion: nil)
+        timer.invalidate()
+        }
+        }
+        
+    }
     
+    func checkView(_ notification: NSNotification){
+        if let badge = notification.userInfo?["badge"] as? IndividualBadge{
+            print("yes")
+            timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(MainViewController.newBadgeEarned),userInfo: badge, repeats: true)
+        }
+        
+    }
     
 }
+    
+
 

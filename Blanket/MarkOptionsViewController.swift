@@ -91,7 +91,6 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == self.tableView{
-            print("test")
             tableView.deselectRow(at: indexPath, animated: true)
             let option = marks[indexPath.row]
             ref?.child("Entry").child(key).child("mark").setValue(option.name)
