@@ -167,31 +167,13 @@ class MainViewController: UIViewController {
                 }
             }
         })
-        //problem child
-        //cluster fuck
-        //Temp fix unoptimized
         
         //First FB query gets all the Marks that belong to the user using uid
         ref?.child("Marks").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard snapshot.exists() else{ return }
             guard self != nil else { return }
             let markSnap = snapshot.value as? [String: Any]
-            //creates a new mark for each one they own
-            let ma:Mark = Mark(name: markSnap![Constants.Mark.marks]! as! String, key:snapshot.key, loadedString: "")
-            
-            //For each of those marks, query and find all the entries that have been marked for that particular ID
-            self?.ref?.child("Marks").child(ma.key).child("entries").observe(.childAdded, with:{ [weak self] (snapshot) -> Void in
-                let entrykey = snapshot.value as! String
-                ma.entries.append(entrykey)
-                self?.ref?.child("Entry").child(entrykey).child("text").observe(FIRDataEventType.value, with :{ (snapshot) -> Void in
-                    guard snapshot.exists() else{
-                        return
-                    }
-                    // Add that text to the loaded string, async call so this will return after the mark has been appended
-                    ma.loadedString = ma.loadedString + (snapshot.value as! String) + "\n"
-                })
-                })
-            //append all of that
+            let ma:Mark = Mark(name: markSnap![Constants.Mark.marks]! as! String, key:snapshot.key, loadedString: markSnap![Constants.Mark.text] as! String)
             marks.append(ma)
             NotificationCenter.default.post(name: .reload, object: nil)
         })

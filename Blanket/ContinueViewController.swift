@@ -85,22 +85,22 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCell(withIdentifier: "optionCell", for: indexPath) as! OptionCell
-        // Dequeue cell
-        if tableView == self.tableView{
-            let option = marks[indexPath.row]
-            cell.numMarks.text = String(option.entries.count)
-            cell.nameLabel.text = option.name
-        }
-        
-        if tableView == self.topicView{
-            let option = topics[indexPath.row]
-            cell.numMarks.text = String(option.entries.count)
-            cell.nameLabel.text = option.name
-        }
-        return cell
-    }
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "optionCell", for: NSIndexPath(row: 0, section: 0) as IndexPath) as? OptionCell else {return self.tableView.dequeueReusableCell(withIdentifier: "optionCell", for: NSIndexPath(row: 0, section: 0) as IndexPath) }
+//        // Dequeue cell
+//        if tableView == self.tableView{
+//            let option = marks[indexPath.row]
+//            cell.numMarks.text = String(option.entries.count)
+//            cell.nameLabel.text = option.name
+//        }
+//        
+//        if tableView == self.topicView{
+//            let option = topics[indexPath.row]
+//            cell.numMarks.text = String(option.entries.count)
+//            cell.nameLabel.text = option.name
+//        }
+//        return cell
+//    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -108,7 +108,6 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         if tableView == self.tableView{
             let option = marks[indexPath.row]
             let loadedString = option.getString()
-            option.resetString()
             loadedWC = wordCount(str: loadedString)
             chosen = option.key
             loadString = loadedString
@@ -234,5 +233,11 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         view.addSubview(runkeeperSwitch)
     }
     
+}
+
+class OptionCell: UITableViewCell {
+    
+    @IBOutlet weak var numMarks: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
 }
 

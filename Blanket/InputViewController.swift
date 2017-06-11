@@ -60,7 +60,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             counter = Int((currentPacket?.totalTime)!)!
             extraCounter = Int((currentPacket?.totalTime)!)!
             if ((currentPacket?.hasMark())! || (currentPacket?.hasTopic())!){
-                markButton.isHidden = true
+                //markButton.isHidden = true
                 continuedEntryWithMark = true
                 loadedWordCount = (Int(wordCount(str: textField.text!)))
             }

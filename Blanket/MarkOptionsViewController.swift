@@ -153,15 +153,15 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
         performSegue(withIdentifier: "unwindToEntry", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "unwindToEntry"{
-            let dvc = segue.destination as! IndividualEntryViewController
-            dvc.markName = name
-            dvc.topicOrMark = mot
-        }
-        
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        
+//        if segue.identifier == "unwindToEntry"{
+//            let dvc = segue.destination as! IndividualEntryViewController
+//            dvc.markName = name
+//            dvc.topicOrMark = mot
+//        }
+//        
+//    }
     
     func setUpDG(){
         let runkeeperSwitch = DGRunkeeperSwitch(titles: ["Topics", "Marks"])
@@ -192,9 +192,3 @@ class MarkOptionsViewController: UIViewController, UITableViewDataSource, UITabl
 }
 
 
-
-class OptionCell: UITableViewCell {
-
-    @IBOutlet weak var numMarks: UILabel!
-    @IBOutlet weak var nameLabel: UILabel!
-}

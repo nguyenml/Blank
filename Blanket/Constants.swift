@@ -46,6 +46,7 @@ struct Constants {
     struct Mark {
         static let marks = "marks"
         static let uid = "uid"
+        static let text = "text"
     }
     
     struct Topic {
@@ -111,10 +112,6 @@ class Mark{
     
     func getString() ->String{
         return loadedString
-    }
-    
-    func resetString(){
-        loadedString = ""
     }
     
 }
