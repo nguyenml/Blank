@@ -20,6 +20,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var textField: UITextView!
     var iTimer = Timer();
     
+    @IBOutlet weak var wordCountLabel: UIButton!
     @IBOutlet var timer: UILabel!
     var counter = 0;
     var extraCounter = 300;
@@ -61,16 +62,21 @@ class InputViewController: UIViewController, UITextViewDelegate {
             if ((currentPacket?.hasMark())! || (currentPacket?.hasTopic())!){
                 markButton.isHidden = true
                 continuedEntryWithMark = true
+                loadedWordCount = (Int(wordCount(str: textField.text!)))
             }
             setTimeFormat()
             addMin.isHidden = false
             backButton.isHidden = false
             textField.isEditable = false
+            wordCountLabel.isHidden = true
+            
         }else{
             textField.text = ""
             addMin.isHidden = true
             backButton.isHidden = true
+            wordCountLabel.isHidden = true
         }
+        
         
         
         NotificationCenter.default.addObserver(self, selector: #selector(InputViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
@@ -86,7 +92,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
     func topicOrMark(){
         if continuedEntryWithMark {return}
         if mot == nil {return}
-        markButton.isHidden = true
         if mot{
             textField.text = currentString
         }
@@ -141,7 +146,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             return
         }
         else{
-            textField.text = loadedString + currentString
+            textField.text = loadedString
         }
         loadedWordCount = Int(loadedWC)
     }
@@ -152,6 +157,16 @@ class InputViewController: UIViewController, UITextViewDelegate {
             reset()
         }
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
+    }
+    
+    func textView(textView: UITextView, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
+        let newLength = wordCount(str: textField.text)
+        //change the value of the label
+        wordCountLabel.setTitle(String(newLength),for: .normal)
+        //you can save this value to a global var
+        //myCounter = newLength
+
+        return true
     }
     
     func getMostRecent(){
@@ -310,10 +325,10 @@ class InputViewController: UIViewController, UITextViewDelegate {
         if markKey != nil{
             if mot{
                 mdata[Constants.Entry.topic] = name
-                ref?.child("Topics").child(markKey).child("entries").setValue([key:key])
+                ref?.child("Topics").child(markKey).child("entries").updateChildValues([key:key])
             }else{
                 mdata[Constants.Entry.mark] = name
-                ref?.child("Marks").child(markKey).child("entries").setValue([key:key])
+                ref?.child("Marks").child(markKey).child("entries").updateChildValues([key:key])
                 mdata[Constants.Entry.textStart] = concatString(str: currentString)
             }
         }
@@ -423,13 +438,13 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     @IBAction func goToMarks(_ sender: UIButton) {
         var newString = textField.text
-        //reset the loadedstring on mark changes
-//        if (loadedString != nil) && (textField.text.range(of:loadedString) != nil){
-//            let copyText = textField.text
-//            newString = copyText?.replacingOccurrences(of: loadedString, with: "")
-//        }
-        currentString = newString!
+        if mot == nil || mot{
+            currentString = newString!
+        }
         iTimer.invalidate()
+        if (mot != nil && mot == false){
+            ref?.child("Marks").child(markKey).child("text").setValue(textField.text)
+        }
         performSegue(withIdentifier: "segueToContinue", sender: currentString)
     }
     
@@ -477,4 +492,17 @@ class InputViewController: UIViewController, UITextViewDelegate {
         return false
     }
 
+    @IBAction func switchTimerWordCount(_ sender: UIButton) {
+        if wordCountLabel.isHidden{
+            wordCountLabel.isHidden = false
+            timer.isHidden = true
+            addMin.isHidden = true
+        }else{
+            wordCountLabel.isHidden = true
+            timer.isHidden = false
+            if counter >= 300{
+                addMin.isHidden = true
+            }
+        }
+    }
 }

@@ -1064,6 +1064,17 @@
                                     <action selector="goBack:" destination="hcl-Eu-jyo" eventType="touchUpInside" id="MXW-xg-mOB"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFy-mj-z1A">
+                                <rect key="frame" x="147" y="20" width="80" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.31764705879999999" green="0.31764705879999999" blue="0.31764705879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="switchTimerWordCount:" destination="hcl-Eu-jyo" eventType="touchUpInside" id="Tjs-dD-Qz7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1073,6 +1084,7 @@
                         <outlet property="markButton" destination="sdE-32-ZR9" id="yO4-zj-spn"/>
                         <outlet property="textField" destination="Mss-Aw-dZa" id="gBy-Al-bA8"/>
                         <outlet property="timer" destination="Abd-DI-i9S" id="bDd-qJ-mEh"/>
+                        <outlet property="wordCountLabel" destination="vFy-mj-z1A" id="692-kM-dUl"/>
                         <segue destination="hEy-N8-vjM" kind="unwind" identifier="unwindToMenu" unwindAction="unwindToMenuWithSegue:" id="IOX-sY-YjZ"/>
                         <segue destination="Cek-ib-r4r" kind="show" identifier="segueToContinue" id="RJl-4t-mVY"/>
                     </connections>
@@ -1080,7 +1092,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wac-TP-zU4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hEy-N8-vjM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1405.5999999999999" y="-196.55172413793105"/>
+            <point key="canvasLocation" x="1325.5999999999999" y="-189.3553223388306"/>
         </scene>
         <!--Individual Entry View Controller-->
         <scene sceneID="aOJ-gQ-D6R">
