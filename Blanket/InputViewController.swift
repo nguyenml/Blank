@@ -65,6 +65,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 loadedWordCount = (Int(wordCount(str: textField.text!)))
             }
             setTimeFormat()
+            extraTime = true
             addMin.isHidden = false
             backButton.isHidden = false
             textField.isEditable = false
@@ -90,24 +91,12 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     func topicOrMark(){
-        if continuedEntryWithMark {return}
         if mot == nil {return}
         if mot{
             textField.text = currentString
         }
         else{
             setupDataOnReturn()
-        }
-    }
-    
-    func getCurrentTM(){
-        if (currentPacket?.hasMark())! {
-            mot = false
-            name = currentPacket?.mark
-        }
-        if (currentPacket?.hasTopic())! {
-            mot = true
-            name = currentPacket?.topic
         }
     }
     
@@ -212,7 +201,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 counter = counter + 1;
             }
             if counter >= extraCounter{
-                timeSituations()
+                reset()
             }
             
         }
@@ -224,7 +213,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 addMin.isHidden = false
                 // at 3 mins update info and reset timer for next use
                 lwc = greaterThanZero()
-                timeSituations()
+                reset()
             }
         }
     setTimeFormat()
@@ -273,12 +262,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 print(error.localizedDescription)
             }
         }
-        if !extraTime{
-            if Goals.hasGoal{
-                Goals.current += 1
-                 ref?.child("Goals").child(Goals.goalId).child("currentGoal").setValue(Goals.current)
-            }
-        }
     }
     
     func smallUpdate(){
@@ -312,16 +295,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         mdata[Constants.Entry.timestamp] = getTimeStamp()
         mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!
-        
-        if continuedEntryWithMark {
-            getCurrentTM()
-            if mot{
-                mdata[Constants.Entry.topic] = name
-            }else{
-                mdata[Constants.Entry.mark] = name
-            }
-        }
-        
+
         if markKey != nil{
             if mot{
                 mdata[Constants.Entry.topic] = name
@@ -329,6 +303,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             }else{
                 mdata[Constants.Entry.mark] = name
                 ref?.child("Marks").child(markKey).child("entries").updateChildValues([key:key])
+                ref?.child("Marks").child(markKey).child("text").setValue(textField.text)
                 mdata[Constants.Entry.textStart] = concatString(str: currentString)
             }
         }
@@ -343,14 +318,19 @@ class InputViewController: UIViewController, UITextViewDelegate {
     func post(){
         //don't post if continued
         if skip() {return}
-        let text = textField.text
+        var text = ""
+        if mot == nil || mot{
+            text = textField.text
+        }else{
+            text = currentString
+        }
         let data = [Constants.Entry.text: text]
-        addToFB(withData: data as! [String : String])
+        addToFB(withData: data)
         if extraTime{
             smallUpdate()
-            extraTime = false
         }
         else{
+            print("yuh")
             updateStats()
         }
     }
@@ -480,7 +460,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
             textField.contentInset = UIEdgeInsets(top:0,left:0,bottom:keyboardEndFrame.height, right:0)
             textField.scrollIndicatorInsets = textField.contentInset
         }
-        
         textField.scrollRangeToVisible(textField.selectedRange)
     }
     

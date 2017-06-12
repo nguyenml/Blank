@@ -50,11 +50,23 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         topicView.dataSource = self
         
         ref = FIRDatabase.database().reference()
+        setupDB()
         tableView.tableFooterView = UIView()
         topicView.tableFooterView = UIView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTableData), name: .reload, object: nil)
     }
+    
+    func setupDB(){
+        ref?.child("Marks").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childChanged, with: {(snapshot) -> Void in
+            
+            let markSnap = snapshot.value as? [String: Any]
+            var markUpdate = marks.filter{ $0.key == snapshot.key }.first
+            markUpdate?.updateString(newString: markSnap?[Constants.Mark.text]! as! String)
+        })
+    }
+    
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of items in the sample data structure.
@@ -85,22 +97,22 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        guard let cell = self.tableView.dequeueReusableCell(withIdentifier: "optionCell", for: NSIndexPath(row: 0, section: 0) as IndexPath) as? OptionCell else {return self.tableView.dequeueReusableCell(withIdentifier: "optionCell", for: NSIndexPath(row: 0, section: 0) as IndexPath) }
-//        // Dequeue cell
-//        if tableView == self.tableView{
-//            let option = marks[indexPath.row]
-//            cell.numMarks.text = String(option.entries.count)
-//            cell.nameLabel.text = option.name
-//        }
-//        
-//        if tableView == self.topicView{
-//            let option = topics[indexPath.row]
-//            cell.numMarks.text = String(option.entries.count)
-//            cell.nameLabel.text = option.name
-//        }
-//        return cell
-//    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "optionCell", for: NSIndexPath(row: 0, section: 0) as IndexPath) as! OptionCell
+        // Dequeue cell
+        if tableView == self.tableView{
+            let option = marks[indexPath.row]
+            cell.numMarks.text = String(option.entries.count)
+            cell.nameLabel.text = option.name
+        }
+        
+        if tableView == self.topicView{
+            let option = topics[indexPath.row]
+            cell.numMarks.text = String(option.entries.count)
+            cell.nameLabel.text = option.name
+        }
+        return cell
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -152,6 +164,7 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
                 var mdata:[String:String] = [:]
                 mdata[Constants.Mark.marks] = newMark
                 mdata[Constants.Mark.uid] = uid
+                mdata[Constants.Mark.text] = ""
                 ref?.child("Marks").childByAutoId().setValue(mdata)
             }
             
@@ -208,6 +221,7 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     func switchChange( sender: DGRunkeeperSwitch) {
+        print(markOrTopic)
         markOrTopic = !markOrTopic
         if markOrTopic{
             descLabel.text = "Topics are helpful categories to label your thoughts and pieces of writing. They relate but are individual."

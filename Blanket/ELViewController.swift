@@ -159,7 +159,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         cell.setupIndicatorView(bool: isMarked || isTopic, type:type )
         
         let words = entry.wordCount
-        let preview = entry.textStart
+        let preview = entry.text
         cell.dateLabel?.text = seperateDate(dateS: entry.date)
         cell.previewLabel?.text = preview
         cell.wordCount?.text = words

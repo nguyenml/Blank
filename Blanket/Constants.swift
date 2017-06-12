@@ -114,6 +114,10 @@ class Mark{
         return loadedString
     }
     
+    func updateString(newString:String){
+        loadedString = newString
+    }
+    
 }
 
 class Topic{
