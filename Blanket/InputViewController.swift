@@ -18,7 +18,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var addMin: UIButton!
     @IBOutlet var backButton: UIButton!
     @IBOutlet var textField: UITextView!
-    var iTimer = Timer();
+    weak var iTimer = Timer();
     
     @IBOutlet weak var wordCountLabel: UIButton!
     @IBOutlet var timer: UILabel!
@@ -142,7 +142,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
-        if extraTime{
+        if timer == nil{
             reset()
         }
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
@@ -241,6 +241,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 var longest = stats["longestStreak"]!
                 let total = Int(stats["totalWordcount"]! + self.lwc)
                 let entries:Int = stats["totalEntries"]! + 1
+                let time:Int = stats["totalTime"]! + 300
                 if current>longest{
                     longest = current
                 }
@@ -249,6 +250,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 stats["totalWordcount"] = total as Int
                 stats["totalEntries"] = entries as Int
                 stats["avgWordcount"] = total/entries as Int
+                stats["totalTime"] = time as Int
                 
                 
                 // Set value and report transaction success
@@ -270,9 +272,11 @@ class InputViewController: UIViewController, UITextViewDelegate {
             if var stats = currentData.value as? [String : Int]{
                 let entries:Int = stats["totalEntries"]!
                 let total = Int(stats["totalWordcount"]! - self.lwc + self.greaterThanZero())
+                let time:Int = stats["totalTime"]! + 60
                 
                 stats["avgWordcount"] = total/entries as Int
                 stats["totalWordcount"] = total as Int
+                stats["totalTime"] = time as Int
                 currentData.value = stats
             }
            return FIRTransactionResult.success(withValue: currentData)
@@ -390,8 +394,8 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     //resets timer, buttons, and access
     func reset(){
-        iTimer.invalidate()
-        timer.textColor = UIColor(hex: 0x333333)
+        iTimer?.invalidate()
+        timer.textColor = UIColor(hex: 0x17DF82)
         backButton.isHidden = false
         textField.isEditable = false
         post()
@@ -421,7 +425,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         if mot == nil || mot{
             currentString = newString!
         }
-        iTimer.invalidate()
+        iTimer?.invalidate()
         if (mot != nil && mot == false){
             ref?.child("Marks").child(markKey).child("text").setValue(textField.text)
         }

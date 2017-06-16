@@ -84,6 +84,7 @@ struct Stats{
     static var totalWordcount = 0
     static var daysActive = 0
     static var totalEntries = 0
+    static var totalTime = 0
 }
 
 struct LastAccess{

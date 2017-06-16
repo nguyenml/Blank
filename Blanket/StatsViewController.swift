@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import MBCircularProgressBar
 
 
 class StatsViewController: UIViewController{
@@ -18,8 +19,8 @@ class StatsViewController: UIViewController{
         var definitionLabel = " "
         var gLabel = " "
     }
-    
-    @IBOutlet weak var circleAvatar: UIButton!
+
+    @IBOutlet weak var progressCircle: MBCircularProgressBarView!
     @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var totalDays: UILabel!
     @IBOutlet weak var totalTime: UILabel!
@@ -52,11 +53,6 @@ class StatsViewController: UIViewController{
     }
     
     func setupUI(){
-        circleAvatar.layer.borderWidth = 1
-        circleAvatar.layer.cornerRadius = self.circleAvatar.frame.size.width / 2;
-        circleAvatar.layer.masksToBounds = true
-        circleAvatar.layer.borderColor = UIColor.white.cgColor
-        circleAvatar.backgroundColor = UIColor.gray
         
         clock.image = clock.image!.withRenderingMode(.alwaysTemplate)
         clock.tintColor = UIColor.white
@@ -87,6 +83,7 @@ class StatsViewController: UIViewController{
         wordsProgress.progressTintColor = UIColor.yellow
         fetchUser()
         updateLabels()
+        setGoal()
     }
     
     func updateLabels(){
@@ -100,7 +97,6 @@ class StatsViewController: UIViewController{
     func fetchUser(){
         let user = FIRAuth.auth()?.currentUser
         userLabel.text = user?.displayName?.capitalizingFirstLetter()
-                circleAvatar.setTitle(user?.displayName?[0].capitalized, for: .normal)
     }
     
     //Logs a user out
@@ -153,9 +149,8 @@ class StatsViewController: UIViewController{
     }
     
     func convertTime() -> String{
-        //entries will have counter times soon
         
-        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: (Stats.totalEntries*300))
+        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: (Stats.totalTime))
         var time:String
         if h < 12{
             time = String(h) + ":" + String(m)
@@ -166,6 +161,11 @@ class StatsViewController: UIViewController{
         }
         
         return time
+    }
+    
+    func setGoal(){
+        let progress = Float(String(Stats.totalEntries))! / Float(115)
+        progressCircle.value = CGFloat(Float(progress*100))
     }
     
     @IBAction func unwindToStats(segue: UIStoryboardSegue) {}

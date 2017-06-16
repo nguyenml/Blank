@@ -164,54 +164,6 @@ extension Date {
     }
 }
 
-extension MainViewController: CZPickerViewDelegate, CZPickerViewDataSource {
-    public func numberOfRows(in pickerView: CZPickerView!) -> Int {
-        return emotes.count
-    }
-
-    func czpickerView(_ pickerView: CZPickerView!, imageForRow row: Int) -> UIImage! {
-        return nil
-    }
-    
-    func czpickerView(_ pickerView: CZPickerView!, titleForRow row: Int) -> String! {
-        return emotes[row]
-    }
-    
-    func czpickerView(_ pickerView: CZPickerView!, didConfirmWithItemAtRow row: Int){
-        switch row{
-        case 0:
-            imFeeling = Constants.Emotions.angry
-            EmojiLabel.text = "😠"
-            emotionLabel.text = "Angry"
-            
-        case 1:
-            imFeeling = Constants.Emotions.content
-            EmojiLabel.text = "☺️"
-            emotionLabel.text = "Content"
-            
-        case 2:
-            imFeeling = Constants.Emotions.excited
-            EmojiLabel.text = "😀"
-            emotionLabel.text = "Excited"
-            
-        case 3:
-            imFeeling = Constants.Emotions.sad
-            EmojiLabel.text = "😢"
-            emotionLabel.text = "Unhappy"
-            
-        default:
-            imFeeling = Constants.Emotions.content
-            EmojiLabel.text = "☺️"
-            emotionLabel.text = "Content"
-        }
-        print(imFeeling)
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-    
-    func czpickerViewDidClickCancelButton(_ pickerView: CZPickerView!) {
-        self.navigationController?.setNavigationBarHidden(true, animated: true)
-    }
-}
 
 extension String {
     subscript(pos: Int) -> String {

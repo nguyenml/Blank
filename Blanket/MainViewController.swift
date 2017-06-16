@@ -16,19 +16,23 @@ import PopupDialog
 class MainViewController: UIViewController {
     
     @IBOutlet weak var overlay: UIView!
-    @IBOutlet weak var EmojiLabel: UILabel!
-    @IBOutlet weak var emotionLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var completedText: UILabel!
     @IBOutlet weak var entryBtn: UIButton!
     
+    @IBOutlet weak var reminderButton: UIButton!
+    @IBOutlet weak var reminderSwitch: UISwitch!
     @IBOutlet weak var emoteButton: UIButton!
     var ref:FIRDatabaseReference?
     let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
+    let center = UNUserNotificationCenter.current()
     
     var stats:[String:Int] = [:]
-    var emotes = [String]()
     var timer:Timer?
+    
+    //------Reminder globals-----
+    var isReminder = false
+    var dateString = ""
     
     
     var colorArray = ColorSchemeOf(ColorScheme.complementary, color:UIColor.flatWhite, isFlatScheme:true)
@@ -53,15 +57,8 @@ class MainViewController: UIViewController {
         entryBtn.layer.borderColor = UIColor.white.cgColor
         entryBtn.layer.borderWidth = 1;
         entryBtn.setTitle("Write", for: .normal)
-    }
-    
-    func setEmotes(){
-        
-        emotes = ["😠 " + Constants.Emotions.angry,
-                  "☺️ " + Constants.Emotions.content,
-                  "😀 " + Constants.Emotions.excited,
-                  "😢 " + Constants.Emotions.sad]
-        
+        setTimeUI()
+        checkForReminder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -131,6 +128,7 @@ class MainViewController: UIViewController {
             Stats.longestStreak = (self.stats["longestStreak"])!
             Stats.totalWordcount = (self.stats["totalWordcount"])!
             Stats.totalEntries = (self.stats["totalEntries"])!
+            Stats.totalTime = (self.stats["totalTime"])!
             myBadges.checkBadge()
             self.overlay?.removeFromSuperview()
             myBadges.updated = true
@@ -230,14 +228,6 @@ class MainViewController: UIViewController {
                 ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
                 }
     }
-    
-    @IBAction func emoteBtnPressed(_ sender: UIButton) {
-        let picker = CZPickerView(headerTitle: "I'm feeling", cancelButtonTitle: "Cancel", confirmButtonTitle: "Confirm")
-        picker?.delegate = self
-        picker?.dataSource = self
-        picker?.needFooterView = false
-        picker?.show()
-    }
 
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}
 
@@ -270,10 +260,107 @@ class MainViewController: UIViewController {
     
     func checkView(_ notification: NSNotification){
         if let badge = notification.userInfo?["badge"] as? IndividualBadge{
-            print("yes")
             timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(MainViewController.newBadgeEarned),userInfo: badge, repeats: true)
         }
         
+    }
+    
+    @IBAction func reminderButtonPressed(_ sender: UIButton) {
+        showTimeDialog()
+    }
+    
+    func showTimeDialog(animated: Bool = true) {
+        let timeVC = TimeViewController(nibName: "TimeViewController", bundle: nil)
+        // Create the dialog
+        let popup = PopupDialog(viewController: timeVC, buttonAlignment: .horizontal, transitionStyle: .bounceDown, gestureDismissal: true)
+        
+        let buttonOne = DefaultButton(title: "Set Time", height: 60) {
+            self.dateString = timeVC.selectedDate
+            let trigger = self.setReminderTimer()
+            self.didNotify(trigger: trigger)
+            
+        }
+        
+        popup.addButtons([buttonOne])
+        
+        present(popup, animated: animated, completion: nil)
+    }
+    
+    func setReminderTimer() -> UNNotificationTrigger{
+        
+        reminderButton.setTitle(dateString, for: .normal)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        let date = dateFormatter.date(from: dateString)
+        let triggerDaily = Calendar.current.dateComponents([.hour,.minute], from: date!)
+        
+        return UNCalendarNotificationTrigger(dateMatching: triggerDaily, repeats: true)
+    }
+    
+    func didNotify(trigger:UNNotificationTrigger){
+        let content = UNMutableNotificationContent()
+        content.title = "Reminder"
+        content.subtitle = dateString
+        content.body = "Make sure to write today!"
+        content.sound = UNNotificationSound.default()
+        
+        let identifier = "Reminder"
+        
+        let request = UNNotificationRequest(identifier: identifier,
+                                            content: content, trigger: trigger)
+        
+        center.add(request, withCompletionHandler: { (error) in
+            if error != nil {
+                print("Could not request")
+            }
+        })
+    }
+    
+    func checkSwitch(){
+        if isReminder{
+            reminderButton.isHidden = false
+            reminderButton.isUserInteractionEnabled = true
+        }else{
+            center.removeAllPendingNotificationRequests()
+            reminderButton.isHidden = true
+            reminderButton.isUserInteractionEnabled = false
+        }
+    }
+    
+    @IBAction func switchDidChange(_ sender: UISwitch) {
+        isReminder = !isReminder
+        checkSwitch()
+    }
+    
+    func checkForReminder(){
+        center.getPendingNotificationRequests(completionHandler: { requests in
+            for request in requests {
+                self.isReminder = true
+                self.reminderSwitch.isOn = true
+                self.checkSwitch()
+                self.reminderButton.setTitle(request.content.subtitle, for: .normal)
+                self.center.add(request, withCompletionHandler: { (error) in
+                    if error != nil {
+                        print("Could not request")
+                    }
+                })
+            }
+            self.checkSwitch()
+        })
+        
+    }
+    
+    func setTimeUI(){
+//        reminderButton.layer.borderColor = UIColor.init(hex: 0x333333).cgColor
+//        reminderButton.layer.borderWidth = 1
+//        reminderButton.layer.cornerRadius = 5
+        reminderButton.setTitle("Set Reminder", for: .normal)
+    }
+    
+    @IBAction func reminderSwitchPressed(_ sender: UISwitch) {
+        isReminder = !isReminder
+        checkSwitch()
     }
     
 }
