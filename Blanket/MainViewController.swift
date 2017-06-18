@@ -189,7 +189,9 @@ class MainViewController: UIViewController {
         })
         ref?.child("users").child(uid).child("LastEntry").observe(FIRDataEventType.value, with: {
             (snapshot) in
-            if snapshot.value != nil{
+            if snapshot.value is NSNull{
+                return
+            }else{
                 LastAccess.entry = snapshot.value as! String
             }
         })

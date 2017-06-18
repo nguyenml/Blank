@@ -14,7 +14,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     var ref:FIRDatabaseReference?
     var entryRef:FIRDatabaseReference?
 
-    @IBOutlet weak var markButton: UIButton!
+  //  @IBOutlet weak var markButton: UIButton!
     @IBOutlet weak var addMin: UIButton!
     @IBOutlet var backButton: UIButton!
     @IBOutlet var textField: UITextView!
@@ -159,6 +159,12 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     func getMostRecent(){
+        print(LastAccess.entry)
+        if LastAccess.entry == ""{
+            setupInput(bool: false)
+            return
+        }
+        
         ref?.child("Entry").child(LastAccess.entry).observeSingleEvent(of: .value, with: { snapshot in
             guard let entrySnap = snapshot.value as? [String: String] else { return }
             let entry = Packet.init(date: entrySnap[Constants.Entry.date]!,
