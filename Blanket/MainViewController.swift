@@ -86,10 +86,6 @@ class MainViewController: UIViewController {
         }
         
     }
-    //--------------------------------------------------------
-    //FOR TESTING//
-    //------------------------
-    
     
     //FOR IPHONE TESTING-------------
     //----------------------------------
@@ -222,13 +218,13 @@ class MainViewController: UIViewController {
     }
     
     func resetStreak(){
-                let currentCalendar     = NSCalendar.current
-                let start = currentCalendar.ordinality(of: .day, in: .era, for: LastAccess.date as Any as! Date)
-                let end = currentCalendar.ordinality(of: .day, in: .era, for: NSDate() as Date)
-                let daysSinceWriting = end! - start!
-                if daysSinceWriting > 1{
+            let currentCalendar     = NSCalendar.current
+            let now = LastAccess.date as Any as! Date
+            let nextMidnight = LastAccess.date.tomorrow.endOfDay as Date
+            let diff = currentCalendar.dateComponents([.hour, .minute, .second], from: now, to: nextMidnight)
+            if (diff.hour < 1 || diff.minute < 1 || diff.second < 1){
                 ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
-                }
+            }
     }
 
     @IBAction func unwindToMenu(segue: UIStoryboardSegue) {}

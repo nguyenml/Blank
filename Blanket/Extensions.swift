@@ -162,6 +162,13 @@ extension Date {
         return dateFormatter.string(from: self).capitalized
         // or use capitalized(with: locale) if you want
     }
+    var tomorrow: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: self)!
+    }
+    
+    var endOfDay: Date {
+        return Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: self)!
+    }
 }
 
 
