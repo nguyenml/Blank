@@ -210,6 +210,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                                                       "avgWordcount": 0,
                                                       "totalWordcount": 0,
                                                       "totalEntries": 0,
+                                                      "totalTime":0,
                                                       ]
                     let badges: [String:Bool] = [:]
                     let lastAccess:String = "Apr 1, 2017 11:00 AM"

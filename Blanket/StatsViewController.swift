@@ -54,14 +54,14 @@ class StatsViewController: UIViewController{
     
     func setupUI(){
         
-        clock.image = clock.image!.withRenderingMode(.alwaysTemplate)
-        clock.tintColor = UIColor.white
-        
-        calender.image = calender.image!.withRenderingMode(.alwaysTemplate)
-        calender.tintColor = UIColor.white
-        
-        pencil.image = pencil.image!.withRenderingMode(.alwaysTemplate)
-        pencil.tintColor = UIColor.white
+//        clock.image = clock.image!.withRenderingMode(.alwaysTemplate)
+//        clock.tintColor = UIColor.white
+//        
+//        calender.image = calender.image!.withRenderingMode(.alwaysTemplate)
+//        calender.tintColor = UIColor.white
+//        
+//        pencil.image = pencil.image!.withRenderingMode(.alwaysTemplate)
+//        pencil.tintColor = UIColor.white
     }
     
     override func viewDidAppear(_ animated: Bool) {

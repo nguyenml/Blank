@@ -243,15 +243,11 @@ class MainViewController: UIViewController {
         
         let popup = PopupDialog(title: title, message: message, image: image)
         
-        let buttonOne = CancelButton(title: "CANCEL") {
+        let buttonOne = CancelButton(title: "DONE") {
             print("You canceled the car dialog.")
         }
 
-        let buttonThree = DefaultButton(title: "BUY CAR", height: 60) {
-            print("Ah, maybe next time :)")
-        }
-
-        popup.addButtons([buttonOne, buttonThree])
+        popup.addButtons([buttonOne])
         
         present(popup, animated: true, completion: nil)
         timer.invalidate()

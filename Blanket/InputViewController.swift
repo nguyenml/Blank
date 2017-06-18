@@ -159,7 +159,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     
     func getMostRecent(){
-        print(LastAccess.entry)
         if LastAccess.entry == ""{
             setupInput(bool: false)
             return
@@ -306,20 +305,20 @@ class InputViewController: UIViewController, UITextViewDelegate {
         mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!
 
-        if markKey != nil{
-            if mot{
-                mdata[Constants.Entry.topic] = name
-                ref?.child("Topics").child(markKey).child("entries").updateChildValues([key:key])
-            }else{
-                mdata[Constants.Entry.mark] = name
-                ref?.child("Marks").child(markKey).child("entries").updateChildValues([key:key])
-                ref?.child("Marks").child(markKey).child("text").setValue(textField.text)
-                mdata[Constants.Entry.textStart] = concatString(str: currentString)
-            }
-        }
-        else{
-            mdata[Constants.Entry.textStart] = textField.text
-        }
+//        if markKey != nil{
+//            if mot{
+//                mdata[Constants.Entry.topic] = name
+//                ref?.child("Topics").child(markKey).child("entries").updateChildValues([key:key])
+//            }else{
+//                mdata[Constants.Entry.mark] = name
+//                ref?.child("Marks").child(markKey).child("entries").updateChildValues([key:key])
+//                ref?.child("Marks").child(markKey).child("text").setValue(textField.text)
+//                mdata[Constants.Entry.textStart] = concatString(str: currentString)
+//            }
+//        }
+//        else{
+//            //mdata[Constants.Entry.textStart] = textField.text
+//        }
         entryRef?.setValue(mdata)
         updateLastAccess(date: dateToString(), key: key)
     }
@@ -340,7 +339,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
             smallUpdate()
         }
         else{
-            print("yuh")
             updateStats()
         }
     }
