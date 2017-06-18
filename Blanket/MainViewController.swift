@@ -222,7 +222,7 @@ class MainViewController: UIViewController {
             let now = LastAccess.date as Any as! Date
             let nextMidnight = LastAccess.date.tomorrow.endOfDay as Date
             let diff = currentCalendar.dateComponents([.hour, .minute, .second], from: now, to: nextMidnight)
-            if (diff.hour < 1 || diff.minute < 1 || diff.second < 1){
+            if (diff.hour! < 1 || diff.minute! < 1 || diff.second! < 1){
                 ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
             }
     }
