@@ -1,6 +1,0 @@
-framework module Pods_Blanket {
-  umbrella header "Pods-Blanket-umbrella.h"
-
-  export *
-  module * { export * }
-}
