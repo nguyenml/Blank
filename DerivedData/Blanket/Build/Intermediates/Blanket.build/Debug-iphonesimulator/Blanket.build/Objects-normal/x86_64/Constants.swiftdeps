@@ -1,0 +1,508 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Constants"
+- "imFeeling"
+- "marks"
+- "topics"
+- "didWriteToday"
+- "Stats"
+- "LastAccess"
+- "Goals"
+- "Mark"
+- "Topic"
+- "IndividualBadge"
+- "Packet"
+- "mySpecialNotificationKey"
+provides-nominal:
+- "V7Blanket9Constants"
+- "VV7Blanket9Constants16NotificationKeys"
+- "VV7Blanket9Constants5Entry"
+- "VV7Blanket9Constants4Goal"
+- "VV7Blanket9Constants4Mark"
+- "VV7Blanket9Constants5Topic"
+- "VV7Blanket9Constants9StartDate"
+- "VV7Blanket9Constants8Emotions"
+- "VV7Blanket9Constants15backgroundColor"
+- "V7Blanket5Stats"
+- "V7Blanket10LastAccess"
+- "V7Blanket5Goals"
+- "C7Blanket4Mark"
+- "C7Blanket5Topic"
+- "C7Blanket15IndividualBadge"
+- "C7Blanket6Packet"
+provides-member:
+- ["V7Blanket9Constants", ""]
+- ["VV7Blanket9Constants16NotificationKeys", ""]
+- ["VV7Blanket9Constants5Entry", ""]
+- ["VV7Blanket9Constants4Goal", ""]
+- ["VV7Blanket9Constants4Mark", ""]
+- ["VV7Blanket9Constants5Topic", ""]
+- ["VV7Blanket9Constants9StartDate", ""]
+- ["VV7Blanket9Constants8Emotions", ""]
+- ["VV7Blanket9Constants15backgroundColor", ""]
+- ["V7Blanket5Stats", ""]
+- ["V7Blanket10LastAccess", ""]
+- ["V7Blanket5Goals", ""]
+- ["C7Blanket4Mark", ""]
+- ["C7Blanket5Topic", ""]
+- ["C7Blanket15IndividualBadge", ""]
+- ["C7Blanket6Packet", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!"
+- "AssignmentPrecedence"
+- "Bool"
+- "BooleanLiteralType"
+- "CastingPrecedence"
+- "Constants"
+- "Date"
+- "Double"
+- "Goals"
+- "IndividualBadge"
+- "LastAccess"
+- "Mark"
+- "NSDate"
+- "Packet"
+- "Stats"
+- "String"
+- "StringLiteralType"
+- "Topic"
+- "UIColor"
+- "didWriteToday"
+- "imFeeling"
+- "marks"
+- "mySpecialNotificationKey"
+- "topics"
+depends-member:
+- !private ["Ps16AbsoluteValuable", "init"]
+- !private ["Ps9AnyObject", "Double"]
+- !private ["Ps9AnyObject", "date"]
+- !private ["Ps9AnyObject", "earned"]
+- !private ["Ps9AnyObject", "emotion"]
+- ["Ps9AnyObject", "flatWhite"]
+- ["Ps9AnyObject", "flatWhiteDark"]
+- ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "isEmpty"]
+- !private ["Ps9AnyObject", "key"]
+- !private ["Ps9AnyObject", "loadedString"]
+- !private ["Ps9AnyObject", "mark"]
+- !private ["Ps9AnyObject", "message"]
+- !private ["Ps9AnyObject", "name"]
+- !private ["Ps9AnyObject", "order"]
+- !private ["Ps9AnyObject", "text"]
+- !private ["Ps9AnyObject", "textStart"]
+- !private ["Ps9AnyObject", "timestamp"]
+- !private ["Ps9AnyObject", "topic"]
+- !private ["Ps9AnyObject", "totalTime"]
+- !private ["Ps9AnyObject", "uid"]
+- !private ["Ps9AnyObject", "wordCount"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps19BinaryFloatingPoint", "init"]
+- ["Ps7CVarArg", "flatWhite"]
+- ["Ps7CVarArg", "flatWhiteDark"]
+- ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "isEmpty"]
+- ["Ps10Comparable", "init"]
+- !private ["Ps10Comparable", "isEmpty"]
+- ["V7Blanket9Constants", "Emotions"]
+- ["V7Blanket9Constants", "Entry"]
+- ["V7Blanket9Constants", "Goal"]
+- ["V7Blanket9Constants", "Mark"]
+- ["V7Blanket9Constants", "NotificationKeys"]
+- ["V7Blanket9Constants", "StartDate"]
+- ["V7Blanket9Constants", "Topic"]
+- ["V7Blanket9Constants", "UIColor"]
+- ["V7Blanket9Constants", "backgroundColor"]
+- ["V7Blanket9Constants", "init"]
+- ["Ps28CustomDebugStringConvertible", "flatWhite"]
+- ["Ps28CustomDebugStringConvertible", "flatWhiteDark"]
+- ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isEmpty"]
+- ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "isEmpty"]
+- ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "isEmpty"]
+- ["Ps23CustomStringConvertible", "flatWhite"]
+- ["Ps23CustomStringConvertible", "flatWhiteDark"]
+- ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "isEmpty"]
+- !private ["Sd", "init"]
+- ["VV7Blanket9Constants8Emotions", "angry"]
+- ["VV7Blanket9Constants8Emotions", "content"]
+- ["VV7Blanket9Constants8Emotions", "excited"]
+- ["VV7Blanket9Constants8Emotions", "init"]
+- ["VV7Blanket9Constants8Emotions", "sad"]
+- ["VV7Blanket9Constants5Entry", "date"]
+- ["VV7Blanket9Constants5Entry", "emotion"]
+- ["VV7Blanket9Constants5Entry", "init"]
+- ["VV7Blanket9Constants5Entry", "mark"]
+- ["VV7Blanket9Constants5Entry", "text"]
+- ["VV7Blanket9Constants5Entry", "textStart"]
+- ["VV7Blanket9Constants5Entry", "timestamp"]
+- ["VV7Blanket9Constants5Entry", "topic"]
+- ["VV7Blanket9Constants5Entry", "totalTime"]
+- ["VV7Blanket9Constants5Entry", "uid"]
+- ["VV7Blanket9Constants5Entry", "wordCount"]
+- ["Ps9Equatable", "flatWhite"]
+- ["Ps9Equatable", "flatWhiteDark"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isEmpty"]
+- ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps43ExpressibleByExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- ["Ps26ExpressibleByStringLiteral", "init"]
+- !private ["Ps26ExpressibleByStringLiteral", "isEmpty"]
+- ["Ps33ExpressibleByUnicodeScalarLiteral", "init"]
+- !private ["Ps33ExpressibleByUnicodeScalarLiteral", "isEmpty"]
+- !private ["Ps13FloatingPoint", "init"]
+- ["VV7Blanket9Constants4Goal", "currentGoal"]
+- ["VV7Blanket9Constants4Goal", "endGoal"]
+- ["VV7Blanket9Constants4Goal", "inProgress"]
+- ["VV7Blanket9Constants4Goal", "init"]
+- ["VV7Blanket9Constants4Goal", "uid"]
+- ["V7Blanket5Goals", "current"]
+- ["V7Blanket5Goals", "endGoal"]
+- ["V7Blanket5Goals", "goalId"]
+- ["V7Blanket5Goals", "hasGoal"]
+- ["V7Blanket5Goals", "init"]
+- ["Ps8Hashable", "flatWhite"]
+- ["Ps8Hashable", "flatWhiteDark"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "isEmpty"]
+- ["C7Blanket15IndividualBadge", "Bool"]
+- ["C7Blanket15IndividualBadge", "String"]
+- ["C7Blanket15IndividualBadge", "deinit"]
+- ["C7Blanket15IndividualBadge", "earned"]
+- ["C7Blanket15IndividualBadge", "init"]
+- ["C7Blanket15IndividualBadge", "message"]
+- ["C7Blanket15IndividualBadge", "name"]
+- ["V7Blanket10LastAccess", "Date"]
+- ["V7Blanket10LastAccess", "NSDate"]
+- ["V7Blanket10LastAccess", "String"]
+- ["V7Blanket10LastAccess", "date"]
+- ["V7Blanket10LastAccess", "entry"]
+- ["V7Blanket10LastAccess", "init"]
+- ["Ps25LosslessStringConvertible", "init"]
+- !private ["Ps25LosslessStringConvertible", "isEmpty"]
+- ["C7Blanket4Mark", "String"]
+- ["C7Blanket4Mark", "deinit"]
+- ["C7Blanket4Mark", "entries"]
+- ["C7Blanket4Mark", "getString"]
+- ["C7Blanket4Mark", "init"]
+- ["C7Blanket4Mark", "key"]
+- ["C7Blanket4Mark", "loadedString"]
+- ["C7Blanket4Mark", "name"]
+- ["C7Blanket4Mark", "updateString"]
+- ["VV7Blanket9Constants4Mark", "init"]
+- ["VV7Blanket9Constants4Mark", "marks"]
+- ["VV7Blanket9Constants4Mark", "text"]
+- ["VV7Blanket9Constants4Mark", "uid"]
+- ["Ps10MirrorPath", "init"]
+- !private ["Ps10MirrorPath", "isEmpty"]
+- ["PSo8NSCoding", "flatWhite"]
+- ["PSo8NSCoding", "flatWhiteDark"]
+- ["PSo8NSCoding", "init"]
+- !private ["PSo8NSCoding", "isEmpty"]
+- ["PSo9NSCopying", "flatWhite"]
+- ["PSo9NSCopying", "flatWhiteDark"]
+- ["PSo9NSCopying", "init"]
+- !private ["PSo9NSCopying", "isEmpty"]
+- ["CSo6NSDate", "init"]
+- ["PSo16NSMutableCopying", "init"]
+- !private ["PSo16NSMutableCopying", "isEmpty"]
+- ["CSo8NSObject", "flatWhite"]
+- ["CSo8NSObject", "flatWhiteDark"]
+- ["CSo8NSObject", "init"]
+- !private ["CSo8NSObject", "isEmpty"]
+- ["PSo16NSObjectProtocol", "flatWhite"]
+- ["PSo16NSObjectProtocol", "flatWhiteDark"]
+- ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "isEmpty"]
+- ["PSo14NSSecureCoding", "flatWhite"]
+- ["PSo14NSSecureCoding", "flatWhiteDark"]
+- ["PSo14NSSecureCoding", "init"]
+- !private ["PSo14NSSecureCoding", "isEmpty"]
+- ["CSo8NSString", "init"]
+- !private ["CSo8NSString", "isEmpty"]
+- ["VV7Blanket9Constants16NotificationKeys", "SignedIn"]
+- ["VV7Blanket9Constants16NotificationKeys", "init"]
+- ["C7Blanket6Packet", "Bool"]
+- ["C7Blanket6Packet", "Double"]
+- ["C7Blanket6Packet", "String"]
+- ["C7Blanket6Packet", "date"]
+- ["C7Blanket6Packet", "deinit"]
+- ["C7Blanket6Packet", "emotion"]
+- ["C7Blanket6Packet", "hasMark"]
+- ["C7Blanket6Packet", "hasTopic"]
+- ["C7Blanket6Packet", "init"]
+- ["C7Blanket6Packet", "key"]
+- ["C7Blanket6Packet", "mark"]
+- ["C7Blanket6Packet", "order"]
+- ["C7Blanket6Packet", "setOrder"]
+- ["C7Blanket6Packet", "setText"]
+- ["C7Blanket6Packet", "setWC"]
+- ["C7Blanket6Packet", "text"]
+- ["C7Blanket6Packet", "textStart"]
+- ["C7Blanket6Packet", "timestamp"]
+- ["C7Blanket6Packet", "topic"]
+- ["C7Blanket6Packet", "totalTime"]
+- ["C7Blanket6Packet", "uid"]
+- ["C7Blanket6Packet", "wordCount"]
+- !private ["Ps12SignedNumber", "init"]
+- ["VV7Blanket9Constants9StartDate", "date"]
+- ["VV7Blanket9Constants9StartDate", "init"]
+- ["V7Blanket5Stats", "avgWordcount"]
+- ["V7Blanket5Stats", "currentStreak"]
+- ["V7Blanket5Stats", "daysActive"]
+- ["V7Blanket5Stats", "init"]
+- ["V7Blanket5Stats", "longestStreak"]
+- ["V7Blanket5Stats", "totalEntries"]
+- ["V7Blanket5Stats", "totalTime"]
+- ["V7Blanket5Stats", "totalWordcount"]
+- !private ["Ps10Strideable", "init"]
+- ["SS", "init"]
+- !private ["SS", "isEmpty"]
+- ["Ps16TextOutputStream", "init"]
+- !private ["Ps16TextOutputStream", "isEmpty"]
+- ["Ps20TextOutputStreamable", "init"]
+- !private ["Ps20TextOutputStreamable", "isEmpty"]
+- ["C7Blanket5Topic", "String"]
+- ["C7Blanket5Topic", "deinit"]
+- ["C7Blanket5Topic", "entries"]
+- ["C7Blanket5Topic", "init"]
+- ["C7Blanket5Topic", "key"]
+- ["C7Blanket5Topic", "name"]
+- ["VV7Blanket9Constants5Topic", "init"]
+- ["VV7Blanket9Constants5Topic", "topics"]
+- ["VV7Blanket9Constants5Topic", "uid"]
+- ["CSo7UIColor", "flatWhite"]
+- ["CSo7UIColor", "flatWhiteDark"]
+- !private ["Ps15_CVarArgAligned", "init"]
+- !private ["Ps22_CVarArgPassedAsDouble", "init"]
+- ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "init"]
+- !private ["Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral", "isEmpty"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- ["Ps34_ExpressibleByBuiltinStringLiteral", "init"]
+- !private ["Ps34_ExpressibleByBuiltinStringLiteral", "isEmpty"]
+- ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "init"]
+- !private ["Ps39_ExpressibleByBuiltinUTF16StringLiteral", "isEmpty"]
+- ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "init"]
+- !private ["Ps41_ExpressibleByBuiltinUnicodeScalarLiteral", "isEmpty"]
+- ["Ps26_ExpressibleByColorLiteral", "flatWhite"]
+- ["Ps26_ExpressibleByColorLiteral", "flatWhiteDark"]
+- ["Ps33_ExpressibleByStringInterpolation", "init"]
+- !private ["Ps33_ExpressibleByStringInterpolation", "isEmpty"]
+- ["Ps35_HasCustomAnyHashableRepresentation", "init"]
+- !private ["Ps35_HasCustomAnyHashableRepresentation", "isEmpty"]
+- ["Ps9_Hashable", "flatWhite"]
+- ["Ps9_Hashable", "flatWhiteDark"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "isEmpty"]
+- ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "isEmpty"]
+- !private ["Ps11_Strideable", "init"]
+- ["VV7Blanket9Constants15backgroundColor", "UIColor"]
+- ["VV7Blanket9Constants15backgroundColor", "bc"]
+- ["VV7Blanket9Constants15backgroundColor", "bcd"]
+- ["VV7Blanket9Constants15backgroundColor", "init"]
+depends-nominal:
+- !private "Ps16AbsoluteValuable"
+- "Ps9AnyObject"
+- !private "Ps19BinaryFloatingPoint"
+- "Ps7CVarArg"
+- "Ps10Comparable"
+- "V7Blanket9Constants"
+- "Ps28CustomDebugStringConvertible"
+- "Ps29CustomPlaygroundQuickLookable"
+- "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- !private "Sd"
+- "VV7Blanket9Constants8Emotions"
+- "VV7Blanket9Constants5Entry"
+- "Ps9Equatable"
+- "Ps43ExpressibleByExtendedGraphemeClusterLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps26ExpressibleByStringLiteral"
+- "Ps33ExpressibleByUnicodeScalarLiteral"
+- !private "Ps13FloatingPoint"
+- "VV7Blanket9Constants4Goal"
+- "V7Blanket5Goals"
+- "Ps8Hashable"
+- "C7Blanket15IndividualBadge"
+- "V7Blanket10LastAccess"
+- "Ps25LosslessStringConvertible"
+- "C7Blanket4Mark"
+- "VV7Blanket9Constants4Mark"
+- "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "PSo9NSCopying"
+- "CSo6NSDate"
+- "PSo16NSMutableCopying"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "PSo14NSSecureCoding"
+- "CSo8NSString"
+- "VV7Blanket9Constants16NotificationKeys"
+- "C7Blanket6Packet"
+- !private "Ps12SignedNumber"
+- "VV7Blanket9Constants9StartDate"
+- "V7Blanket5Stats"
+- !private "Ps10Strideable"
+- "SS"
+- "Ps16TextOutputStream"
+- "Ps20TextOutputStreamable"
+- "C7Blanket5Topic"
+- "VV7Blanket9Constants5Topic"
+- "CSo7UIColor"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps22_CVarArgPassedAsDouble"
+- "Ps51_ExpressibleByBuiltinExtendedGraphemeClusterLiteral"
+- !private "Ps33_ExpressibleByBuiltinFloatLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps34_ExpressibleByBuiltinStringLiteral"
+- "Ps39_ExpressibleByBuiltinUTF16StringLiteral"
+- "Ps41_ExpressibleByBuiltinUnicodeScalarLiteral"
+- "Ps26_ExpressibleByColorLiteral"
+- "Ps33_ExpressibleByStringInterpolation"
+- "Ps35_HasCustomAnyHashableRepresentation"
+- "Ps9_Hashable"
+- "Ps21_ObjectiveCBridgeable"
+- !private "Ps11_Strideable"
+- "VV7Blanket9Constants15backgroundColor"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Users/marvin/Documents/Blanket/Pods/Google/Headers/module.modulemap"
+- "/Users/marvin/Documents/Blanket/Pods/Firebase/Core/Sources/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIROptions.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRLoggerLevel.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRConfiguration.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRApp.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Headers/FirebaseCore.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseCore/Frameworks/FirebaseCore.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIROptions.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRConfiguration.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRApp.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalyticsConfiguration.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuthVersion.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUserInfo.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRUser.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthCredential.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuthErrors.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRAuth.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRTwitterAuthProvider.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGoogleAuthProvider.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRGitHubAuthProvider.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIRFacebookAuthProvider.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FIREmailPasswordAuthProvider.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Headers/FirebaseAuth.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseAuth/Frameworks/FirebaseAuth.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRServerValue.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRTransactionResult.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRMutableData.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataSnapshot.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDataEventType.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseQuery.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabaseReference.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FIRDatabase.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Headers/FirebaseDatabase.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseDatabase/Frameworks/FirebaseDatabase.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseRemoteConfig/Frameworks/FirebaseRemoteConfig.framework/Headers/FIRRemoteConfig.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseRemoteConfig/Frameworks/FirebaseRemoteConfig.framework/Headers/FirebaseRemoteConfig.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseRemoteConfig/Frameworks/FirebaseRemoteConfig.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageTaskSnapshot.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageUploadTask.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageReference.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageMetadata.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageTask.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageObservableTask.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageDownloadTask.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorageConstants.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FIRStorage.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Headers/FirebaseStorage.h"
+- "/Users/marvin/Documents/Blanket/Pods/FirebaseStorage/Frameworks/FirebaseStorage.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/Pods/Firebase/Core/Sources/Firebase.h"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UserNotifications.apinotesc"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/PopupDialog/PopupDialog.framework/Modules/PopupDialog.swiftmodule/x86_64.swiftmodule"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/PopupDialog/PopupDialog.framework/Headers/PopupDialog-Swift.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/PopupDialog/PopupDialog.framework/Headers/FXBlurView.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/PopupDialog/PopupDialog.framework/Headers/PopupDialog-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/PopupDialog/PopupDialog.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/SwipeCellKit/SwipeCellKit.framework/Modules/SwipeCellKit.swiftmodule/x86_64.swiftmodule"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/SwipeCellKit/SwipeCellKit.framework/Headers/SwipeCellKit-Swift.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/SwipeCellKit/SwipeCellKit.framework/Headers/SwipeCellKit-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/SwipeCellKit/SwipeCellKit.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/CZPicker/CZPicker.framework/Headers/CZPickerView.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/CZPicker/CZPicker.framework/Headers/CZPicker.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/CZPicker/CZPicker.framework/Headers/CZPicker-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/CZPicker/CZPicker.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Modules/ChameleonFramework.swiftmodule/x86_64.swiftmodule"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/ChameleonFramework-Swift.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/UIAppearance+Swift.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/UIView+ChameleonPrivate.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/UIImage+ChameleonPrivate.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/UIColor+ChameleonPrivate.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/UILabel+Chameleon.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/UIButton+Chameleon.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/UIViewController+Chameleon.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/UINavigationController+Chameleon.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/NSArray+Chameleon.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/UIColor+Chameleon.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/ChameleonMacros.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/ChameleonEnums.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/ChameleonConstants.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/Chameleon_.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/Chameleon.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Headers/ChameleonFramework-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/ChameleonFramework/ChameleonFramework.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/MBCircularProgressBar/MBCircularProgressBar.framework/Headers/MBCircularProgressBarView.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/MBCircularProgressBar/MBCircularProgressBar.framework/Headers/MBCircularProgressBarLayer.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/MBCircularProgressBar/MBCircularProgressBar.framework/Headers/MBCircularProgressBar-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/MBCircularProgressBar/MBCircularProgressBar.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDSignInButton.h"
+- "/Users/marvin/Documents/Blanket/Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDSignIn.h"
+- "/Users/marvin/Documents/Blanket/Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDProfileData.h"
+- "/Users/marvin/Documents/Blanket/Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDGoogleUser.h"
+- "/Users/marvin/Documents/Blanket/Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GIDAuthentication.h"
+- "/Users/marvin/Documents/Blanket/Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Headers/GoogleSignIn.h"
+- "/Users/marvin/Documents/Blanket/Pods/GoogleSignIn/Frameworks/GoogleSignIn.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/TextFieldEffects/TextFieldEffects.framework/Modules/TextFieldEffects.swiftmodule/x86_64.swiftmodule"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/TextFieldEffects/TextFieldEffects.framework/Headers/TextFieldEffects-Swift.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/TextFieldEffects/TextFieldEffects.framework/Headers/TextFieldEffects-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/TextFieldEffects/TextFieldEffects.framework/Modules/module.modulemap"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/DGRunkeeperSwitch/DGRunkeeperSwitch.framework/Modules/DGRunkeeperSwitch.swiftmodule/x86_64.swiftmodule"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/DGRunkeeperSwitch/DGRunkeeperSwitch.framework/Headers/DGRunkeeperSwitch-Swift.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/DGRunkeeperSwitch/DGRunkeeperSwitch.framework/Headers/DGRunkeeperSwitch-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Products/Debug-iphonesimulator/DGRunkeeperSwitch/DGRunkeeperSwitch.framework/Modules/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreData.apinotesc"
+interface-hash: "1fa76b71de62583c0da239a88bf638ba"

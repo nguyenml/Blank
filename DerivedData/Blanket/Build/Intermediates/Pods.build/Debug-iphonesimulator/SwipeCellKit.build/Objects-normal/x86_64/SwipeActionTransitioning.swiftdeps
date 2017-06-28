@@ -1,0 +1,212 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SwipeActionTransitioning"
+- "SwipeActionTransitioningContext"
+- "ScaleTransition"
+provides-nominal:
+- "P12SwipeCellKit24SwipeActionTransitioning"
+- "V12SwipeCellKit31SwipeActionTransitioningContext"
+- "V12SwipeCellKit15ScaleTransition"
+provides-member:
+- ["P12SwipeCellKit24SwipeActionTransitioning", ""]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", ""]
+- ["V12SwipeCellKit15ScaleTransition", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "&&"
+- !private "<"
+- !private "=="
+- !private ">="
+- "AssignmentPrecedence"
+- "CGFloat"
+- "Double"
+- "ScaleTransition"
+- "String"
+- "SwipeActionTransitioning"
+- "SwipeActionTransitioningContext"
+- "UIButton"
+- "UIColor"
+- "UIView"
+- "Void"
+depends-member:
+- !private ["Ps9AnyObject", "animate"]
+- !private ["Ps9AnyObject", "backgroundColor"]
+- !private ["Ps9AnyObject", "transform"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "animate"]
+- !private ["PSo15CALayerDelegate", "backgroundColor"]
+- !private ["PSo15CALayerDelegate", "transform"]
+- !private ["VSC17CGAffineTransform", "identity"]
+- !private ["VSC17CGAffineTransform", "init"]
+- !private ["Ps7CVarArg", "animate"]
+- !private ["Ps7CVarArg", "backgroundColor"]
+- !private ["Ps7CVarArg", "transform"]
+- !private ["Ps28CustomDebugStringConvertible", "animate"]
+- !private ["Ps28CustomDebugStringConvertible", "backgroundColor"]
+- !private ["Ps28CustomDebugStringConvertible", "transform"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "animate"]
+- !private ["Ps23CustomStringConvertible", "backgroundColor"]
+- !private ["Ps23CustomStringConvertible", "transform"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "animate"]
+- !private ["Ps9Equatable", "backgroundColor"]
+- !private ["Ps9Equatable", "identity"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "transform"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "animate"]
+- !private ["Ps8Hashable", "backgroundColor"]
+- !private ["Ps8Hashable", "transform"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSo8NSCoding", "animate"]
+- !private ["PSo8NSCoding", "backgroundColor"]
+- !private ["PSo8NSCoding", "transform"]
+- !private ["CSo8NSObject", "animate"]
+- !private ["CSo8NSObject", "backgroundColor"]
+- !private ["CSo8NSObject", "transform"]
+- !private ["PSo16NSObjectProtocol", "animate"]
+- !private ["PSo16NSObjectProtocol", "backgroundColor"]
+- !private ["PSo16NSObjectProtocol", "transform"]
+- ["V12SwipeCellKit15ScaleTransition", "CGFloat"]
+- ["V12SwipeCellKit15ScaleTransition", "Double"]
+- ["V12SwipeCellKit15ScaleTransition", "ScaleTransition"]
+- ["V12SwipeCellKit15ScaleTransition", "SwipeActionTransitioningContext"]
+- !private ["V12SwipeCellKit15ScaleTransition", "UIView"]
+- ["V12SwipeCellKit15ScaleTransition", "Void"]
+- ["V12SwipeCellKit15ScaleTransition", "default"]
+- ["V12SwipeCellKit15ScaleTransition", "deinit"]
+- ["V12SwipeCellKit15ScaleTransition", "didTransition"]
+- ["V12SwipeCellKit15ScaleTransition", "duration"]
+- ["V12SwipeCellKit15ScaleTransition", "init"]
+- ["V12SwipeCellKit15ScaleTransition", "initialScale"]
+- ["V12SwipeCellKit15ScaleTransition", "threshold"]
+- !private ["P12SwipeCellKit24SwipeActionTransitioning", "ScaleTransition"]
+- ["P12SwipeCellKit24SwipeActionTransitioning", "SwipeActionTransitioningContext"]
+- !private ["P12SwipeCellKit24SwipeActionTransitioning", "UIView"]
+- ["P12SwipeCellKit24SwipeActionTransitioning", "Void"]
+- ["P12SwipeCellKit24SwipeActionTransitioning", "didTransition"]
+- !private ["P12SwipeCellKit24SwipeActionTransitioning", "duration"]
+- !private ["P12SwipeCellKit24SwipeActionTransitioning", "init"]
+- !private ["P12SwipeCellKit24SwipeActionTransitioning", "initialScale"]
+- !private ["P12SwipeCellKit24SwipeActionTransitioning", "threshold"]
+- ["P12SwipeCellKit24SwipeActionTransitioning", ""]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "CGFloat"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "String"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "UIButton"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "UIColor"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "UIView"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "actionIdentifier"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "button"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "init"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "newPercentVisible"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "oldPercentVisible"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "setBackgroundColor"]
+- ["V12SwipeCellKit31SwipeActionTransitioningContext", "wrapperView"]
+- !private ["PSo29UIAccessibilityIdentification", "animate"]
+- !private ["PSo29UIAccessibilityIdentification", "backgroundColor"]
+- !private ["PSo29UIAccessibilityIdentification", "transform"]
+- !private ["PSo12UIAppearance", "animate"]
+- !private ["PSo12UIAppearance", "backgroundColor"]
+- !private ["PSo12UIAppearance", "transform"]
+- !private ["PSo21UIAppearanceContainer", "animate"]
+- !private ["PSo21UIAppearanceContainer", "backgroundColor"]
+- !private ["PSo21UIAppearanceContainer", "transform"]
+- !private ["CSo8UIButton", "transform"]
+- !private ["CSo9UIControl", "transform"]
+- !private ["PSo17UICoordinateSpace", "animate"]
+- !private ["PSo17UICoordinateSpace", "backgroundColor"]
+- !private ["PSo17UICoordinateSpace", "transform"]
+- !private ["PSo13UIDynamicItem", "animate"]
+- !private ["PSo13UIDynamicItem", "backgroundColor"]
+- !private ["PSo13UIDynamicItem", "transform"]
+- !private ["PSo18UIFocusEnvironment", "animate"]
+- !private ["PSo18UIFocusEnvironment", "backgroundColor"]
+- !private ["PSo18UIFocusEnvironment", "transform"]
+- !private ["PSo11UIFocusItem", "animate"]
+- !private ["PSo11UIFocusItem", "backgroundColor"]
+- !private ["PSo11UIFocusItem", "transform"]
+- !private ["CSo11UIResponder", "animate"]
+- !private ["CSo11UIResponder", "backgroundColor"]
+- !private ["CSo11UIResponder", "transform"]
+- !private ["PSo30UIResponderStandardEditActions", "animate"]
+- !private ["PSo30UIResponderStandardEditActions", "backgroundColor"]
+- !private ["PSo30UIResponderStandardEditActions", "transform"]
+- !private ["PSo18UITraitEnvironment", "animate"]
+- !private ["PSo18UITraitEnvironment", "backgroundColor"]
+- !private ["PSo18UITraitEnvironment", "transform"]
+- !private ["CSo6UIView", "animate"]
+- !private ["CSo6UIView", "backgroundColor"]
+- !private ["CSo6UIView", "transform"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "animate"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "backgroundColor"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "transform"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "animate"]
+- !private ["Ps9_Hashable", "backgroundColor"]
+- !private ["Ps9_Hashable", "transform"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "identity"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- !private "Sb"
+- !private "PSo15CALayerDelegate"
+- !private "VSC17CGAffineTransform"
+- !private "Ps7CVarArg"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "PSo8NSCoding"
+- !private "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- "V12SwipeCellKit15ScaleTransition"
+- "P12SwipeCellKit24SwipeActionTransitioning"
+- "V12SwipeCellKit31SwipeActionTransitioningContext"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- !private "PSo21UIAppearanceContainer"
+- !private "CSo8UIButton"
+- !private "CSo9UIControl"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- !private "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Users/marvin/Documents/Blanket/Pods/Target Support Files/SwipeCellKit/SwipeCellKit-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwipeCellKit.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "1b5517eaf182c2e3eddf3a0fbcf1c21a"

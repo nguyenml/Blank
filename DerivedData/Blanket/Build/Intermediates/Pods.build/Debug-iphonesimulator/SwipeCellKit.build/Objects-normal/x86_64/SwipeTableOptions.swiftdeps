@@ -1,0 +1,183 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SwipeTableOptions"
+- "SwipeTransitionStyle"
+- "SwipeActionsOrientation"
+- "SwipeVerticalAlignment"
+- "=="
+- "=="
+provides-nominal:
+- "V12SwipeCellKit17SwipeTableOptions"
+- "O12SwipeCellKit20SwipeTransitionStyle"
+- "O12SwipeCellKit23SwipeActionsOrientation"
+- "O12SwipeCellKit22SwipeVerticalAlignment"
+provides-member:
+- ["V12SwipeCellKit17SwipeTableOptions", ""]
+- ["O12SwipeCellKit20SwipeTransitionStyle", ""]
+- ["O12SwipeCellKit23SwipeActionsOrientation", ""]
+- ["O12SwipeCellKit22SwipeVerticalAlignment", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "CGFloat"
+- "SwipeActionsOrientation"
+- "SwipeExpanding"
+- "SwipeExpansionStyle"
+- "SwipeTableOptions"
+- "SwipeTransitionStyle"
+- "SwipeVerticalAlignment"
+- "UIColor"
+- !private "~="
+depends-member:
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["Ps7CVarArg", "hashValue"]
+- !private ["Ps10Comparable", "hashValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- ["Ps9Equatable", "border"]
+- ["Ps9Equatable", "centerFirstBaseline"]
+- ["Ps9Equatable", "hashValue"]
+- ["Ps9Equatable", "init"]
+- ["Ps9Equatable", "rawValue"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- ["Ps8Hashable", "border"]
+- ["Ps8Hashable", "centerFirstBaseline"]
+- ["Ps8Hashable", "hashValue"]
+- ["Ps8Hashable", "init"]
+- ["Ps8Hashable", "rawValue"]
+- ["Ps8Hashable", ""]
+- !private ["Si", "hashValue"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- ["Ps16RawRepresentable", "_toAnyHashable"]
+- ["Ps16RawRepresentable", "hashValue"]
+- ["Ps16RawRepresentable", "init"]
+- ["Ps16RawRepresentable", "rawValue"]
+- ["Ps16RawRepresentable", ""]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["Ps10Strideable", "hashValue"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "CGFloat"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "RawValue"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "_toAnyHashable"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "deinit"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "hashValue"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "init"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "left"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "rawValue"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "right"]
+- ["O12SwipeCellKit23SwipeActionsOrientation", "scale"]
+- ["V12SwipeCellKit17SwipeTableOptions", "CGFloat"]
+- ["V12SwipeCellKit17SwipeTableOptions", "SwipeExpanding"]
+- ["V12SwipeCellKit17SwipeTableOptions", "SwipeExpansionStyle"]
+- ["V12SwipeCellKit17SwipeTableOptions", "SwipeTransitionStyle"]
+- ["V12SwipeCellKit17SwipeTableOptions", "SwipeVerticalAlignment"]
+- ["V12SwipeCellKit17SwipeTableOptions", "UIColor"]
+- ["V12SwipeCellKit17SwipeTableOptions", "backgroundColor"]
+- ["V12SwipeCellKit17SwipeTableOptions", "buttonPadding"]
+- ["V12SwipeCellKit17SwipeTableOptions", "buttonSpacing"]
+- ["V12SwipeCellKit17SwipeTableOptions", "buttonVerticalAlignment"]
+- ["V12SwipeCellKit17SwipeTableOptions", "expansionDelegate"]
+- ["V12SwipeCellKit17SwipeTableOptions", "expansionStyle"]
+- ["V12SwipeCellKit17SwipeTableOptions", "init"]
+- ["V12SwipeCellKit17SwipeTableOptions", "maximumButtonWidth"]
+- ["V12SwipeCellKit17SwipeTableOptions", "minimumButtonWidth"]
+- ["V12SwipeCellKit17SwipeTableOptions", "transitionStyle"]
+- ["O12SwipeCellKit20SwipeTransitionStyle", "=="]
+- ["O12SwipeCellKit20SwipeTransitionStyle", "_toAnyHashable"]
+- ["O12SwipeCellKit20SwipeTransitionStyle", "border"]
+- ["O12SwipeCellKit20SwipeTransitionStyle", "deinit"]
+- ["O12SwipeCellKit20SwipeTransitionStyle", "drag"]
+- ["O12SwipeCellKit20SwipeTransitionStyle", "hashValue"]
+- ["O12SwipeCellKit20SwipeTransitionStyle", "reveal"]
+- ["O12SwipeCellKit22SwipeVerticalAlignment", "=="]
+- ["O12SwipeCellKit22SwipeVerticalAlignment", "_toAnyHashable"]
+- ["O12SwipeCellKit22SwipeVerticalAlignment", "center"]
+- ["O12SwipeCellKit22SwipeVerticalAlignment", "centerFirstBaseline"]
+- ["O12SwipeCellKit22SwipeVerticalAlignment", "deinit"]
+- ["O12SwipeCellKit22SwipeVerticalAlignment", "hashValue"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- ["Ps9_Hashable", "border"]
+- ["Ps9_Hashable", "centerFirstBaseline"]
+- ["Ps9_Hashable", "hashValue"]
+- ["Ps9_Hashable", "init"]
+- ["Ps9_Hashable", "rawValue"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps11_Strideable", "hashValue"]
+depends-nominal:
+- !private "Ps17BitwiseOperations"
+- !private "Sb"
+- !private "Ps7CVarArg"
+- !private "Ps10Comparable"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps8Hashable"
+- !private "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "Ps16RawRepresentable"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- "O12SwipeCellKit23SwipeActionsOrientation"
+- "V12SwipeCellKit17SwipeTableOptions"
+- "O12SwipeCellKit20SwipeTransitionStyle"
+- "O12SwipeCellKit22SwipeVerticalAlignment"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Users/marvin/Documents/Blanket/Pods/Target Support Files/SwipeCellKit/SwipeCellKit-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwipeCellKit.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "bb353c0719717c71b58c7025de6ace05"

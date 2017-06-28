@@ -1,0 +1,14 @@
+version: "Apple Swift version 3.1 (swiftlang-802.0.51 clang-802.0.41)"
+options: "9e16eda9019faf767f091de043003a1f"
+build_time: [551997250, 4114000]
+inputs:
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/AkiraTextField.swift": [9223372036854775807, 0]
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/HoshiTextField.swift": [9223372036854775807, 0]
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/IsaoTextField.swift": [9223372036854775807, 0]
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/JiroTextField.swift": [9223372036854775807, 0]
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/KaedeTextField.swift": [9223372036854775807, 0]
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/MadokaTextField.swift": [9223372036854775807, 0]
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/MinoruTextField.swift": [9223372036854775807, 0]
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/TextFieldEffects.swift": [9223372036854775807, 0]
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/YokoTextField.swift": [9223372036854775807, 0]
+  "/Users/marvin/Documents/Blanket/Pods/TextFieldEffects/TextFieldEffects/TextFieldEffects/YoshikoTextField.swift": [9223372036854775807, 0]

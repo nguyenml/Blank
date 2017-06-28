@@ -1,0 +1,438 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["CSo11UITableView", ""]
+- ["CSo22UIPanGestureRecognizer", ""]
+- ["CSo11UITableView", "swipeCells"]
+- ["CSo11UITableView", "hideSwipeCell"]
+- ["CSo11UITableView", "setGestureEnabled"]
+- ["CSo22UIPanGestureRecognizer", "elasticTranslation"]
+provides-dynamic-lookup:
+- "elasticTranslation"
+- "hideSwipeCell"
+- "setGestureEnabled"
+- "swipeCells"
+depends-top-level:
+- !private "!="
+- !private "*"
+- !private "+"
+- !private "-"
+- !private "<"
+- !private ">"
+- !private "??"
+- !private "Array"
+- !private "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- "CGFloat"
+- "CGPoint"
+- "CGSize"
+- "CastingPrecedence"
+- "SwipeTableViewCell"
+- "TernaryPrecedence"
+- "UIPanGestureRecognizer"
+- "UITableView"
+- "UIView"
+- !private "abs"
+depends-member:
+- !private ["Ps9AnyObject", "CGPoint"]
+- !private ["Ps9AnyObject", "CGSize"]
+- !private ["Ps9AnyObject", "abs"]
+- !private ["Ps9AnyObject", "bounds"]
+- !private ["Ps9AnyObject", "gestureRecognizers"]
+- !private ["Ps9AnyObject", "hideSwipe"]
+- !private ["Ps9AnyObject", "isEnabled"]
+- !private ["Ps9AnyObject", "panGestureRecognizer"]
+- !private ["Ps9AnyObject", "swipeCells"]
+- !private ["Ps9AnyObject", "translation"]
+- !private ["Ps9AnyObject", "view"]
+- !private ["Ps9AnyObject", "visibleCells"]
+- !private ["Sa", "forEach"]
+- !private ["Ps23BidirectionalCollection", "forEach"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "bounds"]
+- !private ["PSo15CALayerDelegate", "gestureRecognizers"]
+- !private ["PSo15CALayerDelegate", "hideSwipe"]
+- !private ["PSo15CALayerDelegate", "panGestureRecognizer"]
+- !private ["PSo15CALayerDelegate", "swipeCells"]
+- !private ["PSo15CALayerDelegate", "visibleCells"]
+- !private ["VSC7CGPoint", "init"]
+- !private ["VSC7CGPoint", "x"]
+- !private ["VSC7CGPoint", "y"]
+- !private ["VSC6CGRect", "midX"]
+- !private ["VSC6CGRect", "midY"]
+- !private ["VSC6CGSize", "height"]
+- !private ["VSC6CGSize", "init"]
+- !private ["VSC6CGSize", "width"]
+- !private ["Ps7CVarArg", "CGPoint"]
+- !private ["Ps7CVarArg", "CGSize"]
+- !private ["Ps7CVarArg", "abs"]
+- !private ["Ps7CVarArg", "bounds"]
+- !private ["Ps7CVarArg", "forEach"]
+- !private ["Ps7CVarArg", "gestureRecognizers"]
+- !private ["Ps7CVarArg", "hideSwipe"]
+- !private ["Ps7CVarArg", "isEnabled"]
+- !private ["Ps7CVarArg", "panGestureRecognizer"]
+- !private ["Ps7CVarArg", "swipeCells"]
+- !private ["Ps7CVarArg", "translation"]
+- !private ["Ps7CVarArg", "view"]
+- !private ["Ps7CVarArg", "visibleCells"]
+- !private ["Ps10Collection", "forEach"]
+- !private ["Ps28CustomDebugStringConvertible", "CGPoint"]
+- !private ["Ps28CustomDebugStringConvertible", "CGSize"]
+- !private ["Ps28CustomDebugStringConvertible", "abs"]
+- !private ["Ps28CustomDebugStringConvertible", "bounds"]
+- !private ["Ps28CustomDebugStringConvertible", "forEach"]
+- !private ["Ps28CustomDebugStringConvertible", "gestureRecognizers"]
+- !private ["Ps28CustomDebugStringConvertible", "height"]
+- !private ["Ps28CustomDebugStringConvertible", "hideSwipe"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "isEnabled"]
+- !private ["Ps28CustomDebugStringConvertible", "midX"]
+- !private ["Ps28CustomDebugStringConvertible", "midY"]
+- !private ["Ps28CustomDebugStringConvertible", "panGestureRecognizer"]
+- !private ["Ps28CustomDebugStringConvertible", "swipeCells"]
+- !private ["Ps28CustomDebugStringConvertible", "translation"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- !private ["Ps28CustomDebugStringConvertible", "visibleCells"]
+- !private ["Ps28CustomDebugStringConvertible", "width"]
+- !private ["Ps28CustomDebugStringConvertible", "x"]
+- !private ["Ps28CustomDebugStringConvertible", "y"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "height"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "midX"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "midY"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "width"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "x"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "y"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "forEach"]
+- !private ["Ps17CustomReflectable", "height"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "midX"]
+- !private ["Ps17CustomReflectable", "midY"]
+- !private ["Ps17CustomReflectable", "width"]
+- !private ["Ps17CustomReflectable", "x"]
+- !private ["Ps17CustomReflectable", "y"]
+- !private ["Ps23CustomStringConvertible", "CGPoint"]
+- !private ["Ps23CustomStringConvertible", "CGSize"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "abs"]
+- !private ["Ps23CustomStringConvertible", "bounds"]
+- !private ["Ps23CustomStringConvertible", "forEach"]
+- !private ["Ps23CustomStringConvertible", "gestureRecognizers"]
+- !private ["Ps23CustomStringConvertible", "hideSwipe"]
+- !private ["Ps23CustomStringConvertible", "isEnabled"]
+- !private ["Ps23CustomStringConvertible", "panGestureRecognizer"]
+- !private ["Ps23CustomStringConvertible", "swipeCells"]
+- !private ["Ps23CustomStringConvertible", "translation"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- !private ["Ps23CustomStringConvertible", "visibleCells"]
+- !private ["Ps9Equatable", "CGPoint"]
+- !private ["Ps9Equatable", "CGSize"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "abs"]
+- !private ["Ps9Equatable", "bounds"]
+- !private ["Ps9Equatable", "gestureRecognizers"]
+- !private ["Ps9Equatable", "height"]
+- !private ["Ps9Equatable", "hideSwipe"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "isEnabled"]
+- !private ["Ps9Equatable", "midX"]
+- !private ["Ps9Equatable", "midY"]
+- !private ["Ps9Equatable", "panGestureRecognizer"]
+- !private ["Ps9Equatable", "swipeCells"]
+- !private ["Ps9Equatable", "translation"]
+- !private ["Ps9Equatable", "view"]
+- !private ["Ps9Equatable", "visibleCells"]
+- !private ["Ps9Equatable", "width"]
+- !private ["Ps9Equatable", "x"]
+- !private ["Ps9Equatable", "y"]
+- !private ["Ps25ExpressibleByArrayLiteral", "forEach"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "CGPoint"]
+- !private ["Ps8Hashable", "CGSize"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "abs"]
+- !private ["Ps8Hashable", "bounds"]
+- !private ["Ps8Hashable", "gestureRecognizers"]
+- !private ["Ps8Hashable", "hideSwipe"]
+- !private ["Ps8Hashable", "isEnabled"]
+- !private ["Ps8Hashable", "panGestureRecognizer"]
+- !private ["Ps8Hashable", "swipeCells"]
+- !private ["Ps8Hashable", "translation"]
+- !private ["Ps8Hashable", "view"]
+- !private ["Ps8Hashable", "visibleCells"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps17MutableCollection", "forEach"]
+- !private ["PSo8NSCoding", "bounds"]
+- !private ["PSo8NSCoding", "gestureRecognizers"]
+- !private ["PSo8NSCoding", "hideSwipe"]
+- !private ["PSo8NSCoding", "panGestureRecognizer"]
+- !private ["PSo8NSCoding", "swipeCells"]
+- !private ["PSo8NSCoding", "visibleCells"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "CGFloat"]
+- ["CSo8NSObject", "CGPoint"]
+- ["CSo8NSObject", "CGSize"]
+- ["CSo8NSObject", "SwipeTableViewCell"]
+- ["CSo8NSObject", "UIView"]
+- !private ["CSo8NSObject", "abs"]
+- !private ["CSo8NSObject", "bounds"]
+- ["CSo8NSObject", "elasticTranslation"]
+- !private ["CSo8NSObject", "gestureRecognizers"]
+- !private ["CSo8NSObject", "hideSwipe"]
+- ["CSo8NSObject", "hideSwipeCell"]
+- !private ["CSo8NSObject", "isEnabled"]
+- !private ["CSo8NSObject", "panGestureRecognizer"]
+- ["CSo8NSObject", "setGestureEnabled"]
+- ["CSo8NSObject", "swipeCells"]
+- !private ["CSo8NSObject", "translation"]
+- !private ["CSo8NSObject", "view"]
+- !private ["CSo8NSObject", "visibleCells"]
+- !private ["PSo16NSObjectProtocol", "CGPoint"]
+- !private ["PSo16NSObjectProtocol", "CGSize"]
+- !private ["PSo16NSObjectProtocol", "abs"]
+- !private ["PSo16NSObjectProtocol", "bounds"]
+- !private ["PSo16NSObjectProtocol", "gestureRecognizers"]
+- !private ["PSo16NSObjectProtocol", "hideSwipe"]
+- !private ["PSo16NSObjectProtocol", "isEnabled"]
+- !private ["PSo16NSObjectProtocol", "panGestureRecognizer"]
+- !private ["PSo16NSObjectProtocol", "swipeCells"]
+- !private ["PSo16NSObjectProtocol", "translation"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- !private ["PSo16NSObjectProtocol", "visibleCells"]
+- !private ["Ps22RandomAccessCollection", "forEach"]
+- !private ["Ps26RangeReplaceableCollection", "forEach"]
+- !private ["Ps8Sequence", "forEach"]
+- !private ["P12SwipeCellKit24SwipeActionsViewDelegate", "hideSwipe"]
+- !private ["C12SwipeCellKit18SwipeTableViewCell", "hideSwipe"]
+- !private ["P12SwipeCellKit9Swipeable", "hideSwipe"]
+- !private ["PSo29UIAccessibilityIdentification", "bounds"]
+- !private ["PSo29UIAccessibilityIdentification", "gestureRecognizers"]
+- !private ["PSo29UIAccessibilityIdentification", "hideSwipe"]
+- !private ["PSo29UIAccessibilityIdentification", "panGestureRecognizer"]
+- !private ["PSo29UIAccessibilityIdentification", "swipeCells"]
+- !private ["PSo29UIAccessibilityIdentification", "visibleCells"]
+- !private ["PSo12UIAppearance", "bounds"]
+- !private ["PSo12UIAppearance", "gestureRecognizers"]
+- !private ["PSo12UIAppearance", "hideSwipe"]
+- !private ["PSo12UIAppearance", "panGestureRecognizer"]
+- !private ["PSo12UIAppearance", "swipeCells"]
+- !private ["PSo12UIAppearance", "visibleCells"]
+- !private ["PSo21UIAppearanceContainer", "bounds"]
+- !private ["PSo21UIAppearanceContainer", "gestureRecognizers"]
+- !private ["PSo21UIAppearanceContainer", "hideSwipe"]
+- !private ["PSo21UIAppearanceContainer", "panGestureRecognizer"]
+- !private ["PSo21UIAppearanceContainer", "swipeCells"]
+- !private ["PSo21UIAppearanceContainer", "visibleCells"]
+- !private ["PSo17UICoordinateSpace", "bounds"]
+- !private ["PSo17UICoordinateSpace", "gestureRecognizers"]
+- !private ["PSo17UICoordinateSpace", "hideSwipe"]
+- !private ["PSo17UICoordinateSpace", "panGestureRecognizer"]
+- !private ["PSo17UICoordinateSpace", "swipeCells"]
+- !private ["PSo17UICoordinateSpace", "visibleCells"]
+- !private ["PSo13UIDynamicItem", "bounds"]
+- !private ["PSo13UIDynamicItem", "gestureRecognizers"]
+- !private ["PSo13UIDynamicItem", "hideSwipe"]
+- !private ["PSo13UIDynamicItem", "panGestureRecognizer"]
+- !private ["PSo13UIDynamicItem", "swipeCells"]
+- !private ["PSo13UIDynamicItem", "visibleCells"]
+- !private ["PSo18UIFocusEnvironment", "bounds"]
+- !private ["PSo18UIFocusEnvironment", "gestureRecognizers"]
+- !private ["PSo18UIFocusEnvironment", "hideSwipe"]
+- !private ["PSo18UIFocusEnvironment", "panGestureRecognizer"]
+- !private ["PSo18UIFocusEnvironment", "swipeCells"]
+- !private ["PSo18UIFocusEnvironment", "visibleCells"]
+- !private ["PSo11UIFocusItem", "bounds"]
+- !private ["PSo11UIFocusItem", "gestureRecognizers"]
+- !private ["PSo11UIFocusItem", "hideSwipe"]
+- !private ["PSo11UIFocusItem", "panGestureRecognizer"]
+- !private ["PSo11UIFocusItem", "swipeCells"]
+- !private ["PSo11UIFocusItem", "visibleCells"]
+- ["CSo19UIGestureRecognizer", "CGFloat"]
+- ["CSo19UIGestureRecognizer", "CGPoint"]
+- ["CSo19UIGestureRecognizer", "CGSize"]
+- ["CSo19UIGestureRecognizer", "UIView"]
+- !private ["CSo19UIGestureRecognizer", "abs"]
+- ["CSo19UIGestureRecognizer", "elasticTranslation"]
+- !private ["CSo19UIGestureRecognizer", "isEnabled"]
+- !private ["CSo19UIGestureRecognizer", "translation"]
+- !private ["CSo19UIGestureRecognizer", "view"]
+- !private ["PSo27UIGestureRecognizerDelegate", "hideSwipe"]
+- ["CSo22UIPanGestureRecognizer", "CGFloat"]
+- ["CSo22UIPanGestureRecognizer", "CGPoint"]
+- ["CSo22UIPanGestureRecognizer", "CGSize"]
+- ["CSo22UIPanGestureRecognizer", "UIView"]
+- !private ["CSo22UIPanGestureRecognizer", "abs"]
+- ["CSo22UIPanGestureRecognizer", "elasticTranslation"]
+- !private ["CSo22UIPanGestureRecognizer", "translation"]
+- !private ["CSo22UIPanGestureRecognizer", "view"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "SwipeTableViewCell"]
+- !private ["CSo11UIResponder", "bounds"]
+- !private ["CSo11UIResponder", "gestureRecognizers"]
+- !private ["CSo11UIResponder", "hideSwipe"]
+- ["CSo11UIResponder", "hideSwipeCell"]
+- !private ["CSo11UIResponder", "panGestureRecognizer"]
+- ["CSo11UIResponder", "setGestureEnabled"]
+- ["CSo11UIResponder", "swipeCells"]
+- !private ["CSo11UIResponder", "visibleCells"]
+- !private ["PSo30UIResponderStandardEditActions", "bounds"]
+- !private ["PSo30UIResponderStandardEditActions", "gestureRecognizers"]
+- !private ["PSo30UIResponderStandardEditActions", "hideSwipe"]
+- !private ["PSo30UIResponderStandardEditActions", "panGestureRecognizer"]
+- !private ["PSo30UIResponderStandardEditActions", "swipeCells"]
+- !private ["PSo30UIResponderStandardEditActions", "visibleCells"]
+- ["CSo12UIScrollView", "Bool"]
+- ["CSo12UIScrollView", "SwipeTableViewCell"]
+- !private ["CSo12UIScrollView", "gestureRecognizers"]
+- ["CSo12UIScrollView", "hideSwipeCell"]
+- !private ["CSo12UIScrollView", "panGestureRecognizer"]
+- ["CSo12UIScrollView", "setGestureEnabled"]
+- ["CSo12UIScrollView", "swipeCells"]
+- !private ["CSo12UIScrollView", "visibleCells"]
+- ["CSo11UITableView", "Bool"]
+- ["CSo11UITableView", "SwipeTableViewCell"]
+- !private ["CSo11UITableView", "gestureRecognizers"]
+- ["CSo11UITableView", "hideSwipeCell"]
+- !private ["CSo11UITableView", "panGestureRecognizer"]
+- ["CSo11UITableView", "setGestureEnabled"]
+- ["CSo11UITableView", "swipeCells"]
+- !private ["CSo11UITableView", "visibleCells"]
+- !private ["CSo15UITableViewCell", "hideSwipe"]
+- !private ["PSo18UITraitEnvironment", "bounds"]
+- !private ["PSo18UITraitEnvironment", "gestureRecognizers"]
+- !private ["PSo18UITraitEnvironment", "hideSwipe"]
+- !private ["PSo18UITraitEnvironment", "panGestureRecognizer"]
+- !private ["PSo18UITraitEnvironment", "swipeCells"]
+- !private ["PSo18UITraitEnvironment", "visibleCells"]
+- ["CSo6UIView", "Bool"]
+- ["CSo6UIView", "SwipeTableViewCell"]
+- !private ["CSo6UIView", "bounds"]
+- !private ["CSo6UIView", "gestureRecognizers"]
+- !private ["CSo6UIView", "hideSwipe"]
+- ["CSo6UIView", "hideSwipeCell"]
+- !private ["CSo6UIView", "panGestureRecognizer"]
+- ["CSo6UIView", "setGestureEnabled"]
+- ["CSo6UIView", "swipeCells"]
+- !private ["CSo6UIView", "visibleCells"]
+- !private ["Ps14_ArrayProtocol", "forEach"]
+- !private ["Ps23_BidirectionalIndexable", "forEach"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "bounds"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "gestureRecognizers"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "hideSwipe"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "panGestureRecognizer"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "swipeCells"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "visibleCells"]
+- !private ["Ps24_DestructorSafeContainer", "forEach"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "CGPoint"]
+- !private ["Ps9_Hashable", "CGSize"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "abs"]
+- !private ["Ps9_Hashable", "bounds"]
+- !private ["Ps9_Hashable", "gestureRecognizers"]
+- !private ["Ps9_Hashable", "hideSwipe"]
+- !private ["Ps9_Hashable", "isEnabled"]
+- !private ["Ps9_Hashable", "panGestureRecognizer"]
+- !private ["Ps9_Hashable", "swipeCells"]
+- !private ["Ps9_Hashable", "translation"]
+- !private ["Ps9_Hashable", "view"]
+- !private ["Ps9_Hashable", "visibleCells"]
+- !private ["Ps10_Indexable", "forEach"]
+- !private ["Ps14_IndexableBase", "forEach"]
+- !private ["Ps17_MutableIndexable", "forEach"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "forEach"]
+- !private ["Ps21_ObjectiveCBridgeable", "height"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "midX"]
+- !private ["Ps21_ObjectiveCBridgeable", "midY"]
+- !private ["Ps21_ObjectiveCBridgeable", "width"]
+- !private ["Ps21_ObjectiveCBridgeable", "x"]
+- !private ["Ps21_ObjectiveCBridgeable", "y"]
+- !private ["Ps22_RandomAccessIndexable", "forEach"]
+- !private ["Ps26_RangeReplaceableIndexable", "forEach"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- !private "Sa"
+- !private "Ps23BidirectionalCollection"
+- !private "Sb"
+- !private "PSo15CALayerDelegate"
+- !private "VSC7CGPoint"
+- !private "VSC6CGRect"
+- !private "VSC6CGSize"
+- !private "Ps7CVarArg"
+- !private "Ps10Collection"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps25ExpressibleByArrayLiteral"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps17MutableCollection"
+- !private "PSo8NSCoding"
+- "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "Ps22RandomAccessCollection"
+- !private "Ps26RangeReplaceableCollection"
+- !private "Ps8Sequence"
+- !private "P12SwipeCellKit24SwipeActionsViewDelegate"
+- !private "C12SwipeCellKit18SwipeTableViewCell"
+- !private "P12SwipeCellKit9Swipeable"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- !private "PSo21UIAppearanceContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- "CSo19UIGestureRecognizer"
+- !private "PSo27UIGestureRecognizerDelegate"
+- "CSo22UIPanGestureRecognizer"
+- "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- "CSo12UIScrollView"
+- "CSo11UITableView"
+- !private "CSo15UITableViewCell"
+- !private "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- !private "Ps14_ArrayProtocol"
+- !private "Ps23_BidirectionalIndexable"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps24_DestructorSafeContainer"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps9_Hashable"
+- !private "Ps10_Indexable"
+- !private "Ps14_IndexableBase"
+- !private "Ps17_MutableIndexable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps22_RandomAccessIndexable"
+- !private "Ps26_RangeReplaceableIndexable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Users/marvin/Documents/Blanket/Pods/Target Support Files/SwipeCellKit/SwipeCellKit-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwipeCellKit.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "e7500425f5cac4436682195fe231eb2c"

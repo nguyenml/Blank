@@ -1,0 +1,295 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+provides-member:
+- ["CSo16UIViewController", ""]
+- ["CSo16UIViewController", "isTopAndVisible"]
+- ["CSo16UIViewController", "isVisible"]
+- ["CSo16UIViewController", "isTopViewController"]
+provides-dynamic-lookup:
+- "isTopAndVisible"
+- "isTopViewController"
+- "isVisible"
+depends-top-level:
+- !private "!="
+- !private "&&"
+- !private "=="
+- !private "==="
+- "Bool"
+- !private "BooleanLiteralType"
+- "UIViewController"
+depends-member:
+- !private ["Ps9AnyObject", "isTopViewController"]
+- !private ["Ps9AnyObject", "isViewLoaded"]
+- !private ["Ps9AnyObject", "isVisible"]
+- !private ["Ps9AnyObject", "navigationController"]
+- !private ["Ps9AnyObject", "presentedViewController"]
+- !private ["Ps9AnyObject", "selectedViewController"]
+- !private ["Ps9AnyObject", "tabBarController"]
+- !private ["Ps9AnyObject", "view"]
+- !private ["Ps9AnyObject", "visibleViewController"]
+- !private ["Ps9AnyObject", "window"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "window"]
+- !private ["Ps7CVarArg", "isTopViewController"]
+- !private ["Ps7CVarArg", "isViewLoaded"]
+- !private ["Ps7CVarArg", "isVisible"]
+- !private ["Ps7CVarArg", "navigationController"]
+- !private ["Ps7CVarArg", "presentedViewController"]
+- !private ["Ps7CVarArg", "selectedViewController"]
+- !private ["Ps7CVarArg", "tabBarController"]
+- !private ["Ps7CVarArg", "view"]
+- !private ["Ps7CVarArg", "visibleViewController"]
+- !private ["Ps7CVarArg", "window"]
+- !private ["Ps28CustomDebugStringConvertible", "isTopViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "isViewLoaded"]
+- !private ["Ps28CustomDebugStringConvertible", "isVisible"]
+- !private ["Ps28CustomDebugStringConvertible", "navigationController"]
+- !private ["Ps28CustomDebugStringConvertible", "presentedViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "selectedViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "tabBarController"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- !private ["Ps28CustomDebugStringConvertible", "visibleViewController"]
+- !private ["Ps28CustomDebugStringConvertible", "window"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "isTopViewController"]
+- !private ["Ps23CustomStringConvertible", "isViewLoaded"]
+- !private ["Ps23CustomStringConvertible", "isVisible"]
+- !private ["Ps23CustomStringConvertible", "navigationController"]
+- !private ["Ps23CustomStringConvertible", "presentedViewController"]
+- !private ["Ps23CustomStringConvertible", "selectedViewController"]
+- !private ["Ps23CustomStringConvertible", "tabBarController"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- !private ["Ps23CustomStringConvertible", "visibleViewController"]
+- !private ["Ps23CustomStringConvertible", "window"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- !private ["Ps9Equatable", "isTopViewController"]
+- !private ["Ps9Equatable", "isViewLoaded"]
+- !private ["Ps9Equatable", "isVisible"]
+- !private ["Ps9Equatable", "navigationController"]
+- !private ["Ps9Equatable", "presentedViewController"]
+- !private ["Ps9Equatable", "selectedViewController"]
+- !private ["Ps9Equatable", "tabBarController"]
+- !private ["Ps9Equatable", "view"]
+- !private ["Ps9Equatable", "visibleViewController"]
+- !private ["Ps9Equatable", "window"]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps8Hashable", "isTopViewController"]
+- !private ["Ps8Hashable", "isViewLoaded"]
+- !private ["Ps8Hashable", "isVisible"]
+- !private ["Ps8Hashable", "navigationController"]
+- !private ["Ps8Hashable", "presentedViewController"]
+- !private ["Ps8Hashable", "selectedViewController"]
+- !private ["Ps8Hashable", "tabBarController"]
+- !private ["Ps8Hashable", "view"]
+- !private ["Ps8Hashable", "visibleViewController"]
+- !private ["Ps8Hashable", "window"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["PSo8NSCoding", "isTopViewController"]
+- !private ["PSo8NSCoding", "isViewLoaded"]
+- !private ["PSo8NSCoding", "isVisible"]
+- !private ["PSo8NSCoding", "navigationController"]
+- !private ["PSo8NSCoding", "presentedViewController"]
+- !private ["PSo8NSCoding", "selectedViewController"]
+- !private ["PSo8NSCoding", "tabBarController"]
+- !private ["PSo8NSCoding", "view"]
+- !private ["PSo8NSCoding", "visibleViewController"]
+- !private ["PSo8NSCoding", "window"]
+- !private ["PSo26NSExtensionRequestHandling", "isTopViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "isViewLoaded"]
+- !private ["PSo26NSExtensionRequestHandling", "isVisible"]
+- !private ["PSo26NSExtensionRequestHandling", "navigationController"]
+- !private ["PSo26NSExtensionRequestHandling", "presentedViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "selectedViewController"]
+- !private ["PSo26NSExtensionRequestHandling", "tabBarController"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
+- !private ["PSo26NSExtensionRequestHandling", "visibleViewController"]
+- ["CSo8NSObject", "Bool"]
+- ["CSo8NSObject", "isTopAndVisible"]
+- ["CSo8NSObject", "isTopViewController"]
+- !private ["CSo8NSObject", "isViewLoaded"]
+- ["CSo8NSObject", "isVisible"]
+- !private ["CSo8NSObject", "navigationController"]
+- !private ["CSo8NSObject", "presentedViewController"]
+- !private ["CSo8NSObject", "selectedViewController"]
+- !private ["CSo8NSObject", "tabBarController"]
+- !private ["CSo8NSObject", "view"]
+- !private ["CSo8NSObject", "visibleViewController"]
+- !private ["CSo8NSObject", "window"]
+- !private ["PSo16NSObjectProtocol", "isTopViewController"]
+- !private ["PSo16NSObjectProtocol", "isViewLoaded"]
+- !private ["PSo16NSObjectProtocol", "isVisible"]
+- !private ["PSo16NSObjectProtocol", "navigationController"]
+- !private ["PSo16NSObjectProtocol", "presentedViewController"]
+- !private ["PSo16NSObjectProtocol", "selectedViewController"]
+- !private ["PSo16NSObjectProtocol", "tabBarController"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- !private ["PSo16NSObjectProtocol", "visibleViewController"]
+- !private ["PSo16NSObjectProtocol", "window"]
+- !private ["PSo29UIAccessibilityIdentification", "window"]
+- !private ["PSo12UIAppearance", "window"]
+- !private ["PSo21UIAppearanceContainer", "isTopViewController"]
+- !private ["PSo21UIAppearanceContainer", "isViewLoaded"]
+- !private ["PSo21UIAppearanceContainer", "isVisible"]
+- !private ["PSo21UIAppearanceContainer", "navigationController"]
+- !private ["PSo21UIAppearanceContainer", "presentedViewController"]
+- !private ["PSo21UIAppearanceContainer", "selectedViewController"]
+- !private ["PSo21UIAppearanceContainer", "tabBarController"]
+- !private ["PSo21UIAppearanceContainer", "view"]
+- !private ["PSo21UIAppearanceContainer", "visibleViewController"]
+- !private ["PSo21UIAppearanceContainer", "window"]
+- !private ["PSo18UIContentContainer", "isTopViewController"]
+- !private ["PSo18UIContentContainer", "isViewLoaded"]
+- !private ["PSo18UIContentContainer", "isVisible"]
+- !private ["PSo18UIContentContainer", "navigationController"]
+- !private ["PSo18UIContentContainer", "presentedViewController"]
+- !private ["PSo18UIContentContainer", "selectedViewController"]
+- !private ["PSo18UIContentContainer", "tabBarController"]
+- !private ["PSo18UIContentContainer", "view"]
+- !private ["PSo18UIContentContainer", "visibleViewController"]
+- !private ["PSo17UICoordinateSpace", "window"]
+- !private ["PSo13UIDynamicItem", "window"]
+- !private ["PSo18UIFocusEnvironment", "isTopViewController"]
+- !private ["PSo18UIFocusEnvironment", "isViewLoaded"]
+- !private ["PSo18UIFocusEnvironment", "isVisible"]
+- !private ["PSo18UIFocusEnvironment", "navigationController"]
+- !private ["PSo18UIFocusEnvironment", "presentedViewController"]
+- !private ["PSo18UIFocusEnvironment", "selectedViewController"]
+- !private ["PSo18UIFocusEnvironment", "tabBarController"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- !private ["PSo18UIFocusEnvironment", "visibleViewController"]
+- !private ["PSo18UIFocusEnvironment", "window"]
+- !private ["PSo11UIFocusItem", "window"]
+- !private ["CSo22UINavigationController", "visibleViewController"]
+- ["CSo11UIResponder", "Bool"]
+- ["CSo11UIResponder", "isTopAndVisible"]
+- ["CSo11UIResponder", "isTopViewController"]
+- !private ["CSo11UIResponder", "isViewLoaded"]
+- ["CSo11UIResponder", "isVisible"]
+- !private ["CSo11UIResponder", "navigationController"]
+- !private ["CSo11UIResponder", "presentedViewController"]
+- !private ["CSo11UIResponder", "selectedViewController"]
+- !private ["CSo11UIResponder", "tabBarController"]
+- !private ["CSo11UIResponder", "view"]
+- !private ["CSo11UIResponder", "visibleViewController"]
+- !private ["CSo11UIResponder", "window"]
+- !private ["PSo30UIResponderStandardEditActions", "isTopViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "isViewLoaded"]
+- !private ["PSo30UIResponderStandardEditActions", "isVisible"]
+- !private ["PSo30UIResponderStandardEditActions", "navigationController"]
+- !private ["PSo30UIResponderStandardEditActions", "presentedViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "selectedViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "tabBarController"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- !private ["PSo30UIResponderStandardEditActions", "visibleViewController"]
+- !private ["PSo30UIResponderStandardEditActions", "window"]
+- !private ["PSo16UIStateRestoring", "isTopViewController"]
+- !private ["PSo16UIStateRestoring", "isViewLoaded"]
+- !private ["PSo16UIStateRestoring", "isVisible"]
+- !private ["PSo16UIStateRestoring", "navigationController"]
+- !private ["PSo16UIStateRestoring", "presentedViewController"]
+- !private ["PSo16UIStateRestoring", "selectedViewController"]
+- !private ["PSo16UIStateRestoring", "tabBarController"]
+- !private ["PSo16UIStateRestoring", "view"]
+- !private ["PSo16UIStateRestoring", "visibleViewController"]
+- !private ["CSo18UITabBarController", "selectedViewController"]
+- !private ["PSo16UITabBarDelegate", "selectedViewController"]
+- !private ["PSo18UITraitEnvironment", "isTopViewController"]
+- !private ["PSo18UITraitEnvironment", "isViewLoaded"]
+- !private ["PSo18UITraitEnvironment", "isVisible"]
+- !private ["PSo18UITraitEnvironment", "navigationController"]
+- !private ["PSo18UITraitEnvironment", "presentedViewController"]
+- !private ["PSo18UITraitEnvironment", "selectedViewController"]
+- !private ["PSo18UITraitEnvironment", "tabBarController"]
+- !private ["PSo18UITraitEnvironment", "view"]
+- !private ["PSo18UITraitEnvironment", "visibleViewController"]
+- !private ["PSo18UITraitEnvironment", "window"]
+- !private ["CSo6UIView", "window"]
+- ["CSo16UIViewController", "Bool"]
+- ["CSo16UIViewController", "isTopAndVisible"]
+- ["CSo16UIViewController", "isTopViewController"]
+- !private ["CSo16UIViewController", "isViewLoaded"]
+- ["CSo16UIViewController", "isVisible"]
+- !private ["CSo16UIViewController", "navigationController"]
+- !private ["CSo16UIViewController", "presentedViewController"]
+- !private ["CSo16UIViewController", "selectedViewController"]
+- !private ["CSo16UIViewController", "tabBarController"]
+- !private ["CSo16UIViewController", "view"]
+- !private ["CSo16UIViewController", "visibleViewController"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "window"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- !private ["Ps9_Hashable", "isTopViewController"]
+- !private ["Ps9_Hashable", "isViewLoaded"]
+- !private ["Ps9_Hashable", "isVisible"]
+- !private ["Ps9_Hashable", "navigationController"]
+- !private ["Ps9_Hashable", "presentedViewController"]
+- !private ["Ps9_Hashable", "selectedViewController"]
+- !private ["Ps9_Hashable", "tabBarController"]
+- !private ["Ps9_Hashable", "view"]
+- !private ["Ps9_Hashable", "visibleViewController"]
+- !private ["Ps9_Hashable", "window"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+depends-nominal:
+- !private "Ps9AnyObject"
+- !private "Sb"
+- !private "PSo15CALayerDelegate"
+- !private "Ps7CVarArg"
+- !private "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- !private "Ps23CustomStringConvertible"
+- !private "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps8Hashable"
+- !private "Ps25LosslessStringConvertible"
+- !private "PSo8NSCoding"
+- !private "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- !private "PSo16NSObjectProtocol"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- !private "PSo21UIAppearanceContainer"
+- !private "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "CSo22UINavigationController"
+- "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- !private "PSo16UIStateRestoring"
+- !private "CSo18UITabBarController"
+- !private "PSo16UITabBarDelegate"
+- !private "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- "CSo16UIViewController"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Users/marvin/Documents/Blanket/Pods/PopupDialog/PopupDialog/Classes/FXBlurView.h"
+- "/Users/marvin/Documents/Blanket/Pods/Target Support Files/PopupDialog/PopupDialog-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/Pods.build/Debug-iphonesimulator/PopupDialog.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "4716e56caa1c9a06a85c7d1b9502c14b"

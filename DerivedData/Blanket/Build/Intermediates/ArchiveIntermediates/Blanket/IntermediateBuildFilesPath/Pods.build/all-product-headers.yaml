@@ -1,0 +1,732 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/CZPicker/CZPicker.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "CZPicker-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/CZPicker/CZPicker.framework/Headers/CZPicker-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "CZPicker-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/CZPicker/CZPicker-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "CZPicker.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/CZPicker/Pod/Classes/CZPicker.h"
+        },
+        {
+          'type': 'file',
+          'name': "CZPickerView.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/CZPicker/Pod/Classes/CZPickerView.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/CZPicker/CZPicker.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/CZPicker.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/ChameleonFramework/ChameleonFramework.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Chameleon.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/Chameleon.h"
+        },
+        {
+          'type': 'file',
+          'name': "ChameleonConstants.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/ChameleonConstants.h"
+        },
+        {
+          'type': 'file',
+          'name': "ChameleonEnums.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/ChameleonEnums.h"
+        },
+        {
+          'type': 'file',
+          'name': "ChameleonFramework-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/ChameleonFramework/ChameleonFramework.framework/Headers/ChameleonFramework-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "ChameleonFramework-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/ChameleonFramework/ChameleonFramework-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "ChameleonMacros.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/ChameleonMacros.h"
+        },
+        {
+          'type': 'file',
+          'name': "Chameleon_.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/Chameleon_.h"
+        },
+        {
+          'type': 'file',
+          'name': "NSArray+Chameleon.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/NSArray+Chameleon.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIAppearance+Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/UIAppearance+Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIButton+Chameleon.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/UIButton+Chameleon.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIColor+Chameleon.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/UIColor+Chameleon.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIColor+ChameleonPrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/UIColor+ChameleonPrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIImage+ChameleonPrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/UIImage+ChameleonPrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "UILabel+Chameleon.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/UILabel+Chameleon.h"
+        },
+        {
+          'type': 'file',
+          'name': "UINavigationController+Chameleon.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/UINavigationController+Chameleon.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIView+ChameleonPrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/UIView+ChameleonPrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "UIViewController+Chameleon.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Objective-C/UIViewController+Chameleon.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/ChameleonFramework/ChameleonFramework.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/ChameleonFramework.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/DGRunkeeperSwitch/DGRunkeeperSwitch.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "DGRunkeeperSwitch-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/DGRunkeeperSwitch/DGRunkeeperSwitch.framework/Headers/DGRunkeeperSwitch-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "DGRunkeeperSwitch-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/DGRunkeeperSwitch/DGRunkeeperSwitch-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/DGRunkeeperSwitch/DGRunkeeperSwitch.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/DGRunkeeperSwitch.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/GTMOAuth2/GTMOAuth2.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "GTMOAuth2-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/GTMOAuth2/GTMOAuth2.framework/Headers/GTMOAuth2-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMOAuth2-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/GTMOAuth2/GTMOAuth2-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMOAuth2Authentication.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMOAuth2/Source/GTMOAuth2Authentication.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMOAuth2SignIn.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMOAuth2/Source/GTMOAuth2SignIn.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMOAuth2ViewControllerTouch.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMOAuth2/Source/Touch/GTMOAuth2ViewControllerTouch.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/GTMOAuth2/GTMOAuth2.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/GTMOAuth2.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/GTMSessionFetcher/GTMSessionFetcher.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "GTMGatherInputStream.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMSessionFetcher/Source/GTMGatherInputStream.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMMIMEDocument.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMSessionFetcher/Source/GTMMIMEDocument.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMReadMonitorInputStream.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMSessionFetcher/Source/GTMReadMonitorInputStream.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMSessionFetcher-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/GTMSessionFetcher/GTMSessionFetcher.framework/Headers/GTMSessionFetcher-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMSessionFetcher-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/GTMSessionFetcher/GTMSessionFetcher-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMSessionFetcher.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMSessionFetcher/Source/GTMSessionFetcher.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMSessionFetcherLogging.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMSessionFetcher/Source/GTMSessionFetcherLogging.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMSessionFetcherService.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMSessionFetcher/Source/GTMSessionFetcherService.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMSessionUploadFetcher.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GTMSessionFetcher/Source/GTMSessionUploadFetcher.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/GTMSessionFetcher/GTMSessionFetcher.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/GTMSessionFetcher.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/GoogleToolboxForMac/GoogleToolboxForMac.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "GTMDebugSelectorValidation.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GoogleToolboxForMac/DebugUtils/GTMDebugSelectorValidation.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMDebugThreadValidation.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GoogleToolboxForMac/DebugUtils/GTMDebugThreadValidation.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMDefines.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GoogleToolboxForMac/GTMDefines.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMMethodCheck.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GoogleToolboxForMac/DebugUtils/GTMMethodCheck.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMNSData+zlib.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GoogleToolboxForMac/Foundation/GTMNSData+zlib.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMNSDictionary+URLArguments.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GoogleToolboxForMac/Foundation/GTMNSDictionary+URLArguments.h"
+        },
+        {
+          'type': 'file',
+          'name': "GTMNSString+URLArguments.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/GoogleToolboxForMac/Foundation/GTMNSString+URLArguments.h"
+        },
+        {
+          'type': 'file',
+          'name': "GoogleToolboxForMac-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/GoogleToolboxForMac/GoogleToolboxForMac.framework/Headers/GoogleToolboxForMac-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "GoogleToolboxForMac-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/GoogleToolboxForMac/GoogleToolboxForMac-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/GoogleToolboxForMac/GoogleToolboxForMac.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/GoogleToolboxForMac.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/JTAppleCalendar/JTAppleCalendar.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "JTAppleCalendar-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/JTAppleCalendar/JTAppleCalendar.framework/Headers/JTAppleCalendar-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "JTAppleCalendar-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/JTAppleCalendar/JTAppleCalendar-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/JTAppleCalendar/JTAppleCalendar.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/JTAppleCalendar.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/MBCircularProgressBar/MBCircularProgressBar.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "MBCircularProgressBar-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/MBCircularProgressBar/MBCircularProgressBar.framework/Headers/MBCircularProgressBar-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "MBCircularProgressBar-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/MBCircularProgressBar/MBCircularProgressBar-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "MBCircularProgressBarLayer.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/MBCircularProgressBar/Pod/Classes/MBCircularProgressBarLayer.h"
+        },
+        {
+          'type': 'file',
+          'name': "MBCircularProgressBarView.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/MBCircularProgressBar/Pod/Classes/MBCircularProgressBarView.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/MBCircularProgressBar/MBCircularProgressBar.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/MBCircularProgressBar.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/Pods_Blanket.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Pods-Blanket-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/Pods-Blanket/Pods-Blanket-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "Pods_Blanket-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/Pods_Blanket.framework/Headers/Pods_Blanket-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/Pods_Blanket.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/Pods-Blanket.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/PopupDialog/PopupDialog.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "FXBlurView.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/PopupDialog/PopupDialog/Classes/FXBlurView.h"
+        },
+        {
+          'type': 'file',
+          'name': "PopupDialog-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/PopupDialog/PopupDialog.framework/Headers/PopupDialog-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "PopupDialog-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/PopupDialog/PopupDialog-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/PopupDialog/PopupDialog.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/PopupDialog.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/Protobuf/Protobuf.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Any.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/Any.pbobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "Api.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/Api.pbobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "Duration.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/Duration.pbobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "Empty.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/Empty.pbobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "FieldMask.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/FieldMask.pbobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBArray.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBArray.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBArray_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBArray_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBBootstrap.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBBootstrap.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBCodedInputStream.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBCodedInputStream.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBCodedInputStream_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBCodedInputStream_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBCodedOutputStream.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBCodedOutputStream.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBCodedOutputStream_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBCodedOutputStream_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBDescriptor.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBDescriptor.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBDescriptor_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBDescriptor_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBDictionary.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBDictionary.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBDictionary_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBDictionary_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBExtensionInternals.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBExtensionInternals.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBExtensionRegistry.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBExtensionRegistry.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBMessage.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBMessage.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBMessage_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBMessage_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBProtocolBuffers.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBProtocolBuffers.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBProtocolBuffers_RuntimeSupport.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBProtocolBuffers_RuntimeSupport.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBRootObject.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBRootObject.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBRootObject_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBRootObject_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBRuntimeTypes.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBRuntimeTypes.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBUnknownField.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBUnknownField.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBUnknownFieldSet.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBUnknownFieldSet.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBUnknownFieldSet_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBUnknownFieldSet_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBUnknownField_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBUnknownField_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBUtilities.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBUtilities.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBUtilities_PackagePrivate.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBUtilities_PackagePrivate.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBWellKnownTypes.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBWellKnownTypes.h"
+        },
+        {
+          'type': 'file',
+          'name': "GPBWireFormat.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/GPBWireFormat.h"
+        },
+        {
+          'type': 'file',
+          'name': "Protobuf-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/Protobuf/Protobuf.framework/Headers/Protobuf-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "Protobuf-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/Protobuf/Protobuf-umbrella.h"
+        },
+        {
+          'type': 'file',
+          'name': "SourceContext.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/SourceContext.pbobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "Struct.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/Struct.pbobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "Timestamp.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/Timestamp.pbobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "Type.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/Type.pbobjc.h"
+        },
+        {
+          'type': 'file',
+          'name': "Wrappers.pbobjc.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Protobuf/objectivec/google/protobuf/Wrappers.pbobjc.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/Protobuf/Protobuf.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/Protobuf.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/SwipeCellKit/SwipeCellKit.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SwipeCellKit-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/SwipeCellKit/SwipeCellKit.framework/Headers/SwipeCellKit-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "SwipeCellKit-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/SwipeCellKit/SwipeCellKit-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/SwipeCellKit/SwipeCellKit.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/SwipeCellKit.build/module.modulemap"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/TextFieldEffects/TextFieldEffects.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "TextFieldEffects-Swift.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/TextFieldEffects/TextFieldEffects.framework/Headers/TextFieldEffects-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "TextFieldEffects-umbrella.h",
+          'external-contents': "/Users/marvin/Documents/Blanket/Pods/Target Support Files/TextFieldEffects/TextFieldEffects-umbrella.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/TextFieldEffects/TextFieldEffects.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/TextFieldEffects.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

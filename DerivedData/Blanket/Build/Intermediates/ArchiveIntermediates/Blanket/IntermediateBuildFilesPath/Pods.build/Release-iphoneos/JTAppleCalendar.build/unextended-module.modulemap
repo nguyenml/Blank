@@ -1,0 +1,10 @@
+framework module JTAppleCalendar {
+  umbrella header "JTAppleCalendar-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module JTAppleCalendar.__Swift {
+    exclude header "JTAppleCalendar-Swift.h"
+}

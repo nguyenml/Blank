@@ -1,0 +1,5 @@
+version: "Apple Swift version 3.1 (swiftlang-802.0.51 clang-802.0.41)"
+options: "adc1f6bde58d50a21f98804f1c8781b6"
+build_time: [551994109, 902309000]
+inputs:
+  "/Users/marvin/Documents/Blanket/Pods/ChameleonFramework/Pod/Classes/Swift/ChameleonShorthand.swift": [549325764, 0]

@@ -33,8 +33,7 @@ class MainViewController: UIViewController {
     //------Reminder globals-----
     var isReminder = false
     var dateString = ""
-    
-    
+
     var colorArray = ColorSchemeOf(ColorScheme.complementary, color:UIColor.flatWhite, isFlatScheme:true)
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -50,6 +49,7 @@ class MainViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.checkView), name: NSNotification.Name(rawValue: mySpecialNotificationKey), object: nil)
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
 
     
     func setupUIColor(){
@@ -69,14 +69,8 @@ class MainViewController: UIViewController {
         setDate()
     }
     
-//    //--------------------------------------------------------
-//    //FOR TESTING//
-//    //------------------------
     func checkLastAccess(){
         if Calendar.current.isDateInToday(LastAccess.date as Date) {
-            print(LastAccess.date)
-            
-            //entryBtn.isHidden = true
             completedText.text = "You already wrote today"
             completedText.isHidden = false
             setupUIColor()
@@ -86,24 +80,6 @@ class MainViewController: UIViewController {
         }
         
     }
-    
-    //FOR IPHONE TESTING-------------
-    //----------------------------------
-//    func checkLastAccess(){
-//        if Calendar.current.isDateInToday(LastAccess.date as Date) {
-//            entryBtn.isHidden = true
-//            completedText.text = "You already wrote today"
-//            completedText.isHidden = false
-//            setupUIColor()
-//            didWriteToday = true
-//        }
-//        else{
-//            setupUIColor()
-//        }
-//        
-//    }
-
-    
     
     // Set the date to the front label
     func setDate() {
@@ -133,14 +109,13 @@ class MainViewController: UIViewController {
         ref?.child("users").child(uid).child("LastAccess").observe(FIRDataEventType.value, with: {
             (snapshot) in
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MMM dd, yyyy h:mm a"
-            dateFormatter.calendar = Calendar(identifier: .gregorian)
+            dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
             let date = dateFormatter.date(from: (snapshot.value as! String))
+            let toString = dateFormatter.string(from: date!)
             if date != nil{
             LastAccess.date = (date! as Date)
-            }
-            else{
-                //no date
+            }else{
+                return
             }
             self.checkLastAccess()
             self.resetStreak()
@@ -218,11 +193,16 @@ class MainViewController: UIViewController {
     }
     
     func resetStreak(){
+        let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
             let currentCalendar     = NSCalendar.current
-            let now = LastAccess.date as Any as! Date
+            let now = Date()
+            let tommorow = LastAccess.date.tomorrow as Date
             let nextMidnight = LastAccess.date.tomorrow.endOfDay as Date
             let diff = currentCalendar.dateComponents([.hour, .minute, .second], from: now, to: nextMidnight)
-            if (diff.hour! < 1 || diff.minute! < 1 || diff.second! < 1){
+            let date = dateFormatter.string(from: (nextMidnight as Date))
+            if (diff.hour! < 0 || diff.minute! < 0 || diff.second! < 0){
+                FIRAnalytics.logEvent(withName: "brokenStreak", parameters: nil)
                 ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
             }
     }
@@ -261,6 +241,7 @@ class MainViewController: UIViewController {
     
     @IBAction func reminderButtonPressed(_ sender: UIButton) {
         showTimeDialog()
+        FIRAnalytics.logEvent(withName: "userSetsReminder", parameters: ["stuff":"stuff" as NSObject])
     }
     
     func showTimeDialog(animated: Bool = true) {
@@ -279,6 +260,7 @@ class MainViewController: UIViewController {
         
         present(popup, animated: animated, completion: nil)
     }
+    
     
     func setReminderTimer() -> UNNotificationTrigger{
         

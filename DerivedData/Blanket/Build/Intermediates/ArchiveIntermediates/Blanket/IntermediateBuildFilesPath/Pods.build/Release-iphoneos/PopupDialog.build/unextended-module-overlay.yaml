@@ -1,0 +1,13 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [{
+    'type': 'directory',
+    'name': '/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/BuildProductsPath/Release-iphoneos/PopupDialog/PopupDialog.framework/Modules'
+    'contents': [{
+      'type': 'file',
+      'name': 'module.modulemap',
+      'external-contents': '/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/ArchiveIntermediates/Blanket/IntermediateBuildFilesPath/Pods.build/Release-iphoneos/PopupDialog.build/unextended-module.modulemap',
+    }]
+  }]
+}

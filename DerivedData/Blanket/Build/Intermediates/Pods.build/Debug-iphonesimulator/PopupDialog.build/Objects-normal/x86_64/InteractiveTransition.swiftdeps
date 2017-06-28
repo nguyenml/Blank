@@ -1,0 +1,430 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "InteractiveTransition"
+provides-nominal:
+- "C11PopupDialog21InteractiveTransition"
+provides-member:
+- ["C11PopupDialog21InteractiveTransition", ""]
+- ["C11PopupDialog21InteractiveTransition", "calculateProgress"]
+provides-dynamic-lookup:
+- "handlePan"
+- "hasStarted"
+- "shouldFinish"
+- "viewController"
+depends-top-level:
+- !private "/"
+- !private ">"
+- "AssignmentPrecedence"
+- "BooleanLiteralType"
+- "CGFloat"
+- !private "Float"
+- "InteractiveTransition"
+- "TernaryPrecedence"
+- "UIPanGestureRecognizer"
+- "UIPercentDrivenInteractiveTransition"
+- "UIViewController"
+- !private "fmaxf"
+- !private "fminf"
+depends-member:
+- !private ["Ps16AbsoluteValuable", "init"]
+- !private ["Ps9AnyObject", "CGFloat"]
+- !private ["Ps9AnyObject", "Float"]
+- !private ["Ps9AnyObject", "bounds"]
+- !private ["Ps9AnyObject", "calculateProgress"]
+- !private ["Ps9AnyObject", "cancel"]
+- !private ["Ps9AnyObject", "completionSpeed"]
+- !private ["Ps9AnyObject", "dismiss"]
+- !private ["Ps9AnyObject", "finish"]
+- !private ["Ps9AnyObject", "fmaxf"]
+- !private ["Ps9AnyObject", "fminf"]
+- !private ["Ps9AnyObject", "hasStarted"]
+- !private ["Ps9AnyObject", "init"]
+- !private ["Ps9AnyObject", "shouldFinish"]
+- !private ["Ps9AnyObject", "state"]
+- !private ["Ps9AnyObject", "translation"]
+- !private ["Ps9AnyObject", "update"]
+- !private ["Ps9AnyObject", "view"]
+- !private ["Ps9AnyObject", "viewController"]
+- ["Ps9AnyObject", ""]
+- !private ["Ps19BinaryFloatingPoint", "init"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- !private ["PSo15CALayerDelegate", "bounds"]
+- !private ["V12CoreGraphics7CGFloat", "init"]
+- !private ["VSC7CGPoint", "y"]
+- !private ["VSC6CGRect", "height"]
+- !private ["Ps7CVarArg", "CGFloat"]
+- !private ["Ps7CVarArg", "Float"]
+- !private ["Ps7CVarArg", "bounds"]
+- !private ["Ps7CVarArg", "calculateProgress"]
+- !private ["Ps7CVarArg", "cancel"]
+- !private ["Ps7CVarArg", "completionSpeed"]
+- !private ["Ps7CVarArg", "dismiss"]
+- !private ["Ps7CVarArg", "finish"]
+- !private ["Ps7CVarArg", "fmaxf"]
+- !private ["Ps7CVarArg", "fminf"]
+- !private ["Ps7CVarArg", "hasStarted"]
+- !private ["Ps7CVarArg", "init"]
+- !private ["Ps7CVarArg", "shouldFinish"]
+- !private ["Ps7CVarArg", "state"]
+- !private ["Ps7CVarArg", "translation"]
+- !private ["Ps7CVarArg", "update"]
+- !private ["Ps7CVarArg", "view"]
+- !private ["Ps7CVarArg", "viewController"]
+- ["Ps7CVarArg", ""]
+- !private ["Ps10Comparable", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "CGFloat"]
+- !private ["Ps28CustomDebugStringConvertible", "Float"]
+- !private ["Ps28CustomDebugStringConvertible", "bounds"]
+- !private ["Ps28CustomDebugStringConvertible", "calculateProgress"]
+- !private ["Ps28CustomDebugStringConvertible", "cancel"]
+- !private ["Ps28CustomDebugStringConvertible", "completionSpeed"]
+- !private ["Ps28CustomDebugStringConvertible", "dismiss"]
+- !private ["Ps28CustomDebugStringConvertible", "finish"]
+- !private ["Ps28CustomDebugStringConvertible", "fmaxf"]
+- !private ["Ps28CustomDebugStringConvertible", "fminf"]
+- !private ["Ps28CustomDebugStringConvertible", "hasStarted"]
+- !private ["Ps28CustomDebugStringConvertible", "height"]
+- !private ["Ps28CustomDebugStringConvertible", "init"]
+- !private ["Ps28CustomDebugStringConvertible", "shouldFinish"]
+- !private ["Ps28CustomDebugStringConvertible", "state"]
+- !private ["Ps28CustomDebugStringConvertible", "translation"]
+- !private ["Ps28CustomDebugStringConvertible", "update"]
+- !private ["Ps28CustomDebugStringConvertible", "view"]
+- !private ["Ps28CustomDebugStringConvertible", "viewController"]
+- !private ["Ps28CustomDebugStringConvertible", "y"]
+- ["Ps28CustomDebugStringConvertible", ""]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "height"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "init"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "y"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "height"]
+- !private ["Ps17CustomReflectable", "init"]
+- !private ["Ps17CustomReflectable", "y"]
+- !private ["Ps23CustomStringConvertible", "CGFloat"]
+- !private ["Ps23CustomStringConvertible", "Float"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps23CustomStringConvertible", "bounds"]
+- !private ["Ps23CustomStringConvertible", "calculateProgress"]
+- !private ["Ps23CustomStringConvertible", "cancel"]
+- !private ["Ps23CustomStringConvertible", "completionSpeed"]
+- !private ["Ps23CustomStringConvertible", "dismiss"]
+- !private ["Ps23CustomStringConvertible", "finish"]
+- !private ["Ps23CustomStringConvertible", "fmaxf"]
+- !private ["Ps23CustomStringConvertible", "fminf"]
+- !private ["Ps23CustomStringConvertible", "hasStarted"]
+- !private ["Ps23CustomStringConvertible", "init"]
+- !private ["Ps23CustomStringConvertible", "shouldFinish"]
+- !private ["Ps23CustomStringConvertible", "state"]
+- !private ["Ps23CustomStringConvertible", "translation"]
+- !private ["Ps23CustomStringConvertible", "update"]
+- !private ["Ps23CustomStringConvertible", "view"]
+- !private ["Ps23CustomStringConvertible", "viewController"]
+- ["Ps23CustomStringConvertible", ""]
+- !private ["Ps9Equatable", "CGFloat"]
+- !private ["Ps9Equatable", "Float"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "began"]
+- !private ["Ps9Equatable", "bounds"]
+- !private ["Ps9Equatable", "calculateProgress"]
+- !private ["Ps9Equatable", "cancel"]
+- ["Ps9Equatable", "cancelled"]
+- ["Ps9Equatable", "changed"]
+- !private ["Ps9Equatable", "completionSpeed"]
+- !private ["Ps9Equatable", "dismiss"]
+- ["Ps9Equatable", "ended"]
+- !private ["Ps9Equatable", "finish"]
+- !private ["Ps9Equatable", "fmaxf"]
+- !private ["Ps9Equatable", "fminf"]
+- !private ["Ps9Equatable", "hasStarted"]
+- !private ["Ps9Equatable", "height"]
+- !private ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "shouldFinish"]
+- !private ["Ps9Equatable", "state"]
+- !private ["Ps9Equatable", "translation"]
+- !private ["Ps9Equatable", "update"]
+- !private ["Ps9Equatable", "view"]
+- !private ["Ps9Equatable", "viewController"]
+- !private ["Ps9Equatable", "y"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps25ExpressibleByFloatLiteral", "init"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "init"]
+- !private ["Sf", "init"]
+- !private ["Ps13FloatingPoint", "init"]
+- !private ["Ps8Hashable", "CGFloat"]
+- !private ["Ps8Hashable", "Float"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "began"]
+- !private ["Ps8Hashable", "bounds"]
+- !private ["Ps8Hashable", "calculateProgress"]
+- !private ["Ps8Hashable", "cancel"]
+- ["Ps8Hashable", "cancelled"]
+- ["Ps8Hashable", "changed"]
+- !private ["Ps8Hashable", "completionSpeed"]
+- !private ["Ps8Hashable", "dismiss"]
+- ["Ps8Hashable", "ended"]
+- !private ["Ps8Hashable", "finish"]
+- !private ["Ps8Hashable", "fmaxf"]
+- !private ["Ps8Hashable", "fminf"]
+- !private ["Ps8Hashable", "hasStarted"]
+- !private ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "shouldFinish"]
+- !private ["Ps8Hashable", "state"]
+- !private ["Ps8Hashable", "translation"]
+- !private ["Ps8Hashable", "update"]
+- !private ["Ps8Hashable", "view"]
+- !private ["Ps8Hashable", "viewController"]
+- ["Ps8Hashable", ""]
+- ["C11PopupDialog21InteractiveTransition", "CGFloat"]
+- !private ["C11PopupDialog21InteractiveTransition", "Float"]
+- ["C11PopupDialog21InteractiveTransition", "UIPanGestureRecognizer"]
+- ["C11PopupDialog21InteractiveTransition", "UIViewController"]
+- ["C11PopupDialog21InteractiveTransition", "calculateProgress"]
+- !private ["C11PopupDialog21InteractiveTransition", "cancel"]
+- !private ["C11PopupDialog21InteractiveTransition", "completionSpeed"]
+- ["C11PopupDialog21InteractiveTransition", "deinit"]
+- !private ["C11PopupDialog21InteractiveTransition", "finish"]
+- !private ["C11PopupDialog21InteractiveTransition", "fmaxf"]
+- !private ["C11PopupDialog21InteractiveTransition", "fminf"]
+- ["C11PopupDialog21InteractiveTransition", "handlePan"]
+- ["C11PopupDialog21InteractiveTransition", "hasStarted"]
+- ["C11PopupDialog21InteractiveTransition", "init"]
+- ["C11PopupDialog21InteractiveTransition", "shouldFinish"]
+- !private ["C11PopupDialog21InteractiveTransition", "update"]
+- ["C11PopupDialog21InteractiveTransition", "viewController"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps25LosslessStringConvertible", "init"]
+- !private ["PSo8NSCoding", "bounds"]
+- !private ["PSo8NSCoding", "dismiss"]
+- !private ["PSo8NSCoding", "view"]
+- !private ["PSo26NSExtensionRequestHandling", "dismiss"]
+- !private ["PSo26NSExtensionRequestHandling", "view"]
+- ["CSo8NSObject", "CGFloat"]
+- !private ["CSo8NSObject", "Float"]
+- ["CSo8NSObject", "UIPanGestureRecognizer"]
+- ["CSo8NSObject", "UIViewController"]
+- !private ["CSo8NSObject", "bounds"]
+- ["CSo8NSObject", "calculateProgress"]
+- !private ["CSo8NSObject", "cancel"]
+- !private ["CSo8NSObject", "completionSpeed"]
+- !private ["CSo8NSObject", "dismiss"]
+- !private ["CSo8NSObject", "finish"]
+- !private ["CSo8NSObject", "fmaxf"]
+- !private ["CSo8NSObject", "fminf"]
+- ["CSo8NSObject", "handlePan"]
+- ["CSo8NSObject", "hasStarted"]
+- ["CSo8NSObject", "init"]
+- ["CSo8NSObject", "shouldFinish"]
+- !private ["CSo8NSObject", "state"]
+- !private ["CSo8NSObject", "translation"]
+- !private ["CSo8NSObject", "update"]
+- !private ["CSo8NSObject", "view"]
+- ["CSo8NSObject", "viewController"]
+- !private ["PSo16NSObjectProtocol", "CGFloat"]
+- !private ["PSo16NSObjectProtocol", "Float"]
+- !private ["PSo16NSObjectProtocol", "bounds"]
+- !private ["PSo16NSObjectProtocol", "calculateProgress"]
+- !private ["PSo16NSObjectProtocol", "cancel"]
+- !private ["PSo16NSObjectProtocol", "completionSpeed"]
+- !private ["PSo16NSObjectProtocol", "dismiss"]
+- !private ["PSo16NSObjectProtocol", "finish"]
+- !private ["PSo16NSObjectProtocol", "fmaxf"]
+- !private ["PSo16NSObjectProtocol", "fminf"]
+- !private ["PSo16NSObjectProtocol", "hasStarted"]
+- !private ["PSo16NSObjectProtocol", "init"]
+- !private ["PSo16NSObjectProtocol", "shouldFinish"]
+- !private ["PSo16NSObjectProtocol", "state"]
+- !private ["PSo16NSObjectProtocol", "translation"]
+- !private ["PSo16NSObjectProtocol", "update"]
+- !private ["PSo16NSObjectProtocol", "view"]
+- !private ["PSo16NSObjectProtocol", "viewController"]
+- ["PSo16NSObjectProtocol", ""]
+- ["Ps16RawRepresentable", "began"]
+- ["Ps16RawRepresentable", "cancelled"]
+- ["Ps16RawRepresentable", "changed"]
+- ["Ps16RawRepresentable", "ended"]
+- !private ["Ps12SignedNumber", "init"]
+- !private ["Ps10Strideable", "init"]
+- !private ["PSo29UIAccessibilityIdentification", "bounds"]
+- !private ["PSo12UIAppearance", "bounds"]
+- !private ["PSo21UIAppearanceContainer", "bounds"]
+- !private ["PSo21UIAppearanceContainer", "dismiss"]
+- !private ["PSo21UIAppearanceContainer", "view"]
+- !private ["PSo18UIContentContainer", "dismiss"]
+- !private ["PSo18UIContentContainer", "view"]
+- !private ["PSo17UICoordinateSpace", "bounds"]
+- !private ["PSo13UIDynamicItem", "bounds"]
+- !private ["PSo18UIFocusEnvironment", "bounds"]
+- !private ["PSo18UIFocusEnvironment", "dismiss"]
+- !private ["PSo18UIFocusEnvironment", "view"]
+- !private ["PSo11UIFocusItem", "bounds"]
+- !private ["CSo19UIGestureRecognizer", "state"]
+- !private ["CSo19UIGestureRecognizer", "translation"]
+- ["OSC24UIGestureRecognizerState", "began"]
+- ["OSC24UIGestureRecognizerState", "cancelled"]
+- ["OSC24UIGestureRecognizerState", "changed"]
+- ["OSC24UIGestureRecognizerState", "ended"]
+- !private ["CSo22UIPanGestureRecognizer", "state"]
+- !private ["CSo22UIPanGestureRecognizer", "translation"]
+- ["CSo36UIPercentDrivenInteractiveTransition", "CGFloat"]
+- !private ["CSo36UIPercentDrivenInteractiveTransition", "Float"]
+- ["CSo36UIPercentDrivenInteractiveTransition", "UIPanGestureRecognizer"]
+- ["CSo36UIPercentDrivenInteractiveTransition", "UIViewController"]
+- ["CSo36UIPercentDrivenInteractiveTransition", "calculateProgress"]
+- !private ["CSo36UIPercentDrivenInteractiveTransition", "cancel"]
+- !private ["CSo36UIPercentDrivenInteractiveTransition", "completionSpeed"]
+- !private ["CSo36UIPercentDrivenInteractiveTransition", "finish"]
+- !private ["CSo36UIPercentDrivenInteractiveTransition", "fmaxf"]
+- !private ["CSo36UIPercentDrivenInteractiveTransition", "fminf"]
+- ["CSo36UIPercentDrivenInteractiveTransition", "handlePan"]
+- ["CSo36UIPercentDrivenInteractiveTransition", "hasStarted"]
+- ["CSo36UIPercentDrivenInteractiveTransition", "init"]
+- ["CSo36UIPercentDrivenInteractiveTransition", "shouldFinish"]
+- !private ["CSo36UIPercentDrivenInteractiveTransition", "update"]
+- ["CSo36UIPercentDrivenInteractiveTransition", "viewController"]
+- ["CSo36UIPercentDrivenInteractiveTransition", ""]
+- !private ["CSo11UIResponder", "bounds"]
+- !private ["CSo11UIResponder", "dismiss"]
+- !private ["CSo11UIResponder", "view"]
+- !private ["PSo30UIResponderStandardEditActions", "bounds"]
+- !private ["PSo30UIResponderStandardEditActions", "dismiss"]
+- !private ["PSo30UIResponderStandardEditActions", "view"]
+- !private ["PSo16UIStateRestoring", "dismiss"]
+- !private ["PSo16UIStateRestoring", "view"]
+- !private ["PSo18UITraitEnvironment", "bounds"]
+- !private ["PSo18UITraitEnvironment", "dismiss"]
+- !private ["PSo18UITraitEnvironment", "view"]
+- !private ["CSo6UIView", "bounds"]
+- !private ["CSo16UIViewController", "dismiss"]
+- !private ["CSo16UIViewController", "view"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "CGFloat"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "Float"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "calculateProgress"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "cancel"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "completionSpeed"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "finish"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "fmaxf"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "fminf"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "hasStarted"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "init"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "shouldFinish"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "update"]
+- !private ["PSo40UIViewControllerInteractiveTransitioning", "viewController"]
+- ["PSo40UIViewControllerInteractiveTransitioning", ""]
+- !private ["Ps15_CVarArgAligned", "init"]
+- !private ["Ps22_CVarArgPassedAsDouble", "init"]
+- !private ["Ps37_DefaultCustomPlaygroundQuickLookable", "bounds"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps33_ExpressibleByBuiltinFloatLiteral", "init"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "init"]
+- !private ["Ps9_Hashable", "CGFloat"]
+- !private ["Ps9_Hashable", "Float"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "began"]
+- !private ["Ps9_Hashable", "bounds"]
+- !private ["Ps9_Hashable", "calculateProgress"]
+- !private ["Ps9_Hashable", "cancel"]
+- ["Ps9_Hashable", "cancelled"]
+- ["Ps9_Hashable", "changed"]
+- !private ["Ps9_Hashable", "completionSpeed"]
+- !private ["Ps9_Hashable", "dismiss"]
+- ["Ps9_Hashable", "ended"]
+- !private ["Ps9_Hashable", "finish"]
+- !private ["Ps9_Hashable", "fmaxf"]
+- !private ["Ps9_Hashable", "fminf"]
+- !private ["Ps9_Hashable", "hasStarted"]
+- !private ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "shouldFinish"]
+- !private ["Ps9_Hashable", "state"]
+- !private ["Ps9_Hashable", "translation"]
+- !private ["Ps9_Hashable", "update"]
+- !private ["Ps9_Hashable", "view"]
+- !private ["Ps9_Hashable", "viewController"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "height"]
+- !private ["Ps21_ObjectiveCBridgeable", "init"]
+- !private ["Ps21_ObjectiveCBridgeable", "y"]
+- !private ["Ps11_Strideable", "init"]
+depends-nominal:
+- !private "Ps16AbsoluteValuable"
+- "Ps9AnyObject"
+- !private "Ps19BinaryFloatingPoint"
+- !private "Sb"
+- !private "PSo15CALayerDelegate"
+- !private "V12CoreGraphics7CGFloat"
+- !private "VSC7CGPoint"
+- !private "VSC6CGRect"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps25ExpressibleByFloatLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- !private "Sf"
+- !private "Ps13FloatingPoint"
+- "Ps8Hashable"
+- "C11PopupDialog21InteractiveTransition"
+- !private "Ps25LosslessStringConvertible"
+- !private "PSo8NSCoding"
+- !private "PSo26NSExtensionRequestHandling"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "Ps16RawRepresentable"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- !private "PSo29UIAccessibilityIdentification"
+- !private "PSo12UIAppearance"
+- !private "PSo21UIAppearanceContainer"
+- !private "PSo18UIContentContainer"
+- !private "PSo17UICoordinateSpace"
+- !private "PSo13UIDynamicItem"
+- !private "PSo18UIFocusEnvironment"
+- !private "PSo11UIFocusItem"
+- !private "CSo19UIGestureRecognizer"
+- "OSC24UIGestureRecognizerState"
+- !private "CSo22UIPanGestureRecognizer"
+- "CSo36UIPercentDrivenInteractiveTransition"
+- !private "CSo11UIResponder"
+- !private "PSo30UIResponderStandardEditActions"
+- !private "PSo16UIStateRestoring"
+- !private "PSo18UITraitEnvironment"
+- !private "CSo6UIView"
+- !private "CSo16UIViewController"
+- "PSo40UIViewControllerInteractiveTransitioning"
+- !private "Ps15_CVarArgAligned"
+- !private "Ps22_CVarArgPassedAsDouble"
+- !private "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps33_ExpressibleByBuiltinFloatLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps9_Hashable"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Users/marvin/Documents/Blanket/Pods/PopupDialog/PopupDialog/Classes/FXBlurView.h"
+- "/Users/marvin/Documents/Blanket/Pods/Target Support Files/PopupDialog/PopupDialog-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/Pods.build/Debug-iphonesimulator/PopupDialog.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "9ddb471ae6d5c005dbd5567bda3c5331"

@@ -46,6 +46,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     let uid = FIRAuth.auth()!.currentUser!.uid
     
     override func viewDidLoad() {
+        FIRAnalytics.logEvent(withName: "UserWriting", parameters: nil)
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         entryRef = ref?.child("Entry").childByAutoId()
@@ -67,6 +68,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             setTimeFormat()
             extraTime = true
             addMin.isHidden = false
+            addMin.setTitle("+3",for: .normal)
             backButton.isHidden = false
             textField.isEditable = false
             wordCountLabel.isHidden = true
@@ -104,7 +106,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < 300){
-            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
             return
         }
@@ -116,7 +118,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         }
         //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than extraTime. Do not post, but keep the timer going
         if (counter < extraCounter && counter > 300){
-            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
             return
         }
@@ -257,7 +259,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 stats["avgWordcount"] = total/entries as Int
                 stats["totalTime"] = time as Int
                 
-                
                 // Set value and report transaction success
                 currentData.value = stats
                 
@@ -277,7 +278,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             if var stats = currentData.value as? [String : Int]{
                 let entries:Int = stats["totalEntries"]!
                 let total = Int(stats["totalWordcount"]! - self.lwc + self.greaterThanZero())
-                let time:Int = stats["totalTime"]! + 60
+                let time:Int = stats["totalTime"]! + 180
                 
                 stats["avgWordcount"] = total/entries as Int
                 stats["totalWordcount"] = total as Int
@@ -448,13 +449,14 @@ class InputViewController: UIViewController, UITextViewDelegate {
         
     }
     @IBAction func addMinute(_ sender: UIButton) {
+        FIRAnalytics.logEvent(withName: "addMinutes", parameters: nil)
         textField.isEditable = true
         textField.isUserInteractionEnabled = true
         timer.textColor = UIColor(hex: 0xB8B8B8)
-        extraCounter = extraCounter + 60
+        extraCounter = extraCounter + 180
         extraTime = true
         updateCounter()
-        iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
     }
     
     func updateTextView(notification:Notification){

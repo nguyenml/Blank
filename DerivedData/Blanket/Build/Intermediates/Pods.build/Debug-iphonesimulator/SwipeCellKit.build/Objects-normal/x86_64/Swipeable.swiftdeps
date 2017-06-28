@@ -1,0 +1,272 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "Swipeable"
+- "SwipeState"
+provides-nominal:
+- "P12SwipeCellKit9Swipeable"
+- "C12SwipeCellKit18SwipeTableViewCell"
+- "O12SwipeCellKit10SwipeState"
+provides-member:
+- ["P12SwipeCellKit9Swipeable", ""]
+- ["C12SwipeCellKit18SwipeTableViewCell", ""]
+- ["O12SwipeCellKit10SwipeState", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!="
+- "=="
+- "AssignmentPrecedence"
+- "Bool"
+- "CGRect"
+- "Int"
+- "SwipeActionsOrientation"
+- "SwipeActionsView"
+- "SwipeState"
+- "SwipeTableViewCell"
+- "Swipeable"
+- "TernaryPrecedence"
+- !private "~="
+depends-member:
+- ["Ps9AnyObject", "actionsView"]
+- ["Ps9AnyObject", "frame"]
+- ["Ps9AnyObject", "state"]
+- !private ["Ps17BitwiseOperations", "hashValue"]
+- !private ["Sb", "_getBuiltinLogicValue"]
+- ["PSo15CALayerDelegate", "actionsView"]
+- ["PSo15CALayerDelegate", "frame"]
+- ["PSo15CALayerDelegate", "state"]
+- ["Ps7CVarArg", "actionsView"]
+- ["Ps7CVarArg", "frame"]
+- !private ["Ps7CVarArg", "hashValue"]
+- ["Ps7CVarArg", "state"]
+- !private ["Ps10Comparable", "hashValue"]
+- ["Ps28CustomDebugStringConvertible", "actionsView"]
+- ["Ps28CustomDebugStringConvertible", "frame"]
+- ["Ps28CustomDebugStringConvertible", "state"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "_getBuiltinLogicValue"]
+- !private ["Ps29CustomPlaygroundQuickLookable", "hashValue"]
+- !private ["Ps17CustomReflectable", "_getBuiltinLogicValue"]
+- !private ["Ps17CustomReflectable", "hashValue"]
+- !private ["Ps23CustomStringConvertible", "_getBuiltinLogicValue"]
+- ["Ps23CustomStringConvertible", "actionsView"]
+- ["Ps23CustomStringConvertible", "frame"]
+- !private ["Ps23CustomStringConvertible", "hashValue"]
+- ["Ps23CustomStringConvertible", "state"]
+- !private ["Ps9Equatable", "_getBuiltinLogicValue"]
+- ["Ps9Equatable", "_toAnyHashable"]
+- ["Ps9Equatable", "actionsView"]
+- !private ["Ps9Equatable", "center"]
+- ["Ps9Equatable", "frame"]
+- ["Ps9Equatable", "hashValue"]
+- ["Ps9Equatable", "init"]
+- !private ["Ps9Equatable", "left"]
+- ["Ps9Equatable", "rawValue"]
+- !private ["Ps9Equatable", "right"]
+- ["Ps9Equatable", "state"]
+- ["Ps9Equatable", ""]
+- !private ["Ps27ExpressibleByBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps27ExpressibleByIntegerLiteral", "hashValue"]
+- !private ["Ps8Hashable", "_getBuiltinLogicValue"]
+- ["Ps8Hashable", "_toAnyHashable"]
+- ["Ps8Hashable", "actionsView"]
+- !private ["Ps8Hashable", "center"]
+- ["Ps8Hashable", "frame"]
+- ["Ps8Hashable", "hashValue"]
+- ["Ps8Hashable", "init"]
+- !private ["Ps8Hashable", "left"]
+- ["Ps8Hashable", "rawValue"]
+- !private ["Ps8Hashable", "right"]
+- ["Ps8Hashable", "state"]
+- ["Ps8Hashable", ""]
+- !private ["Si", "hashValue"]
+- !private ["Ps7Integer", "hashValue"]
+- !private ["Ps17IntegerArithmetic", "hashValue"]
+- !private ["Ps25LosslessStringConvertible", "_getBuiltinLogicValue"]
+- !private ["Ps10MirrorPath", "hashValue"]
+- ["PSo8NSCoding", "actionsView"]
+- ["PSo8NSCoding", "frame"]
+- ["PSo8NSCoding", "state"]
+- ["CSo8NSObject", "actionsView"]
+- ["CSo8NSObject", "frame"]
+- ["CSo8NSObject", "state"]
+- ["PSo16NSObjectProtocol", "actionsView"]
+- ["PSo16NSObjectProtocol", "frame"]
+- ["PSo16NSObjectProtocol", "state"]
+- ["Ps16RawRepresentable", "_toAnyHashable"]
+- !private ["Ps16RawRepresentable", "center"]
+- ["Ps16RawRepresentable", "hashValue"]
+- ["Ps16RawRepresentable", "init"]
+- !private ["Ps16RawRepresentable", "left"]
+- ["Ps16RawRepresentable", "rawValue"]
+- !private ["Ps16RawRepresentable", "right"]
+- ["Ps16RawRepresentable", ""]
+- !private ["Ps13SignedInteger", "hashValue"]
+- !private ["Ps12SignedNumber", "hashValue"]
+- !private ["Ps10Strideable", "hashValue"]
+- !private ["O12SwipeCellKit23SwipeActionsOrientation", "deinit"]
+- !private ["O12SwipeCellKit23SwipeActionsOrientation", "left"]
+- ["P12SwipeCellKit24SwipeActionsViewDelegate", "actionsView"]
+- ["P12SwipeCellKit24SwipeActionsViewDelegate", "frame"]
+- ["P12SwipeCellKit24SwipeActionsViewDelegate", "state"]
+- ["O12SwipeCellKit10SwipeState", "Bool"]
+- ["O12SwipeCellKit10SwipeState", "RawValue"]
+- ["O12SwipeCellKit10SwipeState", "SwipeActionsOrientation"]
+- ["O12SwipeCellKit10SwipeState", "_toAnyHashable"]
+- ["O12SwipeCellKit10SwipeState", "animatingToCenter"]
+- ["O12SwipeCellKit10SwipeState", "center"]
+- ["O12SwipeCellKit10SwipeState", "deinit"]
+- ["O12SwipeCellKit10SwipeState", "hashValue"]
+- ["O12SwipeCellKit10SwipeState", "init"]
+- ["O12SwipeCellKit10SwipeState", "isActive"]
+- ["O12SwipeCellKit10SwipeState", "left"]
+- ["O12SwipeCellKit10SwipeState", "rawValue"]
+- ["O12SwipeCellKit10SwipeState", "right"]
+- ["C12SwipeCellKit18SwipeTableViewCell", "actionsView"]
+- ["C12SwipeCellKit18SwipeTableViewCell", "deinit"]
+- ["C12SwipeCellKit18SwipeTableViewCell", "frame"]
+- ["C12SwipeCellKit18SwipeTableViewCell", "state"]
+- ["P12SwipeCellKit9Swipeable", "CGRect"]
+- ["P12SwipeCellKit9Swipeable", "SwipeActionsView"]
+- ["P12SwipeCellKit9Swipeable", "SwipeState"]
+- ["P12SwipeCellKit9Swipeable", "actionsView"]
+- ["P12SwipeCellKit9Swipeable", "frame"]
+- ["P12SwipeCellKit9Swipeable", "state"]
+- ["P12SwipeCellKit9Swipeable", ""]
+- ["PSo29UIAccessibilityIdentification", "actionsView"]
+- ["PSo29UIAccessibilityIdentification", "frame"]
+- ["PSo29UIAccessibilityIdentification", "state"]
+- ["PSo12UIAppearance", "actionsView"]
+- ["PSo12UIAppearance", "frame"]
+- ["PSo12UIAppearance", "state"]
+- ["PSo21UIAppearanceContainer", "actionsView"]
+- ["PSo21UIAppearanceContainer", "frame"]
+- ["PSo21UIAppearanceContainer", "state"]
+- ["PSo17UICoordinateSpace", "actionsView"]
+- ["PSo17UICoordinateSpace", "frame"]
+- ["PSo17UICoordinateSpace", "state"]
+- ["PSo13UIDynamicItem", "actionsView"]
+- ["PSo13UIDynamicItem", "frame"]
+- ["PSo13UIDynamicItem", "state"]
+- ["PSo18UIFocusEnvironment", "actionsView"]
+- ["PSo18UIFocusEnvironment", "frame"]
+- ["PSo18UIFocusEnvironment", "state"]
+- ["PSo11UIFocusItem", "actionsView"]
+- ["PSo11UIFocusItem", "frame"]
+- ["PSo11UIFocusItem", "state"]
+- ["PSo27UIGestureRecognizerDelegate", "actionsView"]
+- ["PSo27UIGestureRecognizerDelegate", "frame"]
+- ["PSo27UIGestureRecognizerDelegate", "state"]
+- ["CSo11UIResponder", "actionsView"]
+- ["CSo11UIResponder", "frame"]
+- ["CSo11UIResponder", "state"]
+- ["PSo30UIResponderStandardEditActions", "actionsView"]
+- ["PSo30UIResponderStandardEditActions", "frame"]
+- ["PSo30UIResponderStandardEditActions", "state"]
+- ["CSo15UITableViewCell", "actionsView"]
+- ["CSo15UITableViewCell", "frame"]
+- ["CSo15UITableViewCell", "state"]
+- ["PSo18UITraitEnvironment", "actionsView"]
+- ["PSo18UITraitEnvironment", "frame"]
+- ["PSo18UITraitEnvironment", "state"]
+- ["CSo6UIView", "actionsView"]
+- ["CSo6UIView", "frame"]
+- ["CSo6UIView", "state"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "actionsView"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "frame"]
+- ["Ps37_DefaultCustomPlaygroundQuickLookable", "state"]
+- !private ["Ps35_ExpressibleByBuiltinBooleanLiteral", "_getBuiltinLogicValue"]
+- !private ["Ps35_ExpressibleByBuiltinIntegerLiteral", "hashValue"]
+- !private ["Ps9_Hashable", "_getBuiltinLogicValue"]
+- ["Ps9_Hashable", "_toAnyHashable"]
+- ["Ps9_Hashable", "actionsView"]
+- !private ["Ps9_Hashable", "center"]
+- ["Ps9_Hashable", "frame"]
+- ["Ps9_Hashable", "hashValue"]
+- ["Ps9_Hashable", "init"]
+- !private ["Ps9_Hashable", "left"]
+- ["Ps9_Hashable", "rawValue"]
+- !private ["Ps9_Hashable", "right"]
+- ["Ps9_Hashable", "state"]
+- ["Ps9_Hashable", ""]
+- !private ["Ps14_Incrementable", "hashValue"]
+- !private ["Ps8_Integer", "hashValue"]
+- !private ["Ps18_IntegerArithmetic", "hashValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "_getBuiltinLogicValue"]
+- !private ["Ps21_ObjectiveCBridgeable", "hashValue"]
+- !private ["Ps14_SignedInteger", "hashValue"]
+- !private ["Ps11_Strideable", "hashValue"]
+depends-nominal:
+- "Ps9AnyObject"
+- !private "Ps17BitwiseOperations"
+- !private "Sb"
+- "PSo15CALayerDelegate"
+- "Ps7CVarArg"
+- !private "Ps10Comparable"
+- "Ps28CustomDebugStringConvertible"
+- !private "Ps29CustomPlaygroundQuickLookable"
+- !private "Ps17CustomReflectable"
+- "Ps23CustomStringConvertible"
+- "Ps9Equatable"
+- !private "Ps27ExpressibleByBooleanLiteral"
+- !private "Ps27ExpressibleByIntegerLiteral"
+- "Ps8Hashable"
+- !private "Si"
+- !private "Ps7Integer"
+- !private "Ps17IntegerArithmetic"
+- !private "Ps25LosslessStringConvertible"
+- !private "Ps10MirrorPath"
+- "PSo8NSCoding"
+- "CSo8NSObject"
+- "PSo16NSObjectProtocol"
+- "Ps16RawRepresentable"
+- !private "Ps13SignedInteger"
+- !private "Ps12SignedNumber"
+- !private "Ps10Strideable"
+- !private "O12SwipeCellKit23SwipeActionsOrientation"
+- "P12SwipeCellKit24SwipeActionsViewDelegate"
+- "O12SwipeCellKit10SwipeState"
+- "C12SwipeCellKit18SwipeTableViewCell"
+- "P12SwipeCellKit9Swipeable"
+- "PSo29UIAccessibilityIdentification"
+- "PSo12UIAppearance"
+- "PSo21UIAppearanceContainer"
+- "PSo17UICoordinateSpace"
+- "PSo13UIDynamicItem"
+- "PSo18UIFocusEnvironment"
+- "PSo11UIFocusItem"
+- "PSo27UIGestureRecognizerDelegate"
+- "CSo11UIResponder"
+- "PSo30UIResponderStandardEditActions"
+- "CSo15UITableViewCell"
+- "PSo18UITraitEnvironment"
+- "CSo6UIView"
+- "Ps37_DefaultCustomPlaygroundQuickLookable"
+- !private "Ps35_ExpressibleByBuiltinBooleanLiteral"
+- !private "Ps35_ExpressibleByBuiltinIntegerLiteral"
+- "Ps9_Hashable"
+- !private "Ps14_Incrementable"
+- !private "Ps8_Integer"
+- !private "Ps18_IntegerArithmetic"
+- !private "Ps21_ObjectiveCBridgeable"
+- !private "Ps14_SignedInteger"
+- !private "Ps11_Strideable"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Swift.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreText.apinotesc"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.apinotesc"
+- "/Users/marvin/Documents/Blanket/Pods/Target Support Files/SwipeCellKit/SwipeCellKit-umbrella.h"
+- "/Users/marvin/Documents/Blanket/DerivedData/Blanket/Build/Intermediates/Pods.build/Debug-iphonesimulator/SwipeCellKit.build/unextended-module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/UIKit.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Foundation.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Darwin.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/Dispatch.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/ObjectiveC.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreGraphics.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/QuartzCore.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/CoreImage.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/iphonesimulator/x86_64/SwiftOnoneSupport.swiftmodule"
+interface-hash: "5c91631b091ace4758664f4adeaafa13"

@@ -1,0 +1,5 @@
+version: "Apple Swift version 3.1 (swiftlang-802.0.51 clang-802.0.41)"
+options: "340d5932d182f5c0fece0ddbb3716a7a"
+build_time: [551994102, 601465000]
+inputs:
+  "/Users/marvin/Documents/Blanket/Pods/DGRunkeeperSwitch/DGRunkeeperSwitch/DGRunkeeperSwitch.swift": [549388764, 0]
