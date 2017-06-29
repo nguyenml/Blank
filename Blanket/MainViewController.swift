@@ -89,7 +89,7 @@ class MainViewController: UIViewController {
     }
     
     //Retrieve all the stats of the user from firebase
-    //Checks which badges the user has earned and puts all the information into a local struct to reduce redundant calls
+    //Checks which badges the user has earned and puts all the information into a local struct to reduce redundant callss
     func getData(){
         ref?.child("users").child(uid).child("Stats").observe(FIRDataEventType.value, with: {
             (snapshot) in
