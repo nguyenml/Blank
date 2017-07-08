@@ -31,29 +31,30 @@ class BadgeClass{
     var badgeFor25000Words:IndividualBadge
     
     var badges = [IndividualBadge]()
+    var badgeWorkingOn = 0
     
     init(){
-        badgeForADay = IndividualBadge.init(name: "The Calf",message: "You Earned your first badge!", earned:false)
+        badgeForADay = IndividualBadge.init(name: "A Fresh Start",message: "You wrote your first day! Writing is a long and fulfilling journey and you just took your first steps. ", earned:false, number:1)
         badges.append(badgeForADay)
-        badgeFor3Days = IndividualBadge.init(name: "3 in a Row",message: "You Earned your first badge!", earned:false)
+        badgeFor3Days = IndividualBadge.init(name: "3 in a Row",message: "Three days in a row. This isn't a fluke anymore. You may have had your doubts but now you're confident that you can do this.", earned:false, number:3)
         badges.append(badgeFor3Days)
-        badgeFor10Days = IndividualBadge.init(name: "Streak",message: "You Earned your first badge!", earned:false)
+        badgeFor10Days = IndividualBadge.init(name: "Streak",message: "10 days in a row! You can start to see your progress now. Writing is another muscle, it's been sore the past couple days but now it's stronger than ever.", earned:false, number:10)
         badges.append(badgeFor10Days)
-        badgeFor20Days = IndividualBadge.init(name: "Hot Streak",message: "You Earned your first badge!", earned:false)
+        badgeFor20Days = IndividualBadge.init(name: "Hot Streak",message: "21 Days! Congratulations you did it. This is how long it takes to develop a good habit. You can add writing to the same categories as drinking water and sleeping.", earned:false, number:21)
         badges.append(badgeFor20Days)
-        badgeFor50Days = IndividualBadge.init(name: "The One",message: "You Earned your first badge!", earned:false)
+        badgeFor50Days = IndividualBadge.init(name: "The Half",message: "50 Days! That's almost two months! Looks like you're about to stop counting by day and start counting the month.", earned:false, number:50)
         badges.append(badgeFor50Days)
-        badgeFor100Days = IndividualBadge.init(name: "The Cow",message: "You Earned your first badge!", earned:false)
+        badgeFor100Days = IndividualBadge.init(name: "The Big 100",message: "Triple digits. Not many people will reach this goal post. But here you are. It was no doubt a difficult journey, but you're not done yet. You've set your eyes on even bigger goals.", earned:false, number:100)
         badges.append(badgeFor100Days)
-        badgeFor500Words = IndividualBadge.init(name: "The Ant",message: "You Earned your first badge!", earned:false)
+        badgeFor500Words = IndividualBadge.init(name: "The Calf",message: "Milo of Croton was said to have carried a calf with him since he as a boy. As the calf grew, so did the strength of Milo. 500 words seems like a calf, but with patience it will become a bull.", earned:false, number: 500)
         badges.append(badgeFor500Words)
-        badgeFor2000Words = IndividualBadge.init(name: "The Beetle",message: "You Earned your first badge!", earned:false)
+        badgeFor2000Words = IndividualBadge.init(name: "The Turtle and the Hare",message: "The first 2000 words can come in the first couple days or the first couple weeks. The only important part is that it comes. Looks like it came to you.", earned:false, number: 2000)
         badges.append(badgeFor2000Words)
-        badgeFor5000Words = IndividualBadge.init(name: "The Mouse",message: "You Earned your first badge!", earned:false)
+        badgeFor5000Words = IndividualBadge.init(name: "The Mouse",message: "5000 words can sneak up on you. At this point you're not counting anymore, the words just pour out of you with ease. The weight of writing everyday doesn't seem so heavy anymore.", earned:false, number: 5000)
         badges.append(badgeFor5000Words)
-        badgeFor10000Words = IndividualBadge.init(name: "The Cat",message: "You Earned your first badge!", earned:false)
+        badgeFor10000Words = IndividualBadge.init(name: "The Cat",message: "Quick and sly, you can write just about anywhere, anytime. No distractions or events can stop you from putting down your words every day.", earned:false, number:10000)
         badges.append(badgeFor10000Words)
-        badgeFor25000Words = IndividualBadge.init(name: "The Stallion",message: "You Earned your first badge!", earned:false)
+        badgeFor25000Words = IndividualBadge.init(name: "The Rhino",message: "You just powered through the last 25,000 words. You're excited to meet your next wall so you can test how easy it will be to break through it.", earned:false, number:25000)
         badges.append(badgeFor25000Words)
         
         
@@ -105,6 +106,7 @@ class BadgeClass{
     func checkBadgeForADay(){
         if length > 0{
             badgeForADay.earned = true
+            badgeWorkingOn = 3
             ref?.updateChildValues(["badgeForADay":true])
             let badgeDict:[String: Any] = ["badge": badgeForADay]
             if updated {
@@ -115,6 +117,7 @@ class BadgeClass{
     
     func checkBadgeFor3Days(){
         if length > 2{
+            badgeWorkingOn = 10
             badgeFor3Days.earned = true
             ref?.updateChildValues(["badgeFor3Days":true])
             if updated {
@@ -126,6 +129,7 @@ class BadgeClass{
     
     func checkBadgeFor10Days(){
         if length > 9{
+            badgeWorkingOn = 20
             badgeFor10Days.earned = true
             ref?.updateChildValues(["badgeFor10Days":true])
             if updated {
@@ -136,7 +140,8 @@ class BadgeClass{
     }
     
     func checkBadgeFor20Days(){
-        if length > 19{
+        if length > 20{
+            badgeWorkingOn = 50
             badgeFor20Days.earned = true
             ref?.updateChildValues(["badgeFor20Days":true])
             if updated {
@@ -148,6 +153,7 @@ class BadgeClass{
     
     func checkBadgeFor50Days(){
         if length > 49{
+            badgeWorkingOn = 100
             badgeFor50Days.earned = true
             ref?.updateChildValues(["badgeFor50Days":true])
             if updated {
@@ -159,6 +165,7 @@ class BadgeClass{
     
     func checkBadgeFor100Days(){
         if length > 99{
+            badgeWorkingOn = 200
             badgeFor100Days.earned = true
             ref?.updateChildValues(["badgeFor100Days":true])
             if updated {

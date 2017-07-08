@@ -35,8 +35,15 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionCellView
         let badge = myBadges.badges[indexPath.row]
         if badge.earned{
-            cell.BadgeLabel.text = " "
-            cell.backgroundColor = UIColor.green
+            cell.BadgeLabel.text = String(myBadges.badges[indexPath.row].number)
+            cell.BadgeLabel.adjustsFontSizeToFitWidth = true;
+            cell.BadgeLabel.minimumScaleFactor = 0.5
+            cell.BadgeLabel.textColor = UIColor.white
+            if myBadges.badges[indexPath.row].number < 100{
+                cell.backgroundColor = UIColor(hex: 0x17DF82)
+            }else{
+                cell.backgroundColor = UIColor(hex: 0xFFB200)
+            }
         }else{
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.BadgeLabel.text = "?"

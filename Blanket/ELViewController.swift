@@ -90,7 +90,8 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
                                     uid: entrySnap[Constants.Entry.uid]!,
                                     emotion: entrySnap[Constants.Entry.emotion]!,
                                     timeStamp: entrySnap[Constants.Entry.timestamp]!,
-                                    key: snapshot.key
+                                    key: snapshot.key,
+                                    totalTime: entrySnap[Constants.Entry.totalTime]!
                                     //textStart: entrySnap[Constants.Entry.textStart]!
             )
             
@@ -159,10 +160,11 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         cell.setupIndicatorView(bool: isMarked || isTopic, type:type )
         
         let words = entry.wordCount
+        let time = Int(entry.totalTime)!/60
         let preview = entry.text
         cell.dateLabel?.text = seperateDate(dateS: entry.date)
         cell.previewLabel?.text = preview
-        cell.wordCount?.text = words
+        cell.wordCount?.text = String(time) + " mins"
         
         //Change color
         if ( indexPath.row % 2 == 0 ){

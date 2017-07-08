@@ -48,7 +48,7 @@ class StatsViewController: UIViewController{
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         getData()
-        setupUI()
+        //setupUI()
         setLabels()
     }
     
@@ -71,6 +71,8 @@ class StatsViewController: UIViewController{
     
     //Updates all labels
     func setLabels(){
+        userLabel.adjustsFontSizeToFitWidth = true;
+        userLabel.minimumScaleFactor = 0.5
         currentDays.text = String(Stats.currentStreak)
         highestStreak.text = String(Stats.longestStreak)
         
@@ -126,7 +128,6 @@ class StatsViewController: UIViewController{
     func getData(){
         ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Date").observeSingleEvent(of: .value,with: {
             (snapshot) in
-           // print(String(describing: FIRAuth.auth()!.currentUser!.uid))
             Constants.StartDate.date = (snapshot.value as? String)!
             Stats.daysActive = self.findActiveDates()
             self.setLabels()
@@ -148,23 +149,28 @@ class StatsViewController: UIViewController{
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
+    func secondsToMinutes(seconds:Int) -> Int{
+        return seconds / 60
+    }
+    
     func convertTime() -> String{
         
-        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: (Stats.totalTime))
+//        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: (Stats.totalTime))
         var time:String
-        if h < 12{
-            time = String(h) + ":" + String(m)
-        }
-        else{
-             //comeback TO this when moving on
-            time = String(h) + " " + String(m)
-        }
+//        if h < 12{
+//            time = String(h) + " hr " + String(m) + " mn "
+//        }
+//        else{
+//             //comeback TO this when moving on
+//            time = String(h) + " " + String(m)
+//        }
+        time = String(secondsToMinutes(seconds: Stats.totalTime)) + " mins"
         
         return time
     }
     
     func setGoal(){
-        let progress = Float(String(Stats.totalEntries))! / Float(115)
+        let progress = Float(String(Stats.currentStreak))! / Float(myBadges.badgeWorkingOn)
         progressCircle.value = CGFloat(Float(progress*100))
     }
     

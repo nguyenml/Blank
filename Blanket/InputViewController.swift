@@ -20,7 +20,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
     @IBOutlet var textField: UITextView!
     weak var iTimer = Timer();
     
-    @IBOutlet weak var wordCountLabel: UIButton!
     @IBOutlet var timer: UILabel!
     var counter = 0;
     var extraCounter = 300;
@@ -71,13 +70,11 @@ class InputViewController: UIViewController, UITextViewDelegate {
             addMin.setTitle("+3",for: .normal)
             backButton.isHidden = false
             textField.isEditable = false
-            wordCountLabel.isHidden = true
             
         }else{
             textField.text = ""
             addMin.isHidden = true
             backButton.isHidden = true
-            wordCountLabel.isHidden = true
         }
         
         
@@ -106,7 +103,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < 300){
-            iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
             return
         }
@@ -150,15 +147,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
-    func textView(textView: UITextView, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
-        let newLength = wordCount(str: textField.text)
-        //change the value of the label
-        wordCountLabel.setTitle(String(newLength),for: .normal)
-        //you can save this value to a global var
-        //myCounter = newLength
-
-        return true
-    }
     
     func getMostRecent(){
         if LastAccess.entry == ""{
@@ -208,6 +196,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
                 counter = counter + 1;
             }
             if counter >= extraCounter{
+                addMin.isHidden = false
                 reset()
             }
             
@@ -218,6 +207,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             }
             if counter >= 300{
                 addMin.isHidden = false
+                addMin.setTitle("+3",for: .normal)
                 // at 3 mins update info and reset timer for next use
                 lwc = greaterThanZero()
                 reset()
@@ -453,6 +443,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         textField.isEditable = true
         textField.isUserInteractionEnabled = true
         timer.textColor = UIColor(hex: 0xB8B8B8)
+        addMin.isHidden = true
         extraCounter = extraCounter + 180
         extraTime = true
         updateCounter()
@@ -481,17 +472,17 @@ class InputViewController: UIViewController, UITextViewDelegate {
         return false
     }
 
-    @IBAction func switchTimerWordCount(_ sender: UIButton) {
-        if wordCountLabel.isHidden{
-            wordCountLabel.isHidden = false
-            timer.isHidden = true
-            addMin.isHidden = true
-        }else{
-            wordCountLabel.isHidden = true
-            timer.isHidden = false
-            if counter >= 300{
-                addMin.isHidden = true
-            }
-        }
-    }
+//    @IBAction func switchTimerWordCount(_ sender: UIButton) {
+//        if wordCountLabel.isHidden{
+//            wordCountLabel.isHidden = false
+//            timer.isHidden = true
+//            addMin.isHidden = true
+//        }else{
+//            wordCountLabel.isHidden = true
+//            timer.isHidden = false
+//            if counter >= 300{
+//                addMin.isHidden = true
+//            }
+//        }
+//    }
 }

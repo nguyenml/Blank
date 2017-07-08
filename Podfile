@@ -10,6 +10,7 @@ target 'Blanket' do
     pod 'Firebase/Core’
     pod 'Firebase/Auth'
     pod 'Google/SignIn'
+    pod 'Firebase/Crash'
     pod 'Firebase/Database'
     pod 'Firebase/Storage'
     pod 'Firebase/RemoteConfig'

@@ -15,13 +15,15 @@ import PopupDialog
 
 class MainViewController: UIViewController {
     
+    @IBOutlet weak var dayCircleView: UIImageView!
     @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var textLabel: UILabel!
-    @IBOutlet weak var completedText: UILabel!
     @IBOutlet weak var entryBtn: UIButton!
     
+    @IBOutlet weak var reminderButtonOnOff: UIButton!
+    
     @IBOutlet weak var reminderButton: UIButton!
-    @IBOutlet weak var reminderSwitch: UISwitch!
+
     @IBOutlet weak var emoteButton: UIButton!
     var ref:FIRDatabaseReference?
     let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
@@ -53,10 +55,6 @@ class MainViewController: UIViewController {
 
     
     func setupUIColor(){
-        entryBtn.layer.cornerRadius = 50;
-        entryBtn.layer.borderColor = UIColor.white.cgColor
-        entryBtn.layer.borderWidth = 1;
-        entryBtn.setTitle("Write", for: .normal)
         setTimeUI()
         checkForReminder()
     }
@@ -71,8 +69,9 @@ class MainViewController: UIViewController {
     
     func checkLastAccess(){
         if Calendar.current.isDateInToday(LastAccess.date as Date) {
-            completedText.text = "You already wrote today"
-            completedText.isHidden = false
+            
+            let image = UIImage(named: "day_circle.png") as UIImage?
+            dayCircleView.image = image
             setupUIColor()
         }
         else{
@@ -94,7 +93,7 @@ class MainViewController: UIViewController {
         ref?.child("users").child(uid).child("Stats").observe(FIRDataEventType.value, with: {
             (snapshot) in
             self.stats = snapshot.value as? [String : Int] ?? [:]
-            self.textLabel.text = ("Day" + " " + String(describing: self.stats["currentStreak"]!))
+            self.textLabel.text = (String(describing: self.stats["currentStreak"]!))
             Stats.avgWordcount = (self.stats["avgWordcount"]!)
             Stats.currentStreak = (self.stats["currentStreak"])!
             Stats.longestStreak = (self.stats["longestStreak"])!
@@ -295,26 +294,30 @@ class MainViewController: UIViewController {
     
     func checkSwitch(){
         if isReminder{
+            let image = UIImage(named: "alarm_button.png") as UIImage?
+            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             reminderButton.isHidden = false
             reminderButton.isUserInteractionEnabled = true
         }else{
+            let image = UIImage(named: "alarm_button_off.png") as UIImage?
+            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             center.removeAllPendingNotificationRequests()
             reminderButton.isHidden = true
             reminderButton.isUserInteractionEnabled = false
         }
     }
     
-    @IBAction func switchDidChange(_ sender: UISwitch) {
-        isReminder = !isReminder
-        checkSwitch()
+    
+    @IBAction func reminderDidChange(_ sender: UIButton) {
+            self.isReminder = !self.isReminder
+            checkSwitch()
     }
     
     func checkForReminder(){
         center.getPendingNotificationRequests(completionHandler: { requests in
             for request in requests {
                 self.isReminder = true
-                self.reminderSwitch.isOn = true
-                self.checkSwitch()
+            
                 self.reminderButton.setTitle(request.content.subtitle, for: .normal)
                 self.center.add(request, withCompletionHandler: { (error) in
                     if error != nil {

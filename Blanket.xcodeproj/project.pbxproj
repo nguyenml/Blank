@@ -40,7 +40,9 @@
 		585298261E7A1E040011B2E3 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */; };
 		585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */; };
 		585298281E7A1E040011B2E3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 585298201E7A1E040011B2E3 /* OFL.txt */; };
+		587161951F102E20004BC6D4 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 587161941F102E20004BC6D4 /* Images */; };
 		5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */; };
+		5886EC5D1F10466B00AAE8D4 /* Spoon-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5886EC5B1F10366C00AAE8D4 /* Spoon-ExtraLightItalic.ttf */; };
 		58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */; };
 		58B9751F1ED1F976003A910F /* TimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B9751E1ED1F975003A910F /* TimeViewController.xib */; };
 		58B975211ED1F9F2003A910F /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B975201ED1F9F2003A910F /* TimeViewController.swift */; };
@@ -80,6 +82,7 @@
 		5801590D1E81C997008D934E /* CollectionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
 		5801590F1E81CC93008D934E /* Calendar */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Calendar; sourceTree = "<group>"; };
 		580159111E81D543008D934E /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		58077A361F05877100149CB1 /* Blanket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blanket.entitlements; sourceTree = "<group>"; };
 		581DA3A91E70D66B0051C64B /* Blanket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		581DA3AC1E70D66B0051C64B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		581DA3B11E70D66B0051C64B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -111,7 +114,11 @@
 		5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.ttf"; path = "Resources/Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.ttf"; path = "Resources/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		585298201E7A1E040011B2E3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Resources/OFL.txt; sourceTree = "<group>"; };
+		587161941F102E20004BC6D4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Images; path = Blanket/Images; sourceTree = "<group>"; };
 		5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkOptionsViewController.swift; sourceTree = "<group>"; };
+		5886EC5A1F10366400AAE8D4 /* Spoon-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoon-Bold.ttf"; sourceTree = "<group>"; };
+		5886EC5B1F10366C00AAE8D4 /* Spoon-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoon-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		5886EC5C1F10368100AAE8D4 /* Spoon-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoon-Regular.ttf"; sourceTree = "<group>"; };
 		58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinueViewController.swift; sourceTree = "<group>"; };
 		58B9751E1ED1F975003A910F /* TimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeViewController.xib; sourceTree = "<group>"; };
 		58B975201ED1F9F2003A910F /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
@@ -155,6 +162,7 @@
 		581DA3A01E70D66B0051C64B = {
 			isa = PBXGroup;
 			children = (
+				587161941F102E20004BC6D4 /* Images */,
 				582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */,
 				581DA3AB1E70D66B0051C64B /* Blanket */,
 				585298181E7A1DDE0011B2E3 /* Fonts */,
@@ -179,6 +187,7 @@
 		581DA3AB1E70D66B0051C64B /* Blanket */ = {
 			isa = PBXGroup;
 			children = (
+				58077A361F05877100149CB1 /* Blanket.entitlements */,
 				5801590F1E81CC93008D934E /* Calendar */,
 				5801590D1E81C997008D934E /* CollectionCellView.swift */,
 				580106831EA7FF100046D252 /* CustomTableCell.swift */,
@@ -232,6 +241,9 @@
 		585298181E7A1DDE0011B2E3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				5886EC5C1F10368100AAE8D4 /* Spoon-Regular.ttf */,
+				5886EC5B1F10366C00AAE8D4 /* Spoon-ExtraLightItalic.ttf */,
+				5886EC5A1F10366400AAE8D4 /* Spoon-Bold.ttf */,
 				585298191E7A1E040011B2E3 /* Dosis-Bold.ttf */,
 				5852981A1E7A1E040011B2E3 /* Dosis-ExtraBold.ttf */,
 				5852981B1E7A1E040011B2E3 /* Dosis-ExtraLight.ttf */,
@@ -281,6 +293,7 @@
 				581DA3A71E70D66B0051C64B /* Resources */,
 				F78866C26509C7F8408D89B7 /* [CP] Embed Pods Frameworks */,
 				2090BA2282EDAA735BBA4467 /* [CP] Copy Pods Resources */,
+				587161911F0954B6004BC6D4 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -347,6 +360,11 @@
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = T8U6PZM97D;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 					581DA3BF1E70D66C0051C64B = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -397,7 +415,9 @@
 				580159101E81CC93008D934E /* Calendar in Resources */,
 				585298251E7A1E040011B2E3 /* Dosis-Medium.ttf in Resources */,
 				581DA3B71E70D66B0051C64B /* Assets.xcassets in Resources */,
+				587161951F102E20004BC6D4 /* Images in Resources */,
 				580106801EA2C0270046D252 /* RatingViewController.xib in Resources */,
+				5886EC5D1F10466B00AAE8D4 /* Spoon-ExtraLightItalic.ttf in Resources */,
 				585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */,
 				581DA3B21E70D66B0051C64B /* Main.storyboard in Resources */,
 			);
@@ -509,6 +529,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		587161911F0954B6004BC6D4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:32201085782:ios:ef0c3f9d1606b958\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"/Users/marvin/Desktop/dumb shit/blanket-14091-firebase-crashreporting-227mo-0646e441c3.json\"";
 		};
 		84B1DF5F0BC4326F6BA40383 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
