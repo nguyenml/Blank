@@ -20,7 +20,6 @@ class StatsViewController: UIViewController{
         var gLabel = " "
     }
 
-    @IBOutlet weak var progressCircle: MBCircularProgressBarView!
     @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var totalDays: UILabel!
     @IBOutlet weak var totalTime: UILabel!
@@ -32,10 +31,6 @@ class StatsViewController: UIViewController{
     
     @IBOutlet weak var currentDays: UILabel!
     @IBOutlet weak var highestStreak: UILabel!
-    @IBOutlet weak var wordsPerDay: UILabel!
-    
-    @IBOutlet weak var wordsProgress: UIProgressView!
-    @IBOutlet weak var currentProgress: UIProgressView!
     
     var entries : [Entry] = []
     var statsEntries : [statsBlock] = []
@@ -75,22 +70,15 @@ class StatsViewController: UIViewController{
         userLabel.minimumScaleFactor = 0.5
         currentDays.text = String(Stats.currentStreak)
         highestStreak.text = String(Stats.longestStreak)
-        
-        currentProgress.progressTintColor = UIColor.orange
-        let fractionalProgress = Float(Stats.currentStreak)/Float(Stats.longestStreak)
-        //let animated = Stats.currentStreak != 0
-        currentProgress.progress = fractionalProgress
-        
-        wordsPerDay.text = String(Stats.avgWordcount)
-        wordsProgress.progressTintColor = UIColor.yellow
         fetchUser()
         updateLabels()
-        setGoal()
     }
     
     func updateLabels(){
 
         totalDays.text = String(Stats.totalEntries)
+        wordCount.adjustsFontSizeToFitWidth = true;
+        wordCount.minimumScaleFactor = 0.5
         wordCount.text = String(Stats.totalWordcount)
         totalTime.text = convertTime()
     }
@@ -164,16 +152,12 @@ class StatsViewController: UIViewController{
 //             //comeback TO this when moving on
 //            time = String(h) + " " + String(m)
 //        }
-        time = String(secondsToMinutes(seconds: Stats.totalTime)) + " mins"
+        time = String(secondsToMinutes(seconds: Stats.totalTime))
         
         return time
     }
     
-    func setGoal(){
-        let progress = Float(String(Stats.currentStreak))! / Float(myBadges.badgeWorkingOn)
-        progressCircle.value = CGFloat(Float(progress*100))
-    }
-    
+
     @IBAction func unwindToStats(segue: UIStoryboardSegue) {}
     
     

@@ -293,6 +293,7 @@ class MainViewController: UIViewController {
     }
     
     func checkSwitch(){
+        print(isReminder)
         if isReminder{
             let image = UIImage(named: "alarm_button.png") as UIImage?
             reminderButtonOnOff.setBackgroundImage(image, for: .normal)
