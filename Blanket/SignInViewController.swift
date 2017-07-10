@@ -24,14 +24,14 @@ import ChameleonFramework
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var choiceStack: UIView!
+    @IBOutlet weak var formStack: UIView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signLabel: UILabel!
     @IBOutlet weak var passwordTextView: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var choiceStack: UIStackView!
     @IBOutlet weak var registerChoice: UIButton!
     @IBOutlet weak var signInChoice: UIButton!
-    @IBOutlet weak var formStack: UIStackView!
     @IBOutlet weak var switchControl: UIButton!
     @IBOutlet weak var usernameTextField: UITextField!
     

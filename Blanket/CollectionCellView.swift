@@ -10,5 +10,6 @@ import UIKit
 
 class CollectionCellView: UICollectionViewCell {
     
+    @IBOutlet weak var BadgeImage: UIImageView!
     @IBOutlet weak var BadgeLabel: UILabel!
 }

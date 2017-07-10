@@ -38,16 +38,11 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
             cell.BadgeLabel.text = String(myBadges.badges[indexPath.row].number)
             cell.BadgeLabel.adjustsFontSizeToFitWidth = true;
             cell.BadgeLabel.minimumScaleFactor = 0.5
-            cell.BadgeLabel.textColor = UIColor.white
-            if myBadges.badges[indexPath.row].number < 100{
-                cell.backgroundColor = UIColor(hex: 0x17DF82)
-            }else{
-                cell.backgroundColor = UIColor(hex: 0xFFB200)
-            }
+            cell.BadgeImage.image = badge.image as UIImage?
         }else{
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.BadgeLabel.text = "?"
-        cell.backgroundColor = UIColor.gray // make cell more visible in our example project
+        cell.backgroundColor = UIColor.gray// make cell more visible in our example project
         }
         
         return cell

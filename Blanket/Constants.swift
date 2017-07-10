@@ -135,16 +135,16 @@ class Topic{
 class IndividualBadge{
     var name:String
     var message:String
-    //var image:UIImage
+    var image:UIImage
     var earned:Bool
     var number:Int
     
-    init(name:String, message:String, earned:Bool, number:Int){
+    init(name:String, message:String, earned:Bool, number:Int, image:UIImage){
         self.name = name
         self.message = message
         self.earned = earned
         self.number = number
-      //  self.image = image
+        self.image = image
     }
 }
 
