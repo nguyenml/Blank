@@ -14,6 +14,8 @@ class InputViewController: UIViewController, UITextViewDelegate {
     var ref:FIRDatabaseReference?
     var entryRef:FIRDatabaseReference?
 
+    @IBOutlet weak var addMinRectagle: UIImageView!
+    @IBOutlet weak var backgroundRectangleOnCompletion: UIImageView!
   //  @IBOutlet weak var markButton: UIButton!
     @IBOutlet weak var addMin: UIButton!
     @IBOutlet var backButton: UIButton!
@@ -68,6 +70,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             extraTime = true
             addMin.isHidden = false
             addMin.setTitle("+3",for: .normal)
+            addMinRectagle.image = UIImage(named: "Oval.png")
             backButton.isHidden = false
             textField.isEditable = false
             
@@ -197,6 +200,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             }
             if counter >= extraCounter{
                 addMin.isHidden = false
+                addMinRectagle.image = UIImage(named: "Oval.png")
                 reset()
             }
             
@@ -208,6 +212,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
             if counter >= 300{
                 addMin.isHidden = false
                 addMin.setTitle("+3",for: .normal)
+                addMinRectagle.image = UIImage(named: "Oval.png")
                 // at 3 mins update info and reset timer for next use
                 lwc = greaterThanZero()
                 reset()
@@ -390,7 +395,8 @@ class InputViewController: UIViewController, UITextViewDelegate {
     //resets timer, buttons, and access
     func reset(){
         iTimer?.invalidate()
-        timer.textColor = UIColor(hex: 0x17DF82)
+        backgroundRectangleOnCompletion.image = UIImage(named: "green_rectangle.png")
+        timer.textColor = UIColor(hex: 0xFFFFFF)
         backButton.isHidden = false
         textField.isEditable = false
         post()
@@ -442,8 +448,10 @@ class InputViewController: UIViewController, UITextViewDelegate {
         FIRAnalytics.logEvent(withName: "addMinutes", parameters: nil)
         textField.isEditable = true
         textField.isUserInteractionEnabled = true
-        timer.textColor = UIColor(hex: 0xB8B8B8)
+        timer.textColor = UIColor(hex: 0x333333)
+        backgroundRectangleOnCompletion.image = UIImage(named: "grey_rectangle")
         addMin.isHidden = true
+        addMinRectagle.image = nil
         extraCounter = extraCounter + 180
         extraTime = true
         updateCounter()

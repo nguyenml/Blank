@@ -55,7 +55,6 @@ class MainViewController: UIViewController {
 
     
     func setupUIColor(){
-        setTimeUI()
         checkForReminder()
     }
     
@@ -332,9 +331,7 @@ class MainViewController: UIViewController {
     }
     
     func setTimeUI(){
-//        reminderButton.layer.borderColor = UIColor.init(hex: 0x333333).cgColor
-//        reminderButton.layer.borderWidth = 1
-//        reminderButton.layer.cornerRadius = 5
+        print("set the print up")
         reminderButton.setTitle("Set Reminder", for: .normal)
     }
     
