@@ -14,7 +14,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
     var ref:FIRDatabaseReference?
     var entryRef:FIRDatabaseReference?
 
-    @IBOutlet weak var addMinRectagle: UIImageView!
     @IBOutlet weak var backgroundRectangleOnCompletion: UIImageView!
   //  @IBOutlet weak var markButton: UIButton!
     @IBOutlet weak var addMin: UIButton!
@@ -70,7 +69,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
             extraTime = true
             addMin.isHidden = false
             addMin.setTitle("+3",for: .normal)
-            addMinRectagle.image = UIImage(named: "Oval.png")
             backButton.isHidden = false
             textField.isEditable = false
             
@@ -144,7 +142,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
-        if timer == nil{
+        if timer != nil{
             reset()
         }
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
@@ -200,7 +198,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
             }
             if counter >= extraCounter{
                 addMin.isHidden = false
-                addMinRectagle.image = UIImage(named: "Oval.png")
                 reset()
             }
             
@@ -212,7 +209,6 @@ class InputViewController: UIViewController, UITextViewDelegate {
             if counter >= 300{
                 addMin.isHidden = false
                 addMin.setTitle("+3",for: .normal)
-                addMinRectagle.image = UIImage(named: "Oval.png")
                 // at 3 mins update info and reset timer for next use
                 lwc = greaterThanZero()
                 reset()
@@ -449,9 +445,8 @@ class InputViewController: UIViewController, UITextViewDelegate {
         textField.isEditable = true
         textField.isUserInteractionEnabled = true
         timer.textColor = UIColor(hex: 0x333333)
-        backgroundRectangleOnCompletion.image = UIImage(named: "grey_rectangle")
+        backgroundRectangleOnCompletion.image = UIImage(named: "gray_rectangle.png")
         addMin.isHidden = true
-        addMinRectagle.image = nil
         extraCounter = extraCounter + 180
         extraTime = true
         updateCounter()

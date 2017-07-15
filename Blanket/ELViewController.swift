@@ -77,10 +77,8 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         })
     }
     
-    //This function retrieves data form FB and puts starts to enter it into the tableview
-    func configureDatabase() {
-        ref = FIRDatabase.database().reference()
-        // Listen for new messages in the Firebase database
+    func loadbyN(loadNumber:UInt){
+        
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             guard let strongSelf = self else { return }
             guard let entrySnap = snapshot.value as? [String: String] else { return }
@@ -92,7 +90,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
                                     timeStamp: entrySnap[Constants.Entry.timestamp]!,
                                     key: snapshot.key,
                                     totalTime: entrySnap[Constants.Entry.totalTime]!
-                                    //textStart: entrySnap[Constants.Entry.textStart]!
+                //textStart: entrySnap[Constants.Entry.textStart]!
             )
             
             //TEMP MEASURE---------------------------------------------
@@ -116,7 +114,9 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
             strongSelf.entries.sort(by: {$0.order < $1.order})
             strongSelf.tableView.reloadData()
         })
-        
+    }
+    
+    func updateDataOnChange(){
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childChanged, with: { [weak self] (snapshot) in
             guard let strongSelf = self else { return }
             let changedKey = snapshot.key //the firebase key
@@ -135,6 +135,15 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
             }
             strongSelf.tableView.reloadData()
         })
+    }
+    
+    //This function retrieves data form FB and puts starts to enter it into the tableview
+    func configureDatabase() {
+        ref = FIRDatabase.database().reference()
+        loadbyN(loadNumber:10)
+        // Listen for new messages in the Firebase database
+        updateDataOnChange()
+
     }
     
     // Creates each individual cell given the data of that cell's entry
@@ -190,6 +199,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         let entry = self.entries[indexPath.row]
         self.performSegue(withIdentifier: "segueToEntry", sender: entry);
     }
+
     
     //date
     func setDate() {

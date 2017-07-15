@@ -46,16 +46,11 @@ class MainViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
+        checkForReminder()
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler:{didAllow, error in})
         
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.checkView), name: NSNotification.Name(rawValue: mySpecialNotificationKey), object: nil)
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-
-    
-    func setupUIColor(){
-        checkForReminder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,10 +66,8 @@ class MainViewController: UIViewController {
             
             let image = UIImage(named: "day_circle.png") as UIImage?
             dayCircleView.image = image
-            setupUIColor()
         }
         else{
-            setupUIColor()
         }
         
     }
@@ -317,7 +310,6 @@ class MainViewController: UIViewController {
         center.getPendingNotificationRequests(completionHandler: { requests in
             for request in requests {
                 self.isReminder = true
-            
                 self.reminderButton.setTitle(request.content.subtitle, for: .normal)
                 self.center.add(request, withCompletionHandler: { (error) in
                     if error != nil {
@@ -325,6 +317,7 @@ class MainViewController: UIViewController {
                     }
                 })
             }
+            if !self.isReminder{ (self.setTimeUI())}
             self.checkSwitch()
         })
         
