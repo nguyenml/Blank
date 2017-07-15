@@ -40,6 +40,7 @@
 		585298261E7A1E040011B2E3 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */; };
 		585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */; };
 		585298281E7A1E040011B2E3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 585298201E7A1E040011B2E3 /* OFL.txt */; };
+		586E55A01F1A8AA700D069D2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */; };
 		587161951F102E20004BC6D4 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 587161941F102E20004BC6D4 /* Images */; };
 		5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */; };
 		5886EC5D1F10466B00AAE8D4 /* Spoon-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5886EC5B1F10366C00AAE8D4 /* Spoon-ExtraLightItalic.ttf */; };
@@ -114,6 +115,7 @@
 		5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.ttf"; path = "Resources/Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.ttf"; path = "Resources/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		585298201E7A1E040011B2E3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Resources/OFL.txt; sourceTree = "<group>"; };
+		586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		587161941F102E20004BC6D4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Images; path = Blanket/Images; sourceTree = "<group>"; };
 		5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkOptionsViewController.swift; sourceTree = "<group>"; };
 		5886EC5A1F10366400AAE8D4 /* Spoon-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoon-Bold.ttf"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */,
 				582C3E461EA0126000DC1698 /* GoalsViewController.swift */,
 				582E11C01E8B38E30074ADE1 /* Constants.swift */,
 				582E11C41E9597FB0074ADE1 /* Badges.swift */,
@@ -608,6 +611,7 @@
 				5801067A1EA2A8420046D252 /* RatingViewController.swift in Sources */,
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
 				582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */,
+				586E55A01F1A8AA700D069D2 /* SettingsViewController.swift in Sources */,
 				5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */,
 				582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */,
 				580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */,
