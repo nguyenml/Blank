@@ -41,6 +41,15 @@
 		585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */; };
 		585298281E7A1E040011B2E3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 585298201E7A1E040011B2E3 /* OFL.txt */; };
 		586E55A01F1A8AA700D069D2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */; };
+		586E55A31F1BCE6B00D069D2 /* Abel in Resources */ = {isa = PBXBuildFile; fileRef = 586E55A11F1BCE6B00D069D2 /* Abel */; };
+		586E55A41F1BCE6B00D069D2 /* Open_Sans in Resources */ = {isa = PBXBuildFile; fileRef = 586E55A21F1BCE6B00D069D2 /* Open_Sans */; };
+		586E55A61F1BD03200D069D2 /* Quicksand and EB Garamond in Resources */ = {isa = PBXBuildFile; fileRef = 586E55A51F1BD03200D069D2 /* Quicksand and EB Garamond */; };
+		586E55AE1F1BD50800D069D2 /* Abel-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 586E55AD1F1BD50800D069D2 /* Abel-Regular.ttf */; };
+		586E55B01F1BD51800D069D2 /* EBGaramond-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 586E55AF1F1BD51800D069D2 /* EBGaramond-Regular.ttf */; };
+		586E55B41F1BD54100D069D2 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 586E55B31F1BD54100D069D2 /* Quicksand-Regular.ttf */; };
+		586E55B61F1BD7A600D069D2 /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 586E55B51F1BD7A600D069D2 /* Quicksand-Bold.ttf */; };
+		586E55B81F1BDAEC00D069D2 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 586E55B71F1BDAEC00D069D2 /* OpenSans-Bold.ttf */; };
+		586E55BB1F1BDB8400D069D2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 586E55BA1F1BDB8400D069D2 /* OpenSans-Regular.ttf */; };
 		587161951F102E20004BC6D4 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 587161941F102E20004BC6D4 /* Images */; };
 		5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */; };
 		5886EC5D1F10466B00AAE8D4 /* Spoon-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5886EC5B1F10366C00AAE8D4 /* Spoon-ExtraLightItalic.ttf */; };
@@ -116,6 +125,15 @@
 		5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.ttf"; path = "Resources/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		585298201E7A1E040011B2E3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Resources/OFL.txt; sourceTree = "<group>"; };
 		586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		586E55A11F1BCE6B00D069D2 /* Abel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Abel; sourceTree = "<group>"; };
+		586E55A21F1BCE6B00D069D2 /* Open_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Open_Sans; sourceTree = "<group>"; };
+		586E55A51F1BD03200D069D2 /* Quicksand and EB Garamond */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Quicksand and EB Garamond"; sourceTree = "<group>"; };
+		586E55AD1F1BD50800D069D2 /* Abel-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Abel-Regular.ttf"; path = "Abel/Abel-Regular.ttf"; sourceTree = "<group>"; };
+		586E55AF1F1BD51800D069D2 /* EBGaramond-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "EBGaramond-Regular.ttf"; path = "Quicksand and EB Garamond/ebgaramond/EBGaramond-Regular.ttf"; sourceTree = "<group>"; };
+		586E55B31F1BD54100D069D2 /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Regular.ttf"; path = "Quicksand and EB Garamond/quicksand/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
+		586E55B51F1BD7A600D069D2 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-Bold.ttf"; path = "Quicksand and EB Garamond/quicksand/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		586E55B71F1BDAEC00D069D2 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "Open_Sans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		586E55BA1F1BDB8400D069D2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		587161941F102E20004BC6D4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Images; path = Blanket/Images; sourceTree = "<group>"; };
 		5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkOptionsViewController.swift; sourceTree = "<group>"; };
 		5886EC5A1F10366400AAE8D4 /* Spoon-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoon-Bold.ttf"; sourceTree = "<group>"; };
@@ -164,6 +182,12 @@
 		581DA3A01E70D66B0051C64B = {
 			isa = PBXGroup;
 			children = (
+				586E55BA1F1BDB8400D069D2 /* OpenSans-Regular.ttf */,
+				586E55B71F1BDAEC00D069D2 /* OpenSans-Bold.ttf */,
+				586E55B51F1BD7A600D069D2 /* Quicksand-Bold.ttf */,
+				586E55B31F1BD54100D069D2 /* Quicksand-Regular.ttf */,
+				586E55AF1F1BD51800D069D2 /* EBGaramond-Regular.ttf */,
+				586E55AD1F1BD50800D069D2 /* Abel-Regular.ttf */,
 				587161941F102E20004BC6D4 /* Images */,
 				582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */,
 				581DA3AB1E70D66B0051C64B /* Blanket */,
@@ -244,6 +268,9 @@
 		585298181E7A1DDE0011B2E3 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				586E55A51F1BD03200D069D2 /* Quicksand and EB Garamond */,
+				586E55A11F1BCE6B00D069D2 /* Abel */,
+				586E55A21F1BCE6B00D069D2 /* Open_Sans */,
 				5886EC5C1F10368100AAE8D4 /* Spoon-Regular.ttf */,
 				5886EC5B1F10366C00AAE8D4 /* Spoon-ExtraLightItalic.ttf */,
 				5886EC5A1F10366400AAE8D4 /* Spoon-Bold.ttf */,
@@ -411,12 +438,21 @@
 				585298221E7A1E040011B2E3 /* Dosis-ExtraBold.ttf in Resources */,
 				585298211E7A1E040011B2E3 /* Dosis-Bold.ttf in Resources */,
 				581DA3BA1E70D66B0051C64B /* LaunchScreen.storyboard in Resources */,
+				586E55A41F1BCE6B00D069D2 /* Open_Sans in Resources */,
 				585298231E7A1E040011B2E3 /* Dosis-ExtraLight.ttf in Resources */,
 				585298241E7A1E040011B2E3 /* Dosis-Light.ttf in Resources */,
 				58B9751F1ED1F976003A910F /* TimeViewController.xib in Resources */,
+				586E55A31F1BCE6B00D069D2 /* Abel in Resources */,
+				586E55AE1F1BD50800D069D2 /* Abel-Regular.ttf in Resources */,
+				586E55B01F1BD51800D069D2 /* EBGaramond-Regular.ttf in Resources */,
 				582E11B71E8AB8EC0074ADE1 /* GoogleService-Info.plist in Resources */,
+				586E55B41F1BD54100D069D2 /* Quicksand-Regular.ttf in Resources */,
+				586E55B61F1BD7A600D069D2 /* Quicksand-Bold.ttf in Resources */,
+				586E55A61F1BD03200D069D2 /* Quicksand and EB Garamond in Resources */,
 				580159101E81CC93008D934E /* Calendar in Resources */,
 				585298251E7A1E040011B2E3 /* Dosis-Medium.ttf in Resources */,
+				586E55B81F1BDAEC00D069D2 /* OpenSans-Bold.ttf in Resources */,
+				586E55BB1F1BDB8400D069D2 /* OpenSans-Regular.ttf in Resources */,
 				581DA3B71E70D66B0051C64B /* Assets.xcassets in Resources */,
 				587161951F102E20004BC6D4 /* Images in Resources */,
 				580106801EA2C0270046D252 /* RatingViewController.xib in Resources */,
@@ -779,6 +815,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mhabits.blankit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};

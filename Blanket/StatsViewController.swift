@@ -89,30 +89,6 @@ class StatsViewController: UIViewController{
         userLabel.text = user?.displayName?.capitalizingFirstLetter()
     }
     
-    //Logs a user out
-    @IBAction func signOut(_ sender: UIButton) {
-        let firebaseAuth = FIRAuth.auth()
-        do {
-            try firebaseAuth?.signOut()
-            safeReset()
-            
-            dismiss(animated: true, completion: nil)
-        } catch let signOutError as NSError {
-            print ("Error signing out: \(signOutError.localizedDescription)")
-        }
-    }
-    
-    //resets all the local structs and classes that held the users local data
-    func safeReset(){
-        Stats.avgWordcount = 0
-        Stats.currentStreak = 0
-        Stats.daysActive = 0
-        Stats.longestStreak = 0
-        Stats.totalEntries = 0
-        Stats.totalWordcount = 0
-        
-    }
-    
     func getData(){
         ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Date").observeSingleEvent(of: .value,with: {
             (snapshot) in

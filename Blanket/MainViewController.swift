@@ -211,7 +211,6 @@ class MainViewController: UIViewController {
         let popup = PopupDialog(title: title, message: message, image: image)
         
         let buttonOne = CancelButton(title: "DONE") {
-            print("You canceled the car dialog.")
         }
 
         popup.addButtons([buttonOne])

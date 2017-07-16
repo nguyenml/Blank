@@ -16,6 +16,7 @@ class IndividualEntryViewController: UIViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var wordCount: UILabel!
     
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +27,10 @@ class IndividualEntryViewController: UIViewController {
             markLabel.text = entry.topic
         }
         textView.isEditable = false;
+        textView.font = UIFont(name: "OpenSans-Regular", size: 17)
         textView.text = entry.text
         wordCount.text = entry.wordCount
+        timeLabel.text = String(Int(entry.totalTime)!/60)
         dateLabel.text = seperateDate()
 
     }

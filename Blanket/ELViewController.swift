@@ -152,27 +152,22 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         // Dequeue cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell") as! CustomTableCell
         // Unpack message from Firebase DataSnapshot
-        var type = "none"
-        let isMarked = entry.hasMark()
-        let isTopic = entry.hasTopic()
-        if isMarked{
-            type = "mark"
-            cell.markLabel?.text = entry.mark
-        }
-        if isTopic{
-            type = "topic"
-            cell.markLabel?.text = entry.topic
-        }
-        if (isMarked || isTopic) == false {
-            cell.markLabel?.text = ""
-        }
-        cell.setupIndicatorView(bool: isMarked || isTopic, type:type )
-        
-        let words = entry.wordCount
+//        let isMarked = entry.hasMark()
+//        let isTopic = entry.hasTopic()
+//        if isMarked{
+//            type = "mark"
+//            cell.markLabel?.text = entry.mark
+//        }
+//        if isTopic{
+//            type = "topic"
+//            cell.markLabel?.text = entry.topic
+//        }
+//        if (isMarked || isTopic) == false {
+//            cell.markLabel?.text = ""
+//        }
+        //cell.setupIndicatorView(bool: isMarked || isTopic, type:type )
         let time = Int(entry.totalTime)!/60
-        let preview = entry.text
         cell.dateLabel?.text = seperateDate(dateS: entry.date)
-        cell.previewLabel?.text = preview
         cell.wordCount?.text = String(time) + " mins"
         
         //Change color

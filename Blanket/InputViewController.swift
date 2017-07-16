@@ -51,6 +51,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
         ref = FIRDatabase.database().reference()
         entryRef = ref?.child("Entry").childByAutoId()
         self.textField.delegate = self
+        textField.font = UIFont(name: "OpenSans-Regular", size:17)
         getMostRecent()
     }
     
