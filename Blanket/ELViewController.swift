@@ -90,16 +90,8 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
                                     timeStamp: entrySnap[Constants.Entry.timestamp]!,
                                     key: snapshot.key,
                                     totalTime: entrySnap[Constants.Entry.totalTime]!
-                //textStart: entrySnap[Constants.Entry.textStart]!
             )
             
-            //TEMP MEASURE---------------------------------------------
-            if snapshot.hasChild(Constants.Entry.textStart){
-                entry.textStart = entrySnap[Constants.Entry.textStart]!
-            }else{
-                entry.textStart = entry.text
-            }
-            //-----------------------------_TEMP-----------------------
             if snapshot.hasChild(Constants.Entry.topic){
                 entry.topic = entrySnap[Constants.Entry.topic]!
             }

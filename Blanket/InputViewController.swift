@@ -9,13 +9,15 @@
 import UIKit
 import Firebase
 
-class InputViewController: UIViewController, UITextViewDelegate {
+class InputViewController: UIViewController, UITextViewDelegate{
     
     var ref:FIRDatabaseReference?
     var entryRef:FIRDatabaseReference?
 
+    @IBOutlet weak var tapView: UIView!
+    
     @IBOutlet weak var backgroundRectangleOnCompletion: UIImageView!
-  //  @IBOutlet weak var markButton: UIButton!
+    @IBOutlet weak var markButton: UIButton!
     @IBOutlet weak var addMin: UIButton!
     @IBOutlet var backButton: UIButton!
     @IBOutlet var textField: UITextView!
@@ -45,14 +47,25 @@ class InputViewController: UIViewController, UITextViewDelegate {
     var stats:[String:Int] = [:]
     let uid = FIRAuth.auth()!.currentUser!.uid
     
+    let tap = UITapGestureRecognizer()
+
+    
     override func viewDidLoad() {
         FIRAnalytics.logEvent(withName: "UserWriting", parameters: nil)
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         entryRef = ref?.child("Entry").childByAutoId()
         self.textField.delegate = self
-        textField.font = UIFont(name: "OpenSans-Regular", size:17)
+        setup()
         getMostRecent()
+    }
+    
+    //ser up function to get text and view in to order
+    func setup(){
+    textField.font = UIFont(name: "OpenSans-Regular", size:17)
+    tap.numberOfTapsRequired = 2
+    tap.addTarget(self, action: #selector(addMinute(_:)))
+    tapView.addGestureRecognizer(tap)
     }
     
     // get rid of xcode backspace error, hide buttons, add notification for keyboard scrolling
@@ -90,6 +103,7 @@ class InputViewController: UIViewController, UITextViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         timeSituations()
     }
+
     
     func topicOrMark(){
         if mot == nil {return}
@@ -168,6 +182,11 @@ class InputViewController: UIViewController, UITextViewDelegate {
                                     totalTime: entrySnap[Constants.Entry.totalTime]!
                 //textStart: entrySnap[Constants.Entry.textStart]!
             )
+            //check to make sure this belongs to the correct UID
+            if entry.uid != self.uid{
+                self.setupInput(bool: false)
+                return
+            }
             if snapshot.hasChild(Constants.Entry.topic){
                 entry.topic = entrySnap[Constants.Entry.topic]!
             }
@@ -394,6 +413,11 @@ class InputViewController: UIViewController, UITextViewDelegate {
         iTimer?.invalidate()
         backgroundRectangleOnCompletion.image = UIImage(named: "green_rectangle.png")
         timer.textColor = UIColor(hex: 0xFFFFFF)
+        if textField.isFirstResponder {
+            textField.resignFirstResponder()
+            tapView.isHidden = false
+            tapView.addGestureRecognizer(tap)
+        }
         backButton.isHidden = false
         textField.isEditable = false
         post()
@@ -443,8 +467,12 @@ class InputViewController: UIViewController, UITextViewDelegate {
     }
     @IBAction func addMinute(_ sender: UIButton) {
         FIRAnalytics.logEvent(withName: "addMinutes", parameters: nil)
+        self.textField.becomeFirstResponder()
+        tapView.removeGestureRecognizer(tap)
+        tapView.isHidden = true
         textField.isEditable = true
         textField.isUserInteractionEnabled = true
+
         timer.textColor = UIColor(hex: 0x333333)
         backgroundRectangleOnCompletion.image = UIImage(named: "gray_rectangle.png")
         addMin.isHidden = true
@@ -476,17 +504,4 @@ class InputViewController: UIViewController, UITextViewDelegate {
         return false
     }
 
-//    @IBAction func switchTimerWordCount(_ sender: UIButton) {
-//        if wordCountLabel.isHidden{
-//            wordCountLabel.isHidden = false
-//            timer.isHidden = true
-//            addMin.isHidden = true
-//        }else{
-//            wordCountLabel.isHidden = true
-//            timer.isHidden = false
-//            if counter >= 300{
-//                addMin.isHidden = true
-//            }
-//        }
-//    }
 }
