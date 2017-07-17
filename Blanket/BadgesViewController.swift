@@ -42,7 +42,7 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         }else{
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
         cell.BadgeLabel.text = "?"
-        cell.backgroundColor = UIColor.gray// make cell more visible in our example project
+            cell.BadgeImage.image = UIImage(named: "grey_oval")// make cell more visible in our example project
         }
         
         return cell
