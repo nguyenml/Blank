@@ -92,13 +92,16 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
     }
     
     func setupView(){
-        view.backgroundColor = UIColor.flatSkyBlue
+        view.backgroundColor = UIColor(hex: 0xF3F3F3)
         formStack.isHidden = true
         formStack.isUserInteractionEnabled = false
         loginButton.isHidden = true
+        loginButton.layer.cornerRadius = 10
         loginButton.isUserInteractionEnabled = false
         switchControl.isHidden = true
         switchControl.isUserInteractionEnabled = false
+        registerChoice.layer.cornerRadius = 10
+        signInChoice.layer.cornerRadius = 10
     }
     
     func goToForms(){
@@ -128,7 +131,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
             usernameTextField.isHidden = false
             usernameTextField.isUserInteractionEnabled = true
             loginButton.setTitle("Register", for: .normal)
-            switchControl.setTitle("Already have an account?", for: .normal)
+            switchControl.setTitle("Already have an account? Log in.", for: .normal)
         }
     }
     
