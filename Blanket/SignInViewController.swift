@@ -24,6 +24,7 @@ import ChameleonFramework
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
     
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var choiceStack: UIView!
     @IBOutlet weak var formStack: UIView!
     @IBOutlet weak var loginButton: UIButton!
@@ -116,6 +117,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
     //changes the form from signin to signup
     @IBAction func signInSelectorChanged(_ sender: UIButton) {
         
+        errorLabel.text = ""
         isSignIn = !isSignIn
         usernameTextField.text = ""
         emailTextField.text = ""
@@ -165,6 +167,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         goToForms()
         isSignIn = true
         resetChoiceForm()
+
     }
     
     //function to signin/create user
@@ -185,8 +188,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
 
                     }
                     else{
-                        //throw error
-                         print("Error is = \(String(describing: error?.localizedDescription))")
+                        self.errorLabel.text = "Invalid username or password"
                     }
                 
                 })
@@ -200,7 +202,6 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                     changeRequest?.displayName = self.usernameTextField.text
                     changeRequest?.commitChanges { error in
                         if let error = error {
-                            print("Error is = \(error.localizedDescription)")
                         } else {
                             // Profile updated.
                         }
@@ -226,11 +227,11 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                     self.performSegue(withIdentifier: "signedIn", sender: self)
                     myBadges = BadgeClass()
                     
-                    
                 }
                 else{
-                    print("Error is = \(String(describing: error?.localizedDescription))")
-                    print("register error")
+                    if let error = error {
+                        self.errorLabel.text = String(describing: error.localizedDescription)
+                    }
                 }
                     
             })

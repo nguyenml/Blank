@@ -90,6 +90,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             textField.text = ""
             addMin.isHidden = true
             backButton.isHidden = true
+            tapView.isHidden = true
         }
         
         
@@ -119,7 +120,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < 300){
-            iTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
             return
         }
