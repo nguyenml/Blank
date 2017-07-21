@@ -43,6 +43,31 @@ public enum ReadingOrientation {
     case leftToRight
 }
 
+/// Configures the behavior of the scrolling mode of the calendar
+public enum ScrollingMode {
+    /// stopAtEachCalendarFrameWidth - non-continuous scrolling that will stop at each frame width
+    case stopAtEachCalendarFrameWidth
+    /// stopAtEachSection - non-continuous scrolling that will stop at each section
+    case stopAtEachSection
+    /// stopAtEach - non-continuous scrolling that will stop at each custom interval
+    case stopAtEach(customInterval: CGFloat)
+    /// nonStopToSection - continuous scrolling that will stop at a section
+    case nonStopToSection(withResistance: CGFloat)
+    /// nonStopToCell - continuous scrolling that will stop at a cell
+    case nonStopToCell(withResistance: CGFloat)
+    /// nonStopTo - continuous scrolling that will stop at acustom interval
+    case nonStopTo(customInterval: CGFloat, withResistance: CGFloat)
+    /// none - continuous scrolling that will eventually stop at a point
+    case none
+    
+    func pagingIsEnabled() -> Bool {
+        switch self {
+        case .stopAtEachCalendarFrameWidth: return true
+        default: return false
+        }
+    }
+}
+
 /// Describes which month owns the date
 public enum DateOwner: Int {
     /// Describes which month owns the date
@@ -51,6 +76,10 @@ public enum DateOwner: Int {
         previousMonthOutsideBoundary,
         followingMonthWithinBoundary,
         followingMonthOutsideBoundary
+}
+/// Months of the year
+public enum MonthsOfYear: Int {
+    case jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec
 }
 
 /// Selection position of a range-selected date cell
@@ -64,10 +93,4 @@ public enum SelectionRangePosition: Int {
 public enum DaysOfWeek: Int {
     /// Days of the week.
     case sunday = 1, monday, tuesday, wednesday, thursday, friday, saturday
-}
-
-enum JTAppleCalendarViewSource {
-    case fromXib(String, Bundle?)
-    case fromType(AnyClass)
-    case fromClassName(String, Bundle?)
 }

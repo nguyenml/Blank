@@ -42,7 +42,7 @@ public struct CellState {
     public let selectedPosition: () -> SelectionRangePosition
     /// returns the cell frame.
     /// Useful if you wish to display something at the cell's frame/position
-    public var cell: () -> JTAppleDayCell?
+    public var cell: () -> JTAppleCell?
 }
 
 /// Defines the parameters which configures the calendar.
@@ -99,6 +99,18 @@ public struct ConfigurationParameters {
     }
 }
 
+public struct MonthSize {
+    var defaultSize: CGFloat
+    var months: [CGFloat:[MonthsOfYear]]?
+    var dates: [CGFloat: [Date]]?
+    
+    public init(defaultSize: CGFloat, months: [CGFloat:[MonthsOfYear]]? = nil, dates: [CGFloat: [Date]]? = nil) {
+        self.defaultSize = defaultSize
+        self.months = months
+        self.dates = dates
+    }
+}
+
 struct CalendarData {
     var months: [Month]
     var totalSections: Int
@@ -127,11 +139,14 @@ struct Month {
     /// Number of outDates for this month
     let outDates: Int
 
-    // Maps a section to the index in the total number of sections
+    /// Maps a section to the index in the total number of sections
     let sectionIndexMaps: [Int: Int]
 
-    // Number of rows for the month
+    /// Number of rows for the month
     let rows: Int
+    
+    /// Name of the month
+    let name: MonthsOfYear
 
     // Return the total number of days for the represented month
     var numberOfDaysInMonth: Int
@@ -139,9 +154,7 @@ struct Month {
     // Return the total number of day cells
     // to generate for the represented month
     var numberOfDaysInMonthGrid: Int {
-        get {
-            return numberOfDaysInMonth + inDates + outDates
-        }
+        return numberOfDaysInMonth + inDates + outDates
     }
 
     var startSection: Int {
@@ -161,6 +174,7 @@ struct Month {
 //            return path
 //        }
 //    }
+    
     // Return the section in which a day is contained
     func indexPath(forDay number: Int) -> IndexPath? {
         let sectionInfo = sectionFor(day: number)
@@ -265,8 +279,10 @@ struct JTAppleDateConfigGenerator {
             // Section represents # of months. section is used as an offset
             // to determine which month to calculate
             
+            // Track the month name index
+            var monthNameIndex = parameters.calendar.component(.month, from: parameters.startDate) - 1
+            let allMonthsOfYear: [MonthsOfYear] = [.jan, .feb, .mar, .apr, .may, .jun, .jul, .aug, .sep, .oct, .nov, .dec]
             
-
             for monthIndex in 0 ..< numberOfMonths {
                 if let currentMonthDate = parameters.calendar.date(byAdding: .month, value: monthIndex, to: parameters.startDate) {
                     var numberOfDaysInMonthVariable = parameters.calendar.range(of: .day, in: .month, for: currentMonthDate)!.count
@@ -275,7 +291,7 @@ struct JTAppleDateConfigGenerator {
                     var numberOfPreDatesForThisMonth = 0
                     let predatesGeneration = parameters.generateInDates
                     if predatesGeneration != .off {
-                        numberOfPreDatesForThisMonth = numberOfPreDatesForMonth(currentMonthDate, firstDayOfWeek: parameters.firstDayOfWeek, calendar: parameters.calendar)
+                        numberOfPreDatesForThisMonth = numberOfInDatesForMonth(currentMonthDate, firstDayOfWeek: parameters.firstDayOfWeek, calendar: parameters.calendar)
                         numberOfDaysInMonthVariable += numberOfPreDatesForThisMonth
                         if predatesGeneration == .forFirstMonthOnly && monthIndex != 0 {
                             numberOfDaysInMonthVariable -= numberOfPreDatesForThisMonth
@@ -326,16 +342,21 @@ struct JTAppleDateConfigGenerator {
                         outDates: numberOfPostDatesForThisMonth,
                         sectionIndexMaps: sectionIndexMaps,
                         rows: numberOfRowsToGenerateForCurrentMonth,
+                        name: allMonthsOfYear[monthNameIndex],
                         numberOfDaysInMonth: numberOfDaysInMonthFixed
                     ))
                     startIndexForMonth += numberOfDaysInMonthFixed
                     startCellIndexForMonth += numberOfDaysInMonthFixed + numberOfPreDatesForThisMonth + numberOfPostDatesForThisMonth
+                    
+                    // Increment month name
+                    monthNameIndex += 1
+                    if monthNameIndex > 11 { monthNameIndex = 0 }
                 }
             }
             return (monthArray, monthIndexMap, section, totalDays)
     }
     
-    private func numberOfPreDatesForMonth(_ date: Date, firstDayOfWeek: DaysOfWeek, calendar: Calendar) -> Int {
+    private func numberOfInDatesForMonth(_ date: Date, firstDayOfWeek: DaysOfWeek, calendar: Calendar) -> Int {
         let firstDayCalValue: Int
         switch firstDayOfWeek {
         case .monday: firstDayCalValue = 6
@@ -359,13 +380,9 @@ struct JTAppleDateConfigGenerator {
 /// Contains the information for visible dates of the calendar.
 public struct DateSegmentInfo {
     /// Visible pre-dates
-    public let indates: [Date]
+    public let indates: [(date: Date, indexPath: IndexPath)]
     /// Visible month-dates
-    public let monthDates: [Date]
+    public let monthDates: [(date: Date, indexPath: IndexPath)]
     /// Visible post-dates
-    public let outdates: [Date]
-    
-    internal let indateIndexes: [IndexPath]
-    internal let monthDateIndexes: [IndexPath]
-    internal let outdateIndexes: [IndexPath]
+    public let outdates: [(date: Date, indexPath: IndexPath)]
 }

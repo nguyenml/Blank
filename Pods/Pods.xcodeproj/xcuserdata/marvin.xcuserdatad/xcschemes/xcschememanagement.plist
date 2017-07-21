@@ -9,11 +9,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>ChameleonFramework.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>DGRunkeeperSwitch.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -35,16 +30,6 @@
 			<false/>
 		</dict>
 		<key>JTAppleCalendar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MBCircularProgressBar-MBCircularProgressBar.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>MBCircularProgressBar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -87,12 +72,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>327D33790D244B2EE7BE20BF1A6D3776</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4D5B8B1BE64F80268007C79821DDDC20</key>
+		<key>3484AA2077500FFE3D9675AFC4D8E03E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,17 +92,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>704E2CA405DD5A5C4796B9D7275E0011</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>76BD4592010354D6C23D6ECCA20D83A8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>82049C66C4B2B745C7B6C941BB12ADDD</key>
+		<key>7E56C2CA8E48E74FA49AF6F264AA7F22</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,7 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9D321385EB535CF8F5D2945BBFD40C4B</key>
+		<key>A2D7E54675E011B71765474C93B12AAA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,12 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CAC840DD7C14BED838F74AD37CD7CBBA</key>
+		<key>BFED2E29E95E065400F8846E0231A970</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CAF2C5D270FA6C2F4D0751CBD4CF990B</key>
+		<key>DE1AB236CA87A333546DFAD98CEF7D85</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,7 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F579AA4D4755DD9570010BC36D0422F7</key>
+		<key>E8C1282BEA1F7FBABBD0E427B0512168</key>
 		<dict>
 			<key>primary</key>
 			<true/>

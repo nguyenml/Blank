@@ -14,7 +14,6 @@
 		580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580106831EA7FF100046D252 /* CustomTableCell.swift */; };
 		5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580159091E81C82D008D934E /* BadgesViewController.swift */; };
 		5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801590D1E81C997008D934E /* CollectionCellView.swift */; };
-		580159101E81CC93008D934E /* Calendar in Resources */ = {isa = PBXBuildFile; fileRef = 5801590F1E81CC93008D934E /* Calendar */; };
 		581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3AC1E70D66B0051C64B /* AppDelegate.swift */; };
 		581DA3B21E70D66B0051C64B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 581DA3B01E70D66B0051C64B /* Main.storyboard */; };
 		581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3B31E70D66B0051C64B /* Blanket.xcdatamodeld */; };
@@ -90,7 +89,6 @@
 		580106831EA7FF100046D252 /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
 		580159091E81C82D008D934E /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		5801590D1E81C997008D934E /* CollectionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
-		5801590F1E81CC93008D934E /* Calendar */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Calendar; sourceTree = "<group>"; };
 		580159111E81D543008D934E /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		58077A361F05877100149CB1 /* Blanket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blanket.entitlements; sourceTree = "<group>"; };
 		581DA3A91E70D66B0051C64B /* Blanket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -214,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				58077A361F05877100149CB1 /* Blanket.entitlements */,
-				5801590F1E81CC93008D934E /* Calendar */,
 				5801590D1E81C997008D934E /* CollectionCellView.swift */,
 				580106831EA7FF100046D252 /* CustomTableCell.swift */,
 				58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */,
@@ -449,7 +446,6 @@
 				586E55B41F1BD54100D069D2 /* Quicksand-Regular.ttf in Resources */,
 				586E55B61F1BD7A600D069D2 /* Quicksand-Bold.ttf in Resources */,
 				586E55A61F1BD03200D069D2 /* Quicksand and EB Garamond in Resources */,
-				580159101E81CC93008D934E /* Calendar in Resources */,
 				585298251E7A1E040011B2E3 /* Dosis-Medium.ttf in Resources */,
 				586E55B81F1BDAEC00D069D2 /* OpenSans-Bold.ttf in Resources */,
 				586E55BB1F1BDB8400D069D2 /* OpenSans-Regular.ttf in Resources */,

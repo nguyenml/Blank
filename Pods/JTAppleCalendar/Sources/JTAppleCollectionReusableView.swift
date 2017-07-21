@@ -7,16 +7,9 @@
 //
 
 /// The header view class of the calendar
-open class JTAppleCollectionReusableView: UICollectionReusableView, JTAppleReusableViewProtocol {
-    /// Header view to be customized
-    var view: JTAppleHeaderView?
-    
-    func update() {
-        view!.frame = frame
-        view!.center = CGPoint(x: bounds.size.width * 0.5, y: bounds.size.height * 0.5)
-    }
-
-    override init(frame: CGRect) {
+open class JTAppleCollectionReusableView: UICollectionReusableView {
+    /// Initializes and returns a newly allocated view object with the specified frame rectangle.
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
 

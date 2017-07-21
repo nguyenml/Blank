@@ -6,7 +6,7 @@ target 'Blanket' do
   use_frameworks!
 
   # Pods for Blanket
-    pod 'JTAppleCalendar', '~> 6.1'
+    pod 'JTAppleCalendar', '~> 7.0'
     pod 'Firebase/Core’
     pod 'Firebase/Auth'
     pod 'Google/SignIn'
@@ -17,9 +17,7 @@ target 'Blanket' do
     pod 'PopupDialog', '~> 0.5'
     pod 'CZPicker'
     pod 'TextFieldEffects'
-    pod 'ChameleonFramework/Swift', :git => 'https://github.com/ViccAlexander/Chameleon.git'
     pod 'SwipeCellKit'
-    pod 'MBCircularProgressBar'
     pod "DGRunkeeperSwitch", "~> 1.1.4"
   target 'BlanketTests' do
     inherit! :search_paths
