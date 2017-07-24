@@ -42,7 +42,6 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         currentDate = Date()
         tableView.delegate = self
         tableView.dataSource = self
-       // checkConnectionWithFB()
         configureDatabase()
     }
     
@@ -62,18 +61,6 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         let date = dateFormatter.date(from: dateS)
         dateFormatter.dateFormat = "h:mm a"
         return dateFormatter.string(from: date!)
-    }
-    
-    //Temporary measure before adding persistent state
-    func checkConnectionWithFB(){
-        connectedRef = FIRDatabase.database().reference(withPath: ".info/connected")
-        connectedRef?.observe(.value, with: { snapshot in
-            if let connected = snapshot.value as? Bool, connected {
-                self.connected = true
-            } else {
-                self.connected = false
-            }
-        })
     }
     
     func loadbyN(loadNumber:UInt){
@@ -142,21 +129,6 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         let entry = self.entries[indexPath.row]
         // Dequeue cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableCell") as! CustomTableCell
-        // Unpack message from Firebase DataSnapshot
-//        let isMarked = entry.hasMark()
-//        let isTopic = entry.hasTopic()
-//        if isMarked{
-//            type = "mark"
-//            cell.markLabel?.text = entry.mark
-//        }
-//        if isTopic{
-//            type = "topic"
-//            cell.markLabel?.text = entry.topic
-//        }
-//        if (isMarked || isTopic) == false {
-//            cell.markLabel?.text = ""
-//        }
-        //cell.setupIndicatorView(bool: isMarked || isTopic, type:type )
         let time = Int(entry.totalTime)!/60
         cell.dateLabel?.text = seperateDate(dateS: entry.date)
         cell.wordCount?.text = String(time) + " mins"
