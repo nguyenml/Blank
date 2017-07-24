@@ -8,6 +8,8 @@
 
 import UIKit
 import JTAppleCalendar
+import Firebase
+
 
 class CalendarViewController: UIViewController {
 
@@ -18,20 +20,77 @@ class CalendarViewController: UIViewController {
     
     let todaysDates = Date()
     
-    var entries: [Packet]!
+    var entries: [Packet]! = []
     var entryDate: [String:Packet] = [:]
+    
+    var ref:FIRDatabaseReference?
+    
+    
+    let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
+    var handle: FIRAuthStateDidChangeListenerHandle?
+    var connectedRef:FIRDatabaseReference?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureData()
         setupCalendarView()
         getSetupDateFromEntries()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func configureData(){
+        
+        ref = FIRDatabase.database().reference()
+        
+        self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            guard let strongSelf = self else { return }
+            guard let entrySnap = snapshot.value as? [String: String] else { return }
+            let entry = Packet.init(date: entrySnap[Constants.Entry.date]!,
+                                    text: entrySnap[Constants.Entry.text]!,
+                                    wordCount: entrySnap[Constants.Entry.wordCount]!,
+                                    uid: entrySnap[Constants.Entry.uid]!,
+                                    emotion: entrySnap[Constants.Entry.emotion]!,
+                                    timeStamp: entrySnap[Constants.Entry.timestamp]!,
+                                    key: snapshot.key,
+                                    totalTime: entrySnap[Constants.Entry.totalTime]!
+            )
+            
+            if snapshot.hasChild(Constants.Entry.topic){
+                entry.topic = entrySnap[Constants.Entry.topic]!
+            }
+            
+            if snapshot.hasChild(Constants.Entry.mark){
+                entry.mark = entrySnap[Constants.Entry.mark]!
+            }
+            entry.setOrder(order: entry.timestamp)
+            strongSelf.formatter.dateFormat = "MMM dd, yyyy h:mm a"
+            let newDate = strongSelf.formatter.date(from: entry.date)
+            strongSelf.formatter.dateFormat = "yyyy MM dd"
+            strongSelf.entryDate[strongSelf.formatter.string(from: newDate!)] = entry
+        })
+        
+        updateDataOnChange()
+    }
+    
+    func updateDataOnChange(){
+        self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childChanged, with: { [weak self] (snapshot) in
+            guard let strongSelf = self else { return }
+            guard let entrySnap = snapshot.value as? [String: String] else { return }
+            let entry = Packet.init(date: entrySnap[Constants.Entry.date]!,
+                                    text: entrySnap[Constants.Entry.text]!,
+                                    wordCount: entrySnap[Constants.Entry.wordCount]!,
+                                    uid: entrySnap[Constants.Entry.uid]!,
+                                    emotion: entrySnap[Constants.Entry.emotion]!,
+                                    timeStamp: entrySnap[Constants.Entry.timestamp]!,
+                                    key: snapshot.key,
+                                    totalTime: entrySnap[Constants.Entry.totalTime]!
+            )
+            strongSelf.formatter.dateFormat = "MMM dd, yyyy h:mm a"
+            let newDate = strongSelf.formatter.date(from: entry.date)
+            strongSelf.formatter.dateFormat = "yyyy MM dd"
+            strongSelf.entryDate.updateValue(entry, forKey:strongSelf.formatter.string(from: newDate!))
+        })
     }
     
     func getSetupDateFromEntries(){
@@ -49,6 +108,7 @@ class CalendarViewController: UIViewController {
     
     
     func setupCalendarView(){
+        
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing  = 0
         
@@ -120,7 +180,12 @@ class CalendarViewController: UIViewController {
         let hasEntry = entryDate[formatter.string(from: cellState.date)] != nil
         if hasEntry{
             cell.entryDot.isHidden = false
-            cell.dateLabel.textColor = UIColor.white
+            if cellState.date.isEqual(to: todaysDates){
+                cell.entryDot.backgroundColor = UIColor(hex:0xFF7F00)
+            }else{
+                cell.entryDot.backgroundColor = UIColor(hex: 0x17DF82)
+            }
+                cell.dateLabel.textColor = UIColor.white
         }
         else{
             let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
@@ -142,10 +207,6 @@ class CalendarViewController: UIViewController {
         let hasEntry = entryDate[date] != nil
         if !hasEntry { return }
         self.performSegue(withIdentifier: "segueToEntry", sender: entryDate[date]);
-    }
-    
-    @IBAction func goBack(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToLogs", sender: self)
     }
 
 }

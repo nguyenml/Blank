@@ -1255,11 +1255,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522544515.106912"
+            timestampString = "522609058.585581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "getSetupDateFromEntries()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1271,11 +1271,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522544515.106912"
+            timestampString = "522609058.585581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "101"
+            endingLineNumber = "101"
             landmarkName = "getSetupDateFromEntries()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1287,11 +1287,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522544515.106912"
+            timestampString = "522609058.585581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "getSetupDateFromEntries()"
             landmarkType = "7">
             <Locations>
@@ -1335,11 +1335,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522544515.106912"
+            timestampString = "522609058.585581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "getSetupDateFromEntries()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1351,11 +1351,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522603565.428412"
+            timestampString = "522627173.058286"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
+            startingLineNumber = "188"
+            endingLineNumber = "188"
             landmarkName = "handleEntry(cell:cellState:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1367,11 +1367,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522603565.428412"
+            timestampString = "522627029.216525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "goToEntry(cell:cellState:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1399,11 +1399,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522544515.106912"
+            timestampString = "522609058.585581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "getSetupDateFromEntries()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1415,11 +1415,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522544515.106912"
+            timestampString = "522609058.585581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "getSetupDateFromEntries()"
             landmarkType = "7">
             <Locations>
@@ -1463,11 +1463,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522603565.428412"
+            timestampString = "522609058.585581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "getSetupDateFromEntries()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1479,11 +1479,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522603565.428412"
+            timestampString = "522609058.585581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "getSetupDateFromEntries()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1495,12 +1495,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/CalendarViewController.swift"
-            timestampString = "522603565.428412"
+            timestampString = "522627029.216525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "144"
-            endingLineNumber = "144"
+            startingLineNumber = "209"
+            endingLineNumber = "209"
             landmarkName = "goToEntry(cell:cellState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522607977.77146"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "configureData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
