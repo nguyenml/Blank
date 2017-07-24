@@ -63,18 +63,12 @@ struct Constants {
         static let angry = "Upset"
         static let excited = "Motivated"
     }
-    
-    struct backgroundColor{
-        static let bc = UIColor.flatWhite
-        static let bcd = UIColor.flatWhiteDark
-    }
 
 }
-
-
 var imFeeling = "Content"
 var marks:[Mark] = []
 var topics:[Topic] = []
+var entryDates: [Packet]! = []
 var didWriteToday = false
 
 struct Stats{
@@ -90,6 +84,10 @@ struct Stats{
 struct LastAccess{
     static var date = NSDate() as Date
     static var entry:String = ""
+}
+
+struct StartDate{
+    static var firstDay:String = ""
 }
 
 struct Goals{

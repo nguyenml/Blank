@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import CZPicker
-import ChameleonFramework
 import UserNotifications
 import PopupDialog
 
@@ -36,7 +35,6 @@ class MainViewController: UIViewController {
     var isReminder = false
     var dateString = ""
 
-    var colorArray = ColorSchemeOf(ColorScheme.complementary, color:UIColor.flatWhite, isFlatScheme:true)
     
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -160,6 +158,18 @@ class MainViewController: UIViewController {
             }else{
                 print("lets see")
                 LastAccess.entry = snapshot.value as! String
+            }
+        })
+        ref?.child("users").child(uid).child("Date").observe(FIRDataEventType.value, with: {
+            (snapshot) in
+            if snapshot.value is NSNull{
+                StartDate.firstDay = "Jan 1, 2017"
+            }else{
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MMM dd, yyyy"
+                let date = dateFormatter.date(from: snapshot.value as! String)
+                dateFormatter.dateFormat = "yyyy MM dd"
+                StartDate.firstDay = dateFormatter.string(from: date!)
             }
         })
     }

@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/ELViewController.swift"
-            timestampString = "518732788.204878"
+            timestampString = "522442549.019299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
             landmarkName = "checkConnectionWithFB()"
             landmarkType = "7">
          </BreakpointContent>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/ELViewController.swift"
-            timestampString = "518732788.204878"
+            timestampString = "522442549.019299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/ELViewController.swift"
-            timestampString = "518732788.204878"
+            timestampString = "522442549.019299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/ELViewController.swift"
-            timestampString = "522083935.958877"
+            timestampString = "522442549.019299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/ELViewController.swift"
-            timestampString = "522083935.958877"
+            timestampString = "522442549.019299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "133"
-            endingLineNumber = "133"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "configureDatabase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,11 +154,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/ELViewController.swift"
-            timestampString = "521744264.131465"
+            timestampString = "522442549.019299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
             landmarkName = "ELViewController"
             landmarkType = "3">
             <Locations>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/ELViewController.swift"
-            timestampString = "522083935.958877"
+            timestampString = "522442549.019299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "130"
+            endingLineNumber = "130"
             landmarkName = "ELViewController"
             landmarkType = "3">
             <Locations>
@@ -266,7 +266,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IndividualEntryViewController.swift"
-            timestampString = "521920113.922316"
+            timestampString = "522541023.154087"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "29"
@@ -287,8 +287,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "87"
             endingLineNumber = "87"
-            landmarkName = "MainViewController"
-            landmarkType = "3">
+            landmarkName = "getData()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -426,11 +426,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/ELViewController.swift"
-            timestampString = "522083935.958877"
+            timestampString = "522442549.019299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -442,11 +442,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/ELViewController.swift"
-            timestampString = "522083935.958877"
+            timestampString = "522442549.019299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "configureDatabase()"
             landmarkType = "7">
          </BreakpointContent>
@@ -589,8 +589,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "76"
             endingLineNumber = "76"
-            landmarkName = "GoalsViewController"
-            landmarkType = "3">
+            landmarkName = "checkSwitch()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -727,11 +727,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "522013906.549354"
+            timestampString = "522602892.035575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "newBadgeEarned(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1031,11 +1031,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "522013906.549354"
+            timestampString = "522602892.035575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "291"
-            endingLineNumber = "291"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
             landmarkName = "checkSwitch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1047,11 +1047,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "522013906.549354"
+            timestampString = "522602892.035575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "313"
-            endingLineNumber = "313"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
             landmarkName = "checkForReminder()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1063,11 +1063,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "522013906.549354"
+            timestampString = "522602892.035575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "316"
-            endingLineNumber = "316"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
             landmarkName = "checkForReminder()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1079,11 +1079,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "522013906.549354"
+            timestampString = "522602892.035575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "299"
-            endingLineNumber = "299"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "checkSwitch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1095,11 +1095,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "522013906.549354"
+            timestampString = "522602892.035575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "293"
-            endingLineNumber = "293"
+            startingLineNumber = "305"
+            endingLineNumber = "305"
             landmarkName = "checkSwitch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1111,11 +1111,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "522013906.549354"
+            timestampString = "522602892.035575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "checkSwitch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1127,11 +1127,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "522013906.549354"
+            timestampString = "522602892.035575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
             landmarkName = "checkSwitch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1143,11 +1143,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blanket/MainViewController.swift"
-            timestampString = "522013906.549354"
+            timestampString = "522602892.035575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "checkSwitch()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1261,6 +1261,262 @@
             startingLineNumber = "168"
             endingLineNumber = "168"
             landmarkName = "signInChoice(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522544515.106912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getSetupDateFromEntries()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522544515.106912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getSetupDateFromEntries()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522544515.106912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getSetupDateFromEntries()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Blanket.CalendarViewController.getSetupDateFromEntries () -&gt; ()"
+                  moduleName = "Blanket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marvin/Documents/Blanket/Blanket/CalendarViewController.swift"
+                  timestampString = "522447641.757773"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "496">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Blanket.CalendarViewController.(getSetupDateFromEntries () -&gt; ()).(closure #1)"
+                  moduleName = "Blanket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marvin/Documents/Blanket/Blanket/CalendarViewController.swift"
+                  timestampString = "522447641.762908"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "42"
+                  endingLineNumber = "42"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522544515.106912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "getSetupDateFromEntries()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522544515.106912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "124"
+            endingLineNumber = "124"
+            landmarkName = "handleEntry(cell:cellState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522603180.039328"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "goToEntry(cell:cellState:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/ELViewController.swift"
+            timestampString = "522544386.11857"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522544515.106912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getSetupDateFromEntries()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522544515.106912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "getSetupDateFromEntries()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Blanket.CalendarViewController.getSetupDateFromEntries () -&gt; ()"
+                  moduleName = "Blanket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marvin/Documents/Blanket/Blanket/CalendarViewController.swift"
+                  timestampString = "522541275.987449"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "1668">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Blanket.CalendarViewController.(getSetupDateFromEntries () -&gt; ()).(closure #2)"
+                  moduleName = "Blanket"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marvin/Documents/Blanket/Blanket/CalendarViewController.swift"
+                  timestampString = "522541275.991203"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "47"
+                  endingLineNumber = "47"
+                  offsetFromSymbolStart = "24">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522544515.106912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "getSetupDateFromEntries()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522544515.106912"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getSetupDateFromEntries()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blanket/CalendarViewController.swift"
+            timestampString = "522603180.039328"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "goToEntry(cell:cellState:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

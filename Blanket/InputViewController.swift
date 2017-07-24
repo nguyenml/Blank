@@ -457,15 +457,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     @IBAction func unwindToInput(segue: UIStoryboardSegue) {}
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "segueToContinue"{
-            guard let object = sender as? String else {return}
-            let dvc = segue.destination as! ContinueViewController
-            dvc.currentString = object
-        }
-        
-    }
     @IBAction func addMinute(_ sender: UIButton) {
         FIRAnalytics.logEvent(withName: "addMinutes", parameters: nil)
         self.textField.becomeFirstResponder()

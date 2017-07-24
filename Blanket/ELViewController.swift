@@ -20,7 +20,6 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
     var entries: [Packet]! = []
     
     let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
-    //var entries: [FIRDataSnapshot]! = []
     var handle: FIRAuthStateDidChangeListenerHandle?
     var connectedRef:FIRDatabaseReference?
     
@@ -164,7 +163,7 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
         
         //Change color
         if ( indexPath.row % 2 == 0 ){
-            cell.backgroundColor = Constants.backgroundColor.bc
+            cell.backgroundColor = UIColor(hex: 0xE5E5E5)
         }
         else{
             cell.backgroundColor = UIColor.white
@@ -219,6 +218,16 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
             let dvc = segue.destination as! InputViewController
             dvc.loadedString = object
         }
+        
+        if segue.identifier == "segueToCalendar"{
+            guard let object = sender as? [Packet] else {return}
+            let dvc = segue.destination as! CalendarViewController
+            dvc.entries = object
+        }
+    }
+    
+    @IBAction func goToCalendar(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "segueToCalendar", sender: entries);
     }
     
     //Go back to main view

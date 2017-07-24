@@ -48,7 +48,8 @@ class IndividualEntryViewController: UIViewController {
     }
     
     @IBAction func back(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToLogs", sender: self)
+        dismiss(animated: true, completion: nil)
+       // performSegue(withIdentifier: "unwindToLogs", sender: self)
     }
 
     @IBAction func unwindToEntry(segue: UIStoryboardSegue) {}

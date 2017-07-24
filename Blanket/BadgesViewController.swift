@@ -56,7 +56,6 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // handle tap events
-        print("You selected cell #\(indexPath.item)!")
         if(myBadges.badges[indexPath.row].earned){
         showImageDialog(item: indexPath.row)
         }

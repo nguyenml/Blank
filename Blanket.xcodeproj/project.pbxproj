@@ -14,6 +14,8 @@
 		580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580106831EA7FF100046D252 /* CustomTableCell.swift */; };
 		5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580159091E81C82D008D934E /* BadgesViewController.swift */; };
 		5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801590D1E81C997008D934E /* CollectionCellView.swift */; };
+		5808D7B61F22650F00ED3ACD /* CalenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808D7B51F22650F00ED3ACD /* CalenderCell.swift */; };
+		5808D7B81F22668200ED3ACD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808D7B71F22668200ED3ACD /* CalendarViewController.swift */; };
 		581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3AC1E70D66B0051C64B /* AppDelegate.swift */; };
 		581DA3B21E70D66B0051C64B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 581DA3B01E70D66B0051C64B /* Main.storyboard */; };
 		581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3B31E70D66B0051C64B /* Blanket.xcdatamodeld */; };
@@ -22,7 +24,6 @@
 		581DA3C51E70D66C0051C64B /* BlanketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3C41E70D66C0051C64B /* BlanketTests.swift */; };
 		581DA3D01E70D66C0051C64B /* BlanketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */; };
 		581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3E51E70EB7F0051C64B /* InputViewController.swift */; };
-		582C3E471EA0126000DC1698 /* GoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582C3E461EA0126000DC1698 /* GoalsViewController.swift */; };
 		582E11B71E8AB8EC0074ADE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */; };
 		582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */; };
 		582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */; };
@@ -91,6 +92,8 @@
 		5801590D1E81C997008D934E /* CollectionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
 		580159111E81D543008D934E /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
 		58077A361F05877100149CB1 /* Blanket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blanket.entitlements; sourceTree = "<group>"; };
+		5808D7B51F22650F00ED3ACD /* CalenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderCell.swift; sourceTree = "<group>"; };
+		5808D7B71F22668200ED3ACD /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		581DA3A91E70D66B0051C64B /* Blanket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		581DA3AC1E70D66B0051C64B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		581DA3B11E70D66B0051C64B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -105,7 +108,6 @@
 		581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlanketUITests.swift; sourceTree = "<group>"; };
 		581DA3D11E70D66C0051C64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		581DA3E51E70EB7F0051C64B /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
-		582C3E461EA0126000DC1698 /* GoalsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsViewController.swift; sourceTree = "<group>"; };
 		582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementHelper.swift; sourceTree = "<group>"; };
@@ -223,8 +225,9 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				5808D7B71F22668200ED3ACD /* CalendarViewController.swift */,
+				5808D7B51F22650F00ED3ACD /* CalenderCell.swift */,
 				586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */,
-				582C3E461EA0126000DC1698 /* GoalsViewController.swift */,
 				582E11C01E8B38E30074ADE1 /* Constants.swift */,
 				582E11C41E9597FB0074ADE1 /* Badges.swift */,
 				582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */,
@@ -634,6 +637,7 @@
 				5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */,
 				582E11BD1E8B1D2D0074ADE1 /* ELViewController.swift in Sources */,
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
+				5808D7B81F22668200ED3ACD /* CalendarViewController.swift in Sources */,
 				58B975211ED1F9F2003A910F /* TimeViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
 				582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */,
@@ -647,11 +651,11 @@
 				5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */,
 				582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */,
 				580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */,
+				5808D7B61F22650F00ED3ACD /* CalenderCell.swift in Sources */,
 				58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
 				58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */,
-				582C3E471EA0126000DC1698 /* GoalsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

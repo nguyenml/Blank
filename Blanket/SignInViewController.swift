@@ -19,7 +19,6 @@ import UIKit
 import Firebase
 import GoogleSignIn
 import TextFieldEffects
-import ChameleonFramework
 
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDelegate {
