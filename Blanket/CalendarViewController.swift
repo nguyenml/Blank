@@ -16,6 +16,10 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     
+    @IBOutlet weak var currentStreakLabel: UILabel!
+    @IBOutlet weak var longestStreakLabel: UILabel!
+    @IBOutlet weak var totalDaysLabel: UILabel!
+    
     let formatter = DateFormatter()
     
     let todaysDates = Date()
@@ -33,6 +37,7 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureData()
+        setupLabels()
         setupCalendarView()
         getSetupDateFromEntries()
 
@@ -106,6 +111,11 @@ class CalendarViewController: UIViewController {
         }
     }
     
+    func setupLabels(){
+        currentStreakLabel.text = String(Stats.currentStreak)
+        longestStreakLabel.text = String(Stats.longestStreak)
+        totalDaysLabel.text = String(Stats.totalEntries)
+    }
     
     func setupCalendarView(){
         

@@ -62,10 +62,7 @@ class MainViewController: UIViewController {
     }
     
     func checkLastAccess(){
-        print("last access")
-        print(LastAccess.entry)
         if Calendar.current.isDateInToday(LastAccess.date as Date) {
-            
             let image = UIImage(named: "day_circle.png") as UIImage?
             dayCircleView.image = image
         }
@@ -156,7 +153,6 @@ class MainViewController: UIViewController {
             if snapshot.value is NSNull{
                 LastAccess.entry = ""
             }else{
-                print("lets see")
                 LastAccess.entry = snapshot.value as! String
             }
         })
@@ -299,7 +295,6 @@ class MainViewController: UIViewController {
     }
     
     func checkSwitch(){
-        print(isReminder)
         if isReminder{
             let image = UIImage(named: "alarm_button.png") as UIImage?
             reminderButtonOnOff.setBackgroundImage(image, for: .normal)
@@ -338,7 +333,6 @@ class MainViewController: UIViewController {
     }
     
     func setTimeUI(){
-        print("set the print up")
         reminderButton.setTitle("Set Reminder", for: .normal)
     }
     
