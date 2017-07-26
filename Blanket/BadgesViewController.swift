@@ -41,7 +41,7 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
             cell.BadgeImage.image = badge.image as UIImage?
         }else{
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.BadgeLabel.text = "?"
+        cell.BadgeLabel.text = String(myBadges.badges[indexPath.row].number)
             cell.BadgeImage.image = UIImage(named: "grey_oval")// make cell more visible in our example project
         }
         

@@ -16,6 +16,8 @@
 		5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801590D1E81C997008D934E /* CollectionCellView.swift */; };
 		5808D7B61F22650F00ED3ACD /* CalenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808D7B51F22650F00ED3ACD /* CalenderCell.swift */; };
 		5808D7B81F22668200ED3ACD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808D7B71F22668200ED3ACD /* CalendarViewController.swift */; };
+		5808D7BC1F27D04F00ED3ACD /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808D7BB1F27D04F00ED3ACD /* OnboardingView.swift */; };
+		5808D7BE1F27D14C00ED3ACD /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808D7BD1F27D14C00ED3ACD /* OnboardingViewController.swift */; };
 		581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3AC1E70D66B0051C64B /* AppDelegate.swift */; };
 		581DA3B21E70D66B0051C64B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 581DA3B01E70D66B0051C64B /* Main.storyboard */; };
 		581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3B31E70D66B0051C64B /* Blanket.xcdatamodeld */; };
@@ -94,6 +96,8 @@
 		58077A361F05877100149CB1 /* Blanket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blanket.entitlements; sourceTree = "<group>"; };
 		5808D7B51F22650F00ED3ACD /* CalenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderCell.swift; sourceTree = "<group>"; };
 		5808D7B71F22668200ED3ACD /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		5808D7BB1F27D04F00ED3ACD /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		5808D7BD1F27D14C00ED3ACD /* OnboardingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		581DA3A91E70D66B0051C64B /* Blanket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blanket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		581DA3AC1E70D66B0051C64B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		581DA3B11E70D66B0051C64B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -225,12 +229,14 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				5808D7BD1F27D14C00ED3ACD /* OnboardingViewController.swift */,
 				5808D7B71F22668200ED3ACD /* CalendarViewController.swift */,
 				5808D7B51F22650F00ED3ACD /* CalenderCell.swift */,
 				586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */,
 				582E11C01E8B38E30074ADE1 /* Constants.swift */,
 				582E11C41E9597FB0074ADE1 /* Badges.swift */,
 				582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */,
+				5808D7BB1F27D04F00ED3ACD /* OnboardingView.swift */,
 				58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */,
 				582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */,
 				5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */,
@@ -645,6 +651,7 @@
 				5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */,
 				58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */,
 				5801067A1EA2A8420046D252 /* RatingViewController.swift in Sources */,
+				5808D7BE1F27D14C00ED3ACD /* OnboardingViewController.swift in Sources */,
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
 				582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */,
 				586E55A01F1A8AA700D069D2 /* SettingsViewController.swift in Sources */,
@@ -654,6 +661,7 @@
 				5808D7B61F22650F00ED3ACD /* CalenderCell.swift in Sources */,
 				58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
+				5808D7BC1F27D04F00ED3ACD /* OnboardingView.swift in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
 				58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */,
 			);

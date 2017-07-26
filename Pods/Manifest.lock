@@ -77,6 +77,7 @@ PODS:
   - GTMSessionFetcher/Full (1.1.9):
     - GTMSessionFetcher/Core (= 1.1.9)
   - JTAppleCalendar (7.0.1)
+  - paper-onboarding (2.0.1)
   - PopupDialog (0.5.4)
   - Protobuf (3.2.1)
   - SwipeCellKit (1.7.0)
@@ -93,6 +94,7 @@ DEPENDENCIES:
   - Firebase/Storage
   - Google/SignIn
   - JTAppleCalendar (~> 7.0)
+  - paper-onboarding (~> 2.0.1)
   - PopupDialog (~> 0.5)
   - SwipeCellKit
   - TextFieldEffects
@@ -115,11 +117,12 @@ SPEC CHECKSUMS:
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
   JTAppleCalendar: 7c8cba3e06fd6fdfed72382eeeb87c304e727ddb
+  paper-onboarding: a8e001214d9ce9decf78e160b3823f396dbd51ac
   PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   Protobuf: 2ccbaf193f6c65adc67745453ca0c13234c32796
   SwipeCellKit: 73440541f03434eaedc158e5aed9bc1e0d9b898e
   TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
 
-PODFILE CHECKSUM: 199ad26e6a470af195df7f8e5c5040e77ee19b19
+PODFILE CHECKSUM: e5a7b78d74d335c54172f5c799d016998c5e3078
 
 COCOAPODS: 1.2.0

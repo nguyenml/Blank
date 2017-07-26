@@ -19,6 +19,7 @@ target 'Blanket' do
     pod 'TextFieldEffects'
     pod 'SwipeCellKit'
     pod "DGRunkeeperSwitch", "~> 1.1.4"
+    pod 'paper-onboarding',  "~> 2.0.1"
   target 'BlanketTests' do
     inherit! :search_paths
     # Pods for testing

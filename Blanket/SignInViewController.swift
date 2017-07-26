@@ -36,6 +36,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
     @IBOutlet weak var usernameTextField: UITextField!
     
     var isSignIn:Bool = true
+    var isRegister:Bool = false
     var handle: FIRAuthStateDidChangeListenerHandle?
     
     var ref:FIRDatabaseReference!
@@ -50,6 +51,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         setupView()
         handle = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             if user != nil {
+                if self.isRegister { return }
                 MeasurementHelper.sendLoginEvent()
                 self.performSegue(withIdentifier: "signedIn", sender: self)
             }else{
@@ -176,6 +178,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         if let email = emailTextField.text, let pass = passwordTextView.text{
             
             if isSignIn{
+                isRegister = false
                 FIRAuth.auth()?.signIn(withEmail: email, password: pass, completion: {(user,error) in
                     //check if user exist
                     if user != nil{
@@ -183,7 +186,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                         self.emailTextField.text = ""
                         self.passwordTextView.text=""
                         
-                        self.performSegue(withIdentifier: "signedIn", sender: self)
+                        self.performSegue(withIdentifier: "segueToIntro", sender: self)
 
                     }
                     else{
@@ -193,6 +196,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                 })
                 
             }else{
+                isRegister = true
                 FIRAuth.auth()?.createUser(withEmail: email, password: pass, completion: {(user,error) in
                     //check if user exist
                 if user != nil{
@@ -223,7 +227,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                                                                        "Stats": stats,
                                                                        "Badges": badges,
                                                                        "LastAccess": lastAccess])
-                    self.performSegue(withIdentifier: "signedIn", sender: self)
+                    self.performSegue(withIdentifier: "segueToIntro", sender: self)
                     myBadges = BadgeClass()
                     
                 }
