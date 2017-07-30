@@ -779,19 +779,31 @@
                                             <rect key="frame" x="0.0" y="0.0" width="76" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lgp-uB-2yP">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lgp-uB-2yP">
                                                     <rect key="frame" x="0.0" y="0.0" width="76" height="72"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9m-Nj-xzU">
-                                                    <rect key="frame" x="18" y="16" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                    <fontDescription key="fontDescription" name="Quicksand-Bold" family="Quicksand" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h9m-Nj-xzU">
+                                                    <rect key="frame" x="0.0" y="0.0" width="76" height="72"/>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                                                     <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="lgp-uB-2yP" firstAttribute="top" secondItem="zla-cY-t59" secondAttribute="top" id="7zS-dy-wKK"/>
+                                            <constraint firstAttribute="bottom" secondItem="lgp-uB-2yP" secondAttribute="bottom" id="C3q-ce-lgu"/>
+                                            <constraint firstItem="h9m-Nj-xzU" firstAttribute="leading" secondItem="zla-cY-t59" secondAttribute="leading" id="HdB-RR-cYS"/>
+                                            <constraint firstAttribute="trailing" secondItem="h9m-Nj-xzU" secondAttribute="trailing" id="Muc-kt-AVY"/>
+                                            <constraint firstItem="lgp-uB-2yP" firstAttribute="leading" secondItem="zla-cY-t59" secondAttribute="leading" id="ZJu-Gv-5iC"/>
+                                            <constraint firstItem="lgp-uB-2yP" firstAttribute="centerY" secondItem="zla-cY-t59" secondAttribute="centerY" id="bR7-9y-Agr"/>
+                                            <constraint firstItem="h9m-Nj-xzU" firstAttribute="centerY" secondItem="zla-cY-t59" secondAttribute="centerY" id="eg1-j9-FUT"/>
+                                            <constraint firstAttribute="bottom" secondItem="h9m-Nj-xzU" secondAttribute="bottom" id="fRO-zh-y2H"/>
+                                            <constraint firstAttribute="trailing" secondItem="lgp-uB-2yP" secondAttribute="trailing" id="l64-tC-dT2"/>
+                                            <constraint firstItem="h9m-Nj-xzU" firstAttribute="centerX" secondItem="zla-cY-t59" secondAttribute="centerX" id="sAI-km-Hnk"/>
+                                            <constraint firstItem="lgp-uB-2yP" firstAttribute="centerX" secondItem="zla-cY-t59" secondAttribute="centerX" id="xAp-6c-xSD"/>
+                                            <constraint firstItem="h9m-Nj-xzU" firstAttribute="top" secondItem="zla-cY-t59" secondAttribute="top" id="xaw-nj-S3w"/>
+                                        </constraints>
                                         <connections>
                                             <outlet property="BadgeImage" destination="lgp-uB-2yP" id="VlB-xB-0ef"/>
                                             <outlet property="BadgeLabel" destination="h9m-Nj-xzU" id="w6e-yi-E8L"/>
@@ -1213,7 +1225,7 @@
                                                                     <color key="tintColor" red="0.090196078430000007" green="0.87450980389999999" blue="0.50980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </view>
                                                                 <view hidden="YES" alpha="0.34999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jRt-zd-26T">
-                                                                    <rect key="frame" x="2" y="2" width="104" height="102"/>
+                                                                    <rect key="frame" x="1.5" y="1.5" width="104" height="104"/>
                                                                     <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bg0-fR-0qP">

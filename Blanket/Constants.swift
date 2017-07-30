@@ -81,6 +81,11 @@ struct Stats{
     static var totalTime = 0
 }
 
+struct EntryTime{
+    static var regularTime = 300
+    static var addTime = 180
+}
+
 struct LastAccess{
     static var date = NSDate() as Date
     static var entry:String = ""

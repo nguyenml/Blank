@@ -25,6 +25,8 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     @IBOutlet var timer: UILabel!
     var counter = 0;
+    var regularTime = EntryTime.regularTime
+    var addTime = EntryTime.addTime
     var extraCounter = 300;
     var lwc = 0
     var currentPacket:Packet?
@@ -119,19 +121,19 @@ class InputViewController: UIViewController, UITextViewDelegate{
     func timeSituations(){
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
-        if (counter < 300){
+        if (counter < regularTime){
             iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
             return
         }
         //path 2 - the user just finished and goes to mark, the timer should come back invalidated and the entry should already be posted/updated. still need to update the mark though so
-        if(counter == 300){
+        if(counter == regularTime){
             topicOrMark()
             reset()
             return
         }
         //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than extraTime. Do not post, but keep the timer going
-        if (counter < extraCounter && counter > 300){
+        if (counter < extraCounter && counter > regularTime){
             iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
             topicOrMark()
             return
@@ -224,10 +226,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
             
         }
         else{
-            if counter < 300{
+            if counter < regularTime{
                 counter = counter + 1;
             }
-            if counter >= 300{
+            if counter >= regularTime{
                 addMin.isHidden = false
                 addMin.setTitle("+3",for: .normal)
                 // at 3 mins update info and reset timer for next use
@@ -260,7 +262,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
                 var longest = stats["longestStreak"]!
                 let total = Int(stats["totalWordcount"]! + self.lwc)
                 let entries:Int = stats["totalEntries"]! + 1
-                let time:Int = stats["totalTime"]! + 300
+                let time:Int = stats["totalTime"]! + self.regularTime
                 if current>longest{
                     longest = current
                 }
@@ -290,7 +292,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             if var stats = currentData.value as? [String : Int]{
                 let entries:Int = stats["totalEntries"]!
                 let total = Int(stats["totalWordcount"]! - self.lwc + self.greaterThanZero())
-                let time:Int = stats["totalTime"]! + 180
+                let time:Int = stats["totalTime"]! + self.addTime
                 
                 stats["avgWordcount"] = total/entries as Int
                 stats["totalWordcount"] = total as Int
@@ -468,7 +470,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         timer.textColor = UIColor(hex: 0x333333)
         backgroundRectangleOnCompletion.image = UIImage(named: "gray_rectangle.png")
         addMin.isHidden = true
-        extraCounter = extraCounter + 180
+        extraCounter = extraCounter + addTime
         extraTime = true
         updateCounter()
         iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)

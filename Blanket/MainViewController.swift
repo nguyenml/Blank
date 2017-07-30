@@ -92,6 +92,7 @@ class MainViewController: UIViewController {
             Stats.totalEntries = (self.stats["totalEntries"])!
             Stats.totalTime = (self.stats["totalTime"])!
             myBadges.checkBadge()
+            self.getTimeConstraints()
             self.overlay?.removeFromSuperview()
             myBadges.updated = true
           
@@ -217,7 +218,7 @@ class MainViewController: UIViewController {
         if let badge = timer.userInfo as? IndividualBadge{
         let title = badge.name
         let message = badge.message
-        let image = UIImage(named: "pexels-photo-103290")
+        let image = badge.image
         
         let popup = PopupDialog(title: title, message: message, image: image)
         
@@ -330,6 +331,27 @@ class MainViewController: UIViewController {
             self.checkSwitch()
         })
         
+    }
+    
+    func getTimeConstraints(){
+        if Stats.currentStreak > 7{
+            let num = Int(Stats.currentStreak/7)
+            if num > 1{
+                EntryTime.regularTime += (num * 15)
+                if EntryTime.regularTime > 900{
+                    EntryTime.regularTime = 900
+                }
+            }
+        }
+        if Stats.totalEntries > 7{
+            let num = Int(Stats.totalEntries/10)
+            if num > 1{
+                EntryTime.addTime += (num * 10)
+                if EntryTime.addTime > 420{
+                    EntryTime.addTime = 420
+                }
+            }
+        }
     }
     
     func setTimeUI(){

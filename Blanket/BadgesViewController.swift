@@ -1,7 +1,9 @@
 //
 //  BadgesViewController.swift
 //  Blanket
-//
+//  Trophy by Diego Cordero from the Noun Project
+//  Trophy by Edward Boatman from the Noun Project
+//  Medal by iconsphere from the Noun Project
 //  Created by Marvin Nguyen on 3/21/17.
 //  Copyright © 2017 Marvin Nguyen. All rights reserved.
 //
@@ -35,13 +37,13 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionCellView
         let badge = myBadges.badges[indexPath.row]
         if badge.earned{
-            cell.BadgeLabel.text = String(myBadges.badges[indexPath.row].number)
-            cell.BadgeLabel.adjustsFontSizeToFitWidth = true;
-            cell.BadgeLabel.minimumScaleFactor = 0.5
+//            cell.BadgeLabel.text = String(myBadges.badges[indexPath.row].number)
+//            cell.BadgeLabel.adjustsFontSizeToFitWidth = true;
+//            cell.BadgeLabel.minimumScaleFactor = 0.5
             cell.BadgeImage.image = badge.image as UIImage?
         }else{
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
-        cell.BadgeLabel.text = String(myBadges.badges[indexPath.row].number)
+            cell.BadgeLabel.text = String(myBadges.badges[indexPath.row].number)
             cell.BadgeImage.image = UIImage(named: "grey_oval")// make cell more visible in our example project
         }
         
@@ -67,7 +69,7 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         // Prepare the popup assets
         let title = myBadges.badges[item].name
         let message = myBadges.badges[item].message
-        let image = UIImage(named: "pexels-photo-103290")
+        let image = myBadges.badges[item].image
         
         // Create the dialog
         let popup = PopupDialog(title: title, message: message, image: image)

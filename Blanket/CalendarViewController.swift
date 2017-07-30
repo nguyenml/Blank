@@ -29,7 +29,6 @@ class CalendarViewController: UIViewController {
     
     var ref:FIRDatabaseReference?
     
-    
     let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
     var handle: FIRAuthStateDidChangeListenerHandle?
     var connectedRef:FIRDatabaseReference?
@@ -73,6 +72,7 @@ class CalendarViewController: UIViewController {
             let newDate = strongSelf.formatter.date(from: entry.date)
             strongSelf.formatter.dateFormat = "yyyy MM dd"
             strongSelf.entryDate[strongSelf.formatter.string(from: newDate!)] = entry
+            strongSelf.calendarView.reloadData()
         })
         
         updateDataOnChange()
@@ -189,6 +189,7 @@ class CalendarViewController: UIViewController {
     func handleEntry(cell:CalenderCell, cellState:CellState){
         let hasEntry = entryDate[formatter.string(from: cellState.date)] != nil
         if hasEntry{
+            print(cellState.date)
             cell.entryDot.isHidden = false
             if cellState.date.isEqual(to: todaysDates){
                 cell.entryDot.backgroundColor = UIColor(hex:0xFF7F00)
