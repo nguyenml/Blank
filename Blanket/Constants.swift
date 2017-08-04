@@ -203,4 +203,5 @@ class Packet{
 
 //Badges
 let mySpecialNotificationKey = ".badgeForADay"
+var localNotificationAllowed = true
 

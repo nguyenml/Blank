@@ -36,11 +36,14 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureData()
-        setupLabels()
         setupCalendarView()
         getSetupDateFromEntries()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        setupLabels()
     }
 
     func configureData(){
@@ -166,6 +169,7 @@ class CalendarViewController: UIViewController {
             }
         } else {
             if cellState.isSelected{
+                cell.selectedView.backgroundColor = UIColor(hex: 0x777777)
                 cell.dateLabel.textColor = UIColor.white
             }
             else {
@@ -189,7 +193,6 @@ class CalendarViewController: UIViewController {
     func handleEntry(cell:CalenderCell, cellState:CellState){
         let hasEntry = entryDate[formatter.string(from: cellState.date)] != nil
         if hasEntry{
-            print(cellState.date)
             cell.entryDot.isHidden = false
             if cellState.date.isEqual(to: todaysDates){
                 cell.entryDot.backgroundColor = UIColor(hex:0xFF7F00)
@@ -199,6 +202,7 @@ class CalendarViewController: UIViewController {
                 cell.dateLabel.textColor = UIColor.white
         }
         else{
+            cell.entryDot.isHidden = true
             let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())
             if ((cellState.date < yesterday!) && (cellState.date > formatter.date(from: StartDate.firstDay)!) ){
                 cell.missedDay.isHidden = false
@@ -206,7 +210,7 @@ class CalendarViewController: UIViewController {
             else{
                 cell.missedDay.isHidden = true
             }
-            cell.entryDot.isHidden = true
+
         }
         
     }

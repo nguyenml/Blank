@@ -38,28 +38,28 @@ class BadgeClass{
     var badgeWorkingOn = 0
     
     init(){
-        badgeForADay = IndividualBadge.init(name: "A Fresh Start",message: " “Afoot and lighthearted I take to the open road, healthy, free, the world before me.” ― Walt Whitman ", earned:false, number:1, image:UIImage(named: "bronze_medal")!)
+        badgeForADay = IndividualBadge.init(name: "A Fresh Start",message: " Congratulations on your first day! You have a long journey ahead, one that will be successful and rewarding. ", earned:false, number:1, image:UIImage(named: "bronze_medal")!)
         badges.append(badgeForADay)
         
-        badgeFor3Days = IndividualBadge.init(name: "3 in a Row",message: "“All you have to do is write one true sentence. Write the truest sentence that you know.” - Earnest Hemingway", earned:false, number:3,image:UIImage(named: "silver_medal")!)
+        badgeFor3Days = IndividualBadge.init(name: "3 in a Row",message: "Believe it or not, only 50% of people make it this far! Looking good so far.", earned:false, number:3,image:UIImage(named: "silver_medal")!)
         badges.append(badgeFor3Days)
         
-        badgeFor10Days = IndividualBadge.init(name: "Streak",message: "“Tomorrow may be hell, but today was a good writing day, and on the good writing days nothing else matters.” - Neil Gaiman", earned:false, number:10, image:UIImage(named: "gold_medal")!)
+        badgeFor10Days = IndividualBadge.init(name: "Streak",message: " Your first streak, one of the many you'll have in the future. Theres nothing like the feeling you get when you know the balls are finally rolling.", earned:false, number:10, image:UIImage(named: "gold_medal")!)
         badges.append(badgeFor10Days)
         
-        badgeFor15Days = IndividualBadge.init(name: "Hot Streak",message: "“I write to give myself strength. I write to be the characters that I am not. I write to explore all the things I'm afraid of. ” - Joss Whedon", earned:false, number:15,image:UIImage(named: "bronze_trophy")!)
+        badgeFor15Days = IndividualBadge.init(name: "Hot Streak",message: "15 Days! At this point, you really are ", earned:false, number:15,image:UIImage(named: "bronze_trophy")!)
         badges.append(badgeFor15Days)
         
-        badgeFor30Days = IndividualBadge.init(name: "Long Run",message: "30 Days! Your first month complete! Now you'll start tracking by months instead of days.", earned:false, number:30,image:UIImage(named: "silver_trophy")!)
+        badgeFor30Days = IndividualBadge.init(name: "Long Run",message: "30 Days! Your first month complete! No more tracking by days any more, you've got a new standard. \n\n ", earned:false, number:30,image:UIImage(named: "silver_trophy")!)
         badges.append(badgeFor30Days)
         
-        badgeFor50Days = IndividualBadge.init(name: "Half",message: "50 Days! Halfway to 100. THAT'S an accomplishment. Keep up the good work.", earned:false, number:50,image:UIImage(named: "gold_trophy")!)
+        badgeFor50Days = IndividualBadge.init(name: "Fifty Fifty",message: "", earned:false, number:50,image:UIImage(named: "gold_trophy")!)
         badges.append(badgeFor50Days)
         
-        badgeFor90Days = IndividualBadge.init(name: "The Half",message: "90 Days! That's almost two months! Looks like you're about to stop counting by day and start counting the month.", earned:false, number:90,image:UIImage(named: "bronze_super_trophy.png")!)
+        badgeFor90Days = IndividualBadge.init(name: "A Quarter",message: "Remember when you got your first months, well you just finished a whole quarter. Theres only one big goal you're looking at now.", earned:false, number:90,image:UIImage(named: "bronze_super_trophy.png")!)
         badges.append(badgeFor90Days)
         
-        badgeFor180Days = IndividualBadge.init(name: "The Big 180",message: "Triple digits. Not many people will reach this goal post. But here you are. It was no doubt a difficult journey, but you're not done yet. You've set your eyes on even bigger goals.", earned:false, number:180,image:UIImage(named: "silver_super_trophy")!)
+        badgeFor180Days = IndividualBadge.init(name: "The Half",message: "Finally the halfway mark. ", earned:false, number:180,image:UIImage(named: "silver_super_trophy")!)
         badges.append(badgeFor180Days)
         
         badgeFor365Days = IndividualBadge.init(name: "One Big Circle",message: "Triple digits. Not many people will reach this goal post. But here you are. It was no doubt a difficult journey, but you're not done yet. You've set your eyes on even bigger goals.", earned:false, number:365,image:UIImage(named: "gold_super_trophy")!)

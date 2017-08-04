@@ -46,12 +46,18 @@ class MainViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
-        checkForReminder()
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler:{didAllow, error in})
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler:{didAllow, error in
+            localNotificationAllowed = didAllow
+            self.checkSwitch()
+        })
         
         NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.checkView), name: NSNotification.Name(rawValue: mySpecialNotificationKey), object: nil)
+        
+        checkForReminder()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    
     
     override func viewWillAppear(_ animated: Bool) {
         setLabels()
@@ -297,6 +303,7 @@ class MainViewController: UIViewController {
     
     func checkSwitch(){
         if isReminder{
+            if !localNotificationAllowed {return}
             let image = UIImage(named: "alarm_button.png") as UIImage?
             reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             reminderButton.isHidden = false

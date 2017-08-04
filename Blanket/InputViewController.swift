@@ -106,44 +106,12 @@ class InputViewController: UIViewController, UITextViewDelegate{
     override func viewDidAppear(_ animated: Bool) {
         timeSituations()
     }
-
-    
-    func topicOrMark(){
-        if mot == nil {return}
-        if mot{
-            textField.text = currentString
-        }
-        else{
-            setupDataOnReturn()
-        }
-    }
     
     func timeSituations(){
         //4 possible outlooks
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < regularTime){
             iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-            topicOrMark()
-            return
-        }
-        //path 2 - the user just finished and goes to mark, the timer should come back invalidated and the entry should already be posted/updated. still need to update the mark though so
-        if(counter == regularTime){
-            topicOrMark()
-            reset()
-            return
-        }
-        //path 3 - the user has finished up this writing piece, the timer should be above 300 and less than extraTime. Do not post, but keep the timer going
-        if (counter < extraCounter && counter > regularTime){
-            iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
-            topicOrMark()
-            return
-        }
-
-        //path 4 - the user has finished up writing and finished his extra minute as well
-        
-        if (counter == extraCounter){
-            topicOrMark()
-            reset()
             return
         }
     }
@@ -160,7 +128,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
-        if timer != nil{
+        if iTimer != nil{
             reset()
         }
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
@@ -254,7 +222,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
     // retrieves data from firebase and updates all the users stats
     // using a transaction block because incrementations can cause updated values to be nil
     func updateStats(){
-
         let userStats = ref?.child("users").child(uid).child("Stats")
         userStats?.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
             if var stats = currentData.value as? [String : Int]{
@@ -319,35 +286,13 @@ class InputViewController: UIViewController, UITextViewDelegate{
         mdata[Constants.Entry.timestamp] = getTimeStamp()
         mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!
-
-//        if markKey != nil{
-//            if mot{
-//                mdata[Constants.Entry.topic] = name
-//                ref?.child("Topics").child(markKey).child("entries").updateChildValues([key:key])
-//            }else{
-//                mdata[Constants.Entry.mark] = name
-//                ref?.child("Marks").child(markKey).child("entries").updateChildValues([key:key])
-//                ref?.child("Marks").child(markKey).child("text").setValue(textField.text)
-//                mdata[Constants.Entry.textStart] = concatString(str: currentString)
-//            }
-//        }
-//        else{
-//            //mdata[Constants.Entry.textStart] = textField.text
-//        }
         entryRef?.setValue(mdata)
         updateLastAccess(date: dateToString(), key: key)
     }
     
     //puts info into a struct
     func post(){
-        //don't post if continued
-        if skip() {return}
-        var text = ""
-        if mot == nil || mot{
-            text = textField.text
-        }else{
-            text = currentString
-        }
+        var text = textField.text!
         let data = [Constants.Entry.text: text]
         addToFB(withData: data)
         if extraTime{
@@ -445,18 +390,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
         return count
     }
     
-    @IBAction func goToMarks(_ sender: UIButton) {
-        var newString = textField.text
-        if mot == nil || mot{
-            currentString = newString!
-        }
-        iTimer?.invalidate()
-        if (mot != nil && mot == false){
-            ref?.child("Marks").child(markKey).child("text").setValue(textField.text)
-        }
-        performSegue(withIdentifier: "segueToContinue", sender: currentString)
-    }
-    
     @IBAction func unwindToInput(segue: UIStoryboardSegue) {}
     
     @IBAction func addMinute(_ sender: UIButton) {
@@ -488,14 +421,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
             textField.scrollIndicatorInsets = textField.contentInset
         }
         textField.scrollRangeToVisible(textField.selectedRange)
-    }
-    
-    func skip() -> Bool{
-        if continueEntry{
-            continueEntry = false
-            return true
-        }
-        return false
     }
 
 }
