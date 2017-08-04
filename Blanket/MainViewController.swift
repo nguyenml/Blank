@@ -43,6 +43,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        checkConnectivity()
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
@@ -61,6 +62,16 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setLabels()
+    }
+    
+    func checkConnectivity(){
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+        } else {
+            print("Internet connection FAILED")
+            var alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
     }
     
     func setLabels(){

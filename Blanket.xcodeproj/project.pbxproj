@@ -14,6 +14,7 @@
 		580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580106831EA7FF100046D252 /* CustomTableCell.swift */; };
 		5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580159091E81C82D008D934E /* BadgesViewController.swift */; };
 		5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5801590D1E81C997008D934E /* CollectionCellView.swift */; };
+		5805E4411F34B61D00406F70 /* InternetConnectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5805E4401F34B61D00406F70 /* InternetConnectivity.swift */; };
 		5808D7B61F22650F00ED3ACD /* CalenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808D7B51F22650F00ED3ACD /* CalenderCell.swift */; };
 		5808D7B81F22668200ED3ACD /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808D7B71F22668200ED3ACD /* CalendarViewController.swift */; };
 		5808D7BC1F27D04F00ED3ACD /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5808D7BB1F27D04F00ED3ACD /* OnboardingView.swift */; };
@@ -93,6 +94,7 @@
 		580159091E81C82D008D934E /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
 		5801590D1E81C997008D934E /* CollectionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionCellView.swift; sourceTree = "<group>"; };
 		580159111E81D543008D934E /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		5805E4401F34B61D00406F70 /* InternetConnectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InternetConnectivity.swift; sourceTree = "<group>"; };
 		58077A361F05877100149CB1 /* Blanket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Blanket.entitlements; sourceTree = "<group>"; };
 		5808D7B51F22650F00ED3ACD /* CalenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalenderCell.swift; sourceTree = "<group>"; };
 		5808D7B71F22668200ED3ACD /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 				586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */,
 				582E11C01E8B38E30074ADE1 /* Constants.swift */,
 				582E11C41E9597FB0074ADE1 /* Badges.swift */,
+				5805E4401F34B61D00406F70 /* InternetConnectivity.swift */,
 				582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */,
 				5808D7BB1F27D04F00ED3ACD /* OnboardingView.swift */,
 				58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */,
@@ -646,6 +649,7 @@
 				5808D7B81F22668200ED3ACD /* CalendarViewController.swift in Sources */,
 				58B975211ED1F9F2003A910F /* TimeViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
+				5805E4411F34B61D00406F70 /* InternetConnectivity.swift in Sources */,
 				582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */,
 				58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */,
 				5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */,
