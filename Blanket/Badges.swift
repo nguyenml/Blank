@@ -44,25 +44,25 @@ class BadgeClass{
         badgeFor3Days = IndividualBadge.init(name: "3 in a Row",message: "Believe it or not, only 50% of people make it this far! Looking good so far.", earned:false, number:3,image:UIImage(named: "silver_medal")!)
         badges.append(badgeFor3Days)
         
-        badgeFor10Days = IndividualBadge.init(name: "Streak",message: " Your first streak, one of the many you'll have in the future. Theres nothing like the feeling you get when you know the balls are finally rolling.", earned:false, number:10, image:UIImage(named: "gold_medal")!)
+        badgeFor10Days = IndividualBadge.init(name: "Streak",message: " Your first streak! This only one of the many you'll have in the future. Theres nothing like the feeling you get when you know the pieces are finally starting to move.", earned:false, number:10, image:UIImage(named: "gold_medal")!)
         badges.append(badgeFor10Days)
         
-        badgeFor15Days = IndividualBadge.init(name: "Hot Streak",message: "15 Days! At this point, you really are ", earned:false, number:15,image:UIImage(named: "bronze_trophy")!)
+        badgeFor15Days = IndividualBadge.init(name: "Hot Streak",message: "15 Days! ", earned:false, number:15,image:UIImage(named: "bronze_trophy")!)
         badges.append(badgeFor15Days)
         
-        badgeFor30Days = IndividualBadge.init(name: "Long Run",message: "30 Days! Your first month complete! No more tracking by days any more, you've got a new standard. \n\n ", earned:false, number:30,image:UIImage(named: "silver_trophy")!)
+        badgeFor30Days = IndividualBadge.init(name: "Long Run",message: "30 Days! Your first month complete. No more tracking by days any more, you've got a new standard. ", earned:false, number:30,image:UIImage(named: "silver_trophy")!)
         badges.append(badgeFor30Days)
         
-        badgeFor50Days = IndividualBadge.init(name: "Fifty Fifty",message: "", earned:false, number:50,image:UIImage(named: "gold_trophy")!)
+        badgeFor50Days = IndividualBadge.init(name: "Fifty Fifty",message: "50 days is a lot of days. Most people will never get this far. Your calendar is probably looking pretty good right now isn't it. Don't stop now!", earned:false, number:50,image:UIImage(named: "gold_trophy")!)
         badges.append(badgeFor50Days)
         
-        badgeFor90Days = IndividualBadge.init(name: "A Quarter",message: "Remember when you got your first months, well you just finished a whole quarter. Theres only one big goal you're looking at now.", earned:false, number:90,image:UIImage(named: "bronze_super_trophy.png")!)
+        badgeFor90Days = IndividualBadge.init(name: "A Quarter",message: "Remember when you got your first months? Well you just finished a whole quarter. There's no stopping now, your writing habits has become a part of you.", earned:false, number:90,image:UIImage(named: "bronze_super_trophy.png")!)
         badges.append(badgeFor90Days)
         
-        badgeFor180Days = IndividualBadge.init(name: "The Half",message: "Finally the halfway mark. ", earned:false, number:180,image:UIImage(named: "silver_super_trophy")!)
+        badgeFor180Days = IndividualBadge.init(name: "The Half",message: "Finally the halfway mark. No one ever plans to write 6 months in a row, yet here we are. Theres only one big goal you're looking at now.", earned:false, number:180,image:UIImage(named: "silver_super_trophy")!)
         badges.append(badgeFor180Days)
         
-        badgeFor365Days = IndividualBadge.init(name: "One Big Circle",message: "Triple digits. Not many people will reach this goal post. But here you are. It was no doubt a difficult journey, but you're not done yet. You've set your eyes on even bigger goals.", earned:false, number:365,image:UIImage(named: "gold_super_trophy")!)
+        badgeFor365Days = IndividualBadge.init(name: "The end of the Year",message: "1 Year of writing, every single day. What an accomplomplishment. You should feel proud of yourself, less than 1 percent of people will ever get to this point.", earned:false, number:365,image:UIImage(named: "gold_super_trophy")!)
         badges.append(badgeFor365Days)
         
 //        badgeFor500Words = IndividualBadge.init(name: "The Calf",message: "Milo of Croton was said to have carried a calf with him since he as a boy. As the calf grew, so did the strength of Milo. 500 words seems like a calf, but with patience and persistence it will become a bull.", earned:false, number: 500,image:UIImage(named: "light_blue_progression.png")!)

@@ -13,7 +13,7 @@ import UserNotifications
 import PopupDialog
 
 class MainViewController: UIViewController {
-    
+
     @IBOutlet weak var dayCircleView: UIImageView!
     @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var textLabel: UILabel!
@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        checkConnectivity()
+        setOverlay()
         ref = FIRDatabase.database().reference()
         checkUser()
         getData()
@@ -62,6 +62,14 @@ class MainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setLabels()
+    }
+    
+    func setOverlay(){
+        if let window = UIApplication.shared.keyWindow {
+            overlay.frame = CGRect(x: window.frame.origin.x, y: window.frame.origin.y, width: window.frame.width, height: window.frame.height)
+            window.addSubview(overlay)
+        }
+        checkConnectivity()
     }
     
     func checkConnectivity(){
