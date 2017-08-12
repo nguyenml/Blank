@@ -204,10 +204,13 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                     let changeRequest = user?.profileChangeRequest()
                     changeRequest?.displayName = self.usernameTextField.text
                     changeRequest?.commitChanges { error in
-                        if let error = error {
+                        if error != nil {
                         } else {
                             // Profile updated.
                         }
+                    }
+                    user?.sendEmailVerification { (error) in
+                        print("could not send email")
                     }
                     self.emailTextField.text = ""
                     self.passwordTextView.text=""

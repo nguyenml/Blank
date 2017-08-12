@@ -38,7 +38,7 @@ class SettingsViewController: UIViewController {
             try firebaseAuth?.signOut()
             safeReset()
             self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
-            
+            FIRAnalytics.logEvent(withName: "logout", parameters: nil)
             dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
             print ("Error signing out: \(signOutError.localizedDescription)")
@@ -90,10 +90,12 @@ class SettingsViewController: UIViewController {
         if addMinSwitch.isOn{
             getTimeConstraints()
             defaults.set(false, forKey: "continue")
+            FIRAnalytics.logEvent(withName: "continue by minutes", parameters: nil)
         } else {
             EntryTime.addTime = 86400
             getTimeConstraints()
             defaults.set(true, forKey: "continue")
+            FIRAnalytics.logEvent(withName: "continue indefinite", parameters: nil)
         }
     }
     

@@ -322,12 +322,14 @@ class MainViewController: UIViewController {
     
     func checkSwitch(){
         if isReminder{
+            FIRAnalytics.logEvent(withName: "alarm is turned on", parameters: nil)
             if !localNotificationAllowed {return}
             let image = UIImage(named: "alarm_button.png") as UIImage?
             reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             reminderButton.isHidden = false
             reminderButton.isUserInteractionEnabled = true
         }else{
+            FIRAnalytics.logEvent(withName: "alarm is turned off", parameters: nil)
             let image = UIImage(named: "alarm_button_off.png") as UIImage?
             reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             center.removeAllPendingNotificationRequests()

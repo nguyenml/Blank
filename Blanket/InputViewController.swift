@@ -130,8 +130,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
         if iTimer != nil{
+            FIRAnalytics.logEvent(withName: "user left before time up", parameters: nil)
             reset()
         }
+        FIRAnalytics.logEvent(withName: "user left after time up", parameters: nil)
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     
