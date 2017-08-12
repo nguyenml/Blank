@@ -360,23 +360,29 @@ class MainViewController: UIViewController {
     }
     
     func getTimeConstraints(){
+        let defaults = UserDefaults.standard
+        
         if Stats.currentStreak > 7{
             let num = Int(Stats.currentStreak/7)
-            if num > 1{
                 EntryTime.regularTime += (num * 15)
                 if EntryTime.regularTime > 900{
                     EntryTime.regularTime = 900
                 }
-            }
         }
-        if Stats.totalEntries > 7{
-            let num = Int(Stats.totalEntries/10)
-            if num > 1{
-                EntryTime.addTime += (num * 10)
-                if EntryTime.addTime > 420{
-                    EntryTime.addTime = 420
+        //clusterrrr fuckkk
+        let continueTime = defaults.bool(forKey: "continue")
+        if !continueTime {
+            if Stats.totalEntries > 7 {
+                let num = Int(Stats.totalEntries/10)
+                if num > 1{
+                    EntryTime.addTime += (num * 10)
+                    if EntryTime.addTime > 420{
+                        EntryTime.addTime = 420
+                    }
                 }
             }
+        } else {
+            EntryTime.addTime = 86400
         }
     }
     

@@ -36,21 +36,25 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureData()
-        setupCalendarView()
         getSetupDateFromEntries()
+        setupCalendarView()
 
         // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         setupLabels()
+        
     }
 
     func configureData(){
         
         ref = FIRDatabase.database().reference()
         
+        var lastEntry = 0
+        
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
+            
             guard let strongSelf = self else { return }
             guard let entrySnap = snapshot.value as? [String: String] else { return }
             let entry = Packet.init(date: entrySnap[Constants.Entry.date]!,
@@ -76,8 +80,16 @@ class CalendarViewController: UIViewController {
             strongSelf.formatter.dateFormat = "yyyy MM dd"
             strongSelf.entryDate[strongSelf.formatter.string(from: newDate!)] = entry
             strongSelf.calendarView.reloadData()
-        })
+            
+            if lastEntry == Stats.totalEntries{
+                
+                strongSelf.calendarView.scrollToDate(Date(), animateScroll:true)
+                strongSelf.calendarView.selectDates([Date()])
+            }
+            
+            lastEntry = lastEntry + 1
         
+        })
         updateDataOnChange()
     }
     
@@ -128,9 +140,6 @@ class CalendarViewController: UIViewController {
         calendarView.visibleDates{ dateSegment in
             self.setupViewsOfCalendar(dateSegments: dateSegment)
         }
-        
-        calendarView.scrollToDate(Date(), animateScroll:true)
-        calendarView.selectDates([Date()])
         
     }
     

@@ -15,15 +15,21 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var UINotificationSwitch: UISwitch!
     @IBOutlet weak var additionalMinTime: UILabel!
     
+    @IBOutlet weak var addMinSwitch: UISwitch!
+    
     @IBOutlet weak var changeText: UILabel!
     
     var isReminder:Bool = false
+    let defaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        isOnOff()
         getTimeConstraints()
         checkNotification()
     }
+    
+    
 
     @IBAction func signOut(_ sender: Any) {
         
@@ -36,6 +42,15 @@ class SettingsViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
             print ("Error signing out: \(signOutError.localizedDescription)")
+        }
+    }
+    
+    func isOnOff(){
+        let continueTime = defaults.bool(forKey: "continue")
+        if continueTime {
+            addMinSwitch.isOn = false
+        } else {
+            addMinSwitch.isOn = true
         }
     }
 
@@ -61,6 +76,27 @@ class SettingsViewController: UIViewController {
             }
     }
     
+    func checkAddTime(){
+        
+        EntryTime.addTime = 180
+        let num = Int(Stats.totalEntries/10)
+        if num > 1{
+            EntryTime.addTime += (num * 10)
+            if EntryTime.addTime > 420{
+                EntryTime.addTime = 420
+            }
+        }
+    
+        if addMinSwitch.isOn{
+            getTimeConstraints()
+            defaults.set(false, forKey: "continue")
+        } else {
+            EntryTime.addTime = 86400
+            getTimeConstraints()
+            defaults.set(true, forKey: "continue")
+        }
+    }
+    
     func getTimeConstraints(){
         let entryTimeReq = EntryTime.regularTime
         let entryMinutes = Int(Double(entryTimeReq) / 60.0)
@@ -73,14 +109,18 @@ class SettingsViewController: UIViewController {
         dailyEntryMinTime.text = "\(strMinutes):\(strSeconds)"
         
         let addTime = EntryTime.addTime
-        let addMinutes = Int(Double(addTime)/60.0)
-        let addSeconds = Int(addTime - (addMinutes*60))
-        strMinutes = ""
-        if addMinutes > 0{
-            strMinutes = String(addMinutes)
+        if addTime == 86400 {
+            additionalMinTime.text = "--:--"
+        } else {
+            let addMinutes = Int(Double(addTime)/60.0)
+            let addSeconds = Int(addTime - (addMinutes*60))
+            strMinutes = ""
+            if addMinutes > 0{
+                strMinutes = String(addMinutes)
+            }
+            strSeconds = String(format: "%02d", addSeconds)
+            additionalMinTime.text = "\(strMinutes):\(strSeconds)"
         }
-        strSeconds = String(format: "%02d", addSeconds)
-        additionalMinTime.text = "\(strMinutes):\(strSeconds)"
     }
     
     @IBAction func goBack(_ sender: UIButton) {
@@ -93,4 +133,19 @@ class SettingsViewController: UIViewController {
             UINotificationSwitch.isOn = false
         }
     }
+    
+    @IBAction func addTimeSwitchPressed(_ sender: UISwitch) {
+        checkAddTime()
+    }
+    
+    @IBAction func webLink(_ sender: UIButton) {
+        let url = URL(string: "www.google.com")!
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    
 }

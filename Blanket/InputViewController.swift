@@ -64,10 +64,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     //ser up function to get text and view in to order
     func setup(){
-    textField.font = UIFont(name: "OpenSans-Regular", size:17)
-    tap.numberOfTapsRequired = 2
-    tap.addTarget(self, action: #selector(addMinute(_:)))
-    tapView.addGestureRecognizer(tap)
+        textField.font = UIFont(name: "OpenSans-Regular", size:17)
+        tap.numberOfTapsRequired = 2
+        tap.addTarget(self, action: #selector(addMinute(_:)))
+        tapView.addGestureRecognizer(tap)
     }
     
     // get rid of xcode backspace error, hide buttons, add notification for keyboard scrolling
@@ -77,16 +77,17 @@ class InputViewController: UIViewController, UITextViewDelegate{
             counter = Int((currentPacket?.totalTime)!)!
             extraCounter = Int((currentPacket?.totalTime)!)!
             if ((currentPacket?.hasMark())! || (currentPacket?.hasTopic())!){
-                //markButton.isHidden = true
                 continuedEntryWithMark = true
                 loadedWordCount = (Int(wordCount(str: textField.text!)))
             }
             setTimeFormat()
             extraTime = true
             addMin.isHidden = false
-            addMin.setTitle("+3",for: .normal)
+            addMin.setTitle("+",for: .normal)
             backButton.isHidden = false
             textField.isEditable = false
+            timer.textColor = UIColor(hex: 0xFFFFFF)
+            backgroundRectangleOnCompletion.image = UIImage(named: "green_rectangle.png")
             
         }else{
             textField.text = ""
@@ -199,7 +200,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             }
             if counter >= regularTime{
                 addMin.isHidden = false
-                addMin.setTitle("+3",for: .normal)
+                addMin.setTitle("+",for: .normal)
                 // at 3 mins update info and reset timer for next use
                 lwc = greaterThanZero()
                 reset()
@@ -259,7 +260,8 @@ class InputViewController: UIViewController, UITextViewDelegate{
             if var stats = currentData.value as? [String : Int]{
                 let entries:Int = stats["totalEntries"]!
                 let total = Int(stats["totalWordcount"]! - self.lwc + self.greaterThanZero())
-                let time:Int = stats["totalTime"]! + self.addTime
+                let extra = self.counter - self.regularTime
+                let time:Int = stats["totalTime"]! + extra
                 
                 stats["avgWordcount"] = total/entries as Int
                 stats["totalWordcount"] = total as Int
@@ -400,7 +402,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         textField.isEditable = true
         textField.isUserInteractionEnabled = true
 
-        timer.textColor = UIColor(hex: 0x333333)
+        timer.textColor = UIColor(hex: 0x17DF82)
         backgroundRectangleOnCompletion.image = UIImage(named: "gray_rectangle.png")
         addMin.isHidden = true
         extraCounter = extraCounter + addTime
