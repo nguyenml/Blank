@@ -141,9 +141,14 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func webLink(_ sender: UIButton) {
-        let url = URL(string: "www.google.com")!
+        guard let url = URL(string: "http://www.blankitapp.com") else {
+            print("not working")
+            return
+        }
         if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: [:], completionHandler: { (error) in
+                print("Open url : \(error)")
+            })
         } else {
             UIApplication.shared.openURL(url)
         }
