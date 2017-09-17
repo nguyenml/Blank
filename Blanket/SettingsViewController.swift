@@ -141,7 +141,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func webLink(_ sender: UIButton) {
-        guard let url = URL(string: "http://www.blankitapp.com") else {
+        guard let url = URL(string: "http://www.blankitapp.com/#contacts") else {
             print("not working")
             return
         }
