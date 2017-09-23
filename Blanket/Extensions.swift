@@ -9,29 +9,6 @@
 import UIKit
 import CZPicker
 
-//
-// Get humanDate
-// Turkmen month
-//
-
-func GetHumanDate(month: Int) -> String
-{
-    let monthArr: [Int: String] =
-        [ 01 : "Ýanwar",
-          02 : "Fewral",
-          03 : "Mart",
-          04 : "Aprel",
-          05 : "Maý",
-          06 : "Iýun",
-          07 : "Iýul",
-          08 : "Awgust",
-          09 : "Sentýabr",
-          10 : "Oktýabr",
-          11 : "Noýabr",
-          12 : "Dekabr"]
-    return monthArr[month]!
-}
-
 extension Date {
     
     //period -> .WeekOfYear, .Day

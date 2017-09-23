@@ -57,7 +57,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         super.viewDidLoad()
         ref = FIRDatabase.database().reference()
         entryRef = ref?.child("Entry").childByAutoId()
-        self.textField.delegate = self
+        textField.delegate = self
         setup()
         getMostRecent()
     }
@@ -425,6 +425,26 @@ class InputViewController: UIViewController, UITextViewDelegate{
             textField.scrollIndicatorInsets = textField.contentInset
         }
         textField.scrollRangeToVisible(textField.selectedRange)
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        if(textView == textField)
+        {
+            print(wordCount(str: textView.text))
+        }
+    }
+    
+    func wordCount(string: String){
+        var words = string.components(separatedBy: NSCharacterSet.whitespacesAndNewlines)
+        var wordDictionary = Dictionary<String, Int>()
+        for word in words {
+            if let count = wordDictionary[word] {
+                wordDictionary[word] = count + 1
+            } else {
+                wordDictionary[word] = 1
+            }
+        }
+        print(wordDictionary)
     }
 
 }
