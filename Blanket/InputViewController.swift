@@ -22,8 +22,11 @@ class InputViewController: UIViewController, UITextViewDelegate{
     @IBOutlet var backButton: UIButton!
     @IBOutlet var textField: UITextView!
     weak var iTimer = Timer();
+    weak var downTimeTimer = Timer();
     
     @IBOutlet var timer: UILabel!
+    var downTimeResetter =  0
+    var downTime = 0
     var counter = 0;
     var regularTime = EntryTime.regularTime
     var addTime = EntryTime.addTime
@@ -113,6 +116,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         //user is below 5 minutes and goes to marks, when he comes back it should restart and nothing else happens
         if (counter < regularTime){
             iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+            downTimeTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateDownTime), userInfo: nil, repeats: true)
             return
         }
     }
@@ -129,6 +133,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
+        FIRAnalytics.logEvent(withName: "user down time", parameters: ["downtime":downTime as NSObject])
         if iTimer != nil{
             FIRAnalytics.logEvent(withName: "user left before time up", parameters: nil)
             reset()
@@ -363,6 +368,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     //resets timer, buttons, and access
     func reset(){
         iTimer?.invalidate()
+        downTimeTimer?.invalidate()
         backgroundRectangleOnCompletion.image = UIImage(named: "green_rectangle.png")
         timer.textColor = UIColor(hex: 0xFFFFFF)
         if textField.isFirstResponder {
@@ -430,6 +436,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     func textViewDidChange(_ textView: UITextView) {
         if(textView == textField)
         {
+            downTimeResetter = 0;
             print(wordCount(str: textView.text))
         }
     }
@@ -444,7 +451,19 @@ class InputViewController: UIViewController, UITextViewDelegate{
                 wordDictionary[word] = 1
             }
         }
-        print(wordDictionary)
+        //print(wordDictionary)
+    }
+    
+    func checkDownTime(){
+        downTimeTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateDownTime), userInfo: nil, repeats: true)
+    }
+    
+    func updateDownTime(){
+        downTimeResetter += 1;
+        if downTimeResetter > 5{
+            downTime += 1;
+            print(downTime)
+        }
     }
 
 }

@@ -215,12 +215,12 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                     self.emailTextField.text = ""
                     self.passwordTextView.text=""
                     self.usernameTextField.text = ""
-                    let stats: [String:Int] = [ "currentStreak": 0,
-                                                      "longestStreak": 0,
-                                                      "avgWordcount": 0,
-                                                      "totalWordcount": 0,
-                                                      "totalEntries": 0,
-                                                      "totalTime":0,
+                    let stats: [String:Int] = [ "currentStreak": Int(UInt32(0)),
+                                                      "longestStreak": Int(UInt32(0)),
+                                                      "avgWordcount": Int(UInt32(0)),
+                                                      "totalWordcount": Int(UInt32(0)),
+                                                      "totalEntries": Int(UInt32(0)),
+                                                      "totalTime":Int(UInt32(0)),
                                                       ]
                     let badges: [String:Bool] = [:]
                     let lastAccess:String = "Apr 1, 2017 11:00 AM"

@@ -84,6 +84,7 @@ struct Stats{
 struct EntryTime{
     static var regularTime = 300
     static var addTime = 180
+    static var level = 0
 }
 
 struct LastAccess{

@@ -117,7 +117,7 @@ class MainViewController: UIViewController {
             Stats.totalEntries = (self.stats["totalEntries"])!
             Stats.totalTime = (self.stats["totalTime"])!
             myBadges.checkBadge()
-            self.getTimeConstraints()
+            self.getLvl()
             self.overlay?.removeFromSuperview()
             myBadges.updated = true
           
@@ -221,6 +221,7 @@ class MainViewController: UIViewController {
     }
     
     func resetStreak(){
+        print("TEST1")
         let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
             let currentCalendar     = NSCalendar.current
@@ -232,6 +233,15 @@ class MainViewController: UIViewController {
             if (diff.hour! < 0 || diff.minute! < 0 || diff.second! < 0){
                 FIRAnalytics.logEvent(withName: "brokenStreak", parameters: nil)
                 ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
+                
+                //RESET THE LEVEL OF THE USER
+                if (EntryTime.regularTime >= 180 && EntryTime.regularTime<300){
+                    ref?.child("users").child(uid).updateChildValues(["Level" : 2])
+                }
+                if (EntryTime.regularTime >= 300){
+                    ref?.child("users").child(uid).updateChildValues(["Level" : 3])
+                }
+                
             }
     }
 
@@ -361,16 +371,66 @@ class MainViewController: UIViewController {
         
     }
     
+    func getLvl(){
+        ref?.child("users").child(uid).child("Level").observe(FIRDataEventType.value, with: {
+            (snapshot) in
+            guard snapshot.exists() else {
+                EntryTime.level = 3
+                return
+            }
+            if snapshot.value != nil{
+                EntryTime.level = snapshot.value! as! Int
+            }
+            self.getTimeConstraints()
+        })
+    }
+
+
     func getTimeConstraints(){
+        //When a user gets to the next level, they permanently change their regular time 
         let defaults = UserDefaults.standard
         
-        if Stats.currentStreak > 7{
-            let num = Int(Stats.currentStreak/7)
+        switch EntryTime.level{
+        case 1:
+            EntryTime.regularTime = 60
+            break
+        case 2:
+            EntryTime.regularTime = 180
+            break
+        case 3:
+            EntryTime.regularTime = 300
+            break
+        default:
+            break
+        }
+        
+        //Lvl 3 if the user has at least 300 regular time then we add 15 seconds every week
+        if EntryTime.regularTime >= 300{
+            if Stats.currentStreak > 7{
+                let num = Int(Stats.currentStreak/7)
                 EntryTime.regularTime += (num * 15)
                 if EntryTime.regularTime > 900{
                     EntryTime.regularTime = 900
                 }
+            }
         }
+        //Lvl 2 user write starts writing 3 minutes a day increasing gradually till they reach levl 3
+        if (EntryTime.regularTime >= 180 && EntryTime.regularTime < 300){
+            if Stats.currentStreak > 3{
+                let num = Int(Stats.currentStreak/3)
+                EntryTime.regularTime += (num * 10)
+            }
+        }
+        
+        //Lvl1 beginner. They start at 1 minute a day and slowly progress to lvl 2
+        if (EntryTime.regularTime >= 60 && EntryTime.regularTime < 180){
+            if Stats.currentStreak > 1{
+                let num = Int(Stats.currentStreak/2)
+                EntryTime.regularTime += (num * 10)
+            }
+        }
+        
+        
         //clusterrrr fuckkk
         let continueTime = defaults.bool(forKey: "continue")
         if !continueTime {
@@ -386,6 +446,7 @@ class MainViewController: UIViewController {
         } else {
             EntryTime.addTime = 86400
         }
+                print("TEST2")
     }
     
     func setTimeUI(){

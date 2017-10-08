@@ -27,6 +27,8 @@
 		581DA3C51E70D66C0051C64B /* BlanketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3C41E70D66C0051C64B /* BlanketTests.swift */; };
 		581DA3D01E70D66C0051C64B /* BlanketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */; };
 		581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 581DA3E51E70EB7F0051C64B /* InputViewController.swift */; };
+		582887471F87B823008DA5A5 /* PickLevelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582887461F87B823008DA5A5 /* PickLevelViewController.swift */; };
+		582887491F892587008DA5A5 /* Quicksand-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 582887481F892587008DA5A5 /* Quicksand-LightItalic.ttf */; };
 		582E11B71E8AB8EC0074ADE1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */; };
 		582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */; };
 		582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */; };
@@ -114,6 +116,8 @@
 		581DA3CF1E70D66C0051C64B /* BlanketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlanketUITests.swift; sourceTree = "<group>"; };
 		581DA3D11E70D66C0051C64B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		581DA3E51E70EB7F0051C64B /* InputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputViewController.swift; sourceTree = "<group>"; };
+		582887461F87B823008DA5A5 /* PickLevelViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickLevelViewController.swift; sourceTree = "<group>"; };
+		582887481F892587008DA5A5 /* Quicksand-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Quicksand-LightItalic.ttf"; path = "Blanket/Quicksand-LightItalic.ttf"; sourceTree = "<group>"; };
 		582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MeasurementHelper.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				586E55B31F1BD54100D069D2 /* Quicksand-Regular.ttf */,
 				586E55AF1F1BD51800D069D2 /* EBGaramond-Regular.ttf */,
 				586E55AD1F1BD50800D069D2 /* Abel-Regular.ttf */,
+				582887481F892587008DA5A5 /* Quicksand-LightItalic.ttf */,
 				587161941F102E20004BC6D4 /* Images */,
 				582E11B61E8AB8EC0074ADE1 /* GoogleService-Info.plist */,
 				581DA3AB1E70D66B0051C64B /* Blanket */,
@@ -231,6 +236,7 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				582887461F87B823008DA5A5 /* PickLevelViewController.swift */,
 				5808D7BD1F27D14C00ED3ACD /* OnboardingViewController.swift */,
 				5808D7B71F22668200ED3ACD /* CalendarViewController.swift */,
 				5808D7B51F22650F00ED3ACD /* CalenderCell.swift */,
@@ -449,6 +455,7 @@
 				581DA3BA1E70D66B0051C64B /* LaunchScreen.storyboard in Resources */,
 				586E55A41F1BCE6B00D069D2 /* Open_Sans in Resources */,
 				585298231E7A1E040011B2E3 /* Dosis-ExtraLight.ttf in Resources */,
+				582887491F892587008DA5A5 /* Quicksand-LightItalic.ttf in Resources */,
 				585298241E7A1E040011B2E3 /* Dosis-Light.ttf in Resources */,
 				58B9751F1ED1F976003A910F /* TimeViewController.xib in Resources */,
 				586E55A31F1BCE6B00D069D2 /* Abel in Resources */,
@@ -666,6 +673,7 @@
 				58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				5808D7BC1F27D04F00ED3ACD /* OnboardingView.swift in Sources */,
+				582887471F87B823008DA5A5 /* PickLevelViewController.swift in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
 				58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */,
 			);
