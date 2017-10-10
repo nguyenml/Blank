@@ -238,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbA-gM-uJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="404" y="-109.29535232383809"/>
+            <point key="canvasLocation" x="404" y="-109"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="ZHb-SA-6c7">
@@ -1247,6 +1247,7 @@
                                         </state>
                                         <connections>
                                             <action selector="continueButtonPressed:" destination="aHp-JO-OII" eventType="touchUpInside" id="YxK-Vu-asg"/>
+                                            <segue destination="rlw-PC-1tq" kind="show" id="ggY-ug-8XO"/>
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="QJx-4b-SHj">
@@ -1403,7 +1404,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pDx-Xv-FH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jma-JC-iyK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-818" y="1247"/>
+            <point key="canvasLocation" x="-818" y="1062"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="lHI-VI-Rkr">
@@ -1969,5 +1970,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5h8-Ne-Qdl"/>
+        <segue reference="ggY-ug-8XO"/>
     </inferredMetricsTieBreakers>
 </document>

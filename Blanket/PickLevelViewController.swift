@@ -33,7 +33,7 @@ class PickLevelViewController: UIViewController {
     
     override func  viewDidLoad() {
         ref = FIRDatabase.database().reference()
-        ref = ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid))
+        ref = ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("EntryTime")
         lvl2Button.sendActions(for: .touchUpInside)
     }
     
@@ -71,21 +71,25 @@ class PickLevelViewController: UIViewController {
             EntryTime.level = 1
             EntryTime.regularTime = 60
             ref?.updateChildValues(["level":1])
+            ref?.updateChildValues(["regularTime":60])
             break
         case 2:
             EntryTime.level = 2
             EntryTime.regularTime = 180
             ref?.updateChildValues(["level":2])
+            ref?.updateChildValues(["regularTime":180])
             break
         case 3:
             EntryTime.level = 3
             EntryTime.regularTime = 300
             ref?.updateChildValues(["level":3])
+            ref?.updateChildValues(["regularTime":300])
             break
         default:
             EntryTime.level = 2
             EntryTime.regularTime = 180
             ref?.updateChildValues(["level":2])
+            ref?.updateChildValues(["regularTime":180])
         }
     }
     
