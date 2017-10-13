@@ -196,7 +196,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
                 counter = counter + 1;
             }
             if counter >= extraCounter{
-                addMin.isHidden = false
                 reset()
             }
             
@@ -206,11 +205,13 @@ class InputViewController: UIViewController, UITextViewDelegate{
                 counter = counter + 1;
             }
             if counter >= regularTime{
-                addMin.isHidden = false
                 addMin.setTitle("+",for: .normal)
-                // at 3 mins update info and reset timer for next use
                 lwc = greaterThanZero()
-                reset()
+                if (EntryTime.addTime == 86400){
+                    noreset()
+                }else{
+                    reset()
+                }
             }
         }
     setTimeFormat()
@@ -367,6 +368,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     //resets timer, buttons, and access
     func reset(){
+        addMin.isHidden = false
         iTimer?.invalidate()
         downTimeTimer?.invalidate()
         backgroundRectangleOnCompletion.image = UIImage(named: "green_rectangle.png")
@@ -378,6 +380,15 @@ class InputViewController: UIViewController, UITextViewDelegate{
         }
         backButton.isHidden = false
         textField.isEditable = false
+        post()
+    }
+    
+    func noreset(){
+        backButton.isHidden = false
+        timer.textColor = UIColor(hex: 0x17DF82)
+        backgroundRectangleOnCompletion.image = UIImage(named: "gray_rectangle.png")
+        extraCounter = extraCounter + addTime
+        extraTime = true
         post()
     }
     
