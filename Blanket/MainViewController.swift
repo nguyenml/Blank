@@ -117,7 +117,7 @@ class MainViewController: UIViewController {
             Stats.totalEntries = (self.stats["totalEntries"])!
             Stats.totalTime = (self.stats["totalTime"])!
             myBadges.checkBadge()
-           // self.getLvl()
+            self.getLvl()
             self.overlay?.removeFromSuperview()
             myBadges.updated = true
           
@@ -370,9 +370,10 @@ class MainViewController: UIViewController {
                 return
             }
             if snapshot.value != nil{
+                print("TEST")
                 var entryTime = snapshot.value as? [String : Int] ?? [:]
                 EntryTime.level = entryTime["level"]!
-                EntryTime.level = entryTime["regularTime"]!
+                EntryTime.regularTime = entryTime["regularTime"]!
             }
             self.getTimeConstraints()
         })
