@@ -72,24 +72,28 @@ class PickLevelViewController: UIViewController {
             EntryTime.regularTime = 60
             ref?.updateChildValues(["level":1])
             ref?.updateChildValues(["regularTime":60])
+            FIRAnalytics.logEvent(withName: "UserEntryTime", parameters: ["lvl":1 as NSObject,"regularTime":60 as NSObject])
             break
         case 2:
             EntryTime.level = 2
             EntryTime.regularTime = 180
             ref?.updateChildValues(["level":2])
             ref?.updateChildValues(["regularTime":180])
+            FIRAnalytics.logEvent(withName: "UserEntryTime", parameters: ["lvl":2 as NSObject,"regularTime":180 as NSObject ])
             break
         case 3:
             EntryTime.level = 3
             EntryTime.regularTime = 300
             ref?.updateChildValues(["level":3])
             ref?.updateChildValues(["regularTime":300])
+            FIRAnalytics.logEvent(withName: "UserEntryTime", parameters: ["lvl":3 as NSObject,"regularTime":300 as NSObject])
             break
         default:
             EntryTime.level = 2
             EntryTime.regularTime = 180
             ref?.updateChildValues(["level":2])
             ref?.updateChildValues(["regularTime":180])
+            FIRAnalytics.logEvent(withName: "UserEntryTime", parameters: ["lvl":2 as NSObject,"regularTime":180 as NSObject])
         }
     }
     

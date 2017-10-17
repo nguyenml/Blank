@@ -609,14 +609,6 @@
                                             <segue destination="pig-Vw-wMl" kind="show" identifier="" id="ISW-HC-4Dk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWI-rf-G7f">
-                                        <rect key="frame" x="129" y="43" width="46" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <segue destination="aHp-JO-OII" kind="show" id="URh-66-HBU"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -637,7 +629,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qHQ-t7-cXZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="7Xd-Cs-V1v" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="404" y="-958.4707646176912"/>
+            <point key="canvasLocation" x="303" y="-958"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="tl6-4S-bpE">
@@ -939,7 +931,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPv-yk-rXD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ony-pM-Lps" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1406" y="-958"/>
+            <point key="canvasLocation" x="1380" y="-958"/>
         </scene>
         <!--Input View Controller-->
         <scene sceneID="AQj-sc-BE3">
@@ -1167,7 +1159,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycp-hX-Cit" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="ItU-Cb-QEK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1405.5999999999999" y="745.27736131934034"/>
+            <point key="canvasLocation" x="1380" y="1002"/>
         </scene>
         <!--Onboarding View Controller-->
         <scene sceneID="tlL-EI-q2Q">
@@ -1404,7 +1396,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pDx-Xv-FH5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Jma-JC-iyK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-818.39999999999998" y="1061.9190404797603"/>
+            <point key="canvasLocation" x="-876" y="1002"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="lHI-VI-Rkr">
@@ -1668,7 +1660,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GHh-6S-ms2" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="57B-bI-U78" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="404" y="744.3778110944528"/>
+            <point key="canvasLocation" x="242" y="1002"/>
         </scene>
         <!--Mark Options View Controller-->
         <scene sceneID="Pay-hR-BaW">
@@ -1969,7 +1961,6 @@
         <image name="write_selected.png" width="21" height="21"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HgK-3W-B1x"/>
-        <segue reference="5h8-Ne-Qdl"/>
+        <segue reference="zxD-V3-HOb"/>
     </inferredMetricsTieBreakers>
 </document>

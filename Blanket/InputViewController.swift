@@ -134,6 +134,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
         FIRAnalytics.logEvent(withName: "user down time", parameters: ["downtime":downTime as NSObject])
+        
         if iTimer != nil{
             FIRAnalytics.logEvent(withName: "user left before time up", parameters: nil)
             reset()
