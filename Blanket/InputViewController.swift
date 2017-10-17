@@ -388,8 +388,8 @@ class InputViewController: UIViewController, UITextViewDelegate{
         timer.textColor = UIColor(hex: 0x17DF82)
         backgroundRectangleOnCompletion.image = UIImage(named: "gray_rectangle.png")
         extraCounter = extraCounter + addTime
-        extraTime = true
         post()
+        extraTime = true
     }
     
     //How many words the user wrote

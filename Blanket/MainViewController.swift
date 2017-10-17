@@ -364,21 +364,26 @@ class MainViewController: UIViewController {
     func getLvl(){
         ref?.child("users").child(uid).child("EntryTime").observe(FIRDataEventType.value, with: {
             (snapshot) in
+            print("how many times")
             guard snapshot.exists() else {
                 EntryTime.level = 3
                 EntryTime.regularTime = 300
+                self.ref?.child("users").child(self.uid).child("EntryTime").updateChildValues(["regularTime":300])
+                self.ref?.child("users").child(self.uid).child("EntryTime").updateChildValues(["level":3])
                 return
             }
             if snapshot.value != nil{
-                print("TEST")
                 var entryTime = snapshot.value as? [String : Int] ?? [:]
-                EntryTime.level = entryTime["level"]!
-                EntryTime.regularTime = entryTime["regularTime"]!
+                if entryTime["level"] != nil{
+                    EntryTime.level = entryTime["level"]!
+                }
+                if entryTime["regularTime"] != nil{
+                    EntryTime.regularTime = entryTime["regularTime"]!
+                }
             }
             self.getTimeConstraints()
         })
     }
-
 
     func getTimeConstraints(){
         //When a user gets to the next level, they permanently change their regular time 
