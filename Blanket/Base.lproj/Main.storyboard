@@ -964,6 +964,13 @@
                                         <rect key="frame" x="139" y="14" width="96" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IYd-zm-Iqf">
+                                                <rect key="frame" x="0.0" y="8" width="94.5" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <connections>
+                                                    <action selector="showHideTimer:" destination="hcl-Eu-jyo" eventType="touchUpInside" id="CQM-zQ-P2x"/>
+                                                </connections>
+                                            </button>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6a6-ZS-3v6">
                                                 <rect key="frame" x="0.0" y="8" width="94.5" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES"/>
@@ -1043,6 +1050,7 @@
                         <outlet property="addMin" destination="tps-qk-b89" id="hIZ-vc-Jja"/>
                         <outlet property="backButton" destination="Ubs-t9-RHh" id="E0L-pd-d5V"/>
                         <outlet property="backgroundRectangleOnCompletion" destination="6a6-ZS-3v6" id="Bu8-H8-sgt"/>
+                        <outlet property="showTimerButton" destination="IYd-zm-Iqf" id="5m9-E2-6Uw"/>
                         <outlet property="tapView" destination="KPk-BX-bxs" id="SCR-7Q-aVX"/>
                         <outlet property="textField" destination="Mss-Aw-dZa" id="gBy-Al-bA8"/>
                         <outlet property="timer" destination="Abd-DI-i9S" id="bDd-qJ-mEh"/>

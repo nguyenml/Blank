@@ -33,7 +33,9 @@ class InputViewController: UIViewController, UITextViewDelegate{
     var extraCounter = 300;
     var lwc = 0
     var currentPacket:Packet?
+    var isTimerOn = true
     
+    @IBOutlet weak var showTimerButton: UIButton!
     //sent by previous view
     var loadedString:String!
     var markKey:String!
@@ -373,6 +375,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
         iTimer?.invalidate()
         downTimeTimer?.invalidate()
         backgroundRectangleOnCompletion.image = UIImage(named: "green_rectangle.png")
+        if !isTimerOn {
+            timer.isHidden = false
+            isTimerOn = true
+        }
         timer.textColor = UIColor(hex: 0xFFFFFF)
         if textField.isFirstResponder {
             textField.resignFirstResponder()
@@ -386,6 +392,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     func noreset(){
         backButton.isHidden = false
+        if !isTimerOn {
+            timer.isHidden = false
+            isTimerOn = true
+        }
         timer.textColor = UIColor(hex: 0x17DF82)
         backgroundRectangleOnCompletion.image = UIImage(named: "gray_rectangle.png")
         extraCounter = extraCounter + addTime
@@ -463,7 +473,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
                 wordDictionary[word] = 1
             }
         }
-        //print(wordDictionary)
     }
     
     func checkDownTime(){
@@ -477,5 +486,16 @@ class InputViewController: UIViewController, UITextViewDelegate{
             print(downTime)
         }
     }
+    
+    @IBAction func showHideTimer(_ sender: UIButton) {
+        isTimerOn = !isTimerOn
+        if isTimerOn{
+            timer.isHidden = false
+        }else{
+            timer.isHidden = true
+        }
+        
+    }
+    
 
 }
