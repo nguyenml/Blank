@@ -158,7 +158,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
                                     text: entrySnap[Constants.Entry.text]!,
                                     wordCount: entrySnap[Constants.Entry.wordCount]!,
                                     uid: entrySnap[Constants.Entry.uid]!,
-                                    emotion: entrySnap[Constants.Entry.emotion]!,
                                     timeStamp: entrySnap[Constants.Entry.timestamp]!,
                                     key: snapshot.key,
                                     totalTime: entrySnap[Constants.Entry.totalTime]!
@@ -295,7 +294,8 @@ class InputViewController: UIViewController, UITextViewDelegate{
         mdata[Constants.Entry.wordCount] = String(greaterThanZero())
         mdata[Constants.Entry.date] = dateToString()
         mdata[Constants.Entry.uid] = uid
-        mdata[Constants.Entry.emotion] = imFeeling
+        //remove this when ready
+       // mdata[Constants.Entry.emotion] = imFeeling
         mdata[Constants.Entry.timestamp] = getTimeStamp()
         mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!

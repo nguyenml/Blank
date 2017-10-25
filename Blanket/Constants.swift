@@ -166,7 +166,7 @@ class Packet{
     var textStart:String
     var totalTime:String
     
-    init(date:String, text:String, wordCount:String, uid:String, emotion:String, timeStamp:String, key:String, mark:String = "", topic:String = "", textStart:String = "", totalTime:String = ""){
+    init(date:String, text:String, wordCount:String, uid:String, emotion:String = "", timeStamp:String, key:String, mark:String = "", topic:String = "", textStart:String = "", totalTime:String = ""){
         self.date = date
         self.text = text
         self.wordCount = wordCount

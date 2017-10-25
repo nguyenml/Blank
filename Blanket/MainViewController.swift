@@ -28,6 +28,8 @@ class MainViewController: UIViewController {
     let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
     let center = UNUserNotificationCenter.current()
     
+    var effect:UIVisualEffect!
+    
     var stats:[String:Int] = [:]
     var timer:Timer?
     
@@ -35,6 +37,9 @@ class MainViewController: UIViewController {
     var isReminder = false
     var dateString = ""
 
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet var popupView: UIView!
+    @IBOutlet weak var popupViewButton: UIButton!
     
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -70,6 +75,8 @@ class MainViewController: UIViewController {
             window.addSubview(overlay)
         }
         checkConnectivity()
+        effect = blurView.effect
+        blurView.effect = nil
     }
     
     func checkConnectivity(){
@@ -232,6 +239,7 @@ class MainViewController: UIViewController {
             if (diff.hour! < 0 || diff.minute! < 0 || diff.second! < 0){
                 FIRAnalytics.logEvent(withName: "brokenStreak", parameters: nil)
                 ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
+                showBrokenStreak()
             }
     }
 
@@ -480,9 +488,67 @@ class MainViewController: UIViewController {
     
     @IBAction func reminderSwitchPressed(_ sender: UISwitch) {
         isReminder = !isReminder
+        animateIn()
         checkSwitch()
     }
     
+    func animateIn(){
+        self.view.addSubview(popupView)
+        popupView.center = self.view.center
+        
+        popupView.transform = CGAffineTransform.init(scaleX:1.3,y:1.3)
+        
+        dropShadow(color: .gray, offSet: CGSize(width: -1, height: 3), radius: 10, scale: true)
+        
+        UIView.animate(withDuration:0.4){
+            self.blurView.effect = self.effect
+            self.popupView.alpha = 1
+            self.popupView.transform = CGAffineTransform.identity
+            
+        }
+    }
+    
+    func animateOut(){
+        UIView.animate(withDuration:0.3, animations: {
+            self.popupView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.popupView.alpha = 0
+            
+            self.blurView.effect = nil
+        }) { (Bool) in
+            self.popupView.removeFromSuperview()
+        }
+    }
+    
+    
+    @IBAction func dismissPopup(_ sender: UIButton) {
+        animateOut()
+    }
+    
+    func showBrokenStreak(){
+        animateIn()
+    }
+    
+    func dropShadow(color: UIColor, opacity: Float = 0.7, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+        popupView.layer.masksToBounds = false
+        popupView.layer.shadowColor = color.cgColor
+        popupView.layer.shadowOpacity = opacity
+        popupView.layer.shadowOffset = offSet
+        popupView.layer.shadowRadius = radius
+        
+        popupView.layer.shadowPath = UIBezierPath(rect: popupView.bounds).cgPath
+        popupView.layer.shouldRasterize = true
+        popupView.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+        
+        popupViewButton.layer.masksToBounds = false
+        popupViewButton.layer.shadowColor = color.cgColor
+        popupViewButton.layer.shadowOpacity = opacity
+        popupViewButton.layer.shadowOffset = offSet
+        popupViewButton.layer.shadowRadius = radius
+        
+        popupViewButton.layer.shadowPath = UIBezierPath(rect: popupViewButton.bounds).cgPath
+        popupViewButton.layer.shouldRasterize = true
+        popupViewButton.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
 }
     
 
