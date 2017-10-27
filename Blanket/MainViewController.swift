@@ -37,9 +37,14 @@ class MainViewController: UIViewController {
     var isReminder = false
     var dateString = ""
 
+    //-------Popup View Stuff
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet var popupView: UIView!
     @IBOutlet weak var popupViewButton: UIButton!
+    @IBOutlet weak var popupBadgeImage: UIImageView!
+    @IBOutlet weak var popupBadgeTitle: UILabel!
+    @IBOutlet weak var popupBadgeMessage: UILabel!
+    
     
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -248,21 +253,14 @@ class MainViewController: UIViewController {
     func newBadgeEarned(_ timer:Timer) {
         
         if (self.isViewLoaded && (self.view.window != nil)) {
-        if let badge = timer.userInfo as? IndividualBadge{
-        let title = badge.name
-        let message = badge.message
-        let image = badge.image
-        
-        let popup = PopupDialog(title: title, message: message, image: image)
-        
-        let buttonOne = CancelButton(title: "DONE") {
-        }
-
-        popup.addButtons([buttonOne])
-        
-        present(popup, animated: true, completion: nil)
-        timer.invalidate()
-        }
+            if let badge = timer.userInfo as? IndividualBadge{
+                let title = badge.name
+                let message = badge.message
+                let image = badge.image
+                
+                animateIn(image: image, title: title, message: message)
+                timer.invalidate()
+            }
         }
         
     }
@@ -488,17 +486,16 @@ class MainViewController: UIViewController {
     
     @IBAction func reminderSwitchPressed(_ sender: UISwitch) {
         isReminder = !isReminder
-        animateIn()
         checkSwitch()
     }
     
-    func animateIn(){
+    func animateIn(image:UIImage, title:String, message:String){
         self.view.addSubview(popupView)
         popupView.center = self.view.center
         
         popupView.transform = CGAffineTransform.init(scaleX:1.3,y:1.3)
         
-        dropShadow(color: .gray, offSet: CGSize(width: -1, height: 3), radius: 10, scale: true)
+        dropShadow(color: .lightGray, offSet: CGSize(width: -1, height: 3), radius: 10, scale: true)
         
         UIView.animate(withDuration:0.4){
             self.blurView.effect = self.effect
@@ -525,7 +522,10 @@ class MainViewController: UIViewController {
     }
     
     func showBrokenStreak(){
-        animateIn()
+        let title = "Broken Streak"
+        let message = "Oh no! It looks like you missed a day."
+        let image = UIImage(named: "broken_chain")!
+        animateIn(image:image,title:title, message:message)
     }
     
     func dropShadow(color: UIColor, opacity: Float = 0.7, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
@@ -542,8 +542,8 @@ class MainViewController: UIViewController {
         popupViewButton.layer.masksToBounds = false
         popupViewButton.layer.shadowColor = color.cgColor
         popupViewButton.layer.shadowOpacity = opacity
-        popupViewButton.layer.shadowOffset = offSet
-        popupViewButton.layer.shadowRadius = radius
+        popupViewButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        popupViewButton.layer.shadowRadius =  4
         
         popupViewButton.layer.shadowPath = UIBezierPath(rect: popupViewButton.bounds).cgPath
         popupViewButton.layer.shouldRasterize = true

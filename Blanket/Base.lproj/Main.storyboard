@@ -257,6 +257,9 @@
                         <outlet property="dayCircleView" destination="2Gl-UF-skp" id="Xcw-AC-cek"/>
                         <outlet property="entryBtn" destination="22X-UX-L33" id="00j-nN-RCc"/>
                         <outlet property="overlay" destination="eoC-Uh-toq" id="bMg-Rg-YNT"/>
+                        <outlet property="popupBadgeImage" destination="BWG-VN-uFf" id="iRX-Vd-NQn"/>
+                        <outlet property="popupBadgeMessage" destination="Lto-Qv-YqZ" id="jgB-Z9-plh"/>
+                        <outlet property="popupBadgeTitle" destination="kdk-L5-icL" id="W2K-GL-qdn"/>
                         <outlet property="popupView" destination="849-Xg-zdM" id="j7y-hA-hPN"/>
                         <outlet property="popupViewButton" destination="igo-j7-8bv" id="aCV-mw-Ejg"/>
                         <outlet property="reminderButton" destination="MYF-MJ-YTe" id="5D5-Pa-4rF"/>
@@ -269,17 +272,17 @@
                     <rect key="frame" x="0.0" y="0.0" width="250" height="475"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="A Fresh Start" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdk-L5-icL">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdk-L5-icL">
                             <rect key="frame" x="21" y="174" width="208" height="77"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="Abel-Regular" family="Abel" pointSize="29"/>
+                            <fontDescription key="fontDescription" name="Abel-Regular" family="Abel" pointSize="34"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congratulations on your first day!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lto-Qv-YqZ">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lto-Qv-YqZ">
                             <rect key="frame" x="28" y="259" width="195" height="53"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="9"/>
+                            <fontDescription key="fontDescription" name="OpenSans-SemiBold" family="Open Sans" pointSize="11"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -290,7 +293,6 @@
                             <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="17"/>
                             <state key="normal" title="Done">
                                 <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="titleShadowColor" red="1" green="1" blue="1" alpha="0.85319906349999997" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -301,8 +303,8 @@
                                 <action selector="dismissPopup:" destination="rlw-PC-1tq" eventType="touchUpInside" id="AMG-cn-Fla"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bronze_medal" translatesAutoresizingMaskIntoConstraints="NO" id="BWG-VN-uFf">
-                            <rect key="frame" x="80" y="75" width="90" height="100"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BWG-VN-uFf">
+                            <rect key="frame" x="80" y="75" width="90" height="90"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                     </subviews>
@@ -2027,7 +2029,6 @@
     <resources>
         <image name="Sea Weed" width="1280" height="800"/>
         <image name="alarm_button_off.png" width="102" height="102"/>
-        <image name="bronze_medal" width="516" height="516"/>
         <image name="c1.png" width="124" height="124"/>
         <image name="dark_green_blue_progression" width="75" height="75"/>
         <image name="day_circle" width="185" height="185"/>
