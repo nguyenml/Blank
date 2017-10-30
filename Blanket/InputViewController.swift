@@ -123,6 +123,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         }
     }
     
+    //this will be for the marks and topics stuff but thats gone and done
     func setupDataOnReturn(){
         if loadedString == nil{
             return
@@ -146,6 +147,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     }
     
     
+    //get the most recent entry and find out if it is old enough to reuse
     func getMostRecent(){
         if LastAccess.entry == ""{
             setupInput(bool: false)
@@ -219,6 +221,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     setTimeFormat()
     }
     
+    //sets the time to make it look like 1:15 instead of 75 seconds
     func setTimeFormat(){
         let minutes = Int(Double(counter) / 60.0)
         let seconds = Int(counter - (minutes*60))
@@ -264,6 +267,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         }
     }
     
+    //this update is used for already completed entries
     func smallUpdate(){
         let userStats = ref?.child("users").child(uid).child("Stats")
         userStats?.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
@@ -316,6 +320,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         }
     }
     
+    //this will cut the text in the text view and count how many seperate words there are
     func concatString(str:String) -> String{
         if str.isEmpty{
             return textField.text
@@ -341,6 +346,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         return (Int(wordCount(str: textField.text!)) - loadedWordCount)
     }
     
+    //update the access time if completed
     func updateLastAccess(date: String, key: String){
         ref?.child("users").child(String(describing: uid )).updateChildValues(["LastAccess": date])
         ref?.child("users").child(String(describing: uid )).updateChildValues(["LastEntry": key])
@@ -354,6 +360,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         return dateform.string(from: NSDate() as Date)
     }
     
+    //date formatter
     func getUTC() -> String{
         let date = Date()
         let formatter = DateFormatter()
@@ -363,6 +370,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         return formatter.string(from: date)
     }
     
+    //time stamp setter and getter
     func getTimeStamp() ->String {
         let timestamp = (Date().timeIntervalSince1970)
         let reversedTimestamp = -1.0 * timestamp
@@ -390,6 +398,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         post()
     }
     
+    //dont reset if the user doesnt have continued times.
     func noreset(){
         backButton.isHidden = false
         if !isTimerOn {
@@ -459,7 +468,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
         if(textView == textField)
         {
             downTimeResetter = 0;
-            print(wordCount(str: textView.text))
         }
     }
     
@@ -483,7 +491,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
         downTimeResetter += 1;
         if downTimeResetter > 5{
             downTime += 1;
-            print(downTime)
         }
     }
     

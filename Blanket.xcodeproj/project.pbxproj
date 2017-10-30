@@ -338,7 +338,7 @@
 				581DA3A71E70D66B0051C64B /* Resources */,
 				F78866C26509C7F8408D89B7 /* [CP] Embed Pods Frameworks */,
 				2090BA2282EDAA735BBA4467 /* [CP] Copy Pods Resources */,
-				587161911F0954B6004BC6D4 /* ShellScript */,
+				587161911F0954B6004BC6D4 /* Run Crash Report Shell Script */,
 			);
 			buildRules = (
 			);
@@ -584,18 +584,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		587161911F0954B6004BC6D4 /* ShellScript */ = {
+		587161911F0954B6004BC6D4 /* Run Crash Report Shell Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Crash Report Shell Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:32201085782:ios:ef0c3f9d1606b958\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"/Users/marvin/Desktop/dumb shit/blanket-14091-firebase-crashreporting-227mo-0646e441c3.json\"";
+			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:32201085782:ios:ef0c3f9d1606b958\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${PROJECT_DIR}/Keys/blanket-14091-firebase-crashreporting-227mo-0646e441c3.json\"";
 		};
 		84B1DF5F0BC4326F6BA40383 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

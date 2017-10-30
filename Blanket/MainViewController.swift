@@ -148,44 +148,6 @@ class MainViewController: UIViewController {
             self.checkLastAccess()
             self.resetStreak()
         })
-        ref?.child("Goals").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
-            var pastGoals: [FIRDataSnapshot]! = []
-            pastGoals.append(snapshot)
-            if pastGoals.count == 0{
-                return
-            }
-            for goals in pastGoals{
-                let myGoal = goals.value as! [String:AnyObject]
-                if ((myGoal["inProgress"] as! Bool)){
-                    Goals.endGoal = myGoal["endGoal"]! as! Int
-                    Goals.current = myGoal["currentGoal"]! as! Int
-                    Goals.hasGoal = true
-                    Goals.goalId = goals.key
-                }
-            }
-        })
-        
-        //First FB query gets all the Marks that belong to the user using uid
-        ref?.child("Marks").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
-            guard snapshot.exists() else{ return }
-            guard self != nil else { return }
-            let markSnap = snapshot.value as? [String: Any]
-            let ma:Mark = Mark(name: markSnap![Constants.Mark.marks]! as! String, key:snapshot.key, loadedString: markSnap![Constants.Mark.text] as! String)
-            marks.append(ma)
-            NotificationCenter.default.post(name: .reload, object: nil)
-        })
-        ref?.child("Topics").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
-            guard snapshot.exists() else{ return }
-            guard self != nil else { return }
-            let topicSnap = snapshot.value as? [String: Any]
-            let topic:Topic = Topic(name: topicSnap![Constants.Topic.topics]! as! String, key:snapshot.key)
-            self?.ref?.child("Topics").child(topic.key).child("entries").observe(.childAdded, with:{ [weak self] (snapshot) -> Void in
-                let entrykey = snapshot.value as! String
-                topic.entries.append(entrykey)
-            })
-            topics.append(topic)
-            NotificationCenter.default.post(name: .reload, object: nil)
-        })
         ref?.child("users").child(uid).child("LastEntry").observe(FIRDataEventType.value, with: {
             (snapshot) in
             if snapshot.value is NSNull{
