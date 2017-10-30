@@ -44,6 +44,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var popupBadgeImage: UIImageView!
     @IBOutlet weak var popupBadgeTitle: UILabel!
     @IBOutlet weak var popupBadgeMessage: UILabel!
+    @IBOutlet weak var popupLowerStartTime: UIButton!
     
     
     @IBOutlet weak var dateLabel: UILabel!
@@ -82,6 +83,7 @@ class MainViewController: UIViewController {
         checkConnectivity()
         effect = blurView.effect
         blurView.effect = nil
+        popupLowerStartTime.isHidden = true
     }
     
     func checkConnectivity(){
@@ -317,7 +319,7 @@ class MainViewController: UIViewController {
     @IBAction func reminderDidChange(_ sender: UIButton) {
             self.isReminder = !self.isReminder
             checkSwitch()
-            showEasyBrokenStreak()
+            showBrokenStreak()
     }
     
     func checkForReminder(){
@@ -487,6 +489,7 @@ class MainViewController: UIViewController {
             self.blurView.effect = nil
         }) { (Bool) in
             self.popupView.removeFromSuperview()
+            self.popupLowerStartTime.isHidden = true
         }
     }
     
@@ -505,6 +508,7 @@ class MainViewController: UIViewController {
     func showEasyBrokenStreak(){
         let title = "Broken Streak"
         let message = "Oh no! It looks like you missed a day. It can be easy to forget to write when you're just starting off. So we're going to you some slack and let you keep your streak."
+        popupLowerStartTime.isHidden = false
         let image = UIImage(named: "broken_chain")!
         animateIn(image:image,title:title, message:message)
     }

@@ -260,6 +260,7 @@
                         <outlet property="popupBadgeImage" destination="BWG-VN-uFf" id="iRX-Vd-NQn"/>
                         <outlet property="popupBadgeMessage" destination="Lto-Qv-YqZ" id="jgB-Z9-plh"/>
                         <outlet property="popupBadgeTitle" destination="kdk-L5-icL" id="W2K-GL-qdn"/>
+                        <outlet property="popupLowerStartTime" destination="oKX-Yf-sba" id="JPa-BX-8k5"/>
                         <outlet property="popupView" destination="849-Xg-zdM" id="j7y-hA-hPN"/>
                         <outlet property="popupViewButton" destination="igo-j7-8bv" id="aCV-mw-Ejg"/>
                         <outlet property="reminderButton" destination="MYF-MJ-YTe" id="5D5-Pa-4rF"/>
