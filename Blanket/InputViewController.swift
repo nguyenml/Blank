@@ -135,13 +135,13 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
-        FIRAnalytics.logEvent(withName: "user down time", parameters: ["downtime":downTime as NSObject])
+        FIRAnalytics.logEvent(withName: "user_down_time", parameters: ["downtime":downTime as NSObject])
         
         if iTimer != nil{
-            FIRAnalytics.logEvent(withName: "user left before time up", parameters: nil)
+            FIRAnalytics.logEvent(withName: "user_left_before_time_up", parameters: nil)
             reset()
         }
-        FIRAnalytics.logEvent(withName: "user left after time up", parameters: nil)
+        FIRAnalytics.logEvent(withName: "user_left_after_time_up", parameters: nil)
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
     }
     

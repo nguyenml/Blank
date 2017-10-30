@@ -241,10 +241,17 @@ class MainViewController: UIViewController {
             let nextMidnight = LastAccess.date.tomorrow.endOfDay as Date
             let diff = currentCalendar.dateComponents([.hour, .minute, .second], from: now, to: nextMidnight)
             let date = dateFormatter.string(from: (nextMidnight as Date))
+            let defaultDate = dateFormatter.date(from: "Apr 1, 2017 11:00 AM")
             if (diff.hour! < 0 || diff.minute! < 0 || diff.second! < 0){
                 FIRAnalytics.logEvent(withName: "brokenStreak", parameters: nil)
-                ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
-                showBrokenStreak()
+                if defaultDate != LastAccess.date{
+                    if Stats.totalEntries < 14 {
+                        showEasyBrokenStreak()
+                    }else{
+                        showBrokenStreak()
+                        ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
+                    }
+                }
             }
     }
 
@@ -328,14 +335,14 @@ class MainViewController: UIViewController {
     
     func checkSwitch(){
         if isReminder{
-            FIRAnalytics.logEvent(withName: "alarm is turned on", parameters: nil)
+            FIRAnalytics.logEvent(withName: "alarm_is_turned_on", parameters: nil)
             if !localNotificationAllowed {return}
             let image = UIImage(named: "alarm_button.png") as UIImage?
             reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             reminderButton.isHidden = false
             reminderButton.isUserInteractionEnabled = true
         }else{
-            FIRAnalytics.logEvent(withName: "alarm is turned off", parameters: nil)
+            FIRAnalytics.logEvent(withName: "alarm_is_turned_off", parameters: nil)
             let image = UIImage(named: "alarm_button_off.png") as UIImage?
             reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             center.removeAllPendingNotificationRequests()
@@ -348,6 +355,7 @@ class MainViewController: UIViewController {
     @IBAction func reminderDidChange(_ sender: UIButton) {
             self.isReminder = !self.isReminder
             checkSwitch()
+            showEasyBrokenStreak()
     }
     
     func checkForReminder(){
@@ -491,6 +499,10 @@ class MainViewController: UIViewController {
     
     func animateIn(image:UIImage, title:String, message:String){
         self.view.addSubview(popupView)
+        popupBadgeImage.image = image
+        popupBadgeTitle.text = title
+        popupBadgeMessage.text = message
+        
         popupView.center = self.view.center
         
         popupView.transform = CGAffineTransform.init(scaleX:1.3,y:1.3)
@@ -524,6 +536,13 @@ class MainViewController: UIViewController {
     func showBrokenStreak(){
         let title = "Broken Streak"
         let message = "Oh no! It looks like you missed a day."
+        let image = UIImage(named: "broken_chain")!
+        animateIn(image:image,title:title, message:message)
+    }
+    
+    func showEasyBrokenStreak(){
+        let title = "Broken Streak"
+        let message = "Oh no! It looks like you missed a day. It can be easy to forget to write when you're just starting off. So we're going to you some slack and let you keep your streak."
         let image = UIImage(named: "broken_chain")!
         animateIn(image:image,title:title, message:message)
     }

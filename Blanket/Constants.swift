@@ -57,15 +57,7 @@ struct Constants {
     struct StartDate{
         static var date = "date"
     }
-    struct Emotions{
-        static let content = "Content"
-        static let sad = "Dissapointed"
-        static let angry = "Upset"
-        static let excited = "Motivated"
-    }
-
 }
-var imFeeling = "Content"
 var marks:[Mark] = []
 var topics:[Topic] = []
 var entryDates: [Packet]! = []
@@ -157,7 +149,6 @@ class Packet{
     var text:String
     var wordCount:String
     var uid:String
-    var emotion:String
     var timestamp:String
     var order:Double = 0
     var key:String
@@ -166,12 +157,11 @@ class Packet{
     var textStart:String
     var totalTime:String
     
-    init(date:String, text:String, wordCount:String, uid:String, emotion:String = "", timeStamp:String, key:String, mark:String = "", topic:String = "", textStart:String = "", totalTime:String = ""){
+    init(date:String, text:String, wordCount:String, uid:String, timeStamp:String, key:String, mark:String = "", topic:String = "", textStart:String = "", totalTime:String = ""){
         self.date = date
         self.text = text
         self.wordCount = wordCount
         self.uid = uid
-        self.emotion = emotion
         self.timestamp = timeStamp
         self.key = key
         self.mark = mark

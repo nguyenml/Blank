@@ -61,7 +61,6 @@ class CalendarViewController: UIViewController {
                                     text: entrySnap[Constants.Entry.text]!,
                                     wordCount: entrySnap[Constants.Entry.wordCount]!,
                                     uid: entrySnap[Constants.Entry.uid]!,
-                                    emotion: entrySnap[Constants.Entry.emotion]!,
                                     timeStamp: entrySnap[Constants.Entry.timestamp]!,
                                     key: snapshot.key,
                                     totalTime: entrySnap[Constants.Entry.totalTime]!
@@ -101,7 +100,6 @@ class CalendarViewController: UIViewController {
                                     text: entrySnap[Constants.Entry.text]!,
                                     wordCount: entrySnap[Constants.Entry.wordCount]!,
                                     uid: entrySnap[Constants.Entry.uid]!,
-                                    emotion: entrySnap[Constants.Entry.emotion]!,
                                     timeStamp: entrySnap[Constants.Entry.timestamp]!,
                                     key: snapshot.key,
                                     totalTime: entrySnap[Constants.Entry.totalTime]!
