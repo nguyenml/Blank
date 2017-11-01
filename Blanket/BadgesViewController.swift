@@ -10,12 +10,23 @@
 
 import UIKit
 import Firebase
-import PopupDialog
 
 class BadgesViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate  {
     
+    @IBOutlet weak var popupImage: UIImageView!
+    @IBOutlet weak var popupTitle: UILabel!
+    @IBOutlet weak var popupMessage: UILabel!
+    @IBOutlet weak var popupButton: UIButton!
+    
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet var popupView: UIView!
+    
+    var effect:UIVisualEffect!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        effect = blurView.effect
+        blurView.effect = nil
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -37,9 +48,6 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath as IndexPath) as! CollectionCellView
         let badge = myBadges.badges[indexPath.row]
         if badge.earned{
-//            cell.BadgeLabel.text = String(myBadges.badges[indexPath.row].number)
-//            cell.BadgeLabel.adjustsFontSizeToFitWidth = true;
-//            cell.BadgeLabel.minimumScaleFactor = 0.5
             cell.BadgeImage.image = badge.image as UIImage?
         }else{
         // Use the outlet in our custom class to get a reference to the UILabel in the cell
@@ -72,17 +80,63 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         let image = myBadges.badges[item].image
         
         // Create the dialog
-        let popup = PopupDialog(title: title, message: message, image: image)
-        
-        // Create third button
-        let buttonClose = DefaultButton(title: "Close") {
-        }
-        
-        // Add buttons to dialog
-        popup.addButtons([buttonClose])
-        
-        // Present dialog
-        self.present(popup, animated: animated, completion: nil)
+         animateIn(image: image, title: title, message: message)
     }
 
+    @IBAction func popupClose(_ sender: Any) {
+        animateOut()
+    }
+    
+    func animateIn(image:UIImage, title:String, message:String){
+        self.view.addSubview(popupView)
+        popupImage.image = image
+        popupTitle.text = title
+        popupMessage.text = message
+        
+        popupView.center = self.view.center
+        
+        popupView.transform = CGAffineTransform.init(scaleX:1.3,y:1.3)
+        
+        dropShadow(color: .lightGray, offSet: CGSize(width: -1, height: 3), radius: 10, scale: true)
+        
+        UIView.animate(withDuration:0.4){
+            self.blurView.effect = self.effect
+            self.popupView.alpha = 1
+            self.popupView.transform = CGAffineTransform.identity
+            
+        }
+    }
+    
+    func animateOut(){
+        UIView.animate(withDuration:0.3, animations: {
+            self.popupView.transform = CGAffineTransform.init(scaleX: 1.3, y: 1.3)
+            self.popupView.alpha = 0
+            
+            self.blurView.effect = nil
+        }) { (Bool) in
+            self.popupView.removeFromSuperview()
+        }
+    }
+    
+    func dropShadow(color: UIColor, opacity: Float = 0.7, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
+        popupView.layer.masksToBounds = false
+        popupView.layer.shadowColor = color.cgColor
+        popupView.layer.shadowOpacity = opacity
+        popupView.layer.shadowOffset = offSet
+        popupView.layer.shadowRadius = radius
+        
+        popupView.layer.shadowPath = UIBezierPath(rect: popupView.bounds).cgPath
+        popupView.layer.shouldRasterize = true
+        popupView.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+        
+        popupButton.layer.masksToBounds = false
+        popupButton.layer.shadowColor = color.cgColor
+        popupButton.layer.shadowOpacity = opacity
+        popupButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        popupButton.layer.shadowRadius =  4
+        
+        popupButton.layer.shadowPath = UIBezierPath(rect: popupButton.bounds).cgPath
+        popupButton.layer.shouldRasterize = true
+        popupButton.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
 }

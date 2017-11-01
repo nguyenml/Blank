@@ -319,7 +319,6 @@ class MainViewController: UIViewController {
     @IBAction func reminderDidChange(_ sender: UIButton) {
             self.isReminder = !self.isReminder
             checkSwitch()
-            showBrokenStreak()
     }
     
     func checkForReminder(){
