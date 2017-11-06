@@ -15,7 +15,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
     var entryRef:FIRDatabaseReference?
 
     @IBOutlet weak var tapView: UIView!
-    
     @IBOutlet weak var backgroundRectangleOnCompletion: UIImageView!
     @IBOutlet weak var markButton: UIButton!
     @IBOutlet weak var addMin: UIButton!
@@ -34,6 +33,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     var lwc = 0
     var currentPacket:Packet?
     var isTimerOn = true
+    
     
     @IBOutlet weak var showTimerButton: UIButton!
     //sent by previous view
