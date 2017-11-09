@@ -51,7 +51,7 @@ class CalendarViewController: UIViewController {
         
         ref = FIRDatabase.database().reference()
         
-        var lastEntry = 0
+        var lastEntry = 1
         
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             
@@ -84,8 +84,10 @@ class CalendarViewController: UIViewController {
                 
                 strongSelf.calendarView.scrollToDate(Date(), animateScroll:true)
                 strongSelf.calendarView.selectDates([Date()])
+                print("scrolling")
             }
-            
+            print(lastEntry)
+            print(Stats.totalEntries)
             lastEntry = lastEntry + 1
         
         })
@@ -138,7 +140,8 @@ class CalendarViewController: UIViewController {
         calendarView.visibleDates{ dateSegment in
             self.setupViewsOfCalendar(dateSegments: dateSegment)
         }
-        calendarView.scrollToDate(Date())
+        //sccalendarView.scrollToDate(Date())
+        print("scrolling 2")
     }
     
     func setupViewsOfCalendar(dateSegments:DateSegmentInfo){
