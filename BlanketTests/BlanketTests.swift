@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import Blanket
 
 class BlanketTests: XCTestCase {
     

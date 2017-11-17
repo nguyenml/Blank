@@ -35,6 +35,7 @@
 		582E11BD1E8B1D2D0074ADE1 /* ELViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */; };
 		582E11C11E8B38E30074ADE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11C01E8B38E30074ADE1 /* Constants.swift */; };
 		582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 582E11C41E9597FB0074ADE1 /* Badges.swift */; };
+		583289E61FB4A1D70049E468 /* BlankitUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 583289E51FB4A1D70049E468 /* BlankitUITests.swift */; };
 		585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */; };
 		5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 585298091E76D4B10011B2E3 /* Extensions.swift */; };
 		585298211E7A1E040011B2E3 /* Dosis-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 585298191E7A1E040011B2E3 /* Dosis-Bold.ttf */; };
@@ -76,6 +77,13 @@
 			remoteInfo = Blanket;
 		};
 		581DA3CC1E70D66C0051C64B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 581DA3A11E70D66B0051C64B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 581DA3A81E70D66B0051C64B;
+			remoteInfo = Blanket;
+		};
+		583289E81FB4A1D70049E468 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 581DA3A11E70D66B0051C64B /* Project object */;
 			proxyType = 1;
@@ -124,6 +132,9 @@
 		582E11BC1E8B1D2D0074ADE1 /* ELViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ELViewController.swift; sourceTree = "<group>"; };
 		582E11C01E8B38E30074ADE1 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		582E11C41E9597FB0074ADE1 /* Badges.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Badges.swift; sourceTree = "<group>"; };
+		583289E31FB4A1D70049E468 /* BlankitUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlankitUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		583289E51FB4A1D70049E468 /* BlankitUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankitUITests.swift; sourceTree = "<group>"; };
+		583289E71FB4A1D70049E468 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IndividualEntryViewController.swift; path = ../IndividualEntryViewController.swift; sourceTree = "<group>"; };
 		585298091E76D4B10011B2E3 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		585298191E7A1E040011B2E3 /* Dosis-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Bold.ttf"; path = "Resources/Dosis-Bold.ttf"; sourceTree = "<group>"; };
@@ -186,6 +197,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		583289E01FB4A1D70049E468 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -205,6 +223,7 @@
 				585298181E7A1DDE0011B2E3 /* Fonts */,
 				581DA3C31E70D66C0051C64B /* BlanketTests */,
 				581DA3CE1E70D66C0051C64B /* BlanketUITests */,
+				583289E41FB4A1D70049E468 /* BlankitUITests */,
 				581DA3AA1E70D66B0051C64B /* Products */,
 				F378CF48E9F283A512B08EE1 /* Pods */,
 				7E0C80D58E384897BAF596A0 /* Frameworks */,
@@ -217,6 +236,7 @@
 				581DA3A91E70D66B0051C64B /* Blanket.app */,
 				581DA3C01E70D66C0051C64B /* BlanketTests.xctest */,
 				581DA3CB1E70D66C0051C64B /* BlanketUITests.xctest */,
+				583289E31FB4A1D70049E468 /* BlankitUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -278,6 +298,15 @@
 				581DA3D11E70D66C0051C64B /* Info.plist */,
 			);
 			path = BlanketUITests;
+			sourceTree = "<group>";
+		};
+		583289E41FB4A1D70049E468 /* BlankitUITests */ = {
+			isa = PBXGroup;
+			children = (
+				583289E51FB4A1D70049E468 /* BlankitUITests.swift */,
+				583289E71FB4A1D70049E468 /* Info.plist */,
+			);
+			path = BlankitUITests;
 			sourceTree = "<group>";
 		};
 		585298181E7A1DDE0011B2E3 /* Fonts */ = {
@@ -391,13 +420,31 @@
 			productReference = 581DA3CB1E70D66C0051C64B /* BlanketUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		583289E21FB4A1D70049E468 /* BlankitUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 583289EA1FB4A1D70049E468 /* Build configuration list for PBXNativeTarget "BlankitUITests" */;
+			buildPhases = (
+				583289DF1FB4A1D70049E468 /* Sources */,
+				583289E01FB4A1D70049E468 /* Frameworks */,
+				583289E11FB4A1D70049E468 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				583289E91FB4A1D70049E468 /* PBXTargetDependency */,
+			);
+			name = BlankitUITests;
+			productName = BlankitUITests;
+			productReference = 583289E31FB4A1D70049E468 /* BlankitUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		581DA3A11E70D66B0051C64B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0820;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Marvin Nguyen";
 				TargetAttributes = {
@@ -421,6 +468,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 581DA3A81E70D66B0051C64B;
 					};
+					583289E21FB4A1D70049E468 = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 581DA3A81E70D66B0051C64B;
+					};
 				};
 			};
 			buildConfigurationList = 581DA3A41E70D66B0051C64B /* Build configuration list for PBXProject "Blanket" */;
@@ -439,6 +491,7 @@
 				581DA3A81E70D66B0051C64B /* Blanket */,
 				581DA3BF1E70D66C0051C64B /* BlanketTests */,
 				581DA3CA1E70D66C0051C64B /* BlanketUITests */,
+				583289E21FB4A1D70049E468 /* BlankitUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -485,6 +538,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		581DA3C91E70D66C0051C64B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		583289E11FB4A1D70049E468 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -696,6 +756,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		583289DF1FB4A1D70049E468 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				583289E61FB4A1D70049E468 /* BlankitUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -708,6 +776,11 @@
 			isa = PBXTargetDependency;
 			target = 581DA3A81E70D66B0051C64B /* Blanket */;
 			targetProxy = 581DA3CC1E70D66C0051C64B /* PBXContainerItemProxy */;
+		};
+		583289E91FB4A1D70049E468 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 581DA3A81E70D66B0051C64B /* Blanket */;
+			targetProxy = 583289E81FB4A1D70049E468 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -921,6 +994,34 @@
 			};
 			name = Release;
 		};
+		583289EB1FB4A1D70049E468 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				INFOPLIST_FILE = BlankitUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = marvo.BlankitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Blanket;
+			};
+			name = Debug;
+		};
+		583289EC1FB4A1D70049E468 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				INFOPLIST_FILE = BlankitUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = marvo.BlankitUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = Blanket;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -959,6 +1060,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		583289EA1FB4A1D70049E468 /* Build configuration list for PBXNativeTarget "BlankitUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				583289EB1FB4A1D70049E468 /* Debug */,
+				583289EC1FB4A1D70049E468 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 

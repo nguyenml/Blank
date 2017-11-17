@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>BlanketPlus.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>16</integer>
+		</dict>
+		<key>TempCamUITests.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>15</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -23,6 +33,11 @@
 			<true/>
 		</dict>
 		<key>581DA3CA1E70D66C0051C64B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>583289E21FB4A1D70049E468</key>
 		<dict>
 			<key>primary</key>
 			<true/>
