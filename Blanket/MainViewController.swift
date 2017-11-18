@@ -435,20 +435,15 @@ class MainViewController: UIViewController {
         
         
         //clusterrrr fuckkk
-        let continueTime = defaults.bool(forKey: "continue")
-        if !continueTime {
-            if Stats.totalEntries > 7 {
-                let num = Int(Stats.totalEntries/10)
-                if num > 1{
-                    EntryTime.addTime += (num * 10)
-                    if EntryTime.addTime > 420{
-                        EntryTime.addTime = 420
-                    }
-                }
-            }
-        } else {
-            EntryTime.addTime = 86400
+        //
+        let isTimerHidden = defaults.bool(forKey: "isTimerHidden")
+        if(isTimerHidden){
+            TimerHidden.isHidden = isTimerHidden
         }
+        print("test isTImerhidden")
+        print(isTimerHidden)
+        
+        EntryTime.addTime = 86400
     }
     
     func setTimeUI(){

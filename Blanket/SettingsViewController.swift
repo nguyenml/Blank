@@ -13,10 +13,9 @@ import UserNotifications
 class SettingsViewController: UIViewController {
     @IBOutlet weak var dailyEntryMinTime: UILabel!
     @IBOutlet weak var UINotificationSwitch: UISwitch!
-    @IBOutlet weak var additionalMinTime: UILabel!
     
-    @IBOutlet weak var addMinSwitch: UISwitch!
-    
+    @IBOutlet weak var isHiddenSwitch: UISwitch!
+    @IBOutlet weak var isHiddenText: UILabel!
     @IBOutlet weak var changeText: UILabel!
     
     var isReminder:Bool = false
@@ -24,9 +23,9 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        isOnOff()
         getTimeConstraints()
         checkNotification()
+        checkIsTimerHidden()
     }
     
     
@@ -42,15 +41,6 @@ class SettingsViewController: UIViewController {
             dismiss(animated: true, completion: nil)
         } catch let signOutError as NSError {
             print ("Error signing out: \(signOutError.localizedDescription)")
-        }
-    }
-    
-    func isOnOff(){
-        let continueTime = defaults.bool(forKey: "continue")
-        if continueTime {
-            addMinSwitch.isOn = false
-        } else {
-            addMinSwitch.isOn = true
         }
     }
 
@@ -76,6 +66,16 @@ class SettingsViewController: UIViewController {
             }
     }
     
+    func checkIsTimerHidden(){
+        let isTimerHidden = defaults.bool(forKey: "isTimerHidden")
+        if(isTimerHidden){
+            isHiddenSwitch.isOn = true
+        } else {
+            isHiddenSwitch.isOn = false
+        }
+        
+    }
+    
     func checkAddTime(){
         
         EntryTime.addTime = 180
@@ -85,17 +85,6 @@ class SettingsViewController: UIViewController {
             if EntryTime.addTime > 420{
                 EntryTime.addTime = 420
             }
-        }
-    
-        if addMinSwitch.isOn{
-            getTimeConstraints()
-            defaults.set(false, forKey: "continue")
-            FIRAnalytics.logEvent(withName: "continue by minutes", parameters: nil)
-        } else {
-            EntryTime.addTime = 86400
-            getTimeConstraints()
-            defaults.set(true, forKey: "continue")
-            FIRAnalytics.logEvent(withName: "continue indefinite", parameters: nil)
         }
     }
     
@@ -110,19 +99,6 @@ class SettingsViewController: UIViewController {
         var strSeconds = String(format: "%02d", entrySeconds)
         dailyEntryMinTime.text = "\(strMinutes):\(strSeconds)"
         
-        let addTime = EntryTime.addTime
-        if addTime == 86400 {
-            additionalMinTime.text = "--:--"
-        } else {
-            let addMinutes = Int(Double(addTime)/60.0)
-            let addSeconds = Int(addTime - (addMinutes*60))
-            strMinutes = ""
-            if addMinutes > 0{
-                strMinutes = String(addMinutes)
-            }
-            strSeconds = String(format: "%02d", addSeconds)
-            additionalMinTime.text = "\(strMinutes):\(strSeconds)"
-        }
     }
     
     @IBAction func goBack(_ sender: UIButton) {
@@ -134,10 +110,6 @@ class SettingsViewController: UIViewController {
         if !localNotificationAllowed {
             UINotificationSwitch.isOn = false
         }
-    }
-    
-    @IBAction func addTimeSwitchPressed(_ sender: UISwitch) {
-        checkAddTime()
     }
     
     @IBAction func webLink(_ sender: UIButton) {
@@ -152,6 +124,18 @@ class SettingsViewController: UIViewController {
             UIApplication.shared.openURL(url)
         }
     }
+ 
+    @IBAction func hiddenSwitchIsPressed(_ sender: UISwitch) {
+        isHiddenSwitch.isOn = !isHiddenSwitch.isOn
+        changeHiddenStatus(hidden: isHiddenSwitch.isOn)
+    }
     
+    func changeHiddenStatus(hidden:Bool){
+        if(hidden){
+            defaults.set(true, forKey: "isTimerHidden")
+        } else {
+            defaults.set(false, forKey: "isTimerHidden")
+        }
+    }
     
 }

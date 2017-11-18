@@ -79,6 +79,10 @@ struct EntryTime{
     static var level = 0
 }
 
+struct TimerHidden{
+    static var isHidden = false
+}
+
 struct LastAccess{
     static var date = NSDate() as Date
     static var entry:String = ""

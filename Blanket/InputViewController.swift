@@ -50,6 +50,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     var currentString:String = ""
     var continueEntry = false
     var continuedEntryWithMark = false
+    var isTimerHidden = false
     
     var stats:[String:Int] = [:]
     let uid = FIRAuth.auth()!.currentUser!.uid
@@ -73,6 +74,14 @@ class InputViewController: UIViewController, UITextViewDelegate{
         tap.numberOfTapsRequired = 2
         tap.addTarget(self, action: #selector(addMinute(_:)))
         tapView.addGestureRecognizer(tap)
+    }
+    func setupTimerVisibility(){
+        let isTimerHidden = TimerHidden.isHidden
+        if(isTimerHidden){
+            timer.isHidden = true
+        } else {
+            timer.isHidden = false
+        }
     }
     
     // get rid of xcode backspace error, hide buttons, add notification for keyboard scrolling
@@ -99,6 +108,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             addMin.isHidden = true
             backButton.isHidden = true
             tapView.isHidden = true
+            setupTimerVisibility()
         }
         
         
@@ -199,25 +209,17 @@ class InputViewController: UIViewController, UITextViewDelegate{
             if counter < extraCounter{
                 counter = counter + 1;
             }
-            if counter >= extraCounter{
-                reset()
-            }
-            
         }
         else{
             if counter < regularTime{
                 counter = counter + 1;
             }
-            if counter >= regularTime{
-                addMin.setTitle("+",for: .normal)
+            if counter == regularTime{
                 lwc = greaterThanZero()
-                if (EntryTime.addTime == 86400){
-                    noreset()
-                }else{
-                    reset()
-                }
+                noreset()
             }
         }
+        
     setTimeFormat()
     }
     
@@ -448,6 +450,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         extraTime = true
         updateCounter()
         iTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(updateCounter), userInfo: nil, repeats: true)
+        setupTimerVisibility()
     }
     
     func updateTextView(notification:Notification){
