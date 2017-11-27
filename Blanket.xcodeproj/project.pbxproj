@@ -62,6 +62,7 @@
 		58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */; };
 		58B9751F1ED1F976003A910F /* TimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B9751E1ED1F975003A910F /* TimeViewController.xib */; };
 		58B975211ED1F9F2003A910F /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B975201ED1F9F2003A910F /* TimeViewController.swift */; };
+		58D545D01FC4C78A00C1F80B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */; };
 		58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */; };
 		58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */; };
 		58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBD41E817C08003523C5 /* MainViewController.swift */; };
@@ -163,6 +164,7 @@
 		58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinueViewController.swift; sourceTree = "<group>"; };
 		58B9751E1ED1F975003A910F /* TimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeViewController.xib; sourceTree = "<group>"; };
 		58B975201ED1F9F2003A910F /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
+		58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStatsCell.swift; sourceTree = "<group>"; };
 		58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		58FFEBD41E817C08003523C5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */,
 				582887461F87B823008DA5A5 /* PickLevelViewController.swift */,
 				5808D7BD1F27D14C00ED3ACD /* OnboardingViewController.swift */,
 				5808D7B71F22668200ED3ACD /* CalendarViewController.swift */,
@@ -733,6 +736,7 @@
 				5808D7B61F22650F00ED3ACD /* CalenderCell.swift in Sources */,
 				58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
+				58D545D01FC4C78A00C1F80B /* IntroViewController.swift in Sources */,
 				5808D7BC1F27D04F00ED3ACD /* OnboardingView.swift in Sources */,
 				582887471F87B823008DA5A5 /* PickLevelViewController.swift in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
@@ -1068,6 +1072,7 @@
 				583289EC1FB4A1D70049E468 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

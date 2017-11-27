@@ -99,6 +99,11 @@ struct Goals{
     static var goalId = "ID"
 }
 
+struct Statements{
+    static var WEB:String = ""
+    static var GOAL:String = ""
+}
+
 class Mark{
     var name:String
     var key:String

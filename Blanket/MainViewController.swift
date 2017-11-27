@@ -141,7 +141,6 @@ class MainViewController: UIViewController {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MMM dd, yyyy hh:mm a"
             let date = dateFormatter.date(from: (snapshot.value as! String))
-            let toString = dateFormatter.string(from: date!)
             if date != nil{
             LastAccess.date = (date! as Date)
             }else{

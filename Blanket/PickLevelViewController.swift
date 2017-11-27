@@ -99,7 +99,6 @@ class PickLevelViewController: UIViewController {
     
     @IBAction func continueButtonPressed(_ sender: UIButton) {
         setupWithLvl()
-        self.performSegue(withIdentifier: "unwindToStats", sender: self)
     }
     
 }

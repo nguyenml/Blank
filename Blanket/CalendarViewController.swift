@@ -84,10 +84,7 @@ class CalendarViewController: UIViewController {
                 
                 strongSelf.calendarView.scrollToDate(Date(), animateScroll:true)
                 strongSelf.calendarView.selectDates([Date()])
-                print("scrolling")
             }
-            print(lastEntry)
-            print(Stats.totalEntries)
             lastEntry = lastEntry + 1
         
         })

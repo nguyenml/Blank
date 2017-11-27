@@ -15,7 +15,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
     var entryRef:FIRDatabaseReference?
 
     @IBOutlet weak var tapView: UIView!
-    @IBOutlet weak var backgroundRectangleOnCompletion: UIImageView!
     @IBOutlet weak var markButton: UIButton!
     @IBOutlet weak var addMin: UIButton!
     @IBOutlet var backButton: UIButton!
@@ -68,6 +67,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
         getMostRecent()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     //ser up function to get text and view in to order
     func setup(){
         textField.font = UIFont(name: "OpenSans-Regular", size:17)
@@ -79,8 +82,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
         let isTimerHidden = TimerHidden.isHidden
         if(isTimerHidden){
             timer.isHidden = true
+            isTimerOn = false
         } else {
             timer.isHidden = false
+            isTimerOn = true
         }
     }
     
@@ -98,10 +103,9 @@ class InputViewController: UIViewController, UITextViewDelegate{
             extraTime = true
             addMin.isHidden = false
             addMin.setTitle("+",for: .normal)
+            timer.textColor = UIColor(hex: 0x17DF82);
             backButton.isHidden = false
             textField.isEditable = false
-            timer.textColor = UIColor(hex: 0xFFFFFF)
-            backgroundRectangleOnCompletion.image = UIImage(named: "green_rectangle.png")
             
         }else{
             textField.text = ""
@@ -384,12 +388,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
         addMin.isHidden = false
         iTimer?.invalidate()
         downTimeTimer?.invalidate()
-        backgroundRectangleOnCompletion.image = UIImage(named: "green_rectangle.png")
         if !isTimerOn {
             timer.isHidden = false
             isTimerOn = true
         }
-        timer.textColor = UIColor(hex: 0xFFFFFF)
         if textField.isFirstResponder {
             textField.resignFirstResponder()
             tapView.isHidden = false
@@ -408,7 +410,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
             isTimerOn = true
         }
         timer.textColor = UIColor(hex: 0x17DF82)
-        backgroundRectangleOnCompletion.image = UIImage(named: "gray_rectangle.png")
         extraCounter = extraCounter + addTime
         post()
         extraTime = true
@@ -444,7 +445,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
         textField.isUserInteractionEnabled = true
 
         timer.textColor = UIColor(hex: 0x17DF82)
-        backgroundRectangleOnCompletion.image = UIImage(named: "gray_rectangle.png")
         addMin.isHidden = true
         extraCounter = extraCounter + addTime
         extraTime = true

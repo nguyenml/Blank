@@ -31,6 +31,8 @@ class StatsViewController: UIViewController{
     @IBOutlet weak var currentDays: UILabel!
     @IBOutlet weak var highestStreak: UILabel!
     
+    @IBOutlet weak var IWEB: UILabel!
+    
     var entries : [Entry] = []
     var statsEntries : [statsBlock] = []
     
@@ -44,6 +46,7 @@ class StatsViewController: UIViewController{
         getData()
         //setupUI()
         setLabels()
+        setIWEB()
     }
     
     func setupUI(){
@@ -130,6 +133,18 @@ class StatsViewController: UIViewController{
         time = String(secondsToMinutes(seconds: Stats.totalTime))
         
         return time
+    }
+    
+    func setIWEB(){
+        ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Statement").child("WEB").observeSingleEvent(of: .value,with: {
+            (snapshot) in
+            if snapshot.exists(){
+                Statements.WEB = (snapshot.value as? String)!
+                self.IWEB.text = Statements.WEB
+            } else {
+                print("no web")
+            }
+        })
     }
     
 
