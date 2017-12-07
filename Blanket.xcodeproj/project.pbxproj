@@ -64,6 +64,7 @@
 		58B975211ED1F9F2003A910F /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B975201ED1F9F2003A910F /* TimeViewController.swift */; };
 		58D545D01FC4C78A00C1F80B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */; };
 		58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */; };
+		58F2276A1FD5EDEE000AFAAC /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F227691FD5EDEE000AFAAC /* TabViewController.swift */; };
 		58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */; };
 		58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBD41E817C08003523C5 /* MainViewController.swift */; };
 		8ADD5C9478BB01739E9EF289 /* Pods_Blanket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F210F8755DF50D7DF7D7A4C0 /* Pods_Blanket.framework */; };
@@ -166,6 +167,7 @@
 		58B975201ED1F9F2003A910F /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStatsCell.swift; sourceTree = "<group>"; };
+		58F227691FD5EDEE000AFAAC /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		58FFEBD41E817C08003523C5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		75B92434C61436E1FCCB85A6 /* Pods-BlanketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				58F227691FD5EDEE000AFAAC /* TabViewController.swift */,
 				58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */,
 				582887461F87B823008DA5A5 /* PickLevelViewController.swift */,
 				5808D7BD1F27D14C00ED3ACD /* OnboardingViewController.swift */,
@@ -737,6 +740,7 @@
 				58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				58D545D01FC4C78A00C1F80B /* IntroViewController.swift in Sources */,
+				58F2276A1FD5EDEE000AFAAC /* TabViewController.swift in Sources */,
 				5808D7BC1F27D04F00ED3ACD /* OnboardingView.swift in Sources */,
 				582887471F87B823008DA5A5 /* PickLevelViewController.swift in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,

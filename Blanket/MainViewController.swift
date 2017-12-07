@@ -123,13 +123,13 @@ class MainViewController: UIViewController {
         ref?.child("users").child(uid).child("Stats").observe(FIRDataEventType.value, with: {
             (snapshot) in
             self.stats = snapshot.value as? [String : Int] ?? [:]
-            self.textLabel.text = (String(describing: self.stats["currentStreak"]!))
             Stats.avgWordcount = (self.stats["avgWordcount"]!)
             Stats.currentStreak = (self.stats["currentStreak"])!
             Stats.longestStreak = (self.stats["longestStreak"])!
             Stats.totalWordcount = (self.stats["totalWordcount"])!
             Stats.totalEntries = (self.stats["totalEntries"])!
             Stats.totalTime = (self.stats["totalTime"])!
+            self.textLabel.text = (String(describing: self.stats["totalEntries"]!))
             myBadges.checkBadge()
             self.getLvl()
             self.overlay?.removeFromSuperview()
@@ -500,7 +500,7 @@ class MainViewController: UIViewController {
     
     func showEasyBrokenStreak(){
         let title = "Broken Streak"
-        let message = "Oh no! It looks like you missed a day. It can be easy to forget to write when you're just starting off. So we're going to you some slack and let you keep your streak."
+        let message = "Oh no! It looks like you missed a day. It can be easy to forget to write when you're just starting off. So we're going to give a little some slack and keep the streak."
         popupLowerStartTime.isHidden = false
         let image = UIImage(named: "broken_chain")!
         animateIn(image:image,title:title, message:message)

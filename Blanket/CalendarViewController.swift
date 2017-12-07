@@ -137,8 +137,6 @@ class CalendarViewController: UIViewController {
         calendarView.visibleDates{ dateSegment in
             self.setupViewsOfCalendar(dateSegments: dateSegment)
         }
-        //sccalendarView.scrollToDate(Date())
-        print("scrolling 2")
     }
     
     func setupViewsOfCalendar(dateSegments:DateSegmentInfo){

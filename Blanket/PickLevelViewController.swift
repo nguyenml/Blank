@@ -27,9 +27,9 @@ class PickLevelViewController: UIViewController {
     
     let desc1 = "If you have never tried writing before other than highschool english and that one college class you were forced to take, this is a good start for you. It starts off easy and gradually increases in duration as you get used to the feeling of writing."
     
-    let desc2 = "For most people this is a good duration to begin with. 3 minutes gives you enough time to write down most of your thoughts without giving you that nasty \"forced writing\" feeling. The duration of your writing will slowly increase without you noticing "
+    let desc2 = "For most people this is a good duration to begin with. 3 minutes gives you enough time to write down most of your thoughts without giving you that nasty \"forced writing\" feeling. The duration of your writing will slowly increase without you noticing. "
     
-    let desc3 = "If you blog regularely or have habitually written in the past, this is a great choice. Starting at the 5, this set is a bit more challenging. Time will be increased slowly, but will add up very quickly before you even notice it.   "
+    let desc3 = "If you blog regularely or have habitually written in the past, this is a great choice. Starting at the 5, this set is a bit challenging. Time will be increased slowly, but will add up very quickly before you even notice it.\n\nNOT RECOMMENDED FOR BEGINNERS."
     
     override func  viewDidLoad() {
         ref = FIRDatabase.database().reference()

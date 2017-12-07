@@ -146,6 +146,9 @@ class StatsViewController: UIViewController{
             }
         })
     }
+
+    @IBAction func myWritingPressed(_ sender: UIButton) {
+    }
     
 
     @IBAction func unwindToStats(segue: UIStoryboardSegue) {}

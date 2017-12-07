@@ -271,6 +271,8 @@ class InputViewController: UIViewController, UITextViewDelegate{
                 print(error.localizedDescription)
             }
         }
+        
+        updateWeekly(update:false)
     }
     
     //this update is used for already completed entries
@@ -295,6 +297,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
                  print(error.localizedDescription)
             }
         }
+        updateWeekly(update:true)
     }
     
     
@@ -505,6 +508,15 @@ class InputViewController: UIViewController, UITextViewDelegate{
             timer.isHidden = true
         }
         
+    }
+    
+    func updateWeekly(update:Bool){
+        if update {
+            var num = weeklyWordCount - lwc + greaterThanZero()
+            ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": num])
+        } else {
+            ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": weeklyWordCount + lwc])
+        }
     }
     
 

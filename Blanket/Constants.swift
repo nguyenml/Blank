@@ -207,3 +207,5 @@ let mySpecialNotificationKey = ".badgeForADay"
 //Notys
 var localNotificationAllowed = true
 
+let weeklyWordCount = 0
+

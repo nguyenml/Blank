@@ -7,36 +7,68 @@
 //
 
 import UIKit
-import paper_onboarding
+import Firebase
 
-class OnboardingViewController: UIViewController, PaperOnboardingDataSource {
+class OnboardingViewController: UIViewController{
     
     @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var onboarding: OnboardingView!
+    @IBOutlet weak var nextButton: UIButton!
+    
+    @IBOutlet weak var textDisplay: UITextView!
+    var textSlide = 0
+
+    var slides = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        onboarding.dataSource = self
+        fetchUser()
+        setSlides()
+        setText()
     }
     
-    func onboardingItemsCount() -> Int {
-        return 3
+    func fetchUser()-> String {
+        let user = FIRAuth.auth()?.currentUser
+        let name = user?.displayName?.capitalizingFirstLetter()
+        return name!
     }
     
-    func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo {
-        let backgroundColor1 = UIColor(hex:0x86BAA1)
-        let backgroundColor2 = UIColor(hex:0x247BA0)
-        let backgroundColor3 = UIColor(hex:0x498467)
+    func setSlides(){
+        let name:String = "Hi " + fetchUser()
+        let slide1 = name+", Welcome to Blankit"
+        slides.append(slide1)
+        let slide2 = "Blankit is an app that will help you develop a strong writing habit"
+        slides.append(slide2)
+        let slide3 = "To build this long lasting habit, we need to start by writing everyday."
+        slides.append(slide3)
+        let slide4 = "It's okay if you don't have any experience of writing on your own."
+        slides.append(slide4)
+        let slide5 = "A little bit everyday. Thats all it takes."
+        slides.append(slide5)
+        let slide6  = "It doesnt matter if it's just a couple sentences or a hundred paragraphs. It only matters that you write something."
+        slides.append(slide6)
+        let slide7 = "Everyday you are given a chance to complete an entry with a minimum time constraint."
+        slides.append(slide7)
+        let slide8 = "As you continue to write everday, the time constraint will gradually increase."
+        slides.append(slide8)
+        let slide9 = "Let's get started."
+        slides.append(slide9)
         
-        let titleFont = UIFont(name:"Abel", size:32)
-        let descriptionFont = UIFont(name: "OpenSans-Regular", size: 17)
+    }
+    
+    func setText(){
+        textDisplay.text = slides[textSlide]
+        textSlide += 1
         
-        return [
-            (imageName: "brush", title: "Write Every Day", description: "The mission is simple. Everyday you must write something for however long duration. If you miss a day, your progress will be reset.", iconName: "", color: backgroundColor1, titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
-            (imageName: "clock_image_white", title: "A Base Time", description: "You can pick a base time depending on your experience. As long as you meet the time, you get a completion for that day. As your streak increases, so does your base time.", iconName: "", color: backgroundColor2, titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
-                (imageName: "calendar", title: "Track your progress", description: "It is easy to visualize your progress with stats and a calendar view. Watching yourself grow is one of the best motivators to keep writing.", iconName: "", color: backgroundColor3, titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
-                
-                ] [index] as! OnboardingItemInfo
+    }
+    
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        if textSlide < 9{
+            setText()
+            if textSlide == 9 {
+                nextButton.isHidden = true
+                startButton.isHidden = false
+            }
+        }
         
     }
 
