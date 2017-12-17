@@ -1,4 +1,7 @@
 PODS:
+  - Charts (3.0.4):
+    - Charts/Core (= 3.0.4)
+  - Charts/Core (3.0.4)
   - CZPicker (0.4.3)
   - DGRunkeeperSwitch (1.1.4)
   - Firebase/Auth (3.16.0):
@@ -84,6 +87,7 @@ PODS:
   - TextFieldEffects (1.3.2)
 
 DEPENDENCIES:
+  - Charts
   - CZPicker
   - DGRunkeeperSwitch (~> 1.1.4)
   - Firebase/Auth
@@ -100,6 +104,7 @@ DEPENDENCIES:
   - TextFieldEffects
 
 SPEC CHECKSUMS:
+  Charts: 0705898046257443f0afbbc3179f4b67507b6e48
   CZPicker: 55aa1751ea26e209814552da1a9a08cba8bbf72a
   DGRunkeeperSwitch: cc237936f42237307f5e212e18136a27bf907bf1
   Firebase: 21bf4a89d3f01bfbe11adc3a5d934a4a3d3a5fd6
@@ -111,7 +116,7 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
   FirebaseRemoteConfig: af3003f4e8daa2bd1d5cf90d3cccc1fe224f8ed9
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
-  Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
+  Google: cd92fab98f800f509da88c1e0c570275713bc9d5
   GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
@@ -123,6 +128,6 @@ SPEC CHECKSUMS:
   SwipeCellKit: 73440541f03434eaedc158e5aed9bc1e0d9b898e
   TextFieldEffects: 9e5cce561ea39c75b86e9d3637601727a67e8b23
 
-PODFILE CHECKSUM: e5a7b78d74d335c54172f5c799d016998c5e3078
+PODFILE CHECKSUM: 49487c67276fcd6a67d88e8d9cfdd62c3d34b2df
 
 COCOAPODS: 1.2.0

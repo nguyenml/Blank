@@ -5,6 +5,8 @@
 //  Created by Marvin Nguyen on 3/8/17.
 //  Copyright © 2017 Marvin Nguyen. All rights reserved.
 //
+//<a href="https://icons8.com/icon/48/Edit">Edit icon credits</a>
+
 
 import UIKit
 import Firebase
@@ -14,16 +16,16 @@ import PopupDialog
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var dayCircleView: UIImageView!
+
     @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var entryBtn: UIButton!
     
+    @IBOutlet weak var timeToWriteLabel: UILabel!
     @IBOutlet weak var reminderButtonOnOff: UIButton!
     
     @IBOutlet weak var reminderButton: UIButton!
-
-    @IBOutlet weak var emoteButton: UIButton!
+    
     var ref:FIRDatabaseReference?
     let uid = String(describing: FIRAuth.auth()!.currentUser!.uid)
     let center = UNUserNotificationCenter.current()
@@ -45,8 +47,6 @@ class MainViewController: UIViewController {
     @IBOutlet weak var popupBadgeTitle: UILabel!
     @IBOutlet weak var popupBadgeMessage: UILabel!
     @IBOutlet weak var popupLowerStartTime: UIButton!
-    
-    
     @IBOutlet weak var dateLabel: UILabel!
     
     let tap = UITapGestureRecognizer()
@@ -69,8 +69,7 @@ class MainViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    
-    
+
     override func viewWillAppear(_ animated: Bool) {
         setLabels()
     }
@@ -103,7 +102,7 @@ class MainViewController: UIViewController {
     func checkLastAccess(){
         if Calendar.current.isDateInToday(LastAccess.date as Date) {
             let image = UIImage(named: "day_circle.png") as UIImage?
-            dayCircleView.image = image
+            //dayCircleView.image = image
         }
         else{
         }
@@ -114,7 +113,7 @@ class MainViewController: UIViewController {
     func setDate() {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEE, dd MMM"
-        dateLabel.text = (dateFormatter.string(from: NSDate() as Date))
+        dateLabel.addCharactersSpacing(spacing: 3, text: (dateFormatter.string(from: NSDate() as Date)).uppercased())
     }
     
     //Retrieve all the stats of the user from firebase
@@ -129,7 +128,7 @@ class MainViewController: UIViewController {
             Stats.totalWordcount = (self.stats["totalWordcount"])!
             Stats.totalEntries = (self.stats["totalEntries"])!
             Stats.totalTime = (self.stats["totalTime"])!
-            self.textLabel.text = (String(describing: self.stats["totalEntries"]!))
+            self.textLabel.text = "Day \(String(describing: self.stats["totalEntries"]!))"
             myBadges.checkBadge()
             self.getLvl()
             self.overlay?.removeFromSuperview()
@@ -301,16 +300,16 @@ class MainViewController: UIViewController {
             FIRAnalytics.logEvent(withName: "alarm_is_turned_on", parameters: nil)
             if !localNotificationAllowed {return}
             let image = UIImage(named: "alarm_button.png") as UIImage?
-            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
+//            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             reminderButton.isHidden = false
             reminderButton.isUserInteractionEnabled = true
         }else{
             FIRAnalytics.logEvent(withName: "alarm_is_turned_off", parameters: nil)
             let image = UIImage(named: "alarm_button_off.png") as UIImage?
-            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
+//            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             center.removeAllPendingNotificationRequests()
-            reminderButton.isHidden = true
             reminderButton.isUserInteractionEnabled = false
+            reminderButton.setTitle("--:--", for: .normal)
         }
     }
     
@@ -414,7 +413,7 @@ class MainViewController: UIViewController {
             }
             if EntryTime.regularTime == 180{
                 if Stats.currentStreak > 3{
-                    let num = Int(Stats.currentStreak/3)
+                    let num = Int(Stats.currentStreak/7)
                     EntryTime.regularTime += (num * 10)
                     if EntryTime.regularTime >= 300 {
                         ref?.child("users").child(uid).child("EntryTime").updateChildValues(["regularTime":300])
@@ -423,7 +422,7 @@ class MainViewController: UIViewController {
             }
             if EntryTime.regularTime == 300{
                 if Stats.currentStreak > 7{
-                    let num = Int(Stats.currentStreak/7)
+                    let num = Int(Stats.currentStreak/15)
                     EntryTime.regularTime += (num * 15)
                     if EntryTime.regularTime > 900{
                         EntryTime.regularTime = 900
@@ -443,6 +442,8 @@ class MainViewController: UIViewController {
         print(isTimerHidden)
         
         EntryTime.addTime = 86400
+        
+        setTimeToWriteLabel()
     }
     
     func setTimeUI(){
@@ -526,6 +527,51 @@ class MainViewController: UIViewController {
         popupViewButton.layer.shadowPath = UIBezierPath(rect: popupViewButton.bounds).cgPath
         popupViewButton.layer.shouldRasterize = true
         popupViewButton.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
+    }
+    
+    func setTimeToWriteLabel() {
+        
+            let minutes = Int(EntryTime.regularTime/60)
+            let seconds = Int(EntryTime.regularTime%60)
+            print(minutes)
+            print(seconds)
+        
+
+            let string = "Write for \(minutes) minutes and \(seconds) seconds" as NSString
+            
+        let attributedString = NSMutableAttributedString(string: string as String, attributes: [NSFontAttributeName: UIFont(name: "Abel", size: 24.0)!])
+        
+            let boldFontAttribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 30.0)]
+        
+        
+            // Part of string to be bold
+            attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(minutes)"))
+            attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(seconds)"))
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(hex: 0x17DF82) , range: string.range(of: "\(minutes)"))
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(hex: 0x17DF82) , range: string.range(of: "\(seconds)"))
+        
+        timeToWriteLabel.attributedText = attributedString
+            
+    }
+    
+    func checkWeekly(){
+//        let targetWeeklyWordCount = 0
+//        var percent = 0
+//        if weeklyWordCount > targetWeeklyWordCount {
+//            
+//        } else {
+//            var percent = Int(weeklyWordCount/targetWeeklyWordCount)
+//            
+//        }
+        
+        
+    }
+    
+    func changeQuote(){
+//        ref?.child("quotes").observe(FIRDataEventType.value, with: {
+//            (snapshot) in
+//            
+//        }
     }
 }
     
