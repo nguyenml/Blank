@@ -18,14 +18,12 @@ class StatsViewController: UIViewController{
         var definitionLabel = " "
         var gLabel = " "
     }
+    @IBOutlet weak var startDate: UILabel!
 
     @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var totalDays: UILabel!
     @IBOutlet weak var totalTime: UILabel!
     
-    @IBOutlet weak var calender: UIImageView!
-    @IBOutlet weak var pencil: UIImageView!
-    @IBOutlet weak var clock: UIImageView!
     @IBOutlet weak var userLabel: UILabel!
     
     @IBOutlet weak var currentDays: UILabel!
@@ -70,10 +68,11 @@ class StatsViewController: UIViewController{
     func setLabels(){
         userLabel.adjustsFontSizeToFitWidth = true;
         userLabel.minimumScaleFactor = 0.5
-        currentDays.text = String(Stats.currentStreak)
+        currentDays.text = String(Stats.currentStreak) + " days"
         highestStreak.text = String(Stats.longestStreak)
         fetchUser()
         updateLabels()
+        setStartDate()
     }
     
     func updateLabels(){
@@ -81,9 +80,28 @@ class StatsViewController: UIViewController{
         totalDays.text = String(Stats.totalEntries)
         wordCount.adjustsFontSizeToFitWidth = true;
         wordCount.minimumScaleFactor = 0.5
-        wordCount.text = String(Stats.totalWordcount)
-        totalTime.text = convertTime()
+        
+        let time = convertTime()
+        
+        let string = "\(Stats.totalWordcount) words " as NSString
+        
+        let stringTotalTime = "\(time) minutes " as NSString
+        
+        var attributedString = NSMutableAttributedString(string: string as String, attributes: [NSFontAttributeName: UIFont(name: "Abel", size: 23.0)!])
+        
+        let boldFontAttribute = [NSFontAttributeName: UIFont(name: "Abel", size: 60.0)!]
+        
+        // Part of string to be bold
+        attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(Stats.totalWordcount)"))
+        
+        wordCount.attributedText = attributedString
+        
+        let attributedString2 = NSMutableAttributedString(string: stringTotalTime as String, attributes: [NSFontAttributeName: UIFont(name: "Abel", size: 23.0)!])
+        
+        attributedString2.addAttributes(boldFontAttribute, range: stringTotalTime.range(of: "\(time)"))
+        totalTime.attributedText = attributedString2
     }
+    
     
     //find user and find user display name
     func fetchUser(){
@@ -119,19 +137,9 @@ class StatsViewController: UIViewController{
         return seconds / 60
     }
     
-    func convertTime() -> String{
-        
-//        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: (Stats.totalTime))
-        var time:String
-//        if h < 12{
-//            time = String(h) + " hr " + String(m) + " mn "
-//        }
-//        else{
-//             //comeback TO this when moving on
-//            time = String(h) + " " + String(m)
-//        }
-        time = String(secondsToMinutes(seconds: Stats.totalTime))
-        
+    func convertTime() -> Int{
+        var time:Int
+        time = secondsToMinutes(seconds: Stats.totalTime)
         return time
     }
     
@@ -149,6 +157,20 @@ class StatsViewController: UIViewController{
 
     @IBAction func myWritingPressed(_ sender: UIButton) {
     }
+    
+    func setStartDate(){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy MM dd"
+        let date = dateFormatter.date(from: StartDate.firstDay)
+        dateFormatter.dateFormat = "MMM dd, yyyy"
+        let stringDate = dateFormatter.string(from: date!)
+        
+        startDate.text = "SINCE \(stringDate.uppercased())"
+        
+        
+    }
+        
+
     
 
     @IBAction func unwindToStats(segue: UIStoryboardSegue) {}

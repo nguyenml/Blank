@@ -237,7 +237,6 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
         formatter.dateFormat = "yyyy MM dd"
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
-        
         let startDate = formatter.date(from: StartDate.firstDay)!
         let endDate = formatter.date(from: "2017 12 31")!
         

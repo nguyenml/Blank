@@ -178,6 +178,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         if let email = emailTextField.text, let pass = passwordTextView.text{
             
             if isSignIn{
+                print("signed in")
                 isRegister = false
                 FIRAuth.auth()?.signIn(withEmail: email, password: pass, completion: {(user,error) in
                     //check if user exist
@@ -196,6 +197,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                 })
                 
             }else{
+                print("not signed in")
+
                 isRegister = true
                 FIRAuth.auth()?.createUser(withEmail: email, password: pass, completion: {(user,error) in
                     //check if user exist
@@ -203,8 +206,13 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                     MeasurementHelper.sendLoginEvent()
                     let changeRequest = user?.profileChangeRequest()
                     changeRequest?.displayName = self.usernameTextField.text
+                    print("what")
+                    print(self.usernameTextField.text)
+                    print(user?.displayName)
                     changeRequest?.commitChanges { error in
                         if error != nil {
+                            print("success")
+                            
                         } else {
                             // Profile updated.
                         }

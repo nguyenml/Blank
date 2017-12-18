@@ -29,6 +29,7 @@ class OnboardingViewController: UIViewController{
     func fetchUser()-> String {
         let user = FIRAuth.auth()?.currentUser
         let name = user?.displayName?.capitalizingFirstLetter()
+        print(user)
         return name!
     }
     

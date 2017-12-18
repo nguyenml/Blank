@@ -17,6 +17,7 @@ import PopupDialog
 class MainViewController: UIViewController {
 
 
+    @IBOutlet weak var userCount: UILabel!
     @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var entryBtn: UIButton!
@@ -77,6 +78,7 @@ class MainViewController: UIViewController {
     func setOverlay(){
         if let window = UIApplication.shared.keyWindow {
             overlay.frame = CGRect(x: window.frame.origin.x, y: window.frame.origin.y, width: window.frame.width, height: window.frame.height)
+            blurView.frame = CGRect(x: window.frame.origin.x, y: window.frame.origin.y, width: window.frame.width, height: window.frame.height)
             window.addSubview(overlay)
         }
         checkConnectivity()
@@ -168,6 +170,7 @@ class MainViewController: UIViewController {
                 StartDate.firstDay = dateFormatter.string(from: date!)
             }
         })
+        getUserCount()
     }
     
     //TEMP TEMP TEMP TEMP TEMP FIX
@@ -457,6 +460,7 @@ class MainViewController: UIViewController {
     
     func animateIn(image:UIImage, title:String, message:String){
         self.view.addSubview(popupView)
+        self.view.addSubview(blurView)
         popupBadgeImage.image = image
         popupBadgeTitle.text = title
         popupBadgeMessage.text = message
@@ -471,6 +475,7 @@ class MainViewController: UIViewController {
             self.blurView.effect = self.effect
             self.popupView.alpha = 1
             self.popupView.transform = CGAffineTransform.identity
+            self.view.bringSubview(toFront: self.popupView)
             
         }
     }
@@ -483,6 +488,7 @@ class MainViewController: UIViewController {
             self.blurView.effect = nil
         }) { (Bool) in
             self.popupView.removeFromSuperview()
+            self.blurView.removeFromSuperview()
             self.popupLowerStartTime.isHidden = true
         }
     }
@@ -531,22 +537,22 @@ class MainViewController: UIViewController {
     
     func setTimeToWriteLabel() {
         
-            let minutes = Int(EntryTime.regularTime/60)
-            let seconds = Int(EntryTime.regularTime%60)
-            print(minutes)
-            print(seconds)
-        
+        let minutes = Int(EntryTime.regularTime/60)
+        let seconds = Int(EntryTime.regularTime%60)
+        print(minutes)
+        print(seconds)
+    
 
-            let string = "Write for \(minutes) minutes and \(seconds) seconds" as NSString
-            
+        let string = "Write for \(minutes) minutes and \(seconds) seconds" as NSString
+        
         let attributedString = NSMutableAttributedString(string: string as String, attributes: [NSFontAttributeName: UIFont(name: "Abel", size: 24.0)!])
-        
-            let boldFontAttribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 30.0)]
-        
-        
-            // Part of string to be bold
-            attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(minutes)"))
-            attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(seconds)"))
+    
+        let boldFontAttribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 30.0)]
+    
+    
+        // Part of string to be bold
+        attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(minutes)"))
+        attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(seconds)"))
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(hex: 0x17DF82) , range: string.range(of: "\(minutes)"))
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(hex: 0x17DF82) , range: string.range(of: "\(seconds)"))
         
@@ -563,8 +569,12 @@ class MainViewController: UIViewController {
 //            var percent = Int(weeklyWordCount/targetWeeklyWordCount)
 //            
 //        }
-        
-        
+    }
+    
+    func getUserCount(){
+        ref?.child("Settings").child("userCount").observe(FIRDataEventType.value, with: { snapshot in
+            self.userCount.text = String(describing: snapshot.value!)
+        })
     }
     
     func changeQuote(){
