@@ -206,15 +206,12 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                     MeasurementHelper.sendLoginEvent()
                     let changeRequest = user?.profileChangeRequest()
                     changeRequest?.displayName = self.usernameTextField.text
-                    print("what")
-                    print(self.usernameTextField.text)
-                    print(user?.displayName)
                     changeRequest?.commitChanges { error in
                         if error != nil {
                             print("success")
-                            
                         } else {
-                            // Profile updated.
+                            print("no success")
+                            print(error?.localizedDescription)
                         }
                     }
                     user?.sendEmailVerification { (error) in
@@ -238,8 +235,19 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                                                                        "Stats": stats,
                                                                        "Badges": badges,
                                                                        "LastAccess": lastAccess])
-                    self.performSegue(withIdentifier: "segueToIntro", sender: self)
+                    
+                    
+                    self.ref.child("Settings").child("userCount").observe(FIRDataEventType.value, with: {
+                        (snapshot) in
+                        
+                        var value = snapshot.value as! Int
+                        value = value + 1
+                        self.ref.child("Settings").child("userCount").setValue(value)
+                        
+                    })
                     myBadges = BadgeClass()
+                    self.performSegue(withIdentifier: "segueToIntro", sender: self)
+
                     
                 }
                 else{

@@ -18,9 +18,11 @@ class OnboardingViewController: UIViewController{
     var textSlide = 0
 
     var slides = [String]()
+    var ref:FIRDatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUsers()
         fetchUser()
         setSlides()
         setText()
@@ -28,13 +30,13 @@ class OnboardingViewController: UIViewController{
     
     func fetchUser()-> String {
         let user = FIRAuth.auth()?.currentUser
-        let name = user?.displayName?.capitalizingFirstLetter()
-        print(user)
-        return name!
+        var name = ""
+        //name = (user?.displayName?.capitalizingFirstLetter())!
+        return name
     }
     
     func setSlides(){
-        let name:String = "Hi " + fetchUser()
+        let name:String = "Hello " + fetchUser()
         let slide1 = name+", Welcome to Blankit"
         slides.append(slide1)
         let slide2 = "Blankit is an app that will help you develop a strong writing habit"
@@ -70,6 +72,15 @@ class OnboardingViewController: UIViewController{
                 startButton.isHidden = false
             }
         }
+        
+    }
+    
+    func updateUsers(){
+        ref?.child("Settings").child("userCount").observeSingleEvent(of: .value, with: { snapshot in
+            var value = snapshot.value as! Int
+            value = value + 1
+            self.ref?.child("Settings").child("userCount").setValue(value)
+        })
         
     }
 

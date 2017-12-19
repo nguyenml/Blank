@@ -70,8 +70,10 @@ class SettingsViewController: UIViewController {
         let isTimerHidden = defaults.bool(forKey: "isTimerHidden")
         if(isTimerHidden){
             isHiddenSwitch.isOn = true
+            isHiddenText.text = "Hidden"
         } else {
             isHiddenSwitch.isOn = false
+            isHiddenText.text = "Not hidden"
         }
         
     }
@@ -133,8 +135,10 @@ class SettingsViewController: UIViewController {
     func changeHiddenStatus(hidden:Bool){
         if(hidden){
             defaults.set(true, forKey: "isTimerHidden")
+            isHiddenText.text = "Hidden"
         } else {
             defaults.set(false, forKey: "isTimerHidden")
+            isHiddenText.text = "Not hidden"
         }
     }
     
