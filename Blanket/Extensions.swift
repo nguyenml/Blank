@@ -111,6 +111,15 @@ extension UIColor {
     
 }
 
+extension UIView {
+    func roundCorners(corners:UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: self.bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
+    }
+}
+
 extension UserDefaults {
     
     static let defaults = UserDefaults.standard
@@ -145,6 +154,10 @@ extension Date {
     
     var endOfDay: Date {
         return Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: self)!
+    }
+    
+    func isInSameWeek(date: Date) -> Bool {
+        return Calendar.current.isDate(self, equalTo: date, toGranularity: .weekOfYear)
     }
 }
 

@@ -184,12 +184,6 @@ class ELViewController: UIViewController, UITableViewDataSource, UITableViewDele
             dvc.key = object
         }
         
-        if segue.identifier == "unwindToInput"{
-            guard let object = sender as? String else {return}
-            let dvc = segue.destination as! InputViewController
-            dvc.loadedString = object
-        }
-        
         if segue.identifier == "segueToCalendar"{
             guard let object = sender as? [Packet] else {return}
             let dvc = segue.destination as! CalendarViewController

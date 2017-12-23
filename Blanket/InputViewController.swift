@@ -35,14 +35,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     
     @IBOutlet weak var showTimerButton: UIButton!
-    //sent by previous view
-    var loadedString:String!
-    var markKey:String!
-    var name:String!
-    var loadedWC:Int16!
-    var mot:Bool!
-    //-----------------------
-    
     
     var loadedWordCount = 0
     var extraTime = false
@@ -95,10 +87,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             textField.text = currentPacket?.text
             counter = Int((currentPacket?.totalTime)!)!
             extraCounter = Int((currentPacket?.totalTime)!)!
-            if ((currentPacket?.hasMark())! || (currentPacket?.hasTopic())!){
-                continuedEntryWithMark = true
-                loadedWordCount = (Int(wordCount(str: textField.text!)))
-            }
+            loadedWordCount = (Int(wordCount(str: textField.text!)))
             setTimeFormat()
             extraTime = true
             addMin.isHidden = false
@@ -136,18 +125,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             return
         }
     }
-    
-    //this will be for the marks and topics stuff but thats gone and done
-    func setupDataOnReturn(){
-        if loadedString == nil{
-            return
-        }
-        else{
-            textField.text = loadedString
-        }
-        loadedWordCount = Int(loadedWC)
-    }
-    
+
     //return to main view
     @IBAction func goBack(_ sender: UIButton) {
         FIRAnalytics.logEvent(withName: "user_down_time", parameters: ["downtime":downTime as NSObject])
@@ -281,7 +259,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         userStats?.runTransactionBlock({ (currentData: FIRMutableData) -> FIRTransactionResult in
             if var stats = currentData.value as? [String : Int]{
                 let entries:Int = stats["totalEntries"]!
-                let total = Int(stats["totalWordcount"]! - self.lwc + self.greaterThanZero())
+                let total = Int(stats["totalWordcount"]! + self.greaterThanZero())
                 let extra = self.counter - self.regularTime
                 let time:Int = stats["totalTime"]! + extra
                 
@@ -307,8 +285,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
         mdata[Constants.Entry.wordCount] = String(greaterThanZero())
         mdata[Constants.Entry.date] = dateToString()
         mdata[Constants.Entry.uid] = uid
-        //remove this when ready
-       // mdata[Constants.Entry.emotion] = imFeeling
         mdata[Constants.Entry.timestamp] = getTimeStamp()
         mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!
@@ -323,28 +299,12 @@ class InputViewController: UIViewController, UITextViewDelegate{
         addToFB(withData: data)
         if extraTime{
             smallUpdate()
+            print("small update")
         }
         else{
             updateStats()
+            print("big update")
         }
-    }
-    
-    //this will cut the text in the text view and count how many seperate words there are
-    func concatString(str:String) -> String{
-        if str.isEmpty{
-            return textField.text
-        }
-        if textField.text.range(of:loadedString) != nil{
-            let copyText = textField.text
-            let newString = copyText?.replacingOccurrences(of: loadedString, with: "")
-            return newString!
-        }
-        let length = currentString.characters.count
-        if length < 35 {
-            return(str)
-        }
-        let startIndex = str.index(str.startIndex, offsetBy: 35)
-        return(str.substring(to: startIndex))
     }
     
     //make sure wordCount > 0
@@ -512,10 +472,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     func updateWeekly(update:Bool){
         if update {
-            var num = weeklyWordCount - lwc + greaterThanZero()
+            var num = weeklyChallenges.current + greaterThanZero()
             ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": num])
         } else {
-            ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": weeklyWordCount + lwc])
+            ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": weeklyChallenges.current + greaterThanZero()])
         }
     }
     

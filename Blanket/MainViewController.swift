@@ -52,6 +52,11 @@ class MainViewController: UIViewController {
     
     let tap = UITapGestureRecognizer()
     
+    //------------weeklyChallenge
+    @IBOutlet weak var progressWeeklyChallenge: UIView!
+    
+    @IBOutlet weak var weeklyChallengeLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,6 +73,10 @@ class MainViewController: UIViewController {
         
         checkForReminder()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewDidLayoutSubviews() {
+        checkWeekly()
     }
     
 
@@ -171,6 +180,7 @@ class MainViewController: UIViewController {
             }
         })
         getUserCount()
+        getWeeklyChallenge()
     }
     
     //TEMP TEMP TEMP TEMP TEMP FIX
@@ -539,9 +549,6 @@ class MainViewController: UIViewController {
         
         let minutes = Int(EntryTime.regularTime/60)
         let seconds = Int(EntryTime.regularTime%60)
-        print(minutes)
-        print(seconds)
-    
 
         let string = "Write for \(minutes) minutes and \(seconds) seconds" as NSString
         
@@ -560,15 +567,53 @@ class MainViewController: UIViewController {
             
     }
     
+    //weeklyChallenges-------------------------------------------------------------------------------
+    func getWeeklyChallenge(){
+        ref?.child("Settings").child("weeklyChallenge").observeSingleEvent(of: .value, with: { (snapshot) in
+            let value = snapshot.value as? NSDictionary
+            weeklyChallenges.type = value?["type"] as? String ?? ""
+            weeklyChallenges.amount = value?["amount"] as? Int ?? 0
+            self.checkWeekly()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
     func checkWeekly(){
-//        let targetWeeklyWordCount = 0
-//        var percent = 0
-//        if weeklyWordCount > targetWeeklyWordCount {
-//            
-//        } else {
-//            var percent = Int(weeklyWordCount/targetWeeklyWordCount)
-//            
-//        }
+        if Date().isInSameWeek(date: LastAccess.date as Date){
+           ref?.child("users").child(String(describing: uid )).child("weeklywords").observe(FIRDataEventType.value, with: { (snapshot) in
+                weeklyChallenges.current = snapshot.value as? Int ?? 0
+                self.weeklyCompleted(progress: Double(weeklyChallenges.current)/Double(weeklyChallenges.amount))
+            }) { (error) in
+                print(error.localizedDescription)
+            }
+        } else {
+            ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": 0])
+        }
+    }
+    
+    func weeklyCompleted(progress:Double){
+        //set the progress bar to be at the bottom of the parent view with width of 8
+        //take parameters of parent views to make up for no layout
+        
+        print(progress)
+        print("change")
+        print("change")
+        
+        let progressSize = (progressWeeklyChallenge.superview?.frame.width)! * CGFloat(progress)
+        
+        print(progressSize)
+        if progress < 1 {
+            progressWeeklyChallenge.roundCorners(corners: [.bottomLeft, .topLeft], radius: 5)
+            progressWeeklyChallenge.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: progressSize, height: (progressWeeklyChallenge.superview?.frame.height)!))
+            
+            print("Progress pic \(progressWeeklyChallenge.frame.width)")
+        } else {
+            progressWeeklyChallenge.roundCorners(corners: [.allCorners], radius: 5)
+            progressWeeklyChallenge.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 280, height: (progressWeeklyChallenge.superview?.frame.height)!))
+            print("Progress pic \(progressWeeklyChallenge.frame.width)")
+        }
+        
     }
     
     func getUserCount(){

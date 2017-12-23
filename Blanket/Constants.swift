@@ -206,6 +206,9 @@ let mySpecialNotificationKey = ".badgeForADay"
 
 //Notys
 var localNotificationAllowed = true
-
-let weeklyWordCount = 0
+struct weeklyChallenges {
+    static var amount = 0
+    static var type = ""
+    static var current = 0
+}
 

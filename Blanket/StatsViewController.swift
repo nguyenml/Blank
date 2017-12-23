@@ -20,6 +20,8 @@ class StatsViewController: UIViewController{
     }
     @IBOutlet weak var startDate: UILabel!
 
+    @IBOutlet weak var allTimePercent: UILabel!
+    @IBOutlet weak var currentStreakIndicator: UILabel!
     @IBOutlet weak var wordCount: UILabel!
     @IBOutlet weak var totalDays: UILabel!
     @IBOutlet weak var totalTime: UILabel!
@@ -68,11 +70,29 @@ class StatsViewController: UIViewController{
     func setLabels(){
         userLabel.adjustsFontSizeToFitWidth = true;
         userLabel.minimumScaleFactor = 0.5
-        currentDays.text = String(Stats.currentStreak) + " days"
+        setCurrentStreakBlock()
         highestStreak.text = String(Stats.longestStreak)
         fetchUser()
         updateLabels()
         setStartDate()
+    }
+    
+    func setCurrentStreakBlock(){
+        if Stats.currentStreak == 0 {
+            let string = "Writing takes time and practice. Every day is another shot at building a healthy habit. "
+            var attributedString = NSMutableAttributedString(string: string as String, attributes: [NSFontAttributeName: UIFont(name: "Abel", size: 25.0)!])
+            currentDays.attributedText = attributedString
+            currentDays.lineBreakMode = .byWordWrapping
+            currentDays.numberOfLines = 4
+            currentStreakIndicator.isHidden = true
+        } else {
+            if Stats.currentStreak == 1 {
+                currentDays.text = String(Stats.currentStreak) + " day"
+            } else {
+                currentDays.text = String(Stats.currentStreak) + " days"
+            }
+            currentStreakIndicator.isHidden = false
+        }
     }
     
     func updateLabels(){
@@ -162,11 +182,23 @@ class StatsViewController: UIViewController{
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy MM dd"
         let date = dateFormatter.date(from: StartDate.firstDay)
+        getAllTime(startDate: date!)
         dateFormatter.dateFormat = "MMM dd, yyyy"
         let stringDate = dateFormatter.string(from: date!)
         
         startDate.text = "SINCE \(stringDate.uppercased())"
         
+        
+    }
+    
+    func getAllTime(startDate:Date){
+        let calendar = NSCalendar.current
+        let date1 = calendar.startOfDay(for: startDate)
+        let date2 = Date()
+        let components = calendar.dateComponents([.day], from: date1, to: date2)
+        var percent = Int(Double(Stats.totalEntries)/Double(components.day!) * 100)
+        
+        allTimePercent.text = " \(percent)%"
         
     }
         

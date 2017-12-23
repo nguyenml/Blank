@@ -180,26 +180,6 @@ class ContinueViewController: UIViewController, UITableViewDataSource, UITableVi
         performSegue(withIdentifier: "unwindToInput", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
-        if segue.identifier == "unwindToInput"{
-            let dvc = segue.destination as! InputViewController
-            if markOrTopic{
-                dvc.markKey = chosen
-                dvc.name = name
-                dvc.mot = markOrTopic
-            }
-            else{
-                dvc.markKey = chosen
-                dvc.name = name
-                dvc.mot = markOrTopic
-                dvc.loadedWC = loadedWC
-                dvc.loadedString = loadString
-            }
-        }
-        
-    }
-    
     
     //How many words the user wrote
     func wordCount(str:String) -> Int16{
