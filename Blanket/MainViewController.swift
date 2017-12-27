@@ -57,6 +57,7 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var weeklyChallengeLabel: UILabel!
     
+    @IBOutlet weak var weeklyComplete: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -312,17 +313,17 @@ class MainViewController: UIViewController {
         if isReminder{
             FIRAnalytics.logEvent(withName: "alarm_is_turned_on", parameters: nil)
             if !localNotificationAllowed {return}
-            let image = UIImage(named: "alarm_button.png") as UIImage?
-//            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
+            let image = UIImage(named: "doorbell_circle.png") as UIImage?
+            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             reminderButton.isHidden = false
             reminderButton.isUserInteractionEnabled = true
         }else{
             FIRAnalytics.logEvent(withName: "alarm_is_turned_off", parameters: nil)
-            let image = UIImage(named: "alarm_button_off.png") as UIImage?
-//            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
+            let image = UIImage(named: "doorbell_off.png") as UIImage?
+            reminderButtonOnOff.setBackgroundImage(image, for: .normal)
             center.removeAllPendingNotificationRequests()
             reminderButton.isUserInteractionEnabled = false
-            reminderButton.setTitle("--:--", for: .normal)
+            reminderButton.isHidden = true
         }
     }
     
@@ -554,7 +555,7 @@ class MainViewController: UIViewController {
         
         let attributedString = NSMutableAttributedString(string: string as String, attributes: [NSFontAttributeName: UIFont(name: "Abel", size: 24.0)!])
     
-        let boldFontAttribute = [NSFontAttributeName: UIFont.boldSystemFont(ofSize: 30.0)]
+        let boldFontAttribute = [NSFontAttributeName: UIFont(name: "Abel", size: 30.0)!]
     
     
         // Part of string to be bold
@@ -573,6 +574,7 @@ class MainViewController: UIViewController {
             let value = snapshot.value as? NSDictionary
             weeklyChallenges.type = value?["type"] as? String ?? ""
             weeklyChallenges.amount = value?["amount"] as? Int ?? 0
+            print(value?["amount"])
             self.checkWeekly()
         }) { (error) in
             print(error.localizedDescription)
@@ -595,23 +597,17 @@ class MainViewController: UIViewController {
     func weeklyCompleted(progress:Double){
         //set the progress bar to be at the bottom of the parent view with width of 8
         //take parameters of parent views to make up for no layout
-        
-        print(progress)
-        print("change")
-        print("change")
+        weeklyChallengeLabel.text = "\(weeklyChallenges.current)/\(weeklyChallenges.amount) Words"
         
         let progressSize = (progressWeeklyChallenge.superview?.frame.width)! * CGFloat(progress)
-        
-        print(progressSize)
+
         if progress < 1 {
             progressWeeklyChallenge.roundCorners(corners: [.bottomLeft, .topLeft], radius: 5)
             progressWeeklyChallenge.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: progressSize, height: (progressWeeklyChallenge.superview?.frame.height)!))
-            
-            print("Progress pic \(progressWeeklyChallenge.frame.width)")
         } else {
             progressWeeklyChallenge.roundCorners(corners: [.allCorners], radius: 5)
             progressWeeklyChallenge.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: 280, height: (progressWeeklyChallenge.superview?.frame.height)!))
-            print("Progress pic \(progressWeeklyChallenge.frame.width)")
+            weeklyComplete.isHidden = false
         }
         
     }
