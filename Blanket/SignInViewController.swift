@@ -127,13 +127,13 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         if isSignIn{
             usernameTextField.isHidden = true
             usernameTextField.isUserInteractionEnabled = false
-            loginButton.setTitle("Authenticate", for: .normal)
+            loginButton.setTitle("A U T H E N T I C A T E", for: .normal)
             switchControl.setTitle("Don't have an account? Sign up now.", for: .normal)
         }
         else{
             usernameTextField.isHidden = false
             usernameTextField.isUserInteractionEnabled = true
-            loginButton.setTitle("Register", for: .normal)
+            loginButton.setTitle("R E G I S T E R", for: .normal)
             switchControl.setTitle("Already have an account? Log in.", for: .normal)
         }
     }
