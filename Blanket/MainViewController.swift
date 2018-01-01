@@ -58,6 +58,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var weeklyChallengeLabel: UILabel!
     
     @IBOutlet weak var weeklyComplete: UIImageView!
+    //-------quotes
+    @IBOutlet weak var quoteLabel: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -181,6 +184,7 @@ class MainViewController: UIViewController {
             }
         })
         getUserCount()
+        changeQuote()
         getWeeklyChallenge()
     }
     
@@ -619,10 +623,9 @@ class MainViewController: UIViewController {
     }
     
     func changeQuote(){
-//        ref?.child("quotes").observe(FIRDataEventType.value, with: {
-//            (snapshot) in
-//            
-//        }
+        ref?.child("Settings").child("quote").observe(FIRDataEventType.value, with: { snapshot in
+            self.quoteLabel.text = String(describing: snapshot.value!)
+        })
     }
     
 }

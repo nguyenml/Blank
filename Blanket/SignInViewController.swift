@@ -150,12 +150,12 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
         
         if isSignIn{
             usernameTextField.isHidden = true
-            loginButton.setTitle("Authenticate", for: .normal)
+            loginButton.setTitle("A U T H E N T I C A T E", for: .normal)
             switchControl.setTitle("Don't have an account? Sign up now.", for: .normal)
         }
         else{
             usernameTextField.isHidden = false
-            loginButton.setTitle("Register", for: .normal)
+            loginButton.setTitle("R E G I S T E R", for: .normal)
             switchControl.setTitle("Already have an account?", for: .normal)
             usernameTextField.isHidden = false
         }
@@ -235,16 +235,6 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate, UITextFieldDe
                                                                        "Stats": stats,
                                                                        "Badges": badges,
                                                                        "LastAccess": lastAccess])
-                    
-                    
-                    self.ref.child("Settings").child("userCount").observe(FIRDataEventType.value, with: {
-                        (snapshot) in
-                        
-                        var value = snapshot.value as! Int
-                        value = value + 1
-                        self.ref.child("Settings").child("userCount").setValue(value)
-                        
-                    })
                     myBadges = BadgeClass()
                     self.performSegue(withIdentifier: "segueToIntro", sender: self)
 

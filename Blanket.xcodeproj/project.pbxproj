@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		17D21BBDB4F5BD123260170C /* Pods_BlanketUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F3549D8732BBE76514189A3 /* Pods_BlanketUITests.framework */; };
 		2B7A1CD99C12D2B02EFF1DEC /* Pods_BlanketTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBF83373C439FFAB0DE777D /* Pods_BlanketTests.framework */; };
-		5801067A1EA2A8420046D252 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580106791EA2A8420046D252 /* RatingViewController.swift */; };
 		580106801EA2C0270046D252 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5801067F1EA2C0270046D252 /* RatingViewController.xib */; };
 		580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580106831EA7FF100046D252 /* CustomTableCell.swift */; };
 		5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580159091E81C82D008D934E /* BadgesViewController.swift */; };
@@ -56,14 +55,13 @@
 		586E55B81F1BDAEC00D069D2 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 586E55B71F1BDAEC00D069D2 /* OpenSans-Bold.ttf */; };
 		586E55BB1F1BDB8400D069D2 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 586E55BA1F1BDB8400D069D2 /* OpenSans-Regular.ttf */; };
 		587161951F102E20004BC6D4 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 587161941F102E20004BC6D4 /* Images */; };
-		5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */; };
 		5886EC5D1F10466B00AAE8D4 /* Spoon-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5886EC5B1F10366C00AAE8D4 /* Spoon-ExtraLightItalic.ttf */; };
-		58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */; };
 		58B9751F1ED1F976003A910F /* TimeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58B9751E1ED1F975003A910F /* TimeViewController.xib */; };
 		58B975211ED1F9F2003A910F /* TimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58B975201ED1F9F2003A910F /* TimeViewController.swift */; };
 		58D545D01FC4C78A00C1F80B /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */; };
+		58DD32841FF5838900C4D1A6 /* GoalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD32831FF5838900C4D1A6 /* GoalViewController.swift */; };
+		58DD32881FF9AE5400C4D1A6 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DD32871FF9AE5400C4D1A6 /* FeedbackViewController.swift */; };
 		58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */; };
-		58F2276A1FD5EDEE000AFAAC /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58F227691FD5EDEE000AFAAC /* TabViewController.swift */; };
 		58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */; };
 		58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58FFEBD41E817C08003523C5 /* MainViewController.swift */; };
 		8ADD5C9478BB01739E9EF289 /* Pods_Blanket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F210F8755DF50D7DF7D7A4C0 /* Pods_Blanket.framework */; };
@@ -99,7 +97,6 @@
 		22C221EC26499480EC12A8C7 /* Pods-BlanketTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketTests/Pods-BlanketTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2F3549D8732BBE76514189A3 /* Pods_BlanketUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlanketUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FBF83373C439FFAB0DE777D /* Pods_BlanketTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlanketTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		580106791EA2A8420046D252 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		5801067F1EA2C0270046D252 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingViewController.xib; sourceTree = "<group>"; };
 		580106831EA7FF100046D252 /* CustomTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableCell.swift; sourceTree = "<group>"; };
 		580159091E81C82D008D934E /* BadgesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgesViewController.swift; sourceTree = "<group>"; };
@@ -156,16 +153,15 @@
 		586E55B71F1BDAEC00D069D2 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "Open_Sans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		586E55BA1F1BDB8400D069D2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Regular.ttf"; path = "Open_Sans/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
 		587161941F102E20004BC6D4 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Images; path = Blanket/Images; sourceTree = "<group>"; };
-		5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarkOptionsViewController.swift; sourceTree = "<group>"; };
 		5886EC5A1F10366400AAE8D4 /* Spoon-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoon-Bold.ttf"; sourceTree = "<group>"; };
 		5886EC5B1F10366C00AAE8D4 /* Spoon-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoon-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
 		5886EC5C1F10368100AAE8D4 /* Spoon-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spoon-Regular.ttf"; sourceTree = "<group>"; };
-		58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContinueViewController.swift; sourceTree = "<group>"; };
 		58B9751E1ED1F975003A910F /* TimeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TimeViewController.xib; sourceTree = "<group>"; };
 		58B975201ED1F9F2003A910F /* TimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeViewController.swift; sourceTree = "<group>"; };
 		58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		58DD32831FF5838900C4D1A6 /* GoalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalViewController.swift; sourceTree = "<group>"; };
+		58DD32871FF9AE5400C4D1A6 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomStatsCell.swift; sourceTree = "<group>"; };
-		58F227691FD5EDEE000AFAAC /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		58FFEBD41E817C08003523C5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		75B92434C61436E1FCCB85A6 /* Pods-BlanketUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlanketUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlanketUITests/Pods-BlanketUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -250,15 +246,14 @@
 				5801590D1E81C997008D934E /* CollectionCellView.swift */,
 				580106831EA7FF100046D252 /* CustomTableCell.swift */,
 				58E6C06C1EAD4166002DBF3E /* CustomStatsCell.swift */,
-				580106791EA2A8420046D252 /* RatingViewController.swift */,
 				5801067F1EA2C0270046D252 /* RatingViewController.xib */,
 				58B9751E1ED1F975003A910F /* TimeViewController.xib */,
 				58B975201ED1F9F2003A910F /* TimeViewController.swift */,
 				585298091E76D4B10011B2E3 /* Extensions.swift */,
+				58DD32831FF5838900C4D1A6 /* GoalViewController.swift */,
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
-				58F227691FD5EDEE000AFAAC /* TabViewController.swift */,
 				58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */,
 				582887461F87B823008DA5A5 /* PickLevelViewController.swift */,
 				5808D7BD1F27D14C00ED3ACD /* OnboardingViewController.swift */,
@@ -270,9 +265,8 @@
 				5805E4401F34B61D00406F70 /* InternetConnectivity.swift */,
 				582E11B81E8ABCC50074ADE1 /* SignInViewController.swift */,
 				5808D7BB1F27D04F00ED3ACD /* OnboardingView.swift */,
-				58AF73F31EC10F5200DDF110 /* ContinueViewController.swift */,
+				58DD32871FF9AE5400C4D1A6 /* FeedbackViewController.swift */,
 				582E11BA1E8B045D0074ADE1 /* MeasurementHelper.swift */,
-				5879B84C1EB67E8A008E18EB /* MarkOptionsViewController.swift */,
 				580159091E81C82D008D934E /* BadgesViewController.swift */,
 				58FFEBD41E817C08003523C5 /* MainViewController.swift */,
 				58FFEBC81E7F0F40003523C5 /* StatsViewController.swift */,
@@ -714,6 +708,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				582E11C11E8B38E30074ADE1 /* Constants.swift in Sources */,
+				58DD32841FF5838900C4D1A6 /* GoalViewController.swift in Sources */,
 				5801590A1E81C82D008D934E /* BadgesViewController.swift in Sources */,
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
 				5808D7B81F22668200ED3ACD /* CalendarViewController.swift in Sources */,
@@ -724,21 +719,18 @@
 				58FFEBD51E817C08003523C5 /* MainViewController.swift in Sources */,
 				5801590E1E81C997008D934E /* CollectionCellView.swift in Sources */,
 				58FFEBC91E7F0F40003523C5 /* StatsViewController.swift in Sources */,
-				5801067A1EA2A8420046D252 /* RatingViewController.swift in Sources */,
 				5808D7BE1F27D14C00ED3ACD /* OnboardingViewController.swift in Sources */,
 				5852980A1E76D4B10011B2E3 /* Extensions.swift in Sources */,
 				582E11B91E8ABCC50074ADE1 /* SignInViewController.swift in Sources */,
 				586E55A01F1A8AA700D069D2 /* SettingsViewController.swift in Sources */,
-				5879B84D1EB67E8A008E18EB /* MarkOptionsViewController.swift in Sources */,
 				582E11C51E9597FB0074ADE1 /* Badges.swift in Sources */,
 				580106841EA7FF100046D252 /* CustomTableCell.swift in Sources */,
 				5808D7B61F22650F00ED3ACD /* CalenderCell.swift in Sources */,
-				58AF73F41EC10F5200DDF110 /* ContinueViewController.swift in Sources */,
 				581DA3B51E70D66B0051C64B /* Blanket.xcdatamodeld in Sources */,
 				58D545D01FC4C78A00C1F80B /* IntroViewController.swift in Sources */,
-				58F2276A1FD5EDEE000AFAAC /* TabViewController.swift in Sources */,
 				5808D7BC1F27D04F00ED3ACD /* OnboardingView.swift in Sources */,
 				582887471F87B823008DA5A5 /* PickLevelViewController.swift in Sources */,
+				58DD32881FF9AE5400C4D1A6 /* FeedbackViewController.swift in Sources */,
 				581DA3AD1E70D66B0051C64B /* AppDelegate.swift in Sources */,
 				58E6C06D1EAD4166002DBF3E /* CustomStatsCell.swift in Sources */,
 			);

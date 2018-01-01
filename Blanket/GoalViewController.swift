@@ -1,16 +1,16 @@
 //
-//  IntroViewController.swift
+//  GoalViewController.swift
 //  Blanket
 //
-//  Created by Marvin Nguyen on 11/21/17.
+//  Created by Marvin Nguyen on 12/28/17.
 //  Copyright © 2017 Marvin Nguyen. All rights reserved.
 //
 
 import UIKit
 import Firebase
 
-class IntroViewController: UIViewController, UITextViewDelegate {
-    
+class GoalViewController: UIViewController, UITextViewDelegate {
+
     @IBOutlet weak var reason: UITextView!
     
     var ref:FIRDatabaseReference?
@@ -26,7 +26,7 @@ class IntroViewController: UIViewController, UITextViewDelegate {
         if (reason.text?.isEmpty)! {
             reason.text = " "
         }
-
+        
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -37,7 +37,9 @@ class IntroViewController: UIViewController, UITextViewDelegate {
         return true
     }
     
+    
     @IBAction func saveContinue(_ sender: UIButton) {
-        ref?.updateChildValues(["WEB":reason.text!])
+        ref?.updateChildValues(["GOAL":reason.text!])
     }
 }
+

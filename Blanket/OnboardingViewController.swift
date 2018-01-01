@@ -23,35 +23,26 @@ class OnboardingViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUsers()
-        fetchUser()
         setSlides()
         setText()
     }
     
-    func fetchUser()-> String {
-        let user = FIRAuth.auth()?.currentUser
-        var name = ""
-        //name = (user?.displayName?.capitalizingFirstLetter())!
-        return name
-    }
-    
     func setSlides(){
-        let name:String = "Hello " + fetchUser()
-        let slide1 = name+", Welcome to Blankit"
+        let slide1 = "Hello ,Welcome to Blankit"
         slides.append(slide1)
-        let slide2 = "Blankit is an app that will help you develop a strong writing habit"
+        let slide2 = "Blankit is an app that will help you develop a strong writing habit."
         slides.append(slide2)
         let slide3 = "To build this long lasting habit, we need to start by writing everyday."
         slides.append(slide3)
         let slide4 = "It's okay if you don't have any experience of writing on your own."
         slides.append(slide4)
-        let slide5 = "A little bit everyday. Thats all it takes."
+        let slide5 = "It just takes a little bit everyday."
         slides.append(slide5)
-        let slide6  = "It doesnt matter if it's just a couple sentences or a hundred paragraphs. It only matters that you write something."
+        let slide6  = "It doesnt matter if it's a couple sentences or a couple pages. It only matters that you write."
         slides.append(slide6)
-        let slide7 = "Everyday you are given a chance to complete an entry with a minimum time constraint."
+        let slide7 = "Everyday you are given a chance to complete an entry."
         slides.append(slide7)
-        let slide8 = "As you continue to write everday, the time constraint will gradually increase."
+        let slide8 = "As you continue to write, your entry length will gradually increase."
         slides.append(slide8)
         let slide9 = "Let's get started."
         slides.append(slide9)
@@ -76,10 +67,13 @@ class OnboardingViewController: UIViewController{
     }
     
     func updateUsers(){
-        ref?.child("Settings").child("userCount").observeSingleEvent(of: .value, with: { snapshot in
-            var value = snapshot.value as! Int
-            value = value + 1
-            self.ref?.child("Settings").child("userCount").setValue(value)
+        ref = FIRDatabase.database().reference()
+        ref?.child("Settings").observeSingleEvent(of: .value, with: { snapshot in
+            let value = snapshot.value as? NSDictionary
+            var num = value?["userCount"] as? Int
+            num = num! + 1
+            self.ref?.child("Settings").child("userCount").setValue(num)
+            print("TESTING SEETTS")
         })
         
     }

@@ -16,10 +16,6 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     
-    @IBOutlet weak var currentStreakLabel: UILabel!
-    @IBOutlet weak var longestStreakLabel: UILabel!
-    @IBOutlet weak var totalDaysLabel: UILabel!
-    
     let formatter = DateFormatter()
     
     let todaysDates = Date()
@@ -33,6 +29,15 @@ class CalendarViewController: UIViewController {
     var handle: FIRAuthStateDidChangeListenerHandle?
     var connectedRef:FIRDatabaseReference?
     
+    @IBOutlet weak var percentChange: UILabel!
+    
+    @IBOutlet weak var triangleChange: UIImageView!
+
+    @IBOutlet weak var startDate: UILabel!
+    
+    @IBOutlet weak var endDate: UILabel!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureData()
@@ -43,8 +48,7 @@ class CalendarViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setupLabels()
-        
+
     }
 
     func configureData(){
@@ -84,6 +88,8 @@ class CalendarViewController: UIViewController {
                 
                 strongSelf.calendarView.scrollToDate(Date(), animateScroll:true)
                 strongSelf.calendarView.selectDates([Date()])
+                
+                self?.getLastWeekDates()
             }
             lastEntry = lastEntry + 1
         
@@ -121,12 +127,6 @@ class CalendarViewController: UIViewController {
                 entryDate[formatter.string(from: newDate!)] = entries.filter{ $0.date == date}.first
             }
         }
-    }
-    
-    func setupLabels(){
-        currentStreakLabel.text = String(Stats.currentStreak)
-        longestStreakLabel.text = String(Stats.longestStreak)
-        totalDaysLabel.text = String(Stats.totalEntries)
     }
     
     func setupCalendarView(){
@@ -228,6 +228,80 @@ class CalendarViewController: UIViewController {
         if !hasEntry { return }
         self.performSegue(withIdentifier: "segueToEntry", sender: entryDate[date]);
     }
+    
+    func getLastWeekDates(){
+        let cal = Calendar.current
+        let date = cal.startOfDay(for: Date())
+        var thisWeekPackets = [Packet]()
+        var lastWeekPackets = [Packet]()
+        let firstDay = Date()
+        var lastDate = Date()
+        formatter.dateFormat = "yyyy MM dd"
+        
+        for i in 1 ... 7 {
+            let newDate = cal.date(byAdding: .day, value: -i, to: date)!
+            let str = formatter.string(from: newDate)
+            if entryDate[str] != nil {
+                thisWeekPackets.append(entryDate[str]!)
+            }
+        }
+        
+        for i in 8 ... 14 {
+            let newDate = cal.date(byAdding: .day, value: -i, to: date)!
+            if i == 14 {
+                lastDate = newDate
+            }
+            let str = formatter.string(from: newDate)
+            if entryDate[str] != nil {
+                lastWeekPackets.append(entryDate[str]!)
+            }
+        }
+        
+        formatter.dateFormat = "MMM dd"
+        startDate.text = formatter.string(from: firstDay)
+        startDate.text = startDate.text?.uppercased()
+        endDate.text = formatter.string(from: lastDate)
+        endDate.text = endDate.text?.uppercased()
+        formatter.dateFormat = "yyyy MM dd"
+        
+        getAverageTime(thisWeek: thisWeekPackets,lastWeek: lastWeekPackets)
+    }
+    
+    func getAverageTime(thisWeek:[Packet], lastWeek:[Packet]){
+        var thisWeekAverage = 0.0
+        var lastWeekAverage = 0.0
+        var time = 0
+        for packet in thisWeek {
+            time = time + Int(packet.totalTime)!
+        }
+        
+        thisWeekAverage = Double(time)/Double(thisWeek.count)
+        time = 0
+        
+        for packet in lastWeek {
+            time = time + Int(packet.totalTime)!
+        }
+        
+        lastWeekAverage = Double(time)/Double(lastWeek.count)
+        
+        let change = Double((thisWeekAverage - 400)/thisWeekAverage * 100)
+        percentChange.text = "\(Double(round(10*change)/10))%"
+        
+        if change > 0 {
+            triangleChange.image = UIImage(named: "up_triangle")
+            percentChange.textColor = UIColor(hex: 0x2ECC71)
+        } else {
+            percentChange.text = percentChange.text?.replacingOccurrences(of: "-", with: "")
+            triangleChange.image = UIImage(named: "down_arrow_yellow")
+            percentChange.textColor = UIColor(hex: 0x333333)
+        }
+        
+        if lastWeek.count == 0 {
+            triangleChange.image = UIImage(named: "up_triangle")
+            percentChange.text = "100%"
+        }
+
+    }
 
 }
 
@@ -238,9 +312,11 @@ extension CalendarViewController: JTAppleCalendarViewDataSource, JTAppleCalendar
         formatter.timeZone = Calendar.current.timeZone
         formatter.locale = Calendar.current.locale
         let startDate = formatter.date(from: StartDate.firstDay)!
-        let endDate = formatter.date(from: "2017 12 31")!
+        var dateComponent = DateComponents()
+        dateComponent.month = 1
+        let endDate = Calendar.current.date(byAdding: dateComponent, to: Date())
         
-        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate)
+        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate!)
         return parameters
     }
     
