@@ -149,27 +149,19 @@ class InputViewController: UIViewController, UITextViewDelegate{
         }
         
         ref?.child("Entry").child(LastAccess.entry).observeSingleEvent(of: .value, with: { snapshot in
-            guard let entrySnap = snapshot.value as? [String: String] else { return }
-            let entry = Packet.init(date: entrySnap[Constants.Entry.date]!,
-                                    text: entrySnap[Constants.Entry.text]!,
-                                    wordCount: entrySnap[Constants.Entry.wordCount]!,
-                                    uid: entrySnap[Constants.Entry.uid]!,
-                                    timeStamp: entrySnap[Constants.Entry.timestamp]!,
+            guard let entrySnap = snapshot.value as? [String: Any] else { return }
+            let entry = Packet.init(date: entrySnap[Constants.Entry.date]! as! String,
+                                    text: entrySnap[Constants.Entry.text]! as! String,
+                                    wordCount: entrySnap[Constants.Entry.wordCount]! as! String,
+                                    uid: entrySnap[Constants.Entry.uid]! as! String,
+                                    timeStamp: entrySnap[Constants.Entry.timestamp]! as! String,
                                     key: snapshot.key,
-                                    totalTime: entrySnap[Constants.Entry.totalTime]!
-                //textStart: entrySnap[Constants.Entry.textStart]!
+                                    totalTime: entrySnap[Constants.Entry.totalTime]! as! String
             )
             //check to make sure this belongs to the correct UID
             if entry.uid != self.uid{
                 self.setupInput(bool: false)
                 return
-            }
-            if snapshot.hasChild(Constants.Entry.topic){
-                entry.topic = entrySnap[Constants.Entry.topic]!
-            }
-            
-            if snapshot.hasChild(Constants.Entry.mark){
-                entry.mark = entrySnap[Constants.Entry.mark]!
             }
             let timestamp = entry.timestamp
             let calendar = NSCalendar.current
@@ -261,7 +253,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
             if var stats = currentData.value as? [String : Int]{
                 let entries:Int = stats["totalEntries"]!
                 let total = Int(stats["totalWordcount"]! + self.greaterThanZero())
-                let extra = self.counter - self.regularTime
+                var extra = self.counter - self.regularTime
+                if extra < 0 {
+                    extra = 0
+                }
                 let time:Int = stats["totalTime"]! + extra
                 
                 stats["avgWordcount"] = total/entries as Int
@@ -290,8 +285,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
         mdata[Constants.Entry.timestamp] = getTimeStamp()
         mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!
-        entryRef?.updateChildValues([Constants.Entry.hashtags:findHash()])
+        entryRef?.setValue(mdata)
+                entryRef?.updateChildValues([Constants.Entry.hashtags:findHash()])
         updateLastAccess(date: dateToString(), key: key)
+
     }
     
     //puts info into a struct
