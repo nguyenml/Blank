@@ -196,12 +196,8 @@ class StatsViewController: UIViewController{
         let date1 = calendar.startOfDay(for: startDate)
         let date2 = Date()
         let components = calendar.dateComponents([.day], from: date1, to: date2)
-        if components.day == 0{
-            allTimePercent.text = "100%"
-        } else {
-            let percent = Int(Double(Stats.totalEntries)/Double(components.day!) * 100)
-            allTimePercent.text = " \(percent)%"
-        }
+        let percent = Int(Double(Stats.totalEntries)/Double(components.day! + 1) * 100)
+        allTimePercent.text = " \(percent)%"
         
     }
         

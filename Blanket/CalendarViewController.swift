@@ -298,7 +298,7 @@ class CalendarViewController: UIViewController {
         
         if lastWeek.count == 0 {
             triangleChange.image = UIImage(named: "up_triangle")
-            percentChange.text = "100%"
+            percentChange.text = "0%"
         }
 
     }

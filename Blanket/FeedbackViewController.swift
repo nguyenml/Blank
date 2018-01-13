@@ -9,16 +9,23 @@
 import Foundation
 import UIKit
 import MessageUI
+import Firebase
 
-class FeedbackViewController: UIViewController, MFMailComposeViewControllerDelegate {
+class FeedbackViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var emailAddress: UIButton!
     @IBOutlet weak var feedbackText: UITextView!
-    
+
     @IBOutlet weak var emailText: UITextField!
+    var ref:FIRDatabaseReference?
+    
+    var keyShift = 0;
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        feedbackText.delegate = self
+        emailText.delegate = self
+        ref = FIRDatabase.database().reference()
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,34 +34,31 @@ class FeedbackViewController: UIViewController, MFMailComposeViewControllerDeleg
     }
 
     @IBAction func sendFeedbacl(_ sender: UIButton) {
-        let mailComposeViewController = configuredMailComposeViewController()
-        if MFMailComposeViewController.canSendMail() {
-            self.present(mailComposeViewController, animated: true, completion: nil)
-        } else {
-            self.showSendMailErrorAlert()
+         let data = ["info": feedbackText.text!]
+         addToFB(withData: data )
+         self.performSegue(withIdentifier: "unwindToSettings", sender: self)
+    }
+    
+    func addToFB(withData data: [String: String]){
+        var mdata = data
+        mdata["email"] = String(describing: emailText.text)
+        ref?.child("Feedback").childByAutoId().setValue(mdata)
+    }
+    
+    
+
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
         }
+        return true
     }
     
-    func configuredMailComposeViewController() -> MFMailComposeViewController {
-        let mailComposerVC = MFMailComposeViewController()
-        mailComposerVC.mailComposeDelegate = self
-        mailComposerVC.setToRecipients(["marv@blankitapp.com"])
-        
-        mailComposerVC.setSubject("Feedback from App")
-        mailComposerVC.setMessageBody("Email: \(String(describing: emailText.text)) \n \n Message: \(feedbackText.text)", isHTML: false)
-        
-        
-        return mailComposerVC
-    }
-    
-    func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
-        sendMailErrorAlert.show()
-    }
-    
-    // MARK: MFMailComposeViewControllerDelegate Method
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        controller.dismiss(animated: true, completion: nil)
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 
 

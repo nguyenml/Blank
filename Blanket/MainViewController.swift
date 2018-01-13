@@ -227,9 +227,6 @@ class MainViewController: UIViewController {
                 if defaultDate != LastAccess.date{
                     if Stats.totalEntries < 14 {
                         showEasyBrokenStreak()
-                    }else{
-                        showBrokenStreak()
-                        ref?.child("users").child(uid).child("Stats").updateChildValues(["currentStreak":0])
                     }
                 }
             }
@@ -357,7 +354,6 @@ class MainViewController: UIViewController {
     func getLvl(){
         ref?.child("users").child(uid).child("EntryTime").observe(FIRDataEventType.value, with: {
             (snapshot) in
-            print("how many times")
             guard snapshot.exists() else {
                 EntryTime.level = 3
                 EntryTime.regularTime = 300
@@ -578,7 +574,6 @@ class MainViewController: UIViewController {
             let value = snapshot.value as? NSDictionary
             weeklyChallenges.type = value?["type"] as? String ?? ""
             weeklyChallenges.amount = value?["amount"] as? Int ?? 0
-            print(value?["amount"])
             self.checkWeekly()
         }) { (error) in
             print(error.localizedDescription)

@@ -142,4 +142,5 @@ class SettingsViewController: UIViewController {
         }
     }
     
+    @IBAction func unwindToSettings(segue:UIStoryboardSegue) { }
 }

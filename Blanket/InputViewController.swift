@@ -1,7 +1,6 @@
 //
 //  InputViewController.swift
 //  Blanket
-//
 //  Created by Marvin Nguyen on 3/8/17.
 //  Copyright © 2017 Marvin Nguyen. All rights reserved.
 //
@@ -29,13 +28,14 @@ class InputViewController: UIViewController, UITextViewDelegate{
     var regularTime = EntryTime.regularTime
     var addTime = EntryTime.addTime
     var extraCounter = 300;
-    var lwc = 0
+
     var currentPacket:Packet?
     var isTimerOn = true
     
     
     @IBOutlet weak var showTimerButton: UIButton!
     
+    @IBOutlet weak var liveWordCount: UILabel!
     var loadedWordCount = 0
     var extraTime = false
     var currentString:String = ""
@@ -65,7 +65,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     //ser up function to get text and view in to order
     func setup(){
-        textField.font = UIFont(name: "OpenSans-Regular", size:17)
+        textField.font = UIFont(name: "OpenSans-Regular", size:15)
         tap.numberOfTapsRequired = 2
         tap.addTarget(self, action: #selector(addMinute(_:)))
         tapView.addGestureRecognizer(tap)
@@ -74,9 +74,11 @@ class InputViewController: UIViewController, UITextViewDelegate{
         let isTimerHidden = TimerHidden.isHidden
         if(isTimerHidden){
             timer.isHidden = true
+            liveWordCount.isHidden = false
             isTimerOn = false
         } else {
             timer.isHidden = false
+            liveWordCount.isHidden = true
             isTimerOn = true
         }
     }
@@ -197,7 +199,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
                 counter = counter + 1;
             }
             if counter == regularTime{
-                lwc = greaterThanZero()
                 noreset()
             }
         }
@@ -225,7 +226,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             if var stats = currentData.value as? [String : Int]{
                 let current = stats["currentStreak"]! + 1
                 var longest = stats["longestStreak"]!
-                let total = Int(stats["totalWordcount"]! + self.lwc)
+                let total = Int(stats["totalWordcount"]! + self.loadedWordCount) //wut
                 let entries:Int = stats["totalEntries"]! + 1
                 let time:Int = stats["totalTime"]! + self.regularTime
                 if current>longest{
@@ -282,7 +283,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     //submit struct to FB
     func addToFB(withData data: [String: String]){
         var mdata = data
-        mdata[Constants.Entry.wordCount] = String(greaterThanZero())
+        mdata[Constants.Entry.wordCount] = String(loadedWordCount + greaterThanZero())
         mdata[Constants.Entry.date] = dateToString()
         mdata[Constants.Entry.uid] = uid
         mdata[Constants.Entry.timestamp] = getTimeStamp()
@@ -299,11 +300,12 @@ class InputViewController: UIViewController, UITextViewDelegate{
         addToFB(withData: data)
         if extraTime{
             smallUpdate()
-            print("small update")
+            print("small update \(loadedWordCount)")
         }
         else{
+            loadedWordCount = (Int(wordCount(str: textField.text!)))
             updateStats()
-            print("big update")
+            print("big update \(loadedWordCount)")
         }
     }
     
@@ -434,7 +436,9 @@ class InputViewController: UIViewController, UITextViewDelegate{
         if(textView == textField)
         {
             downTimeResetter = 0;
+           
         }
+        liveWordCount.text = String(wordCount(str: textView.text!))
     }
     
     func wordCount(string: String){
@@ -464,18 +468,25 @@ class InputViewController: UIViewController, UITextViewDelegate{
         isTimerOn = !isTimerOn
         if isTimerOn{
             timer.isHidden = false
+            liveWordCount.isHidden = true
         }else{
             timer.isHidden = true
+            liveWordCount.isHidden = false
         }
         
     }
     
     func updateWeekly(update:Bool){
+        //updating a entry
+        //im a god
         if update {
-            var num = weeklyChallenges.current + greaterThanZero()
+            let num = weeklyChallenges.current + greaterThanZero()
             ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": num])
+ 
         } else {
-            ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": weeklyChallenges.current + greaterThanZero()])
+            let num = weeklyChallenges.current + loadedWordCount
+            ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": num])
+
         }
     }
     
