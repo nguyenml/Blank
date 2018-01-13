@@ -17,6 +17,7 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
     @IBOutlet weak var popupTitle: UILabel!
     @IBOutlet weak var popupMessage: UILabel!
     @IBOutlet weak var popupButton: UIButton!
+    @IBOutlet weak var segmentBadgeChallenge: UISegmentedControl!
     
     @IBOutlet weak var blurView: UIVisualEffectView!
     @IBOutlet var popupView: UIView!
@@ -30,9 +31,6 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-    }
-
     let reuseIdentifier = "cell" // also enter this string as the cell identifier in the storyboard
     
     // MARK: - UICollectionViewDataSource protocol
@@ -139,4 +137,8 @@ class BadgesViewController: UIViewController, UICollectionViewDataSource, UIColl
         popupButton.layer.shouldRasterize = true
         popupButton.layer.rasterizationScale = scale ? UIScreen.main.scale : 1
     }
+    
+    @IBAction func segmentChange(_ sender: UISegmentedControl) {
+    }
+    
 }

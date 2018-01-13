@@ -277,6 +277,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             }
         }
         updateWeekly(update:true)
+        findHash()
     }
     
     
@@ -289,7 +290,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         mdata[Constants.Entry.timestamp] = getTimeStamp()
         mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!
-        entryRef?.setValue(mdata)
+        entryRef?.updateChildValues([Constants.Entry.hashtags:findHash()])
         updateLastAccess(date: dateToString(), key: key)
     }
     
@@ -488,6 +489,22 @@ class InputViewController: UIViewController, UITextViewDelegate{
             ref?.child("users").child(String(describing: uid )).updateChildValues(["weeklywords": num])
 
         }
+    }
+    
+    //META DATA
+    
+    func findHash() -> [String:Bool]{
+        var hashtags = [String:Bool]()
+        var str = textField.text!
+        let regex = try? NSRegularExpression(pattern: "(#[A-Za-z0-9]*)", options: [])
+
+        let matches = regex?.matches(in: str, options:[], range:NSMakeRange(0, (str.characters.count)))
+        for match in matches! {
+            print("match = \(match.range)")
+            hashtags[NSString(string: str).substring(with: NSRange(location:match.range.location + 1, length:match.range.length - 1))] = true
+        }
+        print(hashtags)
+        return hashtags
     }
     
 

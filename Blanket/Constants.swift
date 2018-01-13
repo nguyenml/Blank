@@ -34,6 +34,7 @@ struct Constants {
         static let topic = "topic"
         static let textStart = "textStart"
         static let totalTime = "totalTime"
+        static let hashtags = "hashtags"
     }
     
     struct Goal {
@@ -165,8 +166,9 @@ class Packet{
     var topic:String
     var textStart:String
     var totalTime:String
+    var hashtags:[String]
     
-    init(date:String, text:String, wordCount:String, uid:String, timeStamp:String, key:String, mark:String = "", topic:String = "", textStart:String = "", totalTime:String = ""){
+    init(date:String, text:String, wordCount:String, uid:String, timeStamp:String, key:String, mark:String = "", topic:String = "", textStart:String = "", totalTime:String = "", hashtags:[String] = []){
         self.date = date
         self.text = text
         self.wordCount = wordCount
@@ -177,6 +179,7 @@ class Packet{
         self.topic = topic
         self.textStart = textStart
         self.totalTime = totalTime
+        self.hashtags = hashtags
         }
     
     func setOrder(order:String){
