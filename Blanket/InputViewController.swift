@@ -21,6 +21,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     weak var iTimer = Timer();
     weak var downTimeTimer = Timer();
     
+    @IBOutlet weak var topProgress: UIView!
     @IBOutlet var timer: UILabel!
     var downTimeResetter =  0
     var downTime = 0
@@ -436,7 +437,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
             downTimeResetter = 0;
            
         }
-        liveWordCount.text = String(wordCount(str: textView.text!))
+        let wordCount = self.wordCount(str: textView.text!)
+        liveWordCount.text = String(wordCount)
+        topProgressChange(progress: Double(wordCount)/Double(100))
+        
     }
     
     func wordCount(string: String){
@@ -502,6 +506,20 @@ class InputViewController: UIViewController, UITextViewDelegate{
         }
         print(hashtags)
         return hashtags
+    }
+    
+    func topProgressChange(progress:Double){
+        //set the progress bar to be at the bottom of the parent view with width of 8
+        //take parameters of parent views to make up for no layout
+        
+        let progressSize = (topProgress.superview?.frame.width)! * CGFloat(progress)
+        
+        if progress < 1 {
+            topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: progressSize, height: 5))
+        } else {
+            topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: (topProgress.superview?.frame.width)!, height: 5))
+        }
+        
     }
     
 

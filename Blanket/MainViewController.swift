@@ -61,6 +61,7 @@ class MainViewController: UIViewController {
     //-------quotes
     @IBOutlet weak var quoteLabel: UILabel!
     
+    @IBOutlet weak var promptsButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -242,7 +243,7 @@ class MainViewController: UIViewController {
                 let message = badge.message
                 let image = badge.image
                 
-                animateIn(image: image, title: title, message: message)
+                animateIn(image: image, title: title, message: message, type: 1)
                 timer.invalidate()
             }
         }
@@ -469,12 +470,21 @@ class MainViewController: UIViewController {
         checkSwitch()
     }
     
-    func animateIn(image:UIImage, title:String, message:String){
+    func animateIn(image:UIImage, title:String, message:String, type:Int){
         self.view.addSubview(popupView)
         self.view.addSubview(blurView)
         popupBadgeImage.image = image
         popupBadgeTitle.text = title
         popupBadgeMessage.text = message
+        
+        if type == 0{
+            popupBadgeTitle.font = UIFont(name: "Abel", size: 26.0)!
+            popupBadgeMessage.font = UIFont(name: "Abel", size: 10.0)!
+        }
+        if type == 1 {
+            popupBadgeTitle.font = UIFont(name: "Abel", size: 32.0)!
+            popupBadgeMessage.font = UIFont(name: "Abel", size: 12.0)!
+        }
         
         popupView.center = self.view.center
         
@@ -513,7 +523,7 @@ class MainViewController: UIViewController {
         let title = "Broken Streak"
         let message = "Oh no! It looks like you missed a day."
         let image = UIImage(named: "broken_chain")!
-        animateIn(image:image,title:title, message:message)
+        animateIn(image:image,title:title, message:message, type:1)
     }
     
     func showEasyBrokenStreak(){
@@ -521,7 +531,7 @@ class MainViewController: UIViewController {
         let message = "Oh no! It looks like you missed a day. It can be easy to forget to write when you're just starting off. So we're going to give a little some slack and keep the streak."
         popupLowerStartTime.isHidden = false
         let image = UIImage(named: "broken_chain")!
-        animateIn(image:image,title:title, message:message)
+        animateIn(image:image,title:title, message:message, type:1)
     }
     
     func dropShadow(color: UIColor, opacity: Float = 0.7, offSet: CGSize, radius: CGFloat = 1, scale: Bool = true) {
@@ -623,6 +633,9 @@ class MainViewController: UIViewController {
         })
     }
     
+    @IBAction func promptsButtonPressed(_ sender: UIButton) {
+        animateIn(image: UIImage(named:"lightbulb_icon.png")!, title: "Daily Inspiration", message: "You go to check the mail and see a package. That's great because you love packages. This one is wrapped in a dark red fabric that you've never really seen before... or felt before. The box begans to shake once you pick it up. That's when you realize you haven't even ordered anything.", type:0)
+    }
 }
 
 
