@@ -62,6 +62,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var quoteLabel: UILabel!
     
     @IBOutlet weak var promptsButton: UIButton!
+    @IBOutlet weak var usePromptButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -386,7 +387,11 @@ class MainViewController: UIViewController {
                 if EntryTime.regularTime > 900{
                     EntryTime.regularTime = 900
                 }
+                if EntryTime.wordReq > 500 {
+                    EntryTime.wordReq = 500
+                }
             }
+            print(EntryTime.wordReq)
         }
         //Lvl 2 user write starts writing 3 minutes a day increasing gradually till they reach levl 3
         if EntryTime.level == 2{
@@ -412,6 +417,9 @@ class MainViewController: UIViewController {
                     }
                 }
             }
+            
+            EntryTime.wordReq = (EntryTime.regularTime/60) * 50
+            print(EntryTime.wordReq)
         }
         
         //Lvl1 beginner. They start at 1 minute a day and slowly progress to lvl 2
@@ -444,6 +452,9 @@ class MainViewController: UIViewController {
                     }
                 }
             }
+            
+            EntryTime.wordReq = (EntryTime.regularTime/60) * 50
+            print(EntryTime.wordReq)
         }
         
         
@@ -453,8 +464,6 @@ class MainViewController: UIViewController {
         if(isTimerHidden){
             TimerHidden.isHidden = isTimerHidden
         }
-        print("test isTImerhidden")
-        print(isTimerHidden)
         
         EntryTime.addTime = 86400
         
@@ -478,12 +487,10 @@ class MainViewController: UIViewController {
         popupBadgeMessage.text = message
         
         if type == 0{
-            popupBadgeTitle.font = UIFont(name: "Abel", size: 26.0)!
-            popupBadgeMessage.font = UIFont(name: "Abel", size: 10.0)!
+            popupBadgeTitle.font = UIFont(name: "Abel", size: 29.0)!
         }
         if type == 1 {
             popupBadgeTitle.font = UIFont(name: "Abel", size: 32.0)!
-            popupBadgeMessage.font = UIFont(name: "Abel", size: 12.0)!
         }
         
         popupView.center = self.view.center
@@ -511,6 +518,7 @@ class MainViewController: UIViewController {
             self.popupView.removeFromSuperview()
             self.blurView.removeFromSuperview()
             self.popupLowerStartTime.isHidden = true
+            self.usePromptButton.isHidden = true
         }
     }
     
@@ -634,7 +642,9 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func promptsButtonPressed(_ sender: UIButton) {
-        animateIn(image: UIImage(named:"lightbulb_icon.png")!, title: "Daily Inspiration", message: "You go to check the mail and see a package. That's great because you love packages. This one is wrapped in a dark red fabric that you've never really seen before... or felt before. The box begans to shake once you pick it up. That's when you realize you haven't even ordered anything.", type:0)
+        usePromptButton.isHidden = false;
+        animateIn(image: UIImage(named:"lightbulb_icon.png")!, title: "Daily Inspiration", message: "You work as a memory soother for the United States military that erases the most horrific memories from traumatized soldiers coming home from war. One of your patients subconscious holds on to a certain memory sequence no matter how hard you try.", type:0)
+        
     }
 }
 

@@ -22,6 +22,8 @@ class InputViewController: UIViewController, UITextViewDelegate{
     weak var downTimeTimer = Timer();
     
     @IBOutlet weak var topProgress: UIView!
+    @IBOutlet weak var topProgressLabel: UILabel!
+    
     @IBOutlet var timer: UILabel!
     var downTimeResetter =  0
     var downTime = 0
@@ -29,6 +31,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     var regularTime = EntryTime.regularTime
     var addTime = EntryTime.addTime
     var extraCounter = 300;
+    var wordCountMet = false;
 
     var currentPacket:Packet?
     var isTimerOn = true
@@ -75,11 +78,11 @@ class InputViewController: UIViewController, UITextViewDelegate{
         let isTimerHidden = TimerHidden.isHidden
         if(isTimerHidden){
             timer.isHidden = true
-            liveWordCount.isHidden = false
+            liveWordCount.isHidden = true
             isTimerOn = false
         } else {
             timer.isHidden = false
-            liveWordCount.isHidden = true
+            liveWordCount.isHidden = false
             isTimerOn = true
         }
     }
@@ -94,10 +97,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
             setTimeFormat()
             extraTime = true
             addMin.isHidden = false
-            addMin.setTitle("+",for: .normal)
             timer.textColor = UIColor(hex: 0x17DF82);
             backButton.isHidden = false
             textField.isEditable = false
+            topProgressChange(progress: Double(loadedWordCount)/Double(100))
             
         }else{
             textField.text = ""
@@ -105,6 +108,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             backButton.isHidden = true
             tapView.isHidden = true
             setupTimerVisibility()
+            topProgressChange(progress: 0)
         }
         
         
@@ -470,10 +474,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
         isTimerOn = !isTimerOn
         if isTimerOn{
             timer.isHidden = false
-            liveWordCount.isHidden = true
+            liveWordCount.isHidden = false
         }else{
             timer.isHidden = true
-            liveWordCount.isHidden = false
+            liveWordCount.isHidden = true
         }
         
     }
@@ -505,6 +509,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             hashtags[NSString(string: str).substring(with: NSRange(location:match.range.location + 1, length:match.range.length - 1))] = true
         }
         print(hashtags)
+        hashtags.removeValue(forKey: "")
         return hashtags
     }
     
@@ -515,9 +520,21 @@ class InputViewController: UIViewController, UITextViewDelegate{
         let progressSize = (topProgress.superview?.frame.width)! * CGFloat(progress)
         
         if progress < 1 {
-            topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: progressSize, height: 5))
+            topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: progressSize, height: 3))
+            wordCountMet = false
         } else {
-            topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: (topProgress.superview?.frame.width)!, height: 5))
+            if wordCountMet{
+                return
+            }
+            topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: (topProgress.superview?.frame.width)!, height: 10))
+            topProgressLabel.isHidden = false
+            topProgressLabel.text = "You've met your word count!"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+                
+                self.topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: (self.topProgress.superview?.frame.width)!, height: 3))
+                self.topProgressLabel.isHidden = true
+            }
+            wordCountMet = true
         }
         
     }

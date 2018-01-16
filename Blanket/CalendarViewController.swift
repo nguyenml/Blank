@@ -60,23 +60,15 @@ class CalendarViewController: UIViewController {
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childAdded, with: { [weak self] (snapshot) -> Void in
             
             guard let strongSelf = self else { return }
-            guard let entrySnap = snapshot.value as? [String: String] else { return }
-            let entry = Packet.init(date: entrySnap[Constants.Entry.date]!,
-                                    text: entrySnap[Constants.Entry.text]!,
-                                    wordCount: entrySnap[Constants.Entry.wordCount]!,
-                                    uid: entrySnap[Constants.Entry.uid]!,
-                                    timeStamp: entrySnap[Constants.Entry.timestamp]!,
+            guard let entrySnap = snapshot.value as? [String: Any] else { return }
+            let entry = Packet.init(date: entrySnap[Constants.Entry.date] as! String,
+                                    text: entrySnap[Constants.Entry.text]! as! String,
+                                    wordCount: entrySnap[Constants.Entry.wordCount]! as! String,
+                                    uid: entrySnap[Constants.Entry.uid]! as! String,
+                                    timeStamp: entrySnap[Constants.Entry.timestamp]! as! String,
                                     key: snapshot.key,
-                                    totalTime: entrySnap[Constants.Entry.totalTime]!
+                                    totalTime: entrySnap[Constants.Entry.totalTime]! as! String
             )
-            
-            if snapshot.hasChild(Constants.Entry.topic){
-                entry.topic = entrySnap[Constants.Entry.topic]!
-            }
-            
-            if snapshot.hasChild(Constants.Entry.mark){
-                entry.mark = entrySnap[Constants.Entry.mark]!
-            }
             entry.setOrder(order: entry.timestamp)
             strongSelf.formatter.dateFormat = "MMM dd, yyyy h:mm a"
             let newDate = strongSelf.formatter.date(from: entry.date)
