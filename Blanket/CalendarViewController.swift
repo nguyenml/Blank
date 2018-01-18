@@ -68,19 +68,22 @@ class CalendarViewController: UIViewController {
                                     timeStamp: entrySnap[Constants.Entry.timestamp]! as! String,
                                     key: snapshot.key,
                                     totalTime: entrySnap[Constants.Entry.totalTime]! as! String
+                
             )
+            if(entrySnap[Constants.Entry.hashtags] as? [String:String] != nil){
+                let tags = entrySnap[Constants.Entry.hashtags] as! [String:String]
+                entry.hashtags = tags.map{$0.value}
+            }
             entry.setOrder(order: entry.timestamp)
             strongSelf.formatter.dateFormat = "MMM dd, yyyy h:mm a"
             let newDate = strongSelf.formatter.date(from: entry.date)
             strongSelf.formatter.dateFormat = "yyyy MM dd"
             strongSelf.entryDate[strongSelf.formatter.string(from: newDate!)] = entry
             strongSelf.calendarView.reloadData()
-            
             if lastEntry == Stats.totalEntries{
                 
                 strongSelf.calendarView.scrollToDate(Date(), animateScroll:true)
                 strongSelf.calendarView.selectDates([Date()])
-                
                 self?.getLastWeekDates()
             }
             lastEntry = lastEntry + 1
@@ -229,7 +232,6 @@ class CalendarViewController: UIViewController {
         let firstDay = Date()
         var lastDate = Date()
         formatter.dateFormat = "yyyy MM dd"
-        
         for i in 1 ... 7 {
             let newDate = cal.date(byAdding: .day, value: -i, to: date)!
             let str = formatter.string(from: newDate)
@@ -248,14 +250,12 @@ class CalendarViewController: UIViewController {
                 lastWeekPackets.append(entryDate[str]!)
             }
         }
-        
         formatter.dateFormat = "MMM dd"
         startDate.text = formatter.string(from: firstDay)
         startDate.text = startDate.text?.uppercased()
         endDate.text = formatter.string(from: lastDate)
         endDate.text = endDate.text?.uppercased()
         formatter.dateFormat = "yyyy MM dd"
-        
         getAverageTime(thisWeek: thisWeekPackets,lastWeek: lastWeekPackets)
     }
     
@@ -275,8 +275,9 @@ class CalendarViewController: UIViewController {
         }
         
         lastWeekAverage = Double(time)/Double(lastWeek.count)
-        
-        let change = Double((thisWeekAverage - 400)/thisWeekAverage * 100)
+        //if to miniutes instead of percent
+        //(Int(thisWeekAverage - lastWeekAverage)/60)
+        let change = Double((thisWeekAverage - 100)/thisWeekAverage * 100)
         percentChange.text = "\(Double(round(10*change)/10))%"
         
         if change > 0 {

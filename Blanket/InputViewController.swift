@@ -74,15 +74,18 @@ class InputViewController: UIViewController, UITextViewDelegate{
         tap.addTarget(self, action: #selector(addMinute(_:)))
         tapView.addGestureRecognizer(tap)
     }
+    
     func setupTimerVisibility(){
         let isTimerHidden = TimerHidden.isHidden
         if(isTimerHidden){
             timer.isHidden = true
             liveWordCount.isHidden = true
+            topProgress.isHidden = true
             isTimerOn = false
         } else {
             timer.isHidden = false
             liveWordCount.isHidden = false
+            topProgress.isHidden = false
             isTimerOn = true
         }
     }
@@ -291,7 +294,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         mdata[Constants.Entry.totalTime] = String(counter)
         let key:String = (entryRef?.key)!
         entryRef?.setValue(mdata)
-                entryRef?.updateChildValues([Constants.Entry.hashtags:findHash()])
+        entryRef?.updateChildValues([Constants.Entry.hashtags:findHash()])
         updateLastAccess(date: dateToString(), key: key)
 
     }
@@ -442,7 +445,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
            
         }
         let wordCount = self.wordCount(str: textView.text!)
-        liveWordCount.text = String(wordCount)
+        liveWordCount.text = "\(wordCount)"
         topProgressChange(progress: Double(wordCount)/Double(100))
         
     }
@@ -474,10 +477,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
         isTimerOn = !isTimerOn
         if isTimerOn{
             timer.isHidden = false
-            liveWordCount.isHidden = false
+            //liveWordCount.isHidden = false
         }else{
             timer.isHidden = true
-            liveWordCount.isHidden = true
+            //liveWordCount.isHidden = true
         }
         
     }
@@ -498,46 +501,44 @@ class InputViewController: UIViewController, UITextViewDelegate{
     
     //META DATA
     
-    func findHash() -> [String:Bool]{
-        var hashtags = [String:Bool]()
+    func findHash() -> [String:String]{
+        var hashtags = [String:String]()
         var str = textField.text!
         let regex = try? NSRegularExpression(pattern: "(#[A-Za-z0-9]*)", options: [])
 
         let matches = regex?.matches(in: str, options:[], range:NSMakeRange(0, (str.characters.count)))
         for match in matches! {
             print("match = \(match.range)")
-            hashtags[NSString(string: str).substring(with: NSRange(location:match.range.location + 1, length:match.range.length - 1))] = true
+            hashtags[NSString(string: str).substring(with: NSRange(location:match.range.location + 1, length:match.range.length - 1))] = NSString(string: str).substring(with: NSRange(location:match.range.location , length:match.range.length ))
+            print(match)
         }
-        print(hashtags)
         hashtags.removeValue(forKey: "")
         return hashtags
     }
     
     func topProgressChange(progress:Double){
+        if(TimerHidden.isHidden){
+            return
+        }
         //set the progress bar to be at the bottom of the parent view with width of 8
         //take parameters of parent views to make up for no layout
-        
         let progressSize = (topProgress.superview?.frame.width)! * CGFloat(progress)
-        
         if progress < 1 {
             topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: progressSize, height: 3))
             wordCountMet = false
+            topProgressLabel.isHidden = true
         } else {
             if wordCountMet{
                 return
             }
             topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: (topProgress.superview?.frame.width)!, height: 10))
             topProgressLabel.isHidden = false
-            topProgressLabel.text = "You've met your word count!"
+            topProgressLabel.text = "You've met the word count!"
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                
                 self.topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: (self.topProgress.superview?.frame.width)!, height: 3))
                 self.topProgressLabel.isHidden = true
             }
             wordCountMet = true
         }
-        
     }
-    
-
 }

@@ -136,9 +136,11 @@ class SettingsViewController: UIViewController {
         if(hidden){
             defaults.set(true, forKey: "isTimerHidden")
             isHiddenText.text = "Hidden"
+            TimerHidden.isHidden = true
         } else {
             defaults.set(false, forKey: "isTimerHidden")
             isHiddenText.text = "Not hidden"
+            TimerHidden.isHidden = false
         }
     }
     
