@@ -643,7 +643,7 @@
 		};
 		587161911F0954B6004BC6D4 /* Run Crash Report Shell Script */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -651,9 +651,10 @@
 			name = "Run Crash Report Shell Script";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
 			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:32201085782:ios:ef0c3f9d1606b958\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${PROJECT_DIR}/Keys/blanket-14091-firebase-crashreporting-227mo-0646e441c3.json\"";
+			showEnvVarsInLog = 0;
 		};
 		84B1DF5F0BC4326F6BA40383 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

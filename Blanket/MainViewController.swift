@@ -418,7 +418,7 @@ class MainViewController: UIViewController {
                 }
             }
             
-            EntryTime.wordReq = (EntryTime.regularTime/60) * 50
+            EntryTime.wordReq = (EntryTime.regularTime/60) * 50 + 50
             print(EntryTime.wordReq)
         }
         
@@ -453,7 +453,7 @@ class MainViewController: UIViewController {
                 }
             }
             
-            EntryTime.wordReq = (EntryTime.regularTime/60) * 50
+            EntryTime.wordReq = (EntryTime.regularTime/60) * 50 + 50
             print(EntryTime.wordReq)
         }
         
@@ -568,8 +568,8 @@ class MainViewController: UIViewController {
         
         let minutes = Int(EntryTime.regularTime/60)
         let seconds = Int(EntryTime.regularTime%60)
-
-        let string = "Write for \(minutes) minutes and \(seconds) seconds" as NSString
+        let words = Int(EntryTime.wordReq)
+        let string = "Write for \(minutes) minutes and \(seconds) seconds or \(words) words" as NSString
         
         let attributedString = NSMutableAttributedString(string: string as String, attributes: [NSFontAttributeName: UIFont(name: "Abel", size: 24.0)!])
     
@@ -579,8 +579,11 @@ class MainViewController: UIViewController {
         // Part of string to be bold
         attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(minutes)"))
         attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(seconds)"))
+        attributedString.addAttributes(boldFontAttribute, range: string.range(of: "\(words)"))
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(hex: 0x17DF82) , range: string.range(of: "\(minutes)"))
         attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(hex: 0x17DF82) , range: string.range(of: "\(seconds)"))
+        attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.init(hex: 0xFC8006) , range: string.range(of: "\(words)"))
+        
         
         timeToWriteLabel.attributedText = attributedString
             

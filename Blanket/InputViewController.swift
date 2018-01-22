@@ -34,9 +34,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
     var wordCountMet = false;
 
     var currentPacket:Packet?
-    var isTimerOn = true
+    var timerState = 1;
     
     
+    @IBOutlet weak var timerOrWords: UILabel!
     @IBOutlet weak var showTimerButton: UIButton!
     
     @IBOutlet weak var liveWordCount: UILabel!
@@ -81,12 +82,13 @@ class InputViewController: UIViewController, UITextViewDelegate{
             timer.isHidden = true
             liveWordCount.isHidden = true
             topProgress.isHidden = true
-            isTimerOn = false
+            timerOrWords.text = ""
+            timerState = 0
         } else {
             timer.isHidden = false
-            liveWordCount.isHidden = false
-            topProgress.isHidden = false
-            isTimerOn = true
+            liveWordCount.isHidden = true
+            topProgress.isHidden = true
+            timerOrWords.text = "Timer"
         }
     }
     
@@ -103,10 +105,16 @@ class InputViewController: UIViewController, UITextViewDelegate{
             timer.textColor = UIColor(hex: 0x17DF82);
             backButton.isHidden = false
             textField.isEditable = false
-            topProgressChange(progress: Double(loadedWordCount)/Double(100))
+            liveWordCount.text = String(loadedWordCount)
+            let progress = Double(loadedWordCount)/Double(EntryTime.wordReq)
+            if progress > 1{
+                wordCountMet = true
+            }
+            topProgressChange(progress: progress)
             
         }else{
             textField.text = ""
+            liveWordCount.text = "0"
             addMin.isHidden = true
             backButton.isHidden = true
             tapView.isHidden = true
@@ -142,7 +150,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         
         if iTimer != nil{
             FIRAnalytics.logEvent(withName: "user_left_before_time_up", parameters: nil)
-            reset()
+            noreset()
         }
         FIRAnalytics.logEvent(withName: "user_left_after_time_up", parameters: nil)
         self.performSegue(withIdentifier: "unwindToMenu", sender: self)
@@ -280,7 +288,6 @@ class InputViewController: UIViewController, UITextViewDelegate{
             }
         }
         updateWeekly(update:true)
-        findHash()
     }
     
     
@@ -306,12 +313,10 @@ class InputViewController: UIViewController, UITextViewDelegate{
         addToFB(withData: data)
         if extraTime{
             smallUpdate()
-            print("small update \(loadedWordCount)")
         }
         else{
             loadedWordCount = (Int(wordCount(str: textField.text!)))
             updateStats()
-            print("big update \(loadedWordCount)")
         }
     }
     
@@ -354,31 +359,12 @@ class InputViewController: UIViewController, UITextViewDelegate{
         return String(reversedTimestamp)
     }
     
-    //resets timer, buttons, and access
-    func reset(){
-        addMin.isHidden = false
-        iTimer?.invalidate()
-        downTimeTimer?.invalidate()
-        if !isTimerOn {
-            timer.isHidden = false
-            isTimerOn = true
-        }
-        if textField.isFirstResponder {
-            textField.resignFirstResponder()
-            tapView.isHidden = false
-            tapView.addGestureRecognizer(tap)
-        }
-        backButton.isHidden = false
-        textField.isEditable = false
-        post()
-    }
-    
     //dont reset if the user doesnt have continued times.
     func noreset(){
         backButton.isHidden = false
-        if !isTimerOn {
-            timer.isHidden = false
-            isTimerOn = true
+        //check if on time.
+        while timerState != 0 {
+            self.showHideTimer(nil)
         }
         timer.textColor = UIColor(hex: 0x17DF82)
         extraCounter = extraCounter + addTime
@@ -446,7 +432,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         }
         let wordCount = self.wordCount(str: textView.text!)
         liveWordCount.text = "\(wordCount)"
-        topProgressChange(progress: Double(wordCount)/Double(100))
+        topProgressChange(progress: Double(wordCount)/Double(EntryTime.wordReq))
         
     }
     
@@ -473,14 +459,31 @@ class InputViewController: UIViewController, UITextViewDelegate{
         }
     }
     
-    @IBAction func showHideTimer(_ sender: UIButton) {
-        isTimerOn = !isTimerOn
-        if isTimerOn{
+    @IBAction func showHideTimer(_ sender: UIButton? = nil) {
+        switch timerState {
+        case 0:
+            timerState += 1
+            timerOrWords.text = "Timer"
             timer.isHidden = false
-            //liveWordCount.isHidden = false
-        }else{
+            liveWordCount.isHidden = true
+            topProgress.isHidden = true
+            break;
+        case 1:
+            timerState += 1
+            timerOrWords.text = "Words"
             timer.isHidden = true
-            //liveWordCount.isHidden = true
+            liveWordCount.isHidden = false
+            topProgress.isHidden = false
+            break;
+        case 2:
+            timerState = 0
+            timerOrWords.text = ""
+            timer.isHidden = true
+            liveWordCount.isHidden = true
+            topProgress.isHidden = true
+            break;
+        default:
+            break;
         }
         
     }
@@ -517,25 +520,23 @@ class InputViewController: UIViewController, UITextViewDelegate{
     }
     
     func topProgressChange(progress:Double){
-        if(TimerHidden.isHidden){
+        if(TimerHidden.isHidden || wordCountMet){
             return
         }
         //set the progress bar to be at the bottom of the parent view with width of 8
         //take parameters of parent views to make up for no layout
         let progressSize = (topProgress.superview?.frame.width)! * CGFloat(progress)
         if progress < 1 {
-            topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: progressSize, height: 3))
+            topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: progressSize, height: 4))
             wordCountMet = false
             topProgressLabel.isHidden = true
         } else {
-            if wordCountMet{
-                return
-            }
+            liveWordCount.textColor = UIColor(hex: 0xFC8006)
             topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: (topProgress.superview?.frame.width)!, height: 10))
             topProgressLabel.isHidden = false
             topProgressLabel.text = "You've met the word count!"
             DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
-                self.topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: (self.topProgress.superview?.frame.width)!, height: 3))
+                self.topProgress.frame = CGRect(origin: CGPoint(x: 0,y :0), size: CGSize(width: (self.topProgress.superview?.frame.width)!, height: 4))
                 self.topProgressLabel.isHidden = true
             }
             wordCountMet = true

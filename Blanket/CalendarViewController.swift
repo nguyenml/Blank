@@ -70,6 +70,7 @@ class CalendarViewController: UIViewController {
                                     totalTime: entrySnap[Constants.Entry.totalTime]! as! String
                 
             )
+            
             if(entrySnap[Constants.Entry.hashtags] as? [String:String] != nil){
                 let tags = entrySnap[Constants.Entry.hashtags] as! [String:String]
                 entry.hashtags = tags.map{$0.value}
