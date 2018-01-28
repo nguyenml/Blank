@@ -23,6 +23,13 @@ struct Constants {
         static let SignedIn = "onSignInCompleted"
     }
     
+    struct Prompt {
+        static let prompt = "prompt"
+        static let type = "type"
+        static let number = "number"
+        static let hash = "hash"
+    }
+    
     struct Entry {
         static let date = "date"
         static let text = "text"
@@ -155,6 +162,47 @@ class IndividualBadge{
     }
 }
 
+class Prompt{
+    private var key:String
+    private var prompt:String
+    private var number:Int
+    private var type:Int
+    private var hash:String
+    private var used:Bool
+    
+    init(key:String,prompt:String,number:Int,type:Int,hash:String, used:Bool = false){
+        self.key = key
+        self.prompt = prompt
+        self.number = number
+        self.type = type
+        self.hash = hash
+        self.used = used
+    }
+    
+    func getKey()->String{
+        return key
+    }
+    
+    func getPrompt()->String{
+        return prompt
+    }
+    
+    func getNumber()->Int{
+        return number
+    }
+    
+    func getType()->Int{
+        return type
+    }
+    
+    func getHash()->String{
+        return hash
+    }
+    func isUsed()->Bool{
+        return used
+    }
+}
+
 class Packet{
     var date:String
     var text:String
@@ -187,20 +235,24 @@ class Packet{
         self.order = Double(order)!
     }
     
-    func hasMark()-> Bool{
-        return(!mark.isEmpty)
-    }
-    
-    func hasTopic()->Bool{
-        return(!topic.isEmpty)
-    }
-    
     func setText(newText:String){
         text = newText
     }
     
     func setWC(newWC:String){
         wordCount = newWC
+    }
+    //check if packet has the hash
+    func doesHaveHash(hashcode:String)-> Bool{
+        if hashtags.isEmpty{
+            return false
+        }
+        for hash in hashtags{
+            if hash == hashcode{
+                return true
+            }
+        }
+        return false
     }
     
 }

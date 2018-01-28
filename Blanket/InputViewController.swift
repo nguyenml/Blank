@@ -32,6 +32,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     var addTime = EntryTime.addTime
     var extraCounter = 300;
     var wordCountMet = false;
+    var startingTime = 0;
 
     var currentPacket:Packet?
     var timerState = 1;
@@ -74,6 +75,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
         tap.numberOfTapsRequired = 2
         tap.addTarget(self, action: #selector(addMinute(_:)))
         tapView.addGestureRecognizer(tap)
+        setTextViewToolBar()
     }
     
     func setupTimerVisibility(){
@@ -107,9 +109,11 @@ class InputViewController: UIViewController, UITextViewDelegate{
             textField.isEditable = false
             liveWordCount.text = String(loadedWordCount)
             let progress = Double(loadedWordCount)/Double(EntryTime.wordReq)
-            if progress > 1{
+            if progress >= 1{
                 wordCountMet = true
+                liveWordCount.textColor = UIColor(hex: 0xFC8006)
             }
+            startingTime = counter
             topProgressChange(progress: progress)
             
         }else{
@@ -269,7 +273,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
             if var stats = currentData.value as? [String : Int]{
                 let entries:Int = stats["totalEntries"]!
                 let total = Int(stats["totalWordcount"]! + self.greaterThanZero())
-                var extra = self.counter - self.regularTime
+                var extra = self.counter - self.startingTime
                 if extra < 0 {
                     extra = 0
                 }
@@ -363,10 +367,21 @@ class InputViewController: UIViewController, UITextViewDelegate{
     func noreset(){
         backButton.isHidden = false
         //check if on time.
-        while timerState != 0 {
+        while timerState != 1 {
             self.showHideTimer(nil)
         }
         timer.textColor = UIColor(hex: 0x17DF82)
+        extraCounter = extraCounter + addTime
+        post()
+        extraTime = true
+    }
+    
+    func wordreset(){
+        backButton.isHidden = false
+        //check if on time.
+        while timerState != 2 {
+            self.showHideTimer(nil)
+        }
         extraCounter = extraCounter + addTime
         post()
         extraTime = true
@@ -520,7 +535,7 @@ class InputViewController: UIViewController, UITextViewDelegate{
     }
     
     func topProgressChange(progress:Double){
-        if(TimerHidden.isHidden || wordCountMet){
+        if(wordCountMet){
             return
         }
         //set the progress bar to be at the bottom of the parent view with width of 8
@@ -540,6 +555,23 @@ class InputViewController: UIViewController, UITextViewDelegate{
                 self.topProgressLabel.isHidden = true
             }
             wordCountMet = true
+            wordreset()
         }
+    }
+    
+    func setTextViewToolBar(){
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem:UIBarButtonSystemItem.flexibleSpace, target:nil, action:nil)
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem:UIBarButtonSystemItem.done, target:self, action:#selector(self.donePressed))
+        
+        toolbar.setItems([flexibleSpace,doneButton], animated: true)
+        textField.inputAccessoryView = toolbar
+    }
+    
+    func donePressed(){
+        view.endEditing(true)
     }
 }

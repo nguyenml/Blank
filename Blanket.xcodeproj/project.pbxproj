@@ -44,6 +44,7 @@
 		585298261E7A1E040011B2E3 /* Dosis-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */; };
 		585298271E7A1E040011B2E3 /* Dosis-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */; };
 		585298281E7A1E040011B2E3 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 585298201E7A1E040011B2E3 /* OFL.txt */; };
+		586BA67E201BC0E6003C1A46 /* PromptsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586BA67D201BC0E6003C1A46 /* PromptsViewController.swift */; };
 		586E55A01F1A8AA700D069D2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */; };
 		586E55A31F1BCE6B00D069D2 /* Abel in Resources */ = {isa = PBXBuildFile; fileRef = 586E55A11F1BCE6B00D069D2 /* Abel */; };
 		586E55A41F1BCE6B00D069D2 /* Open_Sans in Resources */ = {isa = PBXBuildFile; fileRef = 586E55A21F1BCE6B00D069D2 /* Open_Sans */; };
@@ -142,6 +143,7 @@
 		5852981E1E7A1E040011B2E3 /* Dosis-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-Regular.ttf"; path = "Resources/Dosis-Regular.ttf"; sourceTree = "<group>"; };
 		5852981F1E7A1E040011B2E3 /* Dosis-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Dosis-SemiBold.ttf"; path = "Resources/Dosis-SemiBold.ttf"; sourceTree = "<group>"; };
 		585298201E7A1E040011B2E3 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Resources/OFL.txt; sourceTree = "<group>"; };
+		586BA67D201BC0E6003C1A46 /* PromptsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromptsViewController.swift; sourceTree = "<group>"; };
 		586E559F1F1A8AA700D069D2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		586E55A11F1BCE6B00D069D2 /* Abel */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Abel; sourceTree = "<group>"; };
 		586E55A21F1BCE6B00D069D2 /* Open_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Open_Sans; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				585297F91E74718B0011B2E3 /* IndividualEntryViewController.swift */,
 				581DA3AC1E70D66B0051C64B /* AppDelegate.swift */,
 				581DA3B01E70D66B0051C64B /* Main.storyboard */,
+				586BA67D201BC0E6003C1A46 /* PromptsViewController.swift */,
 				58D545CF1FC4C78A00C1F80B /* IntroViewController.swift */,
 				582887461F87B823008DA5A5 /* PickLevelViewController.swift */,
 				5808D7BD1F27D14C00ED3ACD /* OnboardingViewController.swift */,
@@ -714,6 +717,7 @@
 				585297FA1E74718B0011B2E3 /* IndividualEntryViewController.swift in Sources */,
 				5808D7B81F22668200ED3ACD /* CalendarViewController.swift in Sources */,
 				58B975211ED1F9F2003A910F /* TimeViewController.swift in Sources */,
+				586BA67E201BC0E6003C1A46 /* PromptsViewController.swift in Sources */,
 				581DA3E61E70EB7F0051C64B /* InputViewController.swift in Sources */,
 				5805E4411F34B61D00406F70 /* InternetConnectivity.swift in Sources */,
 				582E11BB1E8B045D0074ADE1 /* MeasurementHelper.swift in Sources */,

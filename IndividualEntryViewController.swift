@@ -20,12 +20,6 @@ class IndividualEntryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if entry.hasMark(){
-            markLabel.text = entry.mark
-        }
-        if entry.hasTopic(){
-            markLabel.text = entry.topic
-        }
         textView.isEditable = false;
         setupText()
         wordCount.text = entry.wordCount
@@ -58,7 +52,7 @@ class IndividualEntryViewController: UIViewController {
             let tags = "\(sentence)\n"
             text = "\(sentence) \n"
             let attrs:[String:AnyObject] = [NSFontAttributeName: UIFont(name: "OpenSans-Bold", size: 15)!]
-            let attrsRegular:[String:AnyObject] = [NSFontAttributeName: UIFont(name: "OpenSans-Regular", size: 17)!]
+            let attrsRegular:[String:AnyObject] = [NSFontAttributeName: UIFont(name: "OpenSans-Regular", size: 15)!]
             let regularString = NSMutableAttributedString(string:entry.text, attributes:attrsRegular)
             let boldString = NSMutableAttributedString(string: tags, attributes:attrs)
             let mutableAttributedString = NSMutableAttributedString()
@@ -67,7 +61,7 @@ class IndividualEntryViewController: UIViewController {
             textView.attributedText = mutableAttributedString
         } else {
             //does not have tags, set to regular text
-            textView.font = UIFont(name: "OpenSans-Regular", size: 17)
+            textView.font = UIFont(name: "OpenSans-Regular", size: 15)
             textView.text = entry.text
         }
     }

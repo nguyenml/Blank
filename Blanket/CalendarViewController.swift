@@ -71,10 +71,10 @@ class CalendarViewController: UIViewController {
                 
             )
             
-            if(entrySnap[Constants.Entry.hashtags] as? [String:String] != nil){
-                let tags = entrySnap[Constants.Entry.hashtags] as! [String:String]
-                entry.hashtags = tags.map{$0.value}
-            }
+//            if(entrySnap[Constants.Entry.hashtags] as? [String:String] != nil){
+//                let tags = entrySnap[Constants.Entry.hashtags] as! [String:String]
+//                entry.hashtags = tags.map{$0.value}
+//            }
             entry.setOrder(order: entry.timestamp)
             strongSelf.formatter.dateFormat = "MMM dd, yyyy h:mm a"
             let newDate = strongSelf.formatter.date(from: entry.date)
@@ -96,15 +96,21 @@ class CalendarViewController: UIViewController {
     func updateDataOnChange(){
         self.ref?.child("Entry").queryOrdered(byChild: "uid").queryEqual(toValue: uid).observe(.childChanged, with: { [weak self] (snapshot) in
             guard let strongSelf = self else { return }
-            guard let entrySnap = snapshot.value as? [String: String] else { return }
-            let entry = Packet.init(date: entrySnap[Constants.Entry.date]!,
-                                    text: entrySnap[Constants.Entry.text]!,
-                                    wordCount: entrySnap[Constants.Entry.wordCount]!,
-                                    uid: entrySnap[Constants.Entry.uid]!,
-                                    timeStamp: entrySnap[Constants.Entry.timestamp]!,
+            guard let entrySnap = snapshot.value as? [String: Any] else { return }
+            let entry = Packet.init(date: entrySnap[Constants.Entry.date] as! String,
+                                    text: entrySnap[Constants.Entry.text]! as! String,
+                                    wordCount: entrySnap[Constants.Entry.wordCount]! as! String,
+                                    uid: entrySnap[Constants.Entry.uid]! as! String,
+                                    timeStamp: entrySnap[Constants.Entry.timestamp]! as! String,
                                     key: snapshot.key,
-                                    totalTime: entrySnap[Constants.Entry.totalTime]!
+                                    totalTime: entrySnap[Constants.Entry.totalTime]! as! String
+                
             )
+            
+//            if(entrySnap[Constants.Entry.hashtags] as? [String:String] != nil){
+//                let tags = entrySnap[Constants.Entry.hashtags] as! [String:String]
+//                entry.hashtags = tags.map{$0.value}
+//            }
             strongSelf.formatter.dateFormat = "MMM dd, yyyy h:mm a"
             let newDate = strongSelf.formatter.date(from: entry.date)
             strongSelf.formatter.dateFormat = "yyyy MM dd"
@@ -295,6 +301,18 @@ class CalendarViewController: UIViewController {
             percentChange.text = "0%"
         }
 
+    }
+    
+    @IBAction func buttPressed(_ sender: UIButton) {
+        findHash()
+    }
+    
+    func findHash(){
+        print(entryDate.count)
+        for (key, element) in self.entryDate {
+            print(key)
+            print(element.doesHaveHash(hashcode: "#cat"))
+        }
     }
 
 }

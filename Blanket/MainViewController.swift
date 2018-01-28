@@ -13,10 +13,12 @@ import Firebase
 import CZPicker
 import UserNotifications
 import PopupDialog
+import Social
 
 class MainViewController: UIViewController {
 
 
+    @IBOutlet weak var promptButton: UIButton!
     @IBOutlet weak var userCount: UILabel!
     @IBOutlet weak var overlay: UIView!
     @IBOutlet weak var textLabel: UILabel!
@@ -114,6 +116,19 @@ class MainViewController: UIViewController {
     
     func setLabels(){
         setDate()
+        setPromptButton()
+    }
+    
+    func setPromptButton(){
+        promptButton.layer.masksToBounds = false
+        promptButton.layer.shadowColor = UIColor.lightGray.cgColor
+        promptButton.layer.shadowOpacity = 0.7
+        promptButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        promptButton.layer.shadowRadius =  4
+        
+        promptButton.layer.shadowPath = UIBezierPath(rect: promptButton.bounds).cgPath
+        promptButton.layer.shouldRasterize = true
+        promptButton.layer.rasterizationScale = UIScreen.main.scale
     }
     
     func checkLastAccess(){
@@ -227,9 +242,8 @@ class MainViewController: UIViewController {
             if (diff.hour! < 0 || diff.minute! < 0 || diff.second! < 0){
                 FIRAnalytics.logEvent(withName: "brokenStreak", parameters: nil)
                 if defaultDate != LastAccess.date{
-                    if Stats.totalEntries < 14 {
-                        showEasyBrokenStreak()
-                    }
+                        ref?.child("users").child(uid).child("Stats").updateChildValues([
+                            "currentStreak":0])
                 }
             }
     }
@@ -250,6 +264,8 @@ class MainViewController: UIViewController {
         }
         
     }
+    
+    
     
     func checkView(_ notification: NSNotification){
         if let badge = notification.userInfo?["badge"] as? IndividualBadge{
@@ -381,8 +397,8 @@ class MainViewController: UIViewController {
         let defaults = UserDefaults.standard
         //Lvl 3 if the user has at least 300 regular time then we add 15 seconds every week
         if EntryTime.level == 3{
-            if Stats.currentStreak > 7{
-                let num = Int(Stats.currentStreak/7)
+            if Stats.totalEntries > 7{
+                let num = Int(Stats.totalEntries/7)
                 EntryTime.regularTime += (num * 15)
                 if EntryTime.regularTime > 900{
                     EntryTime.regularTime = 900
@@ -399,8 +415,8 @@ class MainViewController: UIViewController {
             
             //if the time is 180 they need to check if their streaks can bring them to 300
             if EntryTime.regularTime == 180{
-                if Stats.currentStreak > 3{
-                    let num = Int(Stats.currentStreak/3)
+                if Stats.totalEntries > 3{
+                    let num = Int(Stats.totalEntries/3)
                     EntryTime.regularTime += (num * 10)
                     if EntryTime.regularTime >= 300 {
                         ref?.child("users").child(uid).child("EntryTime").updateChildValues(["regularTime":300])
@@ -409,8 +425,8 @@ class MainViewController: UIViewController {
             }
             //at 300 they dont need to check anymore
             if EntryTime.regularTime == 300{
-                if Stats.currentStreak > 7{
-                    let num = Int(Stats.currentStreak/7)
+                if Stats.totalEntries > 7{
+                    let num = Int(Stats.totalEntries/7)
                     EntryTime.regularTime += (num * 15)
                     if EntryTime.regularTime > 900{
                         EntryTime.regularTime = 900
@@ -426,8 +442,8 @@ class MainViewController: UIViewController {
         if EntryTime.level == 1{
             //same as # 2
             if EntryTime.regularTime < 180{
-                if Stats.currentStreak > 2{
-                    let num = Int(Stats.currentStreak/2)
+                if Stats.totalEntries > 2{
+                    let num = Int(Stats.totalEntries/2)
                     EntryTime.regularTime += (num * 10)
                     if EntryTime.regularTime >= 180 {
                         ref?.child("users").child(uid).child("EntryTime").updateChildValues(["regularTime":180])
@@ -435,8 +451,8 @@ class MainViewController: UIViewController {
                 }
             }
             if EntryTime.regularTime == 180{
-                if Stats.currentStreak > 3{
-                    let num = Int(Stats.currentStreak/7)
+                if Stats.totalEntries > 3{
+                    let num = Int(Stats.totalEntries/7)
                     EntryTime.regularTime += (num * 10)
                     if EntryTime.regularTime >= 300 {
                         ref?.child("users").child(uid).child("EntryTime").updateChildValues(["regularTime":300])
@@ -444,8 +460,8 @@ class MainViewController: UIViewController {
                 }
             }
             if EntryTime.regularTime == 300{
-                if Stats.currentStreak > 7{
-                    let num = Int(Stats.currentStreak/15)
+                if Stats.totalEntries > 7{
+                    let num = Int(Stats.totalEntries/15)
                     EntryTime.regularTime += (num * 15)
                     if EntryTime.regularTime > 900{
                         EntryTime.regularTime = 900
@@ -649,7 +665,56 @@ class MainViewController: UIViewController {
         animateIn(image: UIImage(named:"lightbulb_icon.png")!, title: "Daily Inspiration", message: "You work as a memory soother for the United States military that erases the most horrific memories from traumatized soldiers coming home from war. One of your patients subconscious holds on to a certain memory sequence no matter how hard you try.", type:0)
         
     }
+    
+    //cant add till it works on web
+    //so not for a long ass time unfortunately
+    func shareOnSocial(){
+        
+        //-----ALERT FOR SHARE-----//
+        let alert = UIAlertController(title:"Share your achievement!", message:nil,preferredStyle: .actionSheet)
+        
+        guard let url = URL(string: "") else {
+            return
+        }
+        
+        //action facebook
+        let actionOne = UIAlertAction(title:"Facebook", style: .default){
+            (action) in
+            let post = SLComposeViewController(forServiceType: SLServiceTypeFacebook)!
+            post.setInitialText("Facebook")
+            // post.add(UIImage!)
+            //post.add(url)
+            self.present(post, animated: true, completion: nil)
+        }
+        
+        //action Twitter
+        let actionTwo = UIAlertAction(title:"Twitter", style: .default){
+            (action) in
+            let post = SLComposeViewController(forServiceType: SLServiceTypeTwitter)!
+            post.setInitialText("Twitter")
+            //post.add(UIImage!)
+            self.present(post, animated: true, completion: nil)
+        }
+        
+        let actionCancel = UIAlertAction(title:"Cancel",style:.cancel)
+        
+        //add actions to alert button
+        alert.addAction(actionOne)
+        alert.addAction(actionTwo)
+        alert.addAction(actionCancel)
+        
+        //sendit
+        self.present(alert,animated:true,completion:nil)
+    }
+    
+    func setPrompts(){
+        var data = [String:String]()
+        data[Constants.Prompt.number] = ""
+        ref?.child("Prompt").childByAutoId().setValue(data)
+        
+    }
 }
+
 
 
 

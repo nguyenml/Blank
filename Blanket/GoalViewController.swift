@@ -20,6 +20,25 @@ class GoalViewController: UIViewController, UITextViewDelegate {
         ref = ref?.child("users").child(String(describing: FIRAuth.auth()!.currentUser!.uid)).child("Statement")
         reason.font = UIFont(name: "OpenSans-Regular", size:17)
         reason.delegate = self
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(GoalViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(GoalViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func updateTextView(notification:Notification){
+        let userInfo = notification.userInfo!
+        let keyboardEndFrameScreenCoordinates = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardEndFrame = self.view.convert(keyboardEndFrameScreenCoordinates, to:view.window)
+        
+        if notification.name == Notification.Name.UIKeyboardWillHide{
+            reason.contentInset = UIEdgeInsets.zero
+        }else{
+            reason.contentInset = UIEdgeInsets(top:0,left:0,bottom:keyboardEndFrame.height - 100, right:0)
+            reason.scrollIndicatorInsets = reason.contentInset
+        }
+        reason.scrollRangeToVisible(reason.selectedRange)
     }
     
     func checkNotEmpty(){
